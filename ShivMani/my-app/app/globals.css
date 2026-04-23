@@ -1,0 +1,43 @@
+@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap'); */
+
+:root {
+  --background: #FAF7F0;
+  --foreground: #1C1C1A;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Jost', sans-serif;
+  --font-sans:    'Jost', sans-serif;
+  --font-mono:    ui-monospace, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* ── Display / Body font utility classes ── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+
+/* ── Animations ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fade-up 0.7s ease forwards; }
+.anim-delay-1    { animation-delay: 0.1s; }
+.anim-delay-2    { animation-delay: 0.3s; }
+.anim-delay-3    { animation-delay: 0.5s; }
+.anim-delay-4    { animation-delay: 0.7s; }
+.anim-delay-5    { animation-delay: 0.9s; }
+
+/* ── Cream background utility ── */
+.bg-cream      { background-color: #FAF7F0; }
+.bg-cream-dark { background-color: #F0EBE0; }
