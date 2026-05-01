@@ -54,7 +54,7 @@ const ALL_POSTS: Post[] = [
     id: '1', slug: 'branded-residences-rise-india', category: 'Real Estate',
     title: 'Branded Residences Rise: How Global Luxury Hotels Are Redefining Indian Real Estate',
     excerpt: 'From Four Seasons to Ritz-Carlton, global hospitality giants are reimagining luxury living in India\'s most coveted addresses.',
-    imageUrl: '/images/post-real-estate-1.jpg',
+    imageUrl: '/images/real-estate.jpg',
     author: 'Priya Mehta', publishedAt: 'April 28, 2026', readTime: 8, featured: true,
     tags: ['Branded Residences', 'Luxury Real Estate', 'India', 'Investment'],
     content: `<p>A decade ago, the concept of a branded residence — a private home managed by a world-class hotel group — barely registered in India's luxury property market. Today, it is the most coveted address category in the country, with waiting lists that stretch years and premiums that can reach 40% over comparable unbranded properties.</p>
@@ -78,7 +78,7 @@ const ALL_POSTS: Post[] = [
     id: '2', slug: 'best-second-home-markets-india-2026', category: 'Real Estate',
     title: 'The Best Second-Home Markets in India for 2026',
     excerpt: 'From Alibaug to Kasauli, where India\'s ultra-affluent are investing in their next great escape.',
-    imageUrl: '/images/post-real-estate-2.jpg',
+    imageUrl: '/images/hero-home.jpg',
     author: 'Rahul Singhania', publishedAt: 'April 24, 2026', readTime: 6,
     tags: ['Second Homes', 'India', 'Real Estate', 'Investment'],
     content: `<p>The second-home market in India has matured considerably in the post-pandemic years. What was once a category dominated by inherited farmhouses and unremarkable hill-station bungalows has been transformed by a new generation of buyers who expect the same design standards, amenities, and service infrastructure in their weekend retreats as in their primary residences.</p>
@@ -98,7 +98,7 @@ const ALL_POSTS: Post[] = [
     id: '3', slug: 'rolls-royce-spectre-india-launch', category: 'Automobiles',
     title: 'Rolls-Royce Spectre Arrives in India: The First All-Electric Ultra-Luxury Car',
     excerpt: 'Silent, powerful, and unmistakably Rolls-Royce. We drive the Spectre on India\'s most scenic roads.',
-    imageUrl: '/images/post-auto-1.jpg',
+    imageUrl: '/images/automobiles.jpg',
     author: 'Vikram Oberoi', publishedAt: 'April 22, 2026', readTime: 7,
     tags: ['Rolls-Royce', 'Electric', 'Luxury Cars', 'India'],
     content: `<p>The Rolls-Royce Spectre does not announce itself. There is no engine note to herald its arrival, no mechanical drama to mark its departure. It arrives, and it departs, in a silence so profound that it reframes what luxury automotive travel can mean. That, in essence, is the Spectre's thesis: that the next evolution of ultra-luxury motoring is not louder, more powerful, or more theatrical — it is quieter, more refined, and more complete than anything that came before it.</p>
@@ -113,51 +113,12 @@ const ALL_POSTS: Post[] = [
 
 <p>The cabin is the Spectre's finest achievement. Without an engine to generate noise and vibration, the engineers have had to confront the car's acoustics at a fundamental level. Every seal, every panel, every surface has been designed to silence the world outside. The result is an interior environment unlike any other car — not quiet in the way that a padded room is quiet, but calm in the way that a great building is calm. It is a controlled, purposeful stillness.</p>`,
   },
-  {
-    id: '5', slug: 'heritage-jewellery-trends-2026', category: 'Jewellery & Watches',
-    title: 'Heritage Jewellery Trends Dominating India\'s Bridal Season in 2026',
-    excerpt: 'Polki, Kundan, Jadau — the timeless crafts of India\'s royal courts are having their most spectacular moment yet.',
-    imageUrl: '/images/post-jewel-1.jpg',
-    author: 'Isha Thapar', publishedAt: 'April 15, 2026', readTime: 5,
-    tags: ['Bridal Jewellery', 'Polki', 'Kundan', 'Indian Heritage'],
-    content: `<p>Something significant has shifted in India's bridal jewellery market. The contemporary pieces — the geometric solitaires, the minimalist gold — have not disappeared, but they have been joined by a resurgence of something older, more intricate, and more deeply rooted in the subcontinent's extraordinary craft heritage. The great traditions of Polki, Kundan, and Jadau are not merely surviving; they are thriving, and they are doing so in new hands and for new reasons.</p>
-
-<h2>The Polki Renaissance</h2>
-<p>Polki — diamonds in their natural, uncut state, set in gold with traditional backing — has long been associated with the jewellery of Mughal courts and Rajputana palaces. Its revival among contemporary brides is partly aesthetic: the organic, slightly irregular quality of uncut diamonds creates a warmth and depth that faceted stones cannot replicate. It is also partly cultural — an assertion of Indian identity at one of life's most significant moments.</p>
-
-<blockquote>"A Polki set done well is perhaps the most labour-intensive jewellery that exists anywhere in the world. Each stone is individually assessed, selected, and placed. The finest pieces represent hundreds of hours of human skill."</blockquote>
-
-<h2>Kundan: Architecture for the Body</h2>
-<p>Kundan work — in which gemstones are set into highly refined gold using a technique developed over centuries in Jaipur and Delhi — is experiencing parallel growth. The finest Kundan pieces from established houses like Tribhovandas Bhimji Zaveri and Hazoorilal achieve prices that rival comparable European fine jewellery, and they deserve to. The craft involved is extraordinary.</p>
-
-<h2>Investment Logic</h2>
-<p>Beyond aesthetics, there is a financial dimension to the heritage jewellery revival. Pieces by established masters hold their value in a way that fashion jewellery cannot. Several exceptional Polki sets that appeared at auction in 2024 sold at premiums of 40% or more above their reserve estimates, as collectors and brides-to-be competed for the finest examples.</p>`,
-  },
-  {
-    id: '7', slug: 'destination-wedding-trends-2026', category: 'Weddings',
-    title: 'Destination Wedding Trends Redefining India\'s Luxury Wedding Season',
-    excerpt: 'From Rajasthan\'s heritage forts to Maldivian islands, India\'s elite are choosing destinations as extraordinary as their love stories.',
-    imageUrl: '/images/post-wedding-1.jpg',
-    author: 'Ananya Birla', publishedAt: 'April 8, 2026', readTime: 6,
-    tags: ['Destination Weddings', 'Luxury Weddings', 'India', 'Rajasthan'],
-    content: `<p>India's luxury wedding market has never been more ambitious — or more demanding. The couples and families who are investing ₹10 crore, ₹25 crore, or significantly more in a wedding celebration are no longer satisfied with a beautiful venue and excellent catering. They are seeking an experience: something cinematic, immersive, and utterly unlike anything their guests have attended before.</p>
-
-<h2>The Rajasthan Standard</h2>
-<p>Rajasthan remains the destination against which all Indian wedding venues are measured. The state's heritage hotels — Umaid Bhawan Palace in Jodhpur, the Samode Palace, Taj Lake Palace in Udaipur — offer a combination of architectural grandeur, historical resonance, and operational sophistication that is genuinely irreplaceable. A wedding at one of these properties is not merely an event; it is an encounter with Indian history at one of its most magnificent expressions.</p>
-
-<blockquote>"The most memorable weddings I have worked on share one quality: they feel inevitable. The venue, the aesthetic, the flow of the days — everything feels as if it could only have happened exactly this way, in exactly this place."</blockquote>
-
-<h2>The International Turn</h2>
-<p>A growing cohort of ultra-affluent Indian families is looking beyond the subcontinent entirely. The Amalfi Coast, Santorini, Bali, and the Maldives have all hosted significant Indian weddings in the past eighteen months. The logistical complexity is considerable — some families are hosting 500 or more guests at international venues — but the planners who specialise in this segment have developed the expertise to execute it seamlessly.</p>
-
-<h2>The Micro-Wedding Counter-Trend</h2>
-<p>Against this backdrop of escalating scale, a counter-trend has emerged: the intimate luxury wedding. Fifty guests, three days, an extraordinary private villa or heritage property, and a level of personalisation and quality that simply cannot be achieved at scale. For couples who prioritise depth of experience over breadth of attendance, this format is increasingly compelling.</p>`,
-  },
-  {
+    
+    {
     id: '9', slug: 'oberoi-group-curated-partner-spotlight', category: 'Curated Partners',
     title: 'Partner Spotlight: The Oberoi Group — Redefining Luxury Hospitality in India',
     excerpt: 'From New Delhi to Udaipur, the Oberoi Group has long set the standard for luxury hospitality. We go inside the legend.',
-    imageUrl: '/images/post-partner-1.jpg',
+    imageUrl: '/images/hero-partners.jpg',
     author: 'Ritu Sharma', publishedAt: 'April 2, 2026', readTime: 6,
     tags: ['Oberoi Group', 'Luxury Hotels', 'India', 'Hospitality'],
     content: `<p>There is a reason that experienced luxury travellers — the kind who have stayed at Aman, at COMO, at Rosewood — consistently rate their Oberoi experiences among the finest they have had anywhere in the world. The Oberoi Group has, over decades, developed a service culture so deeply embedded in its operations that it functions as a kind of institutional instinct: an orientation toward the guest's comfort and delight that does not require a management manual to perpetuate itself.</p>
@@ -173,6 +134,73 @@ const ALL_POSTS: Post[] = [
 <h2>What Partnership Means</h2>
 <p>For Indian Luxury House, partnership with the Oberoi Group represents an alignment of values as much as a commercial arrangement. Both organisations believe that luxury is defined by integrity — by the quality of what is offered and the honesty with which it is presented. In that spirit, we are proud to feature the Oberoi Group among our curated partners.</p>`,
   },
+
+
+  {
+    id: '5', slug: 'heritage-jewellery-trends-2026', category: 'Jewellery & Watches',
+    title: 'Heritage Jewellery Trends Dominating India\'s Bridal Season in 2026',
+    excerpt: 'Polki, Kundan, Jadau — the timeless crafts of India\'s royal courts are having their most spectacular moment yet.',
+    imageUrl: '/images/Jewellery.png',
+    author: 'Isha Thapar', publishedAt: 'April 15, 2026', readTime: 5,
+    tags: ['Bridal Jewellery', 'Polki', 'Kundan', 'Indian Heritage'],
+    content: `<p>Something significant has shifted in India's bridal jewellery market. The contemporary pieces — the geometric solitaires, the minimalist gold — have not disappeared, but they have been joined by a resurgence of something older, more intricate, and more deeply rooted in the subcontinent's extraordinary craft heritage. The great traditions of Polki, Kundan, and Jadau are not merely surviving; they are thriving, and they are doing so in new hands and for new reasons.</p>
+
+<h2>The Polki Renaissance</h2>
+<p>Polki — diamonds in their natural, uncut state, set in gold with traditional backing — has long been associated with the jewellery of Mughal courts and Rajputana palaces. Its revival among contemporary brides is partly aesthetic: the organic, slightly irregular quality of uncut diamonds creates a warmth and depth that faceted stones cannot replicate. It is also partly cultural — an assertion of Indian identity at one of life's most significant moments.</p>
+
+<blockquote>"A Polki set done well is perhaps the most labour-intensive jewellery that exists anywhere in the world. Each stone is individually assessed, selected, and placed. The finest pieces represent hundreds of hours of human skill."</blockquote>
+
+<h2>Kundan: Architecture for the Body</h2>
+<p>Kundan work — in which gemstones are set into highly refined gold using a technique developed over centuries in Jaipur and Delhi — is experiencing parallel growth. The finest Kundan pieces from established houses like Tribhovandas Bhimji Zaveri and Hazoorilal achieve prices that rival comparable European fine jewellery, and they deserve to. The craft involved is extraordinary.</p>
+
+<h2>Investment Logic</h2>
+<p>Beyond aesthetics, there is a financial dimension to the heritage jewellery revival. Pieces by established masters hold their value in a way that fashion jewellery cannot. Several exceptional Polki sets that appeared at auction in 2024 sold at premiums of 40% or more above their reserve estimates, as collectors and brides-to-be competed for the finest examples.</p>`,
+  },
+   
+  
+
+
+
+  {
+    id: '7', slug: 'destination-wedding-trends-2026', category: 'Weddings',
+    title: 'Destination Wedding Trends Redefining India\'s Luxury Wedding Season',
+    excerpt: 'From Rajasthan\'s heritage forts to Maldivian islands, India\'s elite are choosing destinations as extraordinary as their love stories.',
+    imageUrl: '/images/hero-weddings.jpg',
+    author: 'Ananya Birla', publishedAt: 'April 8, 2026', readTime: 6,
+    tags: ['Destination Weddings', 'Luxury Weddings', 'India', 'Rajasthan'],
+    content: `<p>India's luxury wedding market has never been more ambitious — or more demanding. The couples and families who are investing ₹10 crore, ₹25 crore, or significantly more in a wedding celebration are no longer satisfied with a beautiful venue and excellent catering. They are seeking an experience: something cinematic, immersive, and utterly unlike anything their guests have attended before.</p>
+
+<h2>The Rajasthan Standard</h2>
+<p>Rajasthan remains the destination against which all Indian wedding venues are measured. The state's heritage hotels — Umaid Bhawan Palace in Jodhpur, the Samode Palace, Taj Lake Palace in Udaipur — offer a combination of architectural grandeur, historical resonance, and operational sophistication that is genuinely irreplaceable. A wedding at one of these properties is not merely an event; it is an encounter with Indian history at one of its most magnificent expressions.</p>
+
+<blockquote>"The most memorable weddings I have worked on share one quality: they feel inevitable. The venue, the aesthetic, the flow of the days — everything feels as if it could only have happened exactly this way, in exactly this place."</blockquote>
+
+<h2>The International Turn</h2>
+<p>A growing cohort of ultra-affluent Indian families is looking beyond the subcontinent entirely. The Amalfi Coast, Santorini, Bali, and the Maldives have all hosted significant Indian weddings in the past eighteen months. The logistical complexity is considerable — some families are hosting 500 or more guests at international venues — but the planners who specialise in this segment have developed the expertise to execute it seamlessly.</p>
+
+<h2>The Micro-Wedding Counter-Trend</h2>
+<p>Against this backdrop of escalating scale, a counter-trend has emerged: the intimate luxury wedding. Fifty guests, three days, an extraordinary private villa or heritage property, and a level of personalisation and quality that simply cannot be achieved at scale. For couples who prioritise depth of experience over breadth of attendance, this format is increasingly compelling.</p>`,
+  },
+//   {
+//     id: '9', slug: 'oberoi-group-curated-partner-spotlight', category: 'Curated Partners',
+//     title: 'Partner Spotlight: The Oberoi Group — Redefining Luxury Hospitality in India',
+//     excerpt: 'From New Delhi to Udaipur, the Oberoi Group has long set the standard for luxury hospitality. We go inside the legend.',
+//     imageUrl: '/images/hero-partners.jpg',
+//     author: 'Ritu Sharma', publishedAt: 'April 2, 2026', readTime: 6,
+//     tags: ['Oberoi Group', 'Luxury Hotels', 'India', 'Hospitality'],
+//     content: `<p>There is a reason that experienced luxury travellers — the kind who have stayed at Aman, at COMO, at Rosewood — consistently rate their Oberoi experiences among the finest they have had anywhere in the world. The Oberoi Group has, over decades, developed a service culture so deeply embedded in its operations that it functions as a kind of institutional instinct: an orientation toward the guest's comfort and delight that does not require a management manual to perpetuate itself.</p>
+
+// <h2>The Properties</h2>
+// <p>The Oberoi, New Delhi — recently reimagined by the group — represents the template at its most refined: a property that is simultaneously a landmark of its city and a sanctuary from it. The guest rooms and suites achieve the balance that eludes so many luxury hotels: they are grand without being imposing, serene without being sterile, and so meticulously maintained that the question of upkeep simply never arises.</p>
+
+// <blockquote>"The Oberoi Group understands something that many luxury hotel companies have forgotten: that the guest's experience is the product. Not the architecture, not the Instagram moment, not the star count. The experience."</blockquote>
+
+// <h2>Wildflower Hall & The Mountain Properties</h2>
+// <p>Wildflower Hall, Shimla — perhaps the group's most romantic property — occupies a cedar forest above the town with views of the Himalayan range that stop conversation. The original building was the residence of Lord Kitchener; the current hotel, rebuilt in the late 1990s, captures the spirit of the Raj without its discomforts. It is, for many guests, the finest mountain hotel experience available anywhere in Asia.</p>
+
+// <h2>What Partnership Means</h2>
+// <p>For Indian Luxury House, partnership with the Oberoi Group represents an alignment of values as much as a commercial arrangement. Both organisations believe that luxury is defined by integrity — by the quality of what is offered and the honesty with which it is presented. In that spirit, we are proud to feature the Oberoi Group among our curated partners.</p>`,
+//   },
 ];
 
 // ── ILH LOGO ──────────────────────────────────────────────────
