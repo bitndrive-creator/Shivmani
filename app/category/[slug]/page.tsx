@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, use } from 'react';
+import { useState, useEffect, use } from 'react';
 
 // ── TYPES ──────────────────────────────────────────────────────
 interface Post {
@@ -26,7 +26,7 @@ interface Category {
   heroImage: string;
 }
 
-// ── CATEGORIES (blueprint ke hisab se) ────────────────────────
+// ── CATEGORIES ────────────────────────────────────────────────
 const CATEGORIES: Category[] = [
   { name: 'Real Estate',         slug: 'real-estate',       icon: '🏛️', description: "India's finest residences and global investment opportunities", heroImage: '/images/placeholder-home.jpg'  },
   { name: 'Automobiles',         slug: 'automobiles',        icon: '🚗', description: 'Luxury performance, prestige, and collector culture',           heroImage: '/images/automobiles.jpg'  },
@@ -48,17 +48,17 @@ const NAV_LINKS = [
   { label: 'About',               href: '/about'             },
 ];
 
-// ── ALL POSTS (ILH categories) ─────────────────────────────────
+// ── ALL POSTS ──────────────────────────────────────────────────
 const ALL_POSTS: Post[] = [
-  { id: '1',  slug: 'branded-residences-rise-india',          category: 'Real Estate',         title: 'Branded Residences Rise: How Global Luxury Hotels Are Redefining Indian Real Estate',      excerpt: 'From Four Seasons to Ritz-Carlton, global hospitality giants are reimagining luxury living in India\'s most coveted addresses.',          imageUrl: '/images/real-estate.jpg',  author: 'Priya Mehta',     publishedAt: 'Apr 28, 2026', readTime: 8,  featured: true  },
-  { id: '2',  slug: 'best-second-home-markets-india-2026',    category: 'Real Estate',         title: 'The Best Second-Home Markets in India for 2026',                                            excerpt: 'From Alibaug to Kasauli, where India\'s ultra-affluent are investing in their next great escape.',                                        imageUrl: '/images/hero-home.jpg',  author: 'Rahul Singhania', publishedAt: 'Apr 24, 2026', readTime: 6,  featured: false },
-  { id: '3',  slug: 'rolls-royce-spectre-india-launch',       category: 'Automobiles',         title: 'Rolls-Royce Spectre Arrives in India: The First All-Electric Ultra-Luxury Car',             excerpt: 'Silent, powerful, and unmistakably Rolls-Royce. We drive the Spectre on India\'s most scenic roads.',                                     imageUrl: '/images/automobiles.jpg',         author: 'Vikram Oberoi',   publishedAt: 'Apr 22, 2026', readTime: 7,  featured: false },
-  { id: '4',  slug: 'best-luxury-suvs-india-2026',            category: 'Automobiles',         title: 'The 7 Best Luxury SUVs Money Can Buy in India Right Now',                                   excerpt: 'From Bentley Bentayga to Lamborghini Urus — the definitive ranking for India\'s most discerning drivers.',                                imageUrl: '/images/hero-cars.jpg',         author: 'Arjun Kapoor',    publishedAt: 'Apr 18, 2026', readTime: 6,  featured: false },
-  { id: '5',  slug: 'heritage-jewellery-trends-2026',         category: 'Jewellery & Watches', title: 'Heritage Jewellery Trends Dominating India\'s Bridal Season in 2026',                       excerpt: 'Polki, Kundan, Jadau — the timeless crafts of India\'s royal courts are having their most spectacular moment yet.',                        imageUrl: '/images/Jewellery.png',        author: 'Isha Thapar',     publishedAt: 'Apr 15, 2026', readTime: 5,  featured: false },
-  { id: '6',  slug: 'watches-worth-collecting-india',         category: 'Jewellery & Watches', title: '5 Watches Worth Collecting in 2026 — An Indian Connoisseur\'s Guide',                       excerpt: 'Patek Philippe, A. Lange & Söhne, F.P. Journe. Our editors pick the horological icons you should be acquiring now.',                      imageUrl: '/images/hero-watches.jpg',        author: 'Siddharth Rao',   publishedAt: 'Apr 10, 2026', readTime: 7,  featured: false },
-  { id: '7',  slug: 'destination-wedding-trends-2026',        category: 'Weddings',            title: 'Destination Wedding Trends Redefining India\'s Luxury Wedding Season',                       excerpt: 'From Rajasthan\'s heritage forts to Maldivian islands, India\'s elite are choosing destinations as extraordinary as their love stories.',  imageUrl: '/images/hero-weddings.jpg',      author: 'Ananya Birla',    publishedAt: 'Apr 8, 2026',  readTime: 6,  featured: false },
-  { id: '8',  slug: 'luxury-bridal-looks-2026',               category: 'Weddings',            title: 'The Most Covetable Bridal Looks of 2026 — From Sabyasachi to Manish Malhotra',              excerpt: 'India\'s couture masters have outdone themselves this season. Our editors curate the looks that made us catch our breath.',                 imageUrl: '/images/hero-weddings.jpg',      author: 'Divya Nair',      publishedAt: 'Apr 4, 2026',  readTime: 5,  featured: false },
-  { id: '9',  slug: 'oberoi-group-curated-partner-spotlight', category: 'Curated Partners',    title: 'Partner Spotlight: The Oberoi Group — Redefining Luxury Hospitality in India',              excerpt: 'From New Delhi to Udaipur, the Oberoi Group has long set the standard for luxury hospitality. We go inside the legend.',                  imageUrl: '/images/hero-partners.jpg',      author: 'Ritu Sharma',     publishedAt: 'Apr 2, 2026',  readTime: 6,  featured: false },
+  { id: '1',  slug: 'branded-residences-rise-india',          category: 'Real Estate',         title: 'Branded Residences Rise: How Global Luxury Hotels Are Redefining Indian Real Estate',      excerpt: "From Four Seasons to Ritz-Carlton, global hospitality giants are reimagining luxury living in India's most coveted addresses.",          imageUrl: '/images/real-estate.jpg',      author: 'Priya Mehta',     publishedAt: 'Apr 28, 2026', readTime: 8,  featured: true  },
+  { id: '2',  slug: 'best-second-home-markets-india-2026',    category: 'Real Estate',         title: 'The Best Second-Home Markets in India for 2026',                                            excerpt: "From Alibaug to Kasauli, where India's ultra-affluent are investing in their next great escape.",                                        imageUrl: '/images/hero-home.jpg',        author: 'Rahul Singhania', publishedAt: 'Apr 24, 2026', readTime: 6,  featured: false },
+  { id: '3',  slug: 'rolls-royce-spectre-india-launch',       category: 'Automobiles',         title: 'Rolls-Royce Spectre Arrives in India: The First All-Electric Ultra-Luxury Car',             excerpt: "Silent, powerful, and unmistakably Rolls-Royce. We drive the Spectre on India's most scenic roads.",                                     imageUrl: '/images/automobiles.jpg',      author: 'Vikram Oberoi',   publishedAt: 'Apr 22, 2026', readTime: 7,  featured: false },
+  { id: '4',  slug: 'best-luxury-suvs-india-2026',            category: 'Automobiles',         title: 'The 7 Best Luxury SUVs Money Can Buy in India Right Now',                                   excerpt: "From Bentley Bentayga to Lamborghini Urus — the definitive ranking for India's most discerning drivers.",                                imageUrl: '/images/hero-cars.jpg',        author: 'Arjun Kapoor',    publishedAt: 'Apr 18, 2026', readTime: 6,  featured: false },
+  { id: '5',  slug: 'heritage-jewellery-trends-2026',         category: 'Jewellery & Watches', title: "Heritage Jewellery Trends Dominating India's Bridal Season in 2026",                        excerpt: "Polki, Kundan, Jadau — the timeless crafts of India's royal courts are having their most spectacular moment yet.",                        imageUrl: '/images/Jewellery.png',        author: 'Isha Thapar',     publishedAt: 'Apr 15, 2026', readTime: 5,  featured: false },
+  { id: '6',  slug: 'watches-worth-collecting-india',         category: 'Jewellery & Watches', title: "5 Watches Worth Collecting in 2026 — An Indian Connoisseur's Guide",                        excerpt: "Patek Philippe, A. Lange & Söhne, F.P. Journe. Our editors pick the horological icons you should be acquiring now.",                      imageUrl: '/images/hero-watches.jpg',     author: 'Siddharth Rao',   publishedAt: 'Apr 10, 2026', readTime: 7,  featured: false },
+  { id: '7',  slug: 'destination-wedding-trends-2026',        category: 'Weddings',            title: "Destination Wedding Trends Redefining India's Luxury Wedding Season",                        excerpt: "From Rajasthan's heritage forts to Maldivian islands, India's elite are choosing destinations as extraordinary as their love stories.",  imageUrl: '/images/hero-weddings.jpg',    author: 'Ananya Birla',    publishedAt: 'Apr 8, 2026',  readTime: 6,  featured: false },
+  { id: '8',  slug: 'luxury-bridal-looks-2026',               category: 'Weddings',            title: 'The Most Covetable Bridal Looks of 2026 — From Sabyasachi to Manish Malhotra',              excerpt: "India's couture masters have outdone themselves this season. Our editors curate the looks that made us catch our breath.",                 imageUrl: '/images/hero-weddings.jpg',    author: 'Divya Nair',      publishedAt: 'Apr 4, 2026',  readTime: 5,  featured: false },
+  { id: '9',  slug: 'oberoi-group-curated-partner-spotlight', category: 'Curated Partners',    title: 'Partner Spotlight: The Oberoi Group — Redefining Luxury Hospitality in India',              excerpt: "From New Delhi to Udaipur, the Oberoi Group has long set the standard for luxury hospitality. We go inside the legend.",                  imageUrl: '/images/hero-partners.jpg',    author: 'Ritu Sharma',     publishedAt: 'Apr 2, 2026',  readTime: 6,  featured: false },
 ];
 
 // ── ILH LOGO ──────────────────────────────────────────────────
@@ -83,6 +83,12 @@ function Header({ currentHref }: { currentHref: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+
   return (
     <header style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
@@ -93,7 +99,6 @@ function Header({ currentHref }: { currentHref: string }) {
       <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.7 }} />
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', height: 72, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
 
-        {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', flexShrink: 0 }}>
           <ILHLogo size={38} />
           <div style={{ lineHeight: 1 }}>
@@ -102,7 +107,6 @@ function Header({ currentHref }: { currentHref: string }) {
           </div>
         </Link>
 
-        {/* Desktop Nav */}
         <nav style={{ display: 'flex', alignItems: 'center' }} className="ilh-cat-nav">
           {NAV_LINKS.map(link => {
             const isActive = link.href === currentHref;
@@ -117,14 +121,13 @@ function Header({ currentHref }: { currentHref: string }) {
                   transition: 'color .2s, border-color .2s', whiteSpace: 'nowrap',
                   ...(link.href === '/partner-with-us' && !isActive ? { color: '#C9A84C', border: '1px solid rgba(201,168,76,0.3)', padding: '6px 10px', marginLeft: 4 } : {}),
                 }}
-                onMouseEnter={e => { if (!isActive) { e.currentTarget.style.color = '#DFC27A'; } }}
-                onMouseLeave={e => { if (!isActive) { e.currentTarget.style.color = link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)'; } }}
+                onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#DFC27A'; }}
+                onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)'; }}
               >{link.label}</Link>
             );
           })}
         </nav>
 
-        {/* Hamburger */}
         <button className="ilh-cat-ham" onClick={() => setOpen(!open)}
           style={{ background: 'none', border: 'none', color: '#C9A84C', cursor: 'pointer', padding: 4, display: 'none' }}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -133,7 +136,6 @@ function Header({ currentHref }: { currentHref: string }) {
         </button>
       </div>
 
-      {/* Mobile dropdown */}
       <div style={{ background: '#0A0A0A', overflow: 'hidden', maxHeight: open ? 560 : 0, transition: 'max-height .3s ease', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
         {NAV_LINKS.map(link => (
           <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
@@ -154,8 +156,6 @@ function Header({ currentHref }: { currentHref: string }) {
   );
 }
 
-
-
 // ── POST CARD ─────────────────────────────────────────────────
 function PostCard({ post }: { post: Post }) {
   const [hov, setHov] = useState(false);
@@ -164,7 +164,6 @@ function PostCard({ post }: { post: Post }) {
       style={{ display: 'block', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
     >
-      {/* Image */}
       <div style={{ position: 'relative', paddingBottom: '62%', overflow: 'hidden', background: '#1A1A1A' }}>
         <Image src={post.imageUrl || '/images/placeholder.jpg'} alt={post.title} fill
           style={{ objectFit: 'cover', transition: 'transform .6s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}
@@ -175,19 +174,10 @@ function PostCard({ post }: { post: Post }) {
           {post.category}
         </span>
       </div>
-
-      {/* Body */}
       <div style={{ padding: '20px 22px 22px' }}>
         <div style={{ width: hov ? 38 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .3s' }} />
-        <h3 style={{
-          fontFamily: 'Georgia,serif', fontSize: 18, fontWeight: 400, lineHeight: 1.4,
-          color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s',
-          display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', letterSpacing: '0.01em',
-        }}>{post.title}</h3>
-        <p style={{
-          fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300,
-          display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden',
-        }}>{post.excerpt}</p>
+        <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 18, fontWeight: 400, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', letterSpacing: '0.01em' }}>{post.title}</h3>
+        <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
           <span style={{ fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
           <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.5)', letterSpacing: '0.04em' }}>{post.readTime} min read</span>
@@ -205,7 +195,6 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
   const cat = CATEGORIES.find(c => c.slug === slug);
   const currentHref = `/${slug}`;
 
-  // 404 fallback — pehle check karo
   if (!cat) {
     return (
       <div style={{ minHeight: '100vh', background: '#FAFAF8', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
@@ -218,9 +207,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
     );
   }
 
-  // cat guaranteed non-null yahan se aage
   const catPosts = ALL_POSTS.filter(p => p.category === cat.name);
-
   const filters = ['All', 'Latest', 'Most Read', "Editors' Pick"];
 
   return (
@@ -228,21 +215,17 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
       <Header currentHref={currentHref} />
       <main style={{ paddingTop: 72 }}>
 
-        {/* ── CATEGORY HERO ───────────────────────────── */}
+        {/* HERO */}
         <section style={{ position: 'relative', height: 360, overflow: 'hidden', background: '#0A0A0A' }}>
           <Image src={cat.heroImage} alt={cat.name} fill priority
             style={{ objectFit: 'cover', objectPosition: 'center' }}
             onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
-          {/* Overlays */}
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.5) 55%, transparent 100%)' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.55) 0%, transparent 60%)' }} />
-          {/* Gold bottom bar */}
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.5 }} />
 
-          {/* Content */}
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 48px 44px', maxWidth: 720 }}>
-            {/* Breadcrumb */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
               <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
@@ -251,23 +234,14 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
               <span style={{ opacity: 0.4 }}>/</span>
               <span style={{ color: '#C9A84C' }}>{cat.name}</span>
             </div>
-
-            {/* Eyebrow */}
             <p style={{ fontSize: 9, letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', marginBottom: 12 }}>Category</p>
-
-            {/* Title */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
               <span style={{ fontSize: 42 }}>{cat.icon}</span>
-              <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(34px,6vw,62px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.05, letterSpacing: '0.02em' }}>
-                {cat.name}
-              </h1>
+              <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(34px,6vw,62px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.05, letterSpacing: '0.02em' }}>{cat.name}</h1>
             </div>
-            <p style={{ fontSize: 14, color: 'rgba(250,250,248,0.5)', fontWeight: 300, letterSpacing: '0.03em', lineHeight: 1.55 }}>
-              {cat.description}
-            </p>
+            <p style={{ fontSize: 14, color: 'rgba(250,250,248,0.5)', fontWeight: 300, letterSpacing: '0.03em', lineHeight: 1.55 }}>{cat.description}</p>
           </div>
 
-          {/* Article count badge */}
           <div style={{ position: 'absolute', bottom: 44, right: 48, zIndex: 10 }}>
             <span style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', background: 'rgba(10,10,10,0.75)', border: '1px solid rgba(201,168,76,0.2)', padding: '7px 14px', backdropFilter: 'blur(4px)' }}>
               {catPosts.length} {catPosts.length === 1 ? 'Article' : 'Articles'}
@@ -275,21 +249,14 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
           </div>
         </section>
 
-        {/* ── FILTER BAR ──────────────────────────────── */}
+        {/* FILTER BAR */}
         <div style={{ background: '#0A0A0A', borderBottom: '1px solid rgba(201,168,76,0.15)', position: 'sticky', top: 72, zIndex: 30 }}>
-          <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', overflowX: 'auto', gap: 0 }}>
+          <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', overflowX: 'auto' }}>
             {filters.map(f => {
               const active = f === activeFilter;
               return (
                 <button key={f} onClick={() => setActiveFilter(f)}
-                  style={{
-                    fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase',
-                    padding: '14px 20px', border: 'none', cursor: 'pointer', background: 'transparent',
-                    color: active ? '#DFC27A' : 'rgba(201,168,76,0.4)',
-                    borderBottom: active ? '2px solid #C9A84C' : '2px solid transparent',
-                    transition: 'all .2s', whiteSpace: 'nowrap',
-                    borderRight: '1px solid rgba(201,168,76,0.08)',
-                  }}
+                  style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '14px 20px', border: 'none', cursor: 'pointer', background: 'transparent', color: active ? '#DFC27A' : 'rgba(201,168,76,0.4)', borderBottom: active ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', whiteSpace: 'nowrap', borderRight: '1px solid rgba(201,168,76,0.08)' }}
                   onMouseEnter={e => { if (!active) e.currentTarget.style.color = '#C9A84C'; }}
                   onMouseLeave={e => { if (!active) e.currentTarget.style.color = 'rgba(201,168,76,0.4)'; }}
                 >{f}</button>
@@ -298,15 +265,14 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
           </div>
         </div>
 
-        {/* ── POSTS GRID ──────────────────────────────── */}
+        {/* POSTS GRID */}
         <section style={{ maxWidth: 1280, margin: '0 auto', padding: '56px 24px 88px', background: '#FAFAF8' }}>
           {catPosts.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '88px 24px' }}>
               <span style={{ fontSize: 52, display: 'block', marginBottom: 20, opacity: 0.3 }}>{cat.icon}</span>
               <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 28, fontWeight: 300, color: '#6B6558', marginBottom: 10 }}>No articles yet</h2>
               <p style={{ fontSize: 13, color: 'rgba(107,101,88,0.6)', marginBottom: 32 }}>New stories in {cat.name} are coming soon.</p>
-              <Link href="/"
-                style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '12px 28px', textDecoration: 'none', display: 'inline-block', transition: 'all .2s' }}
+              <Link href="/" style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '12px 28px', textDecoration: 'none', display: 'inline-block' }}
                 onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
               >← Back to Home</Link>
@@ -315,16 +281,11 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
             <>
               <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.12)', paddingBottom: 18 }}>
                 <div>
-                  <p style={{ fontSize: 9, letterSpacing: '0.32em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 8 }}>
-                    {catPosts.length} {catPosts.length === 1 ? 'story' : 'stories'}
-                  </p>
-                  <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(22px,3vw,34px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>
-                    Latest in {cat.name}
-                  </h2>
+                  <p style={{ fontSize: 9, letterSpacing: '0.32em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 8 }}>{catPosts.length} {catPosts.length === 1 ? 'story' : 'stories'}</p>
+                  <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(22px,3vw,34px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Latest in {cat.name}</h2>
                 </div>
                 <div style={{ width: 48, height: 1, background: 'rgba(201,168,76,0.35)', alignSelf: 'center' }} />
               </div>
-
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }} className="ilh-posts-grid">
                 {catPosts.map(p => <PostCard key={p.id} post={p} />)}
               </div>
@@ -332,7 +293,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
           )}
         </section>
 
-        {/* ── OTHER CATEGORIES ────────────────────────── */}
+        {/* OTHER CATEGORIES */}
         <section style={{ background: '#0A0A0A', padding: '56px 0', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
             <p style={{ fontSize: 9, letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)', marginBottom: 28, textAlign: 'center' }}>Explore More</p>
@@ -341,12 +302,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                 const isCurrent = c.slug === slug;
                 return (
                   <Link key={c.slug} href={`/${c.slug}`}
-                    style={{
-                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                      padding: '28px 10px', textDecoration: 'none', gap: 10,
-                      background: isCurrent ? 'rgba(201,168,76,0.1)' : 'transparent',
-                      transition: 'background .25s',
-                    }}
+                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '28px 10px', textDecoration: 'none', gap: 10, background: isCurrent ? 'rgba(201,168,76,0.1)' : 'transparent', transition: 'background .25s' }}
                     onMouseEnter={e => { if (!isCurrent) e.currentTarget.style.background = 'rgba(201,168,76,0.06)'; }}
                     onMouseLeave={e => { if (!isCurrent) e.currentTarget.style.background = 'transparent'; }}
                   >
@@ -358,7 +314,10 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
               })}
             </div>
           </div>
-        </section></main>
+        </section>
+
+      </main>
+
       <style>{`
         @media(max-width:900px){ .ilh-posts-grid { grid-template-columns: repeat(2,1fr) !important; } }
         @media(max-width:600px){ .ilh-posts-grid { grid-template-columns: 1fr !important; } }
@@ -368,6 +327,378 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
     </>
   );
 }
+
+
+// 'use client';
+
+// import Image from 'next/image';
+// import Link from 'next/link';
+// import { useState, use } from 'react';
+
+// // ── TYPES ──────────────────────────────────────────────────────
+// interface Post {
+//   id: string;
+//   title: string;
+//   slug: string;
+//   category: string;
+//   excerpt: string;
+//   imageUrl: string;
+//   author: string;
+//   publishedAt: string;
+//   readTime: number;
+//   featured?: boolean;
+// }
+
+// interface Category {
+//   name: string;
+//   slug: string;
+//   icon: string;
+//   description: string;
+//   heroImage: string;
+// }
+
+// // ── CATEGORIES (blueprint ke hisab se) ────────────────────────
+// const CATEGORIES: Category[] = [
+//   { name: 'Real Estate',         slug: 'real-estate',       icon: '🏛️', description: "India's finest residences and global investment opportunities", heroImage: '/images/placeholder-home.jpg'  },
+//   { name: 'Automobiles',         slug: 'automobiles',        icon: '🚗', description: 'Luxury performance, prestige, and collector culture',           heroImage: '/images/automobiles.jpg'  },
+//   { name: 'Jewellery & Watches', slug: 'jewellery-watches',  icon: '💎', description: 'Timeless assets. Enduring style.',                              heroImage: '/images/Jewellery.png'    },
+//   { name: 'Weddings',            slug: 'weddings',           icon: '✨', description: "India's world of couture celebrations and unforgettable occasions", heroImage: '/images/hero-weddings.jpg'  },
+//   { name: 'Curated Partners',    slug: 'curated-partners',   icon: '🤝', description: "India's trusted network of premium businesses",                 heroImage: '/images/hero-partners.jpg'    },
+// ];
+
+// // ── NAV LINKS ──────────────────────────────────────────────────
+// const NAV_LINKS = [
+//   { label: 'Home',                href: '/'                  },
+//   { label: 'News',                href: '/news'              },
+//   { label: 'Real Estate',         href: '/real-estate'       },
+//   { label: 'Automobiles',         href: '/automobiles'       },
+//   { label: 'Jewellery & Watches', href: '/jewellery-watches' },
+//   { label: 'Weddings',            href: '/weddings'          },
+//   { label: 'Curated Partners',    href: '/curated-partners'  },
+//   { label: 'Partner With Us',     href: '/partner-with-us'   },
+//   { label: 'About',               href: '/about'             },
+// ];
+
+// // ── ALL POSTS (ILH categories) ─────────────────────────────────
+// const ALL_POSTS: Post[] = [
+//   { id: '1',  slug: 'branded-residences-rise-india',          category: 'Real Estate',         title: 'Branded Residences Rise: How Global Luxury Hotels Are Redefining Indian Real Estate',      excerpt: 'From Four Seasons to Ritz-Carlton, global hospitality giants are reimagining luxury living in India\'s most coveted addresses.',          imageUrl: '/images/real-estate.jpg',  author: 'Priya Mehta',     publishedAt: 'Apr 28, 2026', readTime: 8,  featured: true  },
+//   { id: '2',  slug: 'best-second-home-markets-india-2026',    category: 'Real Estate',         title: 'The Best Second-Home Markets in India for 2026',                                            excerpt: 'From Alibaug to Kasauli, where India\'s ultra-affluent are investing in their next great escape.',                                        imageUrl: '/images/hero-home.jpg',  author: 'Rahul Singhania', publishedAt: 'Apr 24, 2026', readTime: 6,  featured: false },
+//   { id: '3',  slug: 'rolls-royce-spectre-india-launch',       category: 'Automobiles',         title: 'Rolls-Royce Spectre Arrives in India: The First All-Electric Ultra-Luxury Car',             excerpt: 'Silent, powerful, and unmistakably Rolls-Royce. We drive the Spectre on India\'s most scenic roads.',                                     imageUrl: '/images/automobiles.jpg',         author: 'Vikram Oberoi',   publishedAt: 'Apr 22, 2026', readTime: 7,  featured: false },
+//   { id: '4',  slug: 'best-luxury-suvs-india-2026',            category: 'Automobiles',         title: 'The 7 Best Luxury SUVs Money Can Buy in India Right Now',                                   excerpt: 'From Bentley Bentayga to Lamborghini Urus — the definitive ranking for India\'s most discerning drivers.',                                imageUrl: '/images/hero-cars.jpg',         author: 'Arjun Kapoor',    publishedAt: 'Apr 18, 2026', readTime: 6,  featured: false },
+//   { id: '5',  slug: 'heritage-jewellery-trends-2026',         category: 'Jewellery & Watches', title: 'Heritage Jewellery Trends Dominating India\'s Bridal Season in 2026',                       excerpt: 'Polki, Kundan, Jadau — the timeless crafts of India\'s royal courts are having their most spectacular moment yet.',                        imageUrl: '/images/Jewellery.png',        author: 'Isha Thapar',     publishedAt: 'Apr 15, 2026', readTime: 5,  featured: false },
+//   { id: '6',  slug: 'watches-worth-collecting-india',         category: 'Jewellery & Watches', title: '5 Watches Worth Collecting in 2026 — An Indian Connoisseur\'s Guide',                       excerpt: 'Patek Philippe, A. Lange & Söhne, F.P. Journe. Our editors pick the horological icons you should be acquiring now.',                      imageUrl: '/images/hero-watches.jpg',        author: 'Siddharth Rao',   publishedAt: 'Apr 10, 2026', readTime: 7,  featured: false },
+//   { id: '7',  slug: 'destination-wedding-trends-2026',        category: 'Weddings',            title: 'Destination Wedding Trends Redefining India\'s Luxury Wedding Season',                       excerpt: 'From Rajasthan\'s heritage forts to Maldivian islands, India\'s elite are choosing destinations as extraordinary as their love stories.',  imageUrl: '/images/hero-weddings.jpg',      author: 'Ananya Birla',    publishedAt: 'Apr 8, 2026',  readTime: 6,  featured: false },
+//   { id: '8',  slug: 'luxury-bridal-looks-2026',               category: 'Weddings',            title: 'The Most Covetable Bridal Looks of 2026 — From Sabyasachi to Manish Malhotra',              excerpt: 'India\'s couture masters have outdone themselves this season. Our editors curate the looks that made us catch our breath.',                 imageUrl: '/images/hero-weddings.jpg',      author: 'Divya Nair',      publishedAt: 'Apr 4, 2026',  readTime: 5,  featured: false },
+//   { id: '9',  slug: 'oberoi-group-curated-partner-spotlight', category: 'Curated Partners',    title: 'Partner Spotlight: The Oberoi Group — Redefining Luxury Hospitality in India',              excerpt: 'From New Delhi to Udaipur, the Oberoi Group has long set the standard for luxury hospitality. We go inside the legend.',                  imageUrl: '/images/hero-partners.jpg',      author: 'Ritu Sharma',     publishedAt: 'Apr 2, 2026',  readTime: 6,  featured: false },
+// ];
+
+// // ── ILH LOGO ──────────────────────────────────────────────────
+// function ILHLogo({ size = 32 }: { size?: number }) {
+//   const gold = '#C9A84C', emerald = '#2A7A6A';
+//   return (
+//     <svg width={size} height={size} viewBox="0 0 80 80" fill="none">
+//       <path d="M40 62C40 62 34 50 33 40C32 30 36 22 40 18C44 14 50 14 52 20C54 26 48 32 44 37C40 42 40 48 42 54C44 60 40 62 40 62Z" fill={gold} opacity="0.9"/>
+//       <path d="M44 28C52 20 64 16 66 20C68 24 62 32 54 36C48 39 44 36 44 36" stroke={gold} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+//       <path d="M42 34C50 22 62 12 68 14C72 16 68 28 60 34C54 38 42 36 42 36" stroke={gold} strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.5"/>
+//       <ellipse cx="30" cy="44" rx="5" ry="2.5" fill={emerald} transform="rotate(-30 30 44)" opacity="0.8"/>
+//       <ellipse cx="26" cy="50" rx="5" ry="2.5" fill={emerald} transform="rotate(-20 26 50)" opacity="0.7"/>
+//       <ellipse cx="28" cy="38" rx="4.5" ry="2"  fill={emerald} transform="rotate(-45 28 38)" opacity="0.7"/>
+//       <circle cx="52" cy="12" r="1.5" fill={gold}/>
+//       <circle cx="56" cy="10" r="1.2" fill={gold} opacity="0.8"/>
+//     </svg>
+//   );
+// }
+
+// // ── HEADER ────────────────────────────────────────────────────
+// function Header({ currentHref }: { currentHref: string }) {
+//   const [scrolled, setScrolled] = useState(false);
+//   const [open, setOpen] = useState(false);
+
+//   return (
+//     <header style={{
+//       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+//       background: scrolled ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.92)',
+//       backdropFilter: 'blur(12px)', transition: 'background .4s',
+//       boxShadow: scrolled ? '0 2px 24px rgba(0,0,0,0.4)' : 'none',
+//     }}>
+//       <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.7 }} />
+//       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', height: 72, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
+
+//         {/* Logo */}
+//         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', flexShrink: 0 }}>
+//           <ILHLogo size={38} />
+//           <div style={{ lineHeight: 1 }}>
+//             <div style={{ fontFamily: 'Georgia,serif', fontSize: 17, fontWeight: 300, color: '#DFC27A', letterSpacing: '0.3em', textTransform: 'uppercase' }}>Indian</div>
+//             <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.45)', letterSpacing: '0.4em', textTransform: 'uppercase', marginTop: 3 }}>Luxury House</div>
+//           </div>
+//         </Link>
+
+//         {/* Desktop Nav */}
+//         <nav style={{ display: 'flex', alignItems: 'center' }} className="ilh-cat-nav">
+//           {NAV_LINKS.map(link => {
+//             const isActive = link.href === currentHref;
+//             return (
+//               <Link key={link.href} href={link.href}
+//                 style={{
+//                   fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase',
+//                   color: isActive ? '#DFC27A' : 'rgba(201,168,76,0.6)',
+//                   textDecoration: 'none', padding: '8px 10px',
+//                   borderBottom: isActive ? '1px solid #C9A84C' : '1px solid transparent',
+//                   fontWeight: isActive ? 500 : 400,
+//                   transition: 'color .2s, border-color .2s', whiteSpace: 'nowrap',
+//                   ...(link.href === '/partner-with-us' && !isActive ? { color: '#C9A84C', border: '1px solid rgba(201,168,76,0.3)', padding: '6px 10px', marginLeft: 4 } : {}),
+//                 }}
+//                 onMouseEnter={e => { if (!isActive) { e.currentTarget.style.color = '#DFC27A'; } }}
+//                 onMouseLeave={e => { if (!isActive) { e.currentTarget.style.color = link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)'; } }}
+//               >{link.label}</Link>
+//             );
+//           })}
+//         </nav>
+
+//         {/* Hamburger */}
+//         <button className="ilh-cat-ham" onClick={() => setOpen(!open)}
+//           style={{ background: 'none', border: 'none', color: '#C9A84C', cursor: 'pointer', padding: 4, display: 'none' }}>
+//           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+//             {open ? <path d="M18 6 6 18M6 6l12 12"/> : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>}
+//           </svg>
+//         </button>
+//       </div>
+
+//       {/* Mobile dropdown */}
+//       <div style={{ background: '#0A0A0A', overflow: 'hidden', maxHeight: open ? 560 : 0, transition: 'max-height .3s ease', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
+//         {NAV_LINKS.map(link => (
+//           <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
+//             style={{ display: 'block', padding: '13px 28px', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: link.href === currentHref ? '#DFC27A' : 'rgba(201,168,76,0.65)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.08)', transition: 'background .2s' }}
+//             onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,168,76,0.06)')}
+//             onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+//           >{link.label}</Link>
+//         ))}
+//       </div>
+//       <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent)' }} />
+
+//       <style>{`
+//         .ilh-cat-nav { display: flex !important; }
+//         .ilh-cat-ham { display: none !important; }
+//         @media(max-width:1100px){ .ilh-cat-nav { display: none !important; } .ilh-cat-ham { display: block !important; } }
+//       `}</style>
+//     </header>
+//   );
+// }
+
+
+
+// // ── POST CARD ─────────────────────────────────────────────────
+// function PostCard({ post }: { post: Post }) {
+//   const [hov, setHov] = useState(false);
+//   return (
+//     <Link href={`/blog/${post.slug}`}
+//       style={{ display: 'block', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
+//       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+//     >
+//       {/* Image */}
+//       <div style={{ position: 'relative', paddingBottom: '62%', overflow: 'hidden', background: '#1A1A1A' }}>
+//         <Image src={post.imageUrl || '/images/placeholder.jpg'} alt={post.title} fill
+//           style={{ objectFit: 'cover', transition: 'transform .6s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}
+//           sizes="(max-width:768px) 100vw, 33vw"
+//           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+//         />
+//         <span style={{ position: 'absolute', top: 12, left: 12, fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '5px 10px', border: '1px solid rgba(201,168,76,0.25)' }}>
+//           {post.category}
+//         </span>
+//       </div>
+
+//       {/* Body */}
+//       <div style={{ padding: '20px 22px 22px' }}>
+//         <div style={{ width: hov ? 38 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .3s' }} />
+//         <h3 style={{
+//           fontFamily: 'Georgia,serif', fontSize: 18, fontWeight: 400, lineHeight: 1.4,
+//           color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s',
+//           display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', letterSpacing: '0.01em',
+//         }}>{post.title}</h3>
+//         <p style={{
+//           fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300,
+//           display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden',
+//         }}>{post.excerpt}</p>
+//         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
+//           <span style={{ fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+//           <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.5)', letterSpacing: '0.04em' }}>{post.readTime} min read</span>
+//         </div>
+//       </div>
+//     </Link>
+//   );
+// }
+
+// // ── MAIN CATEGORY PAGE ────────────────────────────────────────
+// export default function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+//   const { slug } = use(params);
+//   const [activeFilter, setActiveFilter] = useState('All');
+
+//   const cat = CATEGORIES.find(c => c.slug === slug);
+//   const currentHref = `/${slug}`;
+
+//   // 404 fallback — pehle check karo
+//   if (!cat) {
+//     return (
+//       <div style={{ minHeight: '100vh', background: '#FAFAF8', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
+//         <ILHLogo size={56} />
+//         <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 36, fontWeight: 300, color: '#1A1A1A' }}>Category Not Found</h1>
+//         <Link href="/" style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.4)', paddingBottom: 2 }}>
+//           ← Back to Home
+//         </Link>
+//       </div>
+//     );
+//   }
+
+//   // cat guaranteed non-null yahan se aage
+//   const catPosts = ALL_POSTS.filter(p => p.category === cat.name);
+
+//   const filters = ['All', 'Latest', 'Most Read', "Editors' Pick"];
+
+//   return (
+//     <>
+//       <Header currentHref={currentHref} />
+//       <main style={{ paddingTop: 72 }}>
+
+//         {/* ── CATEGORY HERO ───────────────────────────── */}
+//         <section style={{ position: 'relative', height: 360, overflow: 'hidden', background: '#0A0A0A' }}>
+//           <Image src={cat.heroImage} alt={cat.name} fill priority
+//             style={{ objectFit: 'cover', objectPosition: 'center' }}
+//             onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+//           />
+//           {/* Overlays */}
+//           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.5) 55%, transparent 100%)' }} />
+//           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.55) 0%, transparent 60%)' }} />
+//           {/* Gold bottom bar */}
+//           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.5 }} />
+
+//           {/* Content */}
+//           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 48px 44px', maxWidth: 720 }}>
+//             {/* Breadcrumb */}
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+//               <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+//                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
+//                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.4)')}
+//               >Home</Link>
+//               <span style={{ opacity: 0.4 }}>/</span>
+//               <span style={{ color: '#C9A84C' }}>{cat.name}</span>
+//             </div>
+
+//             {/* Eyebrow */}
+//             <p style={{ fontSize: 9, letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', marginBottom: 12 }}>Category</p>
+
+//             {/* Title */}
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
+//               <span style={{ fontSize: 42 }}>{cat.icon}</span>
+//               <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(34px,6vw,62px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.05, letterSpacing: '0.02em' }}>
+//                 {cat.name}
+//               </h1>
+//             </div>
+//             <p style={{ fontSize: 14, color: 'rgba(250,250,248,0.5)', fontWeight: 300, letterSpacing: '0.03em', lineHeight: 1.55 }}>
+//               {cat.description}
+//             </p>
+//           </div>
+
+//           {/* Article count badge */}
+//           <div style={{ position: 'absolute', bottom: 44, right: 48, zIndex: 10 }}>
+//             <span style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', background: 'rgba(10,10,10,0.75)', border: '1px solid rgba(201,168,76,0.2)', padding: '7px 14px', backdropFilter: 'blur(4px)' }}>
+//               {catPosts.length} {catPosts.length === 1 ? 'Article' : 'Articles'}
+//             </span>
+//           </div>
+//         </section>
+
+//         {/* ── FILTER BAR ──────────────────────────────── */}
+//         <div style={{ background: '#0A0A0A', borderBottom: '1px solid rgba(201,168,76,0.15)', position: 'sticky', top: 72, zIndex: 30 }}>
+//           <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', overflowX: 'auto', gap: 0 }}>
+//             {filters.map(f => {
+//               const active = f === activeFilter;
+//               return (
+//                 <button key={f} onClick={() => setActiveFilter(f)}
+//                   style={{
+//                     fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase',
+//                     padding: '14px 20px', border: 'none', cursor: 'pointer', background: 'transparent',
+//                     color: active ? '#DFC27A' : 'rgba(201,168,76,0.4)',
+//                     borderBottom: active ? '2px solid #C9A84C' : '2px solid transparent',
+//                     transition: 'all .2s', whiteSpace: 'nowrap',
+//                     borderRight: '1px solid rgba(201,168,76,0.08)',
+//                   }}
+//                   onMouseEnter={e => { if (!active) e.currentTarget.style.color = '#C9A84C'; }}
+//                   onMouseLeave={e => { if (!active) e.currentTarget.style.color = 'rgba(201,168,76,0.4)'; }}
+//                 >{f}</button>
+//               );
+//             })}
+//           </div>
+//         </div>
+
+//         {/* ── POSTS GRID ──────────────────────────────── */}
+//         <section style={{ maxWidth: 1280, margin: '0 auto', padding: '56px 24px 88px', background: '#FAFAF8' }}>
+//           {catPosts.length === 0 ? (
+//             <div style={{ textAlign: 'center', padding: '88px 24px' }}>
+//               <span style={{ fontSize: 52, display: 'block', marginBottom: 20, opacity: 0.3 }}>{cat.icon}</span>
+//               <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 28, fontWeight: 300, color: '#6B6558', marginBottom: 10 }}>No articles yet</h2>
+//               <p style={{ fontSize: 13, color: 'rgba(107,101,88,0.6)', marginBottom: 32 }}>New stories in {cat.name} are coming soon.</p>
+//               <Link href="/"
+//                 style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '12px 28px', textDecoration: 'none', display: 'inline-block', transition: 'all .2s' }}
+//                 onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
+//                 onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
+//               >← Back to Home</Link>
+//             </div>
+//           ) : (
+//             <>
+//               <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.12)', paddingBottom: 18 }}>
+//                 <div>
+//                   <p style={{ fontSize: 9, letterSpacing: '0.32em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 8 }}>
+//                     {catPosts.length} {catPosts.length === 1 ? 'story' : 'stories'}
+//                   </p>
+//                   <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(22px,3vw,34px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>
+//                     Latest in {cat.name}
+//                   </h2>
+//                 </div>
+//                 <div style={{ width: 48, height: 1, background: 'rgba(201,168,76,0.35)', alignSelf: 'center' }} />
+//               </div>
+
+//               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }} className="ilh-posts-grid">
+//                 {catPosts.map(p => <PostCard key={p.id} post={p} />)}
+//               </div>
+//             </>
+//           )}
+//         </section>
+
+//         {/* ── OTHER CATEGORIES ────────────────────────── */}
+//         <section style={{ background: '#0A0A0A', padding: '56px 0', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
+//           <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+//             <p style={{ fontSize: 9, letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)', marginBottom: 28, textAlign: 'center' }}>Explore More</p>
+//             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 1, background: 'rgba(201,168,76,0.08)' }} className="ilh-explore-grid">
+//               {CATEGORIES.map(c => {
+//                 const isCurrent = c.slug === slug;
+//                 return (
+//                   <Link key={c.slug} href={`/${c.slug}`}
+//                     style={{
+//                       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+//                       padding: '28px 10px', textDecoration: 'none', gap: 10,
+//                       background: isCurrent ? 'rgba(201,168,76,0.1)' : 'transparent',
+//                       transition: 'background .25s',
+//                     }}
+//                     onMouseEnter={e => { if (!isCurrent) e.currentTarget.style.background = 'rgba(201,168,76,0.06)'; }}
+//                     onMouseLeave={e => { if (!isCurrent) e.currentTarget.style.background = 'transparent'; }}
+//                   >
+//                     <span style={{ fontSize: 26 }}>{c.icon}</span>
+//                     <span style={{ fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: isCurrent ? '#DFC27A' : 'rgba(201,168,76,0.48)', textAlign: 'center', lineHeight: 1.4 }}>{c.name}</span>
+//                     {isCurrent && <span style={{ width: 16, height: 1, background: '#C9A84C', display: 'block' }} />}
+//                   </Link>
+//                 );
+//               })}
+//             </div>
+//           </div>
+//         </section></main>
+//       <style>{`
+//         @media(max-width:900px){ .ilh-posts-grid { grid-template-columns: repeat(2,1fr) !important; } }
+//         @media(max-width:600px){ .ilh-posts-grid { grid-template-columns: 1fr !important; } }
+//         @media(max-width:768px){ .ilh-explore-grid { grid-template-columns: repeat(3,1fr) !important; } }
+//         @media(max-width:480px){ .ilh-explore-grid { grid-template-columns: repeat(2,1fr) !important; } }
+//       `}</style>
+//     </>
+//   );
+// }
 
 
 // 'use client';
