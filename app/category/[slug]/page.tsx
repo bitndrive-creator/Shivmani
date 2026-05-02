@@ -361,7 +361,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
         </section>
 
       </main>
-      <Footer />
+    
 
       <style>{`
         @media(max-width:900px){ .ilh-posts-grid { grid-template-columns: repeat(2,1fr) !important; } }
