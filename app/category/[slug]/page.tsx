@@ -359,7 +359,6 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
             </div>
           </div>
         </section>
-
       </main>
     
 
