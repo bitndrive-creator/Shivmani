@@ -11,26 +11,26 @@ interface Story { title: string; category: string; excerpt: string; author: stri
 
 // ── DATA ──────────────────────────────────────────────────────────
 const BRIDAL_COLLECTIONS = [
-  { title: 'Solitaire Diamonds',   sub: 'Timeless engagement rings',           img: '/images/jwl-bridal-solitaire.jpg' },
-  { title: 'Bridal Sets',          sub: 'Perfectly matched ring ensembles',     img: '/images/jwl-bridal-sets.jpg'      },
-  { title: 'Coloured Gemstones',   sub: 'Sapphires, rubies & emeralds',         img: '/images/jwl-bridal-gems.jpg'      },
-  { title: 'Heirloom & Antique',   sub: 'Pieces with a storied past',           img: '/images/jwl-bridal-antique.jpg'   },
+  { title: 'Solitaire Diamonds',   sub: 'Timeless engagement rings',           img: '/images/Solitaire Diamonds.jpg' },
+  { title: 'Bridal Sets',          sub: 'Perfectly matched ring ensembles',     img: '/images/Bridal Sets.jpg'      },
+  { title: 'Coloured Gemstones',   sub: 'Sapphires, rubies & emeralds',         img: '/images/Coloured Gemstones.jpg'      },
+  { title: 'Heirloom & Antique',   sub: 'Pieces with a storied past',           img: '/images/heirloom & antique.jpg'   },
 ];
 
 const FINE_BRANDS: Brand[] = [
-  { name: 'Cartier',         origin: 'Paris, 1847',         specialty: 'Love & Panthère collections',           img: '/images/jwl-brand-cartier.jpg',    slug: 'cartier'    },
-  { name: 'Van Cleef & Arpels', origin: 'Paris, 1906',     specialty: 'Alhambra & floral motifs',              img: '/images/jwl-brand-vca.jpg',        slug: 'van-cleef'  },
-  { name: 'Bulgari',         origin: 'Rome, 1884',          specialty: 'Serpenti & B.zero1',                    img: '/images/jwl-brand-bvlgari.jpg',    slug: 'bvlgari'    },
-  { name: 'Tiffany & Co.',   origin: 'New York, 1837',      specialty: 'Setting & diamond expertise',           img: '/images/jwl-brand-tiffany.jpg',    slug: 'tiffany'    },
-  { name: 'Chopard',         origin: 'Geneva, 1860',        specialty: 'Happy Diamonds & haute joaillerie',     img: '/images/jwl-brand-chopard.jpg',    slug: 'chopard'    },
-  { name: 'Harry Winston',   origin: 'New York, 1932',      specialty: 'Rare diamonds & cluster designs',       img: '/images/jwl-brand-harrywinston.jpg',slug:'harry-winston'},
+  { name: 'Cartier',         origin: 'Paris, 1847',         specialty: 'Love & Panthère collections',           img: '/images/Bridal Sets.jpg',    slug: 'cartier'    },
+  { name: 'Van Cleef & Arpels', origin: 'Paris, 1906',     specialty: 'Alhambra & floral motifs',              img: '/images/Jewellery.png',        slug: 'van-cleef'  },
+  { name: 'Bulgari',         origin: 'Rome, 1884',          specialty: 'Serpenti & B.zero1',                    img: '/images/heirloom & antique.jpg',    slug: 'bvlgari'    },
+  { name: 'Tiffany & Co.',   origin: 'New York, 1837',      specialty: 'Setting & diamond expertise',           img: '/images/Coloured Gemstones.jpg',    slug: 'tiffany'    },
+  { name: 'Chopard',         origin: 'Geneva, 1860',        specialty: 'Happy Diamonds & haute joaillerie',     img: '/images/Solitaire Diamonds.jpg',    slug: 'chopard'    },
+  { name: 'Harry Winston',   origin: 'New York, 1932',      specialty: 'Rare diamonds & cluster designs',       img: '/images/Bridal Sets.jpg',slug:'harry-winston'},
 ];
 
 const WATCH_SPOTLIGHTS: WatchSpotlight[] = [
-  { name: 'Royal Oak',          brand: 'Audemars Piguet', price: 'From $30,000',  desc: 'The octagonal bezel that changed watchmaking forever. Genta\'s masterpiece remains untouchable.',           img: '/images/jwl-watch-royaloak.jpg',   slug: 'audemars-royal-oak'    },
-  { name: 'Nautilus 5711',      brand: 'Patek Philippe',  price: 'From $150,000', desc: 'Discontinued. Mythologised. The most coveted sports watch ever made — and still climbing.',                 img: '/images/jwl-watch-nautilus.jpg',   slug: 'patek-nautilus-5711'   },
-  { name: 'Daytona 116500LN',   brand: 'Rolex',           price: 'From $75,000',  desc: 'The Panda dial on a ceramic bezel. Every serious collector\'s non-negotiable.',                             img: '/images/jwl-watch-daytona.jpg',    slug: 'rolex-daytona-116500'  },
-  { name: 'Santos de Cartier',  brand: 'Cartier',         price: 'From $8,000',   desc: 'Born for aviation in 1904. Still the most elegant dress-sport watch money can buy.',                        img: '/images/jwl-watch-santos.jpg',     slug: 'cartier-santos'        },
+  { name: 'Royal Oak',          brand: 'Audemars Piguet', price: 'From $30,000',  desc: 'The octagonal bezel that changed watchmaking forever. Genta\'s masterpiece remains untouchable.',           img: '/images/hero-watches.jpg',   slug: 'audemars-royal-oak'    },
+  { name: 'Nautilus 5711',      brand: 'Patek Philippe',  price: 'From $150,000', desc: 'Discontinued. Mythologised. The most coveted sports watch ever made — and still climbing.',                 img: '/images/placeholder-watch.jpg',   slug: 'patek-nautilus-5711'   },
+  { name: 'Daytona 116500LN',   brand: 'Rolex',           price: 'From $75,000',  desc: 'The Panda dial on a ceramic bezel. Every serious collector\'s non-negotiable.',                             img: '/images/watch.jpg',    slug: 'rolex-daytona-116500'  },
+  { name: 'Santos de Cartier',  brand: 'Cartier',         price: 'From $8,000',   desc: 'Born for aviation in 1904. Still the most elegant dress-sport watch money can buy.',                        img: '/images/hero-watches.jpg',     slug: 'cartier-santos'        },
 ];
 
 const STORIES: Story[] = [
@@ -65,7 +65,7 @@ function Navbar() {
     { label: 'Fine Brands',    href: '#brands'   },
     { label: 'Watch Spotlights', href: '#watches' },
     { label: 'Stories',        href: '#stories'  },
-    { label: '← SM Luxury',   href: '/'         },
+    { label: 'Indian Luxury House',   href: '/'         },
   ];
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
@@ -80,8 +80,8 @@ function Navbar() {
           <Link href="/" style={{ display:'flex', alignItems:'center', gap:12, textDecoration:'none' }}>
             <SMLogo size={36} />
             <div>
-              <div style={{ fontFamily:'Georgia,serif', fontSize:18, fontWeight:300, color:'#C9A84C', letterSpacing:'0.22em' }}>SM</div>
-              <div style={{ fontSize:8, color:'rgba(201,168,76,0.45)', letterSpacing:'0.35em', textTransform:'uppercase' }}>Luxury</div>
+              <div style={{ fontFamily:'Georgia,serif', fontSize:18, fontWeight:300, color:'#C9A84C', letterSpacing:'0.22em' }}>INDIAN </div>
+              <div style={{ fontSize:8, color:'rgba(201,168,76,0.45)', letterSpacing:'0.35em', textTransform:'uppercase' }}>LUXURY HOUSE</div>
             </div>
           </Link>
           <nav style={{ display:'flex', alignItems:'center', gap:4 }} className="jwl-nav-desk">

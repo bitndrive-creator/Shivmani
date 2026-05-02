@@ -19,28 +19,28 @@ const NAV_LINKS = [
 
 // ── DESIGNERS ──────────────────────────────────────────────────
 const DESIGNERS = [
-  { name: 'Sabyasachi Mukherjee', specialty: 'Bridal Couture',         city: 'Kolkata',   img: '/images/designer-sabyasachi.jpg',    slug: 'sabyasachi-mukherjee'   },
-  { name: 'Manish Malhotra',      specialty: 'Contemporary Bridal',    city: 'Mumbai',    img: '/images/designer-manish.jpg',        slug: 'manish-malhotra'        },
-  { name: 'Tarun Tahiliani',      specialty: 'Luxury Indian Couture',  city: 'Delhi',     img: '/images/designer-tarun.jpg',         slug: 'tarun-tahiliani'        },
-  { name: 'Abu Jani Sandeep Khosla', specialty: 'Heritage Bridal',     city: 'Mumbai',    img: '/images/designer-abu-sandeep.jpg',   slug: 'abu-jani-sandeep-khosla'},
+  { name: 'Sabyasachi Mukherjee', specialty: 'Bridal Couture',         city: 'Kolkata',   img: '/images/Sabyasachi Mukherjee.jpg',    slug: 'sabyasachi-mukherjee'   },
+  { name: 'Manish Malhotra',      specialty: 'Contemporary Bridal',    city: 'Mumbai',    img: '/images/Manish Malhotra.jpg',        slug: 'manish-malhotra'        },
+  { name: 'Tarun Tahiliani',      specialty: 'Luxury Indian Couture',  city: 'Delhi',     img: '/images/Tarun Tahiliani.jpg',         slug: 'tarun-tahiliani'        },
+  { name: 'Abu Jani Sandeep Khosla', specialty: 'Heritage Bridal',     city: 'Mumbai',    img: '/images/Abu Jani Sandeep Khosla.jpg',   slug: 'abu-jani-sandeep-khosla'},
 ];
 
 // ── WEDDING PLANNERS ───────────────────────────────────────────
 const PLANNERS = [
-  { name: 'Shaadi Squad',        specialty: 'Destination & Luxury Weddings', city: 'Mumbai',    img: '/images/planner-shaadisquad.jpg',  slug: 'shaadi-squad'    },
-  { name: 'WeddingSutra',        specialty: 'Pan-India Luxury Events',       city: 'Mumbai',    img: '/images/planner-weddingsutra.jpg', slug: 'weddingsutra'    },
-  { name: 'Morvi Images',        specialty: 'Rajasthan Heritage Weddings',   city: 'Jaipur',    img: '/images/planner-morvi.jpg',        slug: 'morvi-images'    },
-  { name: 'Weddings by Neeraj Kamra', specialty: 'Royal Palace Weddings',   city: 'Delhi',     img: '/images/planner-neeraj.jpg',       slug: 'neeraj-kamra'    },
+  { name: 'Shaadi Squad',        specialty: 'Destination & Luxury Weddings', city: 'Mumbai',    img: '/images/Shaadi Squad.jpg',  slug: 'shaadi-squad'    },
+  { name: 'WeddingSutra',        specialty: 'Pan-India Luxury Events',       city: 'Mumbai',    img: '/images/WeddingSutra.jpg', slug: 'weddingsutra'    },
+  { name: 'Morvi Images',        specialty: 'Rajasthan Heritage Weddings',   city: 'Jaipur',    img: '/images/Morvi Images.jpg',        slug: 'morvi-images'    },
+  { name: 'Weddings by Neeraj Kamra', specialty: 'Royal Palace Weddings',   city: 'Delhi',     img: '/images/eddings by Neeraj Kamra.jpg',       slug: 'neeraj-kamra'    },
 ];
 
 // ── VENUES ─────────────────────────────────────────────────────
 const VENUES = [
-  { name: 'Umaid Bhawan Palace',     location: 'Jodhpur, Rajasthan',   capacity: '2000+', img: '/images/venue-umaid.jpg',     slug: 'umaid-bhawan-palace'   },
-  { name: 'Taj Lake Palace',         location: 'Udaipur, Rajasthan',   capacity: '500',   img: '/images/venue-taj-lake.jpg',  slug: 'taj-lake-palace'       },
-  { name: 'The Leela Palace',        location: 'New Delhi',            capacity: '1500',  img: '/images/venue-leela.jpg',     slug: 'leela-palace-delhi'    },
-  { name: 'Falaknuma Palace',        location: 'Hyderabad',            capacity: '800',   img: '/images/venue-falaknuma.jpg', slug: 'falaknuma-palace'      },
-  { name: 'Samode Palace',           location: 'Jaipur, Rajasthan',    capacity: '600',   img: '/images/venue-samode.jpg',    slug: 'samode-palace'         },
-  { name: 'The Oberoi Udaivilas',    location: 'Udaipur, Rajasthan',   capacity: '400',   img: '/images/venue-udaivilas.jpg', slug: 'oberoi-udaivilas'      },
+  { name: 'Umaid Bhawan Palace',     location: 'Jodhpur, Rajasthan',   capacity: '2000+', img: '/images/Umaid Bhawan Palace.jpg',     slug: 'umaid-bhawan-palace'   },
+  { name: 'Taj Lake Palace',         location: 'Udaipur, Rajasthan',   capacity: '500',   img: '/images/Taj Lake Palace.jpg',  slug: 'taj-lake-palace'       },
+  { name: 'The Leela Palace',        location: 'New Delhi',            capacity: '1500',  img: '/images/The Leela Palace.jpg',     slug: 'leela-palace-delhi'    },
+  // { name: 'Falaknuma Palace',        location: 'Hyderabad',            capacity: '800',   img: '/images/venue-falaknuma.jpg', slug: 'falaknuma-palace'      },
+  // { name: 'Samode Palace',           location: 'Jaipur, Rajasthan',    capacity: '600',   img: '/images/venue-samode.jpg',    slug: 'samode-palace'         },
+  // { name: 'The Oberoi Udaivilas',    location: 'Udaipur, Rajasthan',   capacity: '400',   img: '/images/venue-udaivilas.jpg', slug: 'oberoi-udaivilas'      },
 ];
 
 // ── BEAUTY EXPERTS ─────────────────────────────────────────────
@@ -58,27 +58,27 @@ const EDITORIAL = [
     category: 'Destination Weddings',
     title: 'Destination Wedding Trends Redefining India\'s Luxury Wedding Season',
     excerpt: 'From Rajasthan\'s heritage forts to Maldivian islands, India\'s elite are choosing destinations as extraordinary as their love stories.',
-    img: '/images/post-wedding-1.jpg',
+    img: '/images/hero-weddings.jpg',
     author: 'Ananya Birla',
     date: 'Apr 8, 2026',
     readTime: 6,
   },
   {
-    slug: 'luxury-bridal-looks-2026',
+    slug: 'destination-wedding-trends-2026',
     category: 'Bridal Fashion',
     title: 'The Most Covetable Bridal Looks of 2026 — From Sabyasachi to Manish Malhotra',
     excerpt: 'India\'s couture masters have outdone themselves this season. Our editors curate the looks that made us catch our breath.',
-    img: '/images/post-wedding-2.jpg',
+    img: '/images/WeddingSutra.jpg',
     author: 'Divya Nair',
     date: 'Apr 4, 2026',
     readTime: 5,
   },
   {
-    slug: 'intimate-luxury-weddings-india',
+    slug: 'destination-wedding-trends-2026',
     category: 'Wedding Planning',
     title: 'The Rise of the Intimate Luxury Wedding: 50 Guests, Infinite Elegance',
     excerpt: 'Why India\'s most discerning couples are choosing depth over scale — and how the results are transforming the wedding industry.',
-    img: '/images/post-wedding-3.jpg',
+    img: '/images/Shaadi Squad.jpg',
     author: 'Priya Mehta',
     date: 'Mar 28, 2026',
     readTime: 7,
