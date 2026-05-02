@@ -655,7 +655,7 @@ export default function WeddingsPage() {
         </section>
 
       </main>
-      <Footer />
+      
     </>
   );
 }
