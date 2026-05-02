@@ -360,8 +360,6 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
           </div>
         </section>
       </main>
-    
-
       <style>{`
         @media(max-width:900px){ .ilh-posts-grid { grid-template-columns: repeat(2,1fr) !important; } }
         @media(max-width:600px){ .ilh-posts-grid { grid-template-columns: 1fr !important; } }
