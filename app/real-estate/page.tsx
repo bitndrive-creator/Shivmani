@@ -429,96 +429,96 @@ function EditorialCard({ post, big = false }: { post: typeof EDITORIAL[0]; big?:
 }
 
 // ── FOOTER ────────────────────────────────────────────────────
-function Footer() {
-  const CATS = [
-    { name: 'Real Estate', slug: 'real-estate' },
-    { name: 'Automobiles', slug: 'automobiles' },
-    { name: 'Jewellery & Watches', slug: 'jewellery-watches' },
-    { name: 'Weddings', slug: 'weddings' },
-    { name: 'Curated Partners', slug: 'curated-partners' },
-  ];
-  return (
-    <footer style={{ background: '#0A0A0A', borderTop: '1px solid rgba(201,168,76,0.15)', padding: '64px 32px 32px' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: 48, marginBottom: 52 }} className="ilh-re-footer">
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
-              <ILHLogo size={36} />
-              <div>
-                <div style={{ fontFamily: 'Georgia,serif', fontSize: 15, color: '#DFC27A', letterSpacing: '0.28em' }}>INDIAN</div>
-                <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.35)', letterSpacing: '0.4em', marginTop: 2 }}>LUXURY HOUSE</div>
-              </div>
-            </div>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', lineHeight: 1.85, fontWeight: 300, maxWidth: 250, marginBottom: 24 }}>Where India Meets Global Luxury. Celebrating the world of luxury through an India-first lens.</p>
-            <div style={{ display: 'flex', gap: 18 }}>
-              {['Instagram', 'LinkedIn'].map(s => (
-                <a key={s} href="#" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
-                  onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
-                  onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.38)')}
-                >{s}</a>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Categories</p>
-            {CATS.map(c => (
-              <Link key={c.slug} href={`/${c.slug}`}
-                style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
-              >{c.name}</Link>
-            ))}
-          </div>
-          <div>
-            <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Navigate</p>
-            {[{ l: 'Home', h: '/' }, { l: 'News', h: '/news' }, { l: 'Partner With Us', h: '/partner-with-us' }, { l: 'About', h: '/about' }].map(item => (
-              <Link key={item.h} href={item.h}
-                style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
-              >{item.l}</Link>
-            ))}
-          </div>
-          <div>
-            <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Contact</p>
-            <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.22)', marginBottom: 6 }}>Partnerships:</p>
-            <a href="mailto:hello@indianluxuryhouse.com"
-              style={{ fontSize: 12, color: 'rgba(201,168,76,0.5)', textDecoration: 'none', display: 'block', marginBottom: 28, transition: 'color .2s' }}
-              onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
-              onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.5)')}
-            >hello@indianluxuryhouse.com</a>
-            <p style={{ fontSize: 9, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.28)', marginBottom: 12 }}>Newsletter</p>
-            <div style={{ display: 'flex' }}>
-              <input type="email" placeholder="your@email.com"
-                style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.18)', color: '#DFC27A', fontSize: 11, padding: '9px 12px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
-              />
-              <button style={{ background: '#C9A84C', color: '#0A0A0A', border: 'none', padding: '9px 14px', cursor: 'pointer', fontSize: 14, fontWeight: 700, transition: 'background .2s' }}
-                onMouseEnter={e => ((e.target as HTMLElement).style.background = '#DFC27A')}
-                onMouseLeave={e => ((e.target as HTMLElement).style.background = '#C9A84C')}
-              >→</button>
-            </div>
-          </div>
-        </div>
-        <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent)', marginBottom: 24 }} />
-        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', letterSpacing: '0.08em' }}>© {new Date().getFullYear()} Indian Luxury House. All rights reserved.</p>
-          <div style={{ display: 'flex', gap: 22 }}>
-            {['Privacy Policy', 'Terms of Use'].map(l => (
-              <a key={l} href="#" style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color .2s' }}
-                onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.45)')}
-                onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.16)')}
-              >{l}</a>
-            ))}
-          </div>
-        </div>
-      </div>
-      <style>{`
-        @media(max-width:767px){ .ilh-re-footer { grid-template-columns: 1fr !important; gap: 32px !important; } }
-        @media(min-width:768px) and (max-width:1023px){ .ilh-re-footer { grid-template-columns: 1fr 1fr !important; } }
-      `}</style>
-    </footer>
-  );
-}
+// function Footer() {
+//   const CATS = [
+//     { name: 'Real Estate', slug: 'real-estate' },
+//     { name: 'Automobiles', slug: 'automobiles' },
+//     { name: 'Jewellery & Watches', slug: 'jewellery-watches' },
+//     { name: 'Weddings', slug: 'weddings' },
+//     { name: 'Curated Partners', slug: 'curated-partners' },
+//   ];
+//   return (
+//     <footer style={{ background: '#0A0A0A', borderTop: '1px solid rgba(201,168,76,0.15)', padding: '64px 32px 32px' }}>
+//       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+//         <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: 48, marginBottom: 52 }} className="ilh-re-footer">
+//           <div>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
+//               <ILHLogo size={36} />
+//               <div>
+//                 <div style={{ fontFamily: 'Georgia,serif', fontSize: 15, color: '#DFC27A', letterSpacing: '0.28em' }}>INDIAN</div>
+//                 <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.35)', letterSpacing: '0.4em', marginTop: 2 }}>LUXURY HOUSE</div>
+//               </div>
+//             </div>
+//             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', lineHeight: 1.85, fontWeight: 300, maxWidth: 250, marginBottom: 24 }}>Where India Meets Global Luxury. Celebrating the world of luxury through an India-first lens.</p>
+//             <div style={{ display: 'flex', gap: 18 }}>
+//               {['Instagram', 'LinkedIn'].map(s => (
+//                 <a key={s} href="#" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
+//                   onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
+//                   onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.38)')}
+//                 >{s}</a>
+//               ))}
+//             </div>
+//           </div>
+//           <div>
+//             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Categories</p>
+//             {CATS.map(c => (
+//               <Link key={c.slug} href={`/${c.slug}`}
+//                 style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
+//                 onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
+//                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
+//               >{c.name}</Link>
+//             ))}
+//           </div>
+//           <div>
+//             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Navigate</p>
+//             {[{ l: 'Home', h: '/' }, { l: 'News', h: '/news' }, { l: 'Partner With Us', h: '/partner-with-us' }, { l: 'About', h: '/about' }].map(item => (
+//               <Link key={item.h} href={item.h}
+//                 style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
+//                 onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
+//                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
+//               >{item.l}</Link>
+//             ))}
+//           </div>
+//           <div>
+//             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Contact</p>
+//             <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.22)', marginBottom: 6 }}>Partnerships:</p>
+//             <a href="mailto:hello@indianluxuryhouse.com"
+//               style={{ fontSize: 12, color: 'rgba(201,168,76,0.5)', textDecoration: 'none', display: 'block', marginBottom: 28, transition: 'color .2s' }}
+//               onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
+//               onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.5)')}
+//             >hello@indianluxuryhouse.com</a>
+//             <p style={{ fontSize: 9, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.28)', marginBottom: 12 }}>Newsletter</p>
+//             <div style={{ display: 'flex' }}>
+//               <input type="email" placeholder="your@email.com"
+//                 style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.18)', color: '#DFC27A', fontSize: 11, padding: '9px 12px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
+//               />
+//               <button style={{ background: '#C9A84C', color: '#0A0A0A', border: 'none', padding: '9px 14px', cursor: 'pointer', fontSize: 14, fontWeight: 700, transition: 'background .2s' }}
+//                 onMouseEnter={e => ((e.target as HTMLElement).style.background = '#DFC27A')}
+//                 onMouseLeave={e => ((e.target as HTMLElement).style.background = '#C9A84C')}
+//               >→</button>
+//             </div>
+//           </div>
+//         </div>
+//         <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent)', marginBottom: 24 }} />
+//         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+//           <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', letterSpacing: '0.08em' }}>© {new Date().getFullYear()} Indian Luxury House. All rights reserved.</p>
+//           <div style={{ display: 'flex', gap: 22 }}>
+//             {['Privacy Policy', 'Terms of Use'].map(l => (
+//               <a key={l} href="#" style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color .2s' }}
+//                 onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.45)')}
+//                 onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.16)')}
+//               >{l}</a>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//       <style>{`
+//         @media(max-width:767px){ .ilh-re-footer { grid-template-columns: 1fr !important; gap: 32px !important; } }
+//         @media(min-width:768px) and (max-width:1023px){ .ilh-re-footer { grid-template-columns: 1fr 1fr !important; } }
+//       `}</style>
+//     </footer>
+//   );
+// }
 
 // ── REAL ESTATE PAGE (MAIN) ───────────────────────────────────
 export default function RealEstatePage() {
@@ -744,7 +744,7 @@ export default function RealEstatePage() {
         </section>
 
       </main>
-      <Footer />
+      
     </>
   );
 }

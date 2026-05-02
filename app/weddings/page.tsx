@@ -339,12 +339,12 @@ function EditorialCard({ post, big = false }: { post: typeof EDITORIAL[0]; big?:
 }
 
 // ── FOOTER ────────────────────────────────────────────────────
-function Footer() {
-  const CATS = [
-    { name: 'Real Estate', slug: 'real-estate' }, { name: 'Automobiles', slug: 'automobiles' },
-    { name: 'Jewellery & Watches', slug: 'jewellery-watches' }, { name: 'Weddings', slug: 'weddings' },
-    { name: 'Curated Partners', slug: 'curated-partners' },
-  ];
+// function Footer() {
+//   const CATS = [
+//     { name: 'Real Estate', slug: 'real-estate' }, { name: 'Automobiles', slug: 'automobiles' },
+//     { name: 'Jewellery & Watches', slug: 'jewellery-watches' }, { name: 'Weddings', slug: 'weddings' },
+//     { name: 'Curated Partners', slug: 'curated-partners' },
+//   ];
   // return (
   //   <footer style={{ background: '#0A0A0A', borderTop: '1px solid rgba(201,168,76,0.15)', padding: '64px 32px 32px' }}>
   //     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
@@ -426,7 +426,7 @@ function Footer() {
   //     `}</style>
   //   </footer>
   // );
-}
+// }
 
 // ── WEDDINGS PAGE (MAIN) ──────────────────────────────────────
 export default function WeddingsPage() {
