@@ -102,83 +102,6 @@ function ILHLogo({ size = 36 }: { size?: number }) {
   );
 }
 
-// ── NAVBAR ────────────────────────────────────────────────────
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', fn, { passive: true });
-    return () => window.removeEventListener('scroll', fn);
-  }, []);
-
-  return (
-    <>
-      <header style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        background: scrolled ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.88)',
-        backdropFilter: 'blur(12px)', transition: 'background 0.4s ease',
-        boxShadow: scrolled ? '0 2px 24px rgba(0,0,0,0.4)' : 'none',
-      }}>
-        <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.7 }} />
-        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', height: 72, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', flexShrink: 0 }}>
-            <ILHLogo size={40} />
-            <div style={{ lineHeight: 1 }}>
-              <div style={{ fontFamily: 'Georgia,serif', fontSize: 18, fontWeight: 300, color: '#DFC27A', letterSpacing: '0.3em', textTransform: 'uppercase' }}>Indian</div>
-              <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.45)', letterSpacing: '0.4em', textTransform: 'uppercase', marginTop: 3 }}>Luxury House</div>
-            </div>
-          </Link>
-
-          <nav className="ilh-w-nav" style={{ display: 'flex', alignItems: 'center' }}>
-            {NAV_LINKS.map(link => {
-              const isActive = link.href === '/weddings';
-              return (
-                <Link key={link.href} href={link.href}
-                  style={{
-                    fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase',
-                    color: isActive ? '#DFC27A' : link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)',
-                    textDecoration: 'none', padding: '8px 10px',
-                    borderBottom: isActive ? '1px solid #C9A84C' : '1px solid transparent',
-                    fontWeight: isActive ? 500 : 400, transition: 'color .2s', whiteSpace: 'nowrap',
-                    ...(link.href === '/partner-with-us' ? { border: '1px solid rgba(201,168,76,0.3)', padding: '6px 10px', marginLeft: 4 } : {}),
-                  }}
-                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#DFC27A'; }}
-                  onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)'; }}
-                >{link.label}</Link>
-              );
-            })}
-          </nav>
-
-          <button className="ilh-w-ham" onClick={() => setMenuOpen(!menuOpen)}
-            style={{ background: 'none', border: 'none', color: '#C9A84C', cursor: 'pointer', padding: 8, display: 'none' }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              {menuOpen ? <path d="M18 6 6 18M6 6l12 12"/> : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>}
-            </svg>
-          </button>
-        </div>
-
-        <div style={{ background: '#0A0A0A', overflow: 'hidden', maxHeight: menuOpen ? 600 : 0, transition: 'max-height 0.35s ease', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
-          {NAV_LINKS.map(link => (
-            <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
-              style={{ display: 'block', padding: '14px 28px', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: link.href === '/weddings' ? '#DFC27A' : 'rgba(201,168,76,0.65)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.08)', transition: 'background .2s' }}
-              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,168,76,0.06)')}
-              onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
-            >{link.label}</Link>
-          ))}
-        </div>
-        <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent)' }} />
-      </header>
-
-      <style>{`
-        .ilh-w-nav { display: flex !important; }
-        .ilh-w-ham { display: none !important; }
-        @media(max-width:1100px){ .ilh-w-nav { display: none !important; } .ilh-w-ham { display: flex !important; } }
-      `}</style>
-    </>
-  );
-}
 
 // ── SECTION HEADER ────────────────────────────────────────────
 function SectionHeader({ eyebrow, title, align = 'left' }: { eyebrow: string; title: string; align?: 'left' | 'center' }) {
@@ -338,101 +261,12 @@ function EditorialCard({ post, big = false }: { post: typeof EDITORIAL[0]; big?:
   );
 }
 
-// ── FOOTER ────────────────────────────────────────────────────
-// function Footer() {
-//   const CATS = [
-//     { name: 'Real Estate', slug: 'real-estate' }, { name: 'Automobiles', slug: 'automobiles' },
-//     { name: 'Jewellery & Watches', slug: 'jewellery-watches' }, { name: 'Weddings', slug: 'weddings' },
-//     { name: 'Curated Partners', slug: 'curated-partners' },
-//   ];
-  // return (
-  //   <footer style={{ background: '#0A0A0A', borderTop: '1px solid rgba(201,168,76,0.15)', padding: '64px 32px 32px' }}>
-  //     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-  //       <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: 48, marginBottom: 52 }} className="ilh-w-footer">
-  //         <div>
-  //           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
-  //             <ILHLogo size={36} />
-  //             <div>
-  //               <div style={{ fontFamily: 'Georgia,serif', fontSize: 15, color: '#DFC27A', letterSpacing: '0.28em' }}>INDIAN</div>
-  //               <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.35)', letterSpacing: '0.4em', marginTop: 2 }}>LUXURY HOUSE</div>
-  //             </div>
-  //           </div>
-  //           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', lineHeight: 1.85, fontWeight: 300, maxWidth: 250, marginBottom: 24 }}>Where India Meets Global Luxury. Celebrating the world of luxury through an India-first lens.</p>
-  //           <div style={{ display: 'flex', gap: 18 }}>
-  //             {['Instagram', 'LinkedIn'].map(s => (
-  //               <a key={s} href="#" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
-  //                 onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
-  //                 onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.38)')}
-  //               >{s}</a>
-  //             ))}
-  //           </div>
-  //         </div>
-  //         <div>
-  //           <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Categories</p>
-  //           {CATS.map(c => (
-  //             <Link key={c.slug} href={`/${c.slug}`}
-  //               style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
-  //               onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-  //               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
-  //             >{c.name}</Link>
-  //           ))}
-  //         </div>
-  //         <div>
-  //           <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Navigate</p>
-  //           {[{ l: 'Home', h: '/' }, { l: 'News', h: '/news' }, { l: 'Partner With Us', h: '/partner-with-us' }, { l: 'About', h: '/about' }].map(item => (
-  //             <Link key={item.h} href={item.h}
-  //               style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
-  //               onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-  //               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
-  //             >{item.l}</Link>
-  //           ))}
-  //         </div>
-  //         <div>
-  //           <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Contact</p>
-  //           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.22)', marginBottom: 6 }}>Partnerships:</p>
-  //           <a href="mailto:hello@indianluxuryhouse.com"
-  //             style={{ fontSize: 12, color: 'rgba(201,168,76,0.5)', textDecoration: 'none', letterSpacing: '0.03em', display: 'block', marginBottom: 28, transition: 'color .2s' }}
-  //             onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
-  //             onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.5)')}
-  //           >hello@indianluxuryhouse.com</a>
-  //           <p style={{ fontSize: 9, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.28)', marginBottom: 12 }}>Newsletter</p>
-  //           <div style={{ display: 'flex' }}>
-  //             <input type="email" placeholder="your@email.com"
-  //               style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.18)', color: '#DFC27A', fontSize: 11, padding: '9px 12px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
-  //             />
-  //             <button style={{ background: '#C9A84C', color: '#0A0A0A', border: 'none', padding: '9px 14px', cursor: 'pointer', fontSize: 14, fontWeight: 700, transition: 'background .2s' }}
-  //               onMouseEnter={e => ((e.target as HTMLElement).style.background = '#DFC27A')}
-  //               onMouseLeave={e => ((e.target as HTMLElement).style.background = '#C9A84C')}
-  //             >→</button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //       <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent)', marginBottom: 24 }} />
-  //       <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-  //         <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', letterSpacing: '0.08em' }}>© {new Date().getFullYear()} Indian Luxury House. All rights reserved.</p>
-  //         <div style={{ display: 'flex', gap: 22 }}>
-  //           {['Privacy Policy', 'Terms of Use'].map(l => (
-  //             <a key={l} href="#" style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color .2s' }}
-  //               onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.45)')}
-  //               onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.16)')}
-  //             >{l}</a>
-  //           ))}
-  //         </div>
-  //       </div>
-  //     </div>
-  //     <style>{`
-  //       @media(max-width:767px){ .ilh-w-footer { grid-template-columns: 1fr !important; gap: 32px !important; } }
-  //       @media(min-width:768px) and (max-width:1023px){ .ilh-w-footer { grid-template-columns: 1fr 1fr !important; } }
-  //     `}</style>
-  //   </footer>
-  // );
-// }
 
 // ── WEDDINGS PAGE (MAIN) ──────────────────────────────────────
 export default function WeddingsPage() {
   return (
     <>
-      <Navbar />
+    
       <main>
 
         {/* ══ HERO ═════════════════════════════════════════════ */}
