@@ -19,7 +19,7 @@ const NAV_LINKS = [
 
 const THIS_CATEGORY = 'Real Estate';
 const THIS_CAT_SLUG = 'real-estate';
-const API_BASE = 'https://shivmani-baceknd.onrender.com';
+const API_BASE = 'http://91.108.111.103:5000';
 
 // ── FEATURED PROPERTIES ────────────────────────────────────────────────────────
 const PROPERTIES = [

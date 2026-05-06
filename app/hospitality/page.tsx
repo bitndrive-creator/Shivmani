@@ -94,8 +94,8 @@ function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
     ? post.coverImage.startsWith('http')
       ? post.coverImage
       : post.coverImage.startsWith('/uploads/')
-        ? `https://shivmani-baceknd.onrender.com${post.coverImage}`
-        : `https://shivmani-baceknd.onrender.com/uploads/${post.coverImage}`
+        ? `http://91.108.111.103:5000${post.coverImage}`
+        : `http://91.108.111.103:5000/uploads/${post.coverImage}`
     : CAT_IMAGE_MAP[post.category] ?? '/images/hero-hospitality.jpg';
 
   return (

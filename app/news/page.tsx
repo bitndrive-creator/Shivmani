@@ -115,7 +115,7 @@ export default function NewsPage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch('https://shivmani-baceknd.onrender.com/api/editorials');
+        const res = await fetch('http://91.108.111.103:5000/api/editorials');
         if (!res.ok) return;
         const data: Post[] = await res.json();
         // Sirf published posts
