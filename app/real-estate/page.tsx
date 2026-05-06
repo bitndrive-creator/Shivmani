@@ -19,7 +19,7 @@ const NAV_LINKS = [
 
 const THIS_CATEGORY = 'Real Estate';
 const THIS_CAT_SLUG = 'real-estate';
-const API_BASE = 'http://91.108.111.103:5000';
+const API_BASE = 'https://api.indianluxuryhouse.com';
 
 // ── FEATURED PROPERTIES ────────────────────────────────────────────────────────
 const PROPERTIES = [

@@ -1,16 +1,35 @@
 const nextConfig = {
   images: {
-    unoptimized: true,  // Next.js optimization band, seedha URL se load hoga
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'shivmani-baceknd.onrender.com',
+        hostname: 'shivmani-baceknd.onrender.com', // purana — hata sakte ho
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.indianluxuryhouse.com', // ✅ naya domain
       },
     ],
   },
 };
 
 export default nextConfig;
+
+
+// const nextConfig = {
+//   images: {
+//     unoptimized: true,  // Next.js optimization band, seedha URL se load hoga
+//     remotePatterns: [
+//       {
+//         protocol: 'https',
+//         hostname: 'shivmani-baceknd.onrender.com',
+//       },
+//     ],
+//   },
+// };
+
+// export default nextConfig;
 
 // import type { NextConfig } from "next";
 

@@ -94,8 +94,8 @@ function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
     ? post.coverImage.startsWith('http')
       ? post.coverImage
       : post.coverImage.startsWith('/uploads/')
-        ? `http://91.108.111.103:5000${post.coverImage}`
-        : `http://91.108.111.103:5000/uploads/${post.coverImage}`
+        ? `https://api.indianluxuryhouse.com${post.coverImage}`
+        : `https://api.indianluxuryhouse.com/uploads/${post.coverImage}`
     : CAT_IMAGE_MAP[post.category] ?? '/images/hero-hospitality.jpg';
 
   return (
@@ -232,7 +232,7 @@ export default function HospitalityPage() {
       try {
         setLoading(true);
         setError(null);
-        const res = await fetch('https://shivmani-baceknd.onrender.com/api/editorials');
+        const res = await fetch('https://api.indianluxuryhouse.com/api/editorials');
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const data: Post[] = await res.json();
         const filtered = data.filter(p => p.isPublished && p.category === 'Hospitality');

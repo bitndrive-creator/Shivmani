@@ -166,7 +166,7 @@ function Header() {
 }
 
 // ── RELATED CARD ──────────────────────────────────────────────
-const API_BASE = 'http://91.108.111.103:5000';
+const API_BASE = 'https://api.indianluxuryhouse.com';
 
 function getImg(coverImage?: string, category?: string): string {
   if (coverImage) {
@@ -256,7 +256,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
       try {
         setLoading(true);
         setError(null);
-        const res = await fetch('http://91.108.111.103:5000/api/editorials');
+        const res = await fetch('https://api.indianluxuryhouse.com/api/editorials');
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const data: Post[] = await res.json();
         const published = data.filter(p => p.isPublished);

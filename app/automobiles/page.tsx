@@ -18,7 +18,7 @@ const NAV_LINKS = [
 
 const THIS_CATEGORY = 'Automobiles';
 const THIS_CAT_SLUG = 'automobiles';
-const API_BASE = 'http://91.108.111.103:5000';
+const API_BASE = 'https://api.indianluxuryhouse.com';
 
 const LAUNCHES = [
   { slug: 'rolls-royce-spectre-india',    type: 'Electric Coupe',    segment: 'Cars',  name: 'Rolls-Royce Spectre',    brand: 'Rolls-Royce',  price: '₹7.5 Cr onwards',   power: '577 bhp',   img: '/images/hero-cars.jpg',      tag: 'New Launch',  highlight: 'First all-electric ultra-luxury'    },
