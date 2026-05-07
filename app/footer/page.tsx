@@ -39,7 +39,7 @@ export default function Footer() {
 
           {/* Col 1 — Brand */}
           <div>
-            {/* <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
               <Image
                 src="/logos.png"
                 alt="Indian Luxury House"
@@ -47,31 +47,18 @@ export default function Footer() {
                 height={80}
                 style={{ objectFit: 'contain' }}
               />
-              <div>
+              <div style={{ marginLeft: -4 }}>
                 <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, color: '#DFC27A', letterSpacing: '0.28em', textTransform: 'uppercase' }}>Indian</div>
                 <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.4)', letterSpacing: '0.4em', textTransform: 'uppercase', marginTop: 3 }}>Luxury House</div>
               </div>
-            </div> */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
-  <Image
-    src="/logos.png"
-    alt="Indian Luxury House"
-    width={80}
-    height={80}
-    style={{ objectFit: 'contain' }}
-  />
-  <div style={{ marginLeft: -4 }}>  {/* ← thoda aur paas */}
-    <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, color: '#DFC27A', letterSpacing: '0.28em', textTransform: 'uppercase' }}>Indian</div>
-    <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.4)', letterSpacing: '0.4em', textTransform: 'uppercase', marginTop: 3 }}>Luxury House</div>
-  </div>
-</div>
+            </div>
 
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', lineHeight: 1.9, fontWeight: 300, maxWidth: 260, marginBottom: 28 }}>
+            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', lineHeight: 1.9, fontWeight: 300, maxWidth: 260, marginBottom: 28 }}>
               Celebrating, connecting, and elevating the world of luxury through an India-first lens.
             </p>
 
             {/* Tagline */}
-            <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 24 }}>
+            <p style={{ fontSize: 11, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)', marginBottom: 24 }}>
               Where India Meets Global Luxury
             </p>
 
@@ -79,9 +66,9 @@ export default function Footer() {
             <div style={{ display: 'flex', gap: 20 }}>
               {['Instagram', 'LinkedIn'].map(s => (
                 <a key={s} href="#"
-                  style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)', textDecoration: 'none', transition: 'color 0.2s' }}
+                  style={{ fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)', textDecoration: 'none', transition: 'color 0.2s' }}
                   onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
-                  onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.4)')}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.65)')}
                 >{s}</a>
               ))}
             </div>
@@ -89,13 +76,13 @@ export default function Footer() {
 
           {/* Col 2 — Navigate */}
           <div>
-            <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 22, fontWeight: 500 }}>Navigate</p>
+            <p style={{ fontSize: 12, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)', marginBottom: 22, fontWeight: 500 }}>Navigate</p>
             {NAVIGATE.map(item => (
               <div key={item.href} style={{ marginBottom: 14 }}>
                 <Link href={item.href}
-                  style={{ fontSize: 12, color: 'rgba(255,255,255,0.32)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.32)')}
+                  style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
                 >{item.label}</Link>
               </div>
             ))}
@@ -103,13 +90,13 @@ export default function Footer() {
 
           {/* Col 3 — Categories */}
           <div>
-            <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 22, fontWeight: 500 }}>Categories</p>
+            <p style={{ fontSize: 12, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)', marginBottom: 22, fontWeight: 500 }}>Categories</p>
             {CATS.map(c => (
               <div key={c.slug} style={{ marginBottom: 14 }}>
                 <Link href={`/${c.slug}`}
-                  style={{ fontSize: 12, color: 'rgba(255,255,255,0.32)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.32)')}
+                  style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
                 >{c.name}</Link>
               </div>
             ))}
@@ -117,26 +104,26 @@ export default function Footer() {
 
           {/* Col 4 — Contact + Newsletter */}
           <div>
-            <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 22, fontWeight: 500 }}>Contact</p>
-            <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', marginBottom: 8, letterSpacing: '0.04em' }}>Partnerships:</p>
+            <p style={{ fontSize: 12, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)', marginBottom: 22, fontWeight: 500 }}>Contact</p>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', marginBottom: 8, letterSpacing: '0.04em' }}>Partnerships:</p>
             <a href="mailto:hello@indianluxuryhouse.com"
-              style={{ fontSize: 12, color: 'rgba(201,168,76,0.55)', textDecoration: 'none', letterSpacing: '0.03em', transition: 'color 0.2s', display: 'block', marginBottom: 36 }}
-              onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
-              onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.55)')}
+              style={{ fontSize: 14, color: '#C9A84C', textDecoration: 'none', letterSpacing: '0.03em', transition: 'color 0.2s', display: 'block', marginBottom: 36 }}
+              onMouseEnter={e => ((e.target as HTMLElement).style.color = '#DFC27A')}
+              onMouseLeave={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
             >hello@indianluxuryhouse.com</a>
 
             {/* Newsletter mini */}
-            <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 14, fontWeight: 500 }}>
+            <p style={{ fontSize: 12, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)', marginBottom: 14, fontWeight: 500 }}>
               Join India&apos;s Luxury Circle
             </p>
-            <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.22)', lineHeight: 1.7, marginBottom: 14 }}>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, marginBottom: 14 }}>
               Curated luxury intelligence, every week.
             </p>
             <div style={{ display: 'flex' }}>
               <input
                 type="email"
                 placeholder="your@email.com"
-                style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.2)', color: '#DFC27A', fontSize: 11, padding: '10px 14px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
+                style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.2)', color: '#DFC27A', fontSize: 13, padding: '10px 14px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
               />
               <button
                 style={{ background: '#C9A84C', color: '#0A0A0A', border: 'none', padding: '10px 16px', cursor: 'pointer', fontSize: 15, fontWeight: 700, transition: 'background 0.2s', flexShrink: 0 }}
@@ -152,15 +139,15 @@ export default function Footer() {
 
         {/* ── Bottom bar ── */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14 }}>
-          <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)', letterSpacing: '0.08em' }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em' }}>
             © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: 24 }}>
             {LEGAL.map(item => (
               <a key={item.href} href={item.href}
-                style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
-                onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
-                onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.18)')}
+                style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
+                onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.85)')}
+                onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
               >{item.label}</a>
             ))}
           </div>
@@ -179,6 +166,189 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+// 'use client';
+
+// import Link from 'next/link';
+// import Image from 'next/image';
+
+// // ── CATEGORIES ───────────────────────
+// const CATS = [
+//   { name: 'Real Estate',         slug: 'real-estate'      },
+//   { name: 'Automobiles',         slug: 'automobiles'      },
+//   { name: 'Jewellery & Watches', slug: 'jewellery-watches'},
+//   { name: 'Weddings',            slug: 'weddings'         },
+//   { name: 'Curated Partners',    slug: 'curated-partners' },
+// ];
+
+// const NAVIGATE = [
+//   { label: 'Home',            href: '/'               },
+//   { label: 'News',            href: '/news'           },
+//   { label: 'Partner With Us', href: '/partner-with-us'},
+//   { label: 'About',           href: '/about'          },
+// ];
+
+// const LEGAL = [
+//   { label: 'Privacy Policy', href: '/privacy' },
+//   { label: 'Terms of Use',   href: '/terms'   },
+// ];
+
+// // ── FOOTER ────────────────────────────────────────────────────
+// export default function Footer() {
+//   return (
+//     <footer style={{ background: '#0A0A0A', borderTop: '1px solid rgba(201,168,76,0.15)' }}>
+
+//       {/* Top gold shimmer */}
+//       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
+
+//       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px 36px' }}>
+
+//         {/* ── 4-column grid ── */}
+//         <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr', gap: 48, marginBottom: 56 }} className="ilh-footer-grid">
+
+//           {/* Col 1 — Brand */}
+//           <div>
+//             {/* <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
+//               <Image
+//                 src="/logos.png"
+//                 alt="Indian Luxury House"
+//                 width={80}
+//                 height={80}
+//                 style={{ objectFit: 'contain' }}
+//               />
+//               <div>
+//                 <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, color: '#DFC27A', letterSpacing: '0.28em', textTransform: 'uppercase' }}>Indian</div>
+//                 <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.4)', letterSpacing: '0.4em', textTransform: 'uppercase', marginTop: 3 }}>Luxury House</div>
+//               </div>
+//             </div> */}
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
+//   <Image
+//     src="/logos.png"
+//     alt="Indian Luxury House"
+//     width={80}
+//     height={80}
+//     style={{ objectFit: 'contain' }}
+//   />
+//   <div style={{ marginLeft: -4 }}>  {/* ← thoda aur paas */}
+//     <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, color: '#DFC27A', letterSpacing: '0.28em', textTransform: 'uppercase' }}>Indian</div>
+//     <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.4)', letterSpacing: '0.4em', textTransform: 'uppercase', marginTop: 3 }}>Luxury House</div>
+//   </div>
+// </div>
+
+//             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', lineHeight: 1.9, fontWeight: 300, maxWidth: 260, marginBottom: 28 }}>
+//               Celebrating, connecting, and elevating the world of luxury through an India-first lens.
+//             </p>
+
+//             {/* Tagline */}
+//             <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 24 }}>
+//               Where India Meets Global Luxury
+//             </p>
+
+//             {/* Socials */}
+//             <div style={{ display: 'flex', gap: 20 }}>
+//               {['Instagram', 'LinkedIn'].map(s => (
+//                 <a key={s} href="#"
+//                   style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)', textDecoration: 'none', transition: 'color 0.2s' }}
+//                   onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
+//                   onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.4)')}
+//                 >{s}</a>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Col 2 — Navigate */}
+//           <div>
+//             <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 22, fontWeight: 500 }}>Navigate</p>
+//             {NAVIGATE.map(item => (
+//               <div key={item.href} style={{ marginBottom: 14 }}>
+//                 <Link href={item.href}
+//                   style={{ fontSize: 12, color: 'rgba(255,255,255,0.32)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color 0.2s' }}
+//                   onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
+//                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.32)')}
+//                 >{item.label}</Link>
+//               </div>
+//             ))}
+//           </div>
+
+//           {/* Col 3 — Categories */}
+//           <div>
+//             <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 22, fontWeight: 500 }}>Categories</p>
+//             {CATS.map(c => (
+//               <div key={c.slug} style={{ marginBottom: 14 }}>
+//                 <Link href={`/${c.slug}`}
+//                   style={{ fontSize: 12, color: 'rgba(255,255,255,0.32)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color 0.2s' }}
+//                   onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
+//                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.32)')}
+//                 >{c.name}</Link>
+//               </div>
+//             ))}
+//           </div>
+
+//           {/* Col 4 — Contact + Newsletter */}
+//           <div>
+//             <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 22, fontWeight: 500 }}>Contact</p>
+//             <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', marginBottom: 8, letterSpacing: '0.04em' }}>Partnerships:</p>
+//             <a href="mailto:hello@indianluxuryhouse.com"
+//               style={{ fontSize: 12, color: 'rgba(201,168,76,0.55)', textDecoration: 'none', letterSpacing: '0.03em', transition: 'color 0.2s', display: 'block', marginBottom: 36 }}
+//               onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
+//               onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.55)')}
+//             >hello@indianluxuryhouse.com</a>
+
+//             {/* Newsletter mini */}
+//             <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.35)', marginBottom: 14, fontWeight: 500 }}>
+//               Join India&apos;s Luxury Circle
+//             </p>
+//             <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.22)', lineHeight: 1.7, marginBottom: 14 }}>
+//               Curated luxury intelligence, every week.
+//             </p>
+//             <div style={{ display: 'flex' }}>
+//               <input
+//                 type="email"
+//                 placeholder="your@email.com"
+//                 style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.2)', color: '#DFC27A', fontSize: 11, padding: '10px 14px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
+//               />
+//               <button
+//                 style={{ background: '#C9A84C', color: '#0A0A0A', border: 'none', padding: '10px 16px', cursor: 'pointer', fontSize: 15, fontWeight: 700, transition: 'background 0.2s', flexShrink: 0 }}
+//                 onMouseEnter={e => ((e.target as HTMLElement).style.background = '#DFC27A')}
+//                 onMouseLeave={e => ((e.target as HTMLElement).style.background = '#C9A84C')}
+//               >→</button>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* ── Gold divider ── */}
+//         <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent)', marginBottom: 28 }} />
+
+//         {/* ── Bottom bar ── */}
+//         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14 }}>
+//           <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)', letterSpacing: '0.08em' }}>
+//             © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
+//           </p>
+//           <div style={{ display: 'flex', gap: 24 }}>
+//             {LEGAL.map(item => (
+//               <a key={item.href} href={item.href}
+//                 style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
+//                 onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
+//                 onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.18)')}
+//               >{item.label}</a>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Responsive styles */}
+//       <style>{`
+//         @media (max-width: 767px) {
+//           .ilh-footer-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+//         }
+//         @media (min-width: 768px) and (max-width: 1023px) {
+//           .ilh-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+//         }
+//       `}</style>
+//     </footer>
+//   );
+// }
 
 
 

@@ -20,9 +20,9 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: { template: '%s | SM Luxury', default: 'SM Luxury — The Connoisseur\'s Journal' },
+  title: { template: '%s | Indian Luxury House', default: 'Indian Luxury House' },
   description: 'The finest editorial on Cars, Yachts, Watches, Style, Home, Food & Travel.',
-  openGraph: { type: 'website', siteName: 'SM Luxury' },
+  openGraph: { type: 'website', siteName: 'Indian Luxury House' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
