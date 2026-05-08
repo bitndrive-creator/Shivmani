@@ -367,9 +367,21 @@ export default function HomePage() {
           <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to right, rgba(10,10,10,0.25), transparent 60%)' }} />
 
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', textAlign: 'center', padding: '0 24px 120px' }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', marginBottom: 18, animation: 'hFadeUp .8s .1s ease both' }}>
+            {/* <p style={{ fontSize: 14, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', marginBottom: 18, animation: 'hFadeUp .8s .1s ease both' }}>
               Where India Meets Global Luxury
-            </p>
+            </p> */}
+            <p style={{ 
+  fontSize: 14, 
+  letterSpacing: '0.5em', 
+  textTransform: 'uppercase', 
+  color: '#FFFFFF',           // white
+  textShadow: '0 2px 16px rgba(0,0,0,0.9)',
+  fontWeight: 600,
+  marginBottom: 18, 
+  animation: 'hFadeUp .8s .1s ease both' 
+}}>
+  Where India Meets Global Luxury
+</p>
             <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(36px, 7vw, 88px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.08, marginBottom: 22, animation: 'hFadeUp .8s .2s ease both', letterSpacing: '0.015em' }}>
               Discover the Finest<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>in Indian Luxury</em>
             </h1>
