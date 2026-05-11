@@ -5,6 +5,13 @@ import Link from 'next/link';
 import { useState, useEffect, use } from 'react';
 
 // ── TYPES ──────────────────────────────────────────────────────
+interface GalleryItem {
+  url: string;
+  type: string;
+  caption?: string;
+  _id: string;
+}
+
 interface Post {
   _id: string;
   title: string;
@@ -18,6 +25,7 @@ interface Post {
   isPublished: boolean;
   createdAt: string;
   tags?: string[];
+  gallery?: GalleryItem[];
   homepage?: {
     heroPriority?: number;
     featuredRank?: number;
@@ -62,7 +70,7 @@ const NAV_LINKS = [
 
 const API_BASE = 'https://api.indianluxuryhouse.com';
 
-// ✅ localhost + all cases handle
+// ✅ Image URL resolver — localhost + relative + absolute sab handle
 function getImg(coverImage?: string, category?: string): string {
   if (coverImage) {
     if (coverImage.includes('localhost')) {
@@ -74,6 +82,18 @@ function getImg(coverImage?: string, category?: string): string {
     return `${API_BASE}/uploads/${coverImage}`;
   }
   return CAT_IMAGE_MAP[category ?? ''] ?? '/images/real-estate.jpg';
+}
+
+// ✅ Gallery image URL resolver
+function getGalleryImg(url: string): string {
+  if (!url) return '';
+  if (url.includes('localhost')) {
+    const filename = url.split('/uploads/')[1];
+    return `${API_BASE}/uploads/${filename}`;
+  }
+  if (url.startsWith('http')) return url;
+  if (url.startsWith('/')) return `${API_BASE}${url}`;
+  return `${API_BASE}/uploads/${url}`;
 }
 
 function formatDate(iso: string): string {
@@ -176,7 +196,7 @@ function Header() {
 function RelatedCard({ post }: { post: Post }) {
   const [hov, setHov] = useState(false);
   const catSlug = CAT_SLUG_MAP[post.category] ?? post.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/--+/g, '-');
-  const imgSrc = getImg(post.coverImage, post.category); // ✅
+  const imgSrc = getImg(post.coverImage, post.category);
 
   return (
     <Link
@@ -221,6 +241,69 @@ function ArticleSkeleton() {
   );
 }
 
+// ✅ NEW: Lightbox for gallery fullscreen view
+function Lightbox({ images, startIndex, onClose }: { images: GalleryItem[]; startIndex: number; onClose: () => void }) {
+  const [current, setCurrent] = useState(startIndex);
+
+  useEffect(() => {
+    const fn = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') setCurrent(c => (c + 1) % images.length);
+      if (e.key === 'ArrowLeft') setCurrent(c => (c - 1 + images.length) % images.length);
+    };
+    window.addEventListener('keydown', fn);
+    return () => window.removeEventListener('keydown', fn);
+  }, [images.length, onClose]);
+
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(5,5,5,0.96)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}
+    >
+      {/* Close */}
+      <button onClick={onClose} style={{ position: 'absolute', top: 24, right: 28, background: 'none', border: 'none', color: 'rgba(201,168,76,0.7)', fontSize: 28, cursor: 'pointer', lineHeight: 1, zIndex: 10 }}>✕</button>
+
+      {/* Prev */}
+      {images.length > 1 && (
+        <button
+          onClick={e => { e.stopPropagation(); setCurrent(c => (c - 1 + images.length) % images.length); }}
+          style={{ position: 'absolute', left: 20, background: 'none', border: '1px solid rgba(201,168,76,0.25)', color: '#C9A84C', fontSize: 22, cursor: 'pointer', padding: '10px 16px', zIndex: 10 }}
+        >‹</button>
+      )}
+
+      {/* Image */}
+      <div onClick={e => e.stopPropagation()} style={{ maxWidth: '88vw', maxHeight: '88vh', position: 'relative' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={getGalleryImg(images[current].url)}
+          alt={images[current].caption || `Gallery ${current + 1}`}
+          style={{ maxWidth: '88vw', maxHeight: '82vh', objectFit: 'contain', display: 'block' }}
+        />
+        {images[current].caption && (
+          <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(201,168,76,0.55)', marginTop: 12, letterSpacing: '0.06em' }}>
+            {images[current].caption}
+          </p>
+        )}
+        <p style={{ textAlign: 'center', fontSize: 9, color: 'rgba(255,255,255,0.2)', marginTop: 8, letterSpacing: '0.14em' }}>
+          {current + 1} / {images.length}
+        </p>
+      </div>
+
+      {/* Next */}
+      {images.length > 1 && (
+        <button
+          onClick={e => { e.stopPropagation(); setCurrent(c => (c + 1) % images.length); }}
+          style={{ position: 'absolute', right: 20, background: 'none', border: '1px solid rgba(201,168,76,0.25)', color: '#C9A84C', fontSize: 22, cursor: 'pointer', padding: '10px 16px', zIndex: 10 }}
+        >›</button>
+      )}
+    </div>
+  );
+}
+
 export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: string; slug: string }> }) {
   const { catSlug, slug } = use(params);
 
@@ -229,6 +312,10 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState<string | null>(null);
   const [readProgress, setReadProgress] = useState(0);
+
+  // ✅ Lightbox state
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
     const fn = () => {
@@ -284,7 +371,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
     </>
   );
 
-  const imgSrc = getImg(post.coverImage, post.category); // ✅
+  const imgSrc = getImg(post.coverImage, post.category);
   const catMeta = CATEGORIES.find(c => c.name === post.category);
   const postCatSlug = CAT_SLUG_MAP[post.category] ?? catSlug;
 
@@ -293,9 +380,21 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
     ? [...samecat, ...allPosts.filter(p => p._id !== post._id && p.category !== post.category).slice(0, 3 - samecat.length)]
     : samecat;
 
+  // ✅ Only image-type gallery items
+  const galleryImages = (post.gallery ?? []).filter(g => g.type === 'image' && g.url);
+
   return (
     <>
       <Header />
+
+      {/* ✅ Lightbox */}
+      {lightboxOpen && galleryImages.length > 0 && (
+        <Lightbox
+          images={galleryImages}
+          startIndex={lightboxIndex}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
 
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 2, zIndex: 200, background: 'rgba(201,168,76,0.12)' }}>
         <div style={{ height: '100%', background: '#C9A84C', width: `${readProgress}%`, transition: 'width .1s linear' }} />
@@ -347,12 +446,106 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: 64, alignItems: 'flex-start' }} className="ilh-article-grid">
 
             <div>
+              {/* Excerpt */}
               <p style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(18px,2.2vw,23px)', fontWeight: 300, fontStyle: 'italic', color: '#8B6914', lineHeight: 1.7, marginBottom: 44, paddingBottom: 44, borderBottom: '1px solid rgba(201,168,76,0.15)', letterSpacing: '0.01em' }}>
                 {post.excerpt}
               </p>
 
+              {/* Main content */}
               <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
+              {/* ✅ GALLERY SECTION */}
+              {galleryImages.length > 0 && (
+                <div style={{ marginTop: 52, marginBottom: 8 }}>
+                  {/* Header */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20, paddingBottom: 14, borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+                    <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', margin: 0 }}>
+                      Gallery
+                    </p>
+                    <span style={{ fontSize: 9, color: 'rgba(201,168,76,0.3)', letterSpacing: '0.1em' }}>
+                      {galleryImages.length} {galleryImages.length === 1 ? 'Photo' : 'Photos'}
+                    </span>
+                  </div>
+
+                  {/* Grid layout based on count */}
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: galleryImages.length === 1
+                      ? '1fr'
+                      : galleryImages.length === 2
+                        ? '1fr 1fr'
+                        : galleryImages.length === 3
+                          ? '1.4fr 1fr 1fr'
+                          : 'repeat(2, 1fr)',
+                    gap: 6,
+                  }}>
+                    {galleryImages.map((item, idx) => {
+                      const src = getGalleryImg(item.url);
+                      // First image taller agar 3+ hain
+                      const isBig = galleryImages.length >= 3 && idx === 0;
+                      return (
+                        <div
+                          key={item._id}
+                          onClick={() => { setLightboxIndex(idx); setLightboxOpen(true); }}
+                          style={{
+                            position: 'relative',
+                            paddingBottom: isBig ? '80%' : '66%',
+                            overflow: 'hidden',
+                            background: '#1A1A1A',
+                            cursor: 'pointer',
+                            // 4 se zyada images mein first item double height
+                            ...(galleryImages.length > 3 && idx === 0 ? { gridRow: 'span 2', paddingBottom: '100%' } : {}),
+                          }}
+                          className="gallery-thumb"
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={src}
+                            alt={item.caption || `Gallery image ${idx + 1}`}
+                            style={{
+                              position: 'absolute', inset: 0,
+                              width: '100%', height: '100%',
+                              objectFit: 'cover',
+                              transition: 'transform .5s ease',
+                            }}
+                            className="gallery-img"
+                            onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                          />
+                          {/* Hover overlay */}
+                          <div className="gallery-overlay" style={{
+                            position: 'absolute', inset: 0,
+                            background: 'rgba(10,10,10,0)',
+                            transition: 'background .3s',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          }}>
+                            <svg className="gallery-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="1.5" style={{ opacity: 0, transition: 'opacity .3s' }}>
+                              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                              <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                            </svg>
+                          </div>
+                          {/* Caption */}
+                          {item.caption && (
+                            <p style={{
+                              position: 'absolute', bottom: 0, left: 0, right: 0,
+                              background: 'linear-gradient(transparent, rgba(5,5,5,0.75))',
+                              color: 'rgba(201,168,76,0.8)',
+                              fontSize: 10, padding: '20px 12px 10px',
+                              letterSpacing: '0.04em', margin: 0,
+                            }}>
+                              {item.caption}
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p style={{ fontSize: 9, color: 'rgba(107,101,88,0.35)', marginTop: 10, letterSpacing: '0.08em' }}>
+                    Click any image to view full screen · Use arrow keys to navigate
+                  </p>
+                </div>
+              )}
+
+              {/* Tags */}
               {post.tags && post.tags.length > 0 && (
                 <div style={{ marginTop: 52, paddingTop: 32, borderTop: '1px solid rgba(201,168,76,0.12)', display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
                   <span style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(107,101,88,0.45)', marginRight: 6 }}>Tags:</span>
@@ -364,6 +557,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
                 </div>
               )}
 
+              {/* Author box */}
               <div style={{ marginTop: 52, padding: '26px 30px', background: '#F5F0E8', borderLeft: '3px solid #C9A84C', display: 'flex', alignItems: 'flex-start', gap: 20 }}>
                 <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#0A0A0A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <span style={{ fontFamily: 'Georgia,serif', fontSize: 18, color: '#C9A84C', fontWeight: 300 }}>
@@ -390,7 +584,6 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
                       More in {post.category}
                     </p>
                     {moreRelated.map((p, i) => {
-                      // ✅ pImg ab API coverImage se aayegi
                       const pImg = getImg(p.coverImage, p.category);
                       const pSlug = CAT_SLUG_MAP[p.category] ?? p.category.toLowerCase().replace(/\s+/g, '-');
                       return (
@@ -485,47 +678,6 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
 
       </main>
 
-      {/* ── FOOTER ── */}
-      {/* <footer style={{ background: '#0A0A0A', borderTop: '1px solid rgba(201,168,76,0.15)', padding: '52px 32px 28px' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 32, marginBottom: 40 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <ILHLogo size={36} />
-              <div>
-                <div style={{ fontFamily: 'Georgia,serif', fontSize: 15, color: '#DFC27A', letterSpacing: '0.28em' }}>INDIAN</div>
-                <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.35)', letterSpacing: '0.4em', marginTop: 2 }}>LUXURY HOUSE</div>
-              </div>
-            </div>
-            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              {CATEGORIES.map(c => (
-                <Link key={c.slug} href={`/${c.slug}`}
-                  style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#DFC27A')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.38)')}
-                >{c.name}</Link>
-              ))}
-            </div>
-            <a href="mailto:hello@indianluxuryhouse.com"
-              style={{ fontSize: 11, color: 'rgba(201,168,76,0.45)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color .2s' }}
-              onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
-              onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.45)')}
-            >hello@indianluxuryhouse.com</a>
-          </div>
-          <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(201,168,76,0.18),transparent)', marginBottom: 22 }} />
-          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-            <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', letterSpacing: '0.08em' }}>© {new Date().getFullYear()} Indian Luxury House. All rights reserved.</p>
-            <div style={{ display: 'flex', gap: 20 }}>
-              {['Instagram', 'LinkedIn', 'Privacy Policy', 'Terms'].map(l => (
-                <a key={l} href="#" style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', textDecoration: 'none', letterSpacing: '0.06em', transition: 'color .2s' }}
-                  onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.45)')}
-                  onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.16)')}
-                >{l}</a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </footer> */}
-
       <style>{`
         @media(max-width:900px){
           .ilh-article-grid { grid-template-columns: 1fr !important; }
@@ -537,10 +689,560 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
         article h3 { font-family: Georgia, serif; font-size: clamp(18px,2vw,24px); font-weight: 400; color: #1A1A1A; margin: 36px 0 14px; letter-spacing: 0.01em; }
         article blockquote { border-left: 3px solid #C9A84C; padding: 18px 28px; margin: 40px 0; font-family: Georgia, serif; font-size: clamp(18px,2vw,22px); font-style: italic; color: #8B6914; line-height: 1.65; letter-spacing: 0.01em; background: rgba(201,168,76,0.04); }
         article strong { font-weight: 500; color: #1A1A1A; }
+
+        /* ✅ Gallery hover effects */
+        .gallery-thumb:hover .gallery-overlay { background: rgba(10,10,10,0.38) !important; }
+        .gallery-thumb:hover .gallery-icon { opacity: 1 !important; }
+        .gallery-thumb:hover .gallery-img { transform: scale(1.04); }
       `}</style>
     </>
   );
 }
+
+
+// 'use client';
+
+// import Image from 'next/image';
+// import Link from 'next/link';
+// import { useState, useEffect, use } from 'react';
+
+// // ── TYPES ──────────────────────────────────────────────────────
+// interface Post {
+//   _id: string;
+//   title: string;
+//   slug: string;
+//   coverImage?: string;
+//   category: string;
+//   excerpt: string;
+//   content: string;
+//   author: string;
+//   readTime: number;
+//   isPublished: boolean;
+//   createdAt: string;
+//   tags?: string[];
+//   homepage?: {
+//     heroPriority?: number;
+//     featuredRank?: number;
+//   };
+// }
+
+// const CATEGORIES = [
+//   { name: 'Real Estate',         slug: 'real-estate',      icon: '🏛️' },
+//   { name: 'Automobiles',         slug: 'automobiles',       icon: '🚗' },
+//   { name: 'Jewellery & Watches', slug: 'jewellery-watches', icon: '💎' },
+//   { name: 'Weddings',            slug: 'weddings',          icon: '✨' },
+//   { name: 'Curated Partners',    slug: 'curated-partners',  icon: '🤝' },
+// ];
+
+// const CAT_IMAGE_MAP: Record<string, string> = {
+//   'Real Estate':         '/images/real-estate.jpg',
+//   'Automobiles':         '/images/automobiles.jpg',
+//   'Jewellery & Watches': '/images/Jewellery.png',
+//   'Weddings':            '/images/hero-weddings.jpg',
+//   'Curated Partners':    '/images/hero-partners.jpg',
+// };
+
+// const CAT_SLUG_MAP: Record<string, string> = {
+//   'Real Estate':         'real-estate',
+//   'Automobiles':         'automobiles',
+//   'Jewellery & Watches': 'jewellery-watches',
+//   'Weddings':            'weddings',
+//   'Curated Partners':    'curated-partners',
+// };
+
+// const NAV_LINKS = [
+//   { label: 'Home',                href: '/'                  },
+//   { label: 'News',                href: '/news'              },
+//   { label: 'Real Estate',         href: '/real-estate'       },
+//   { label: 'Automobiles',         href: '/automobiles'       },
+//   { label: 'Jewellery & Watches', href: '/jewellery-watches' },
+//   { label: 'Weddings',            href: '/weddings'          },
+//   { label: 'Curated Partners',    href: '/curated-partners'  },
+//   { label: 'Partner With Us',     href: '/partner-with-us'   },
+//   { label: 'About',               href: '/about'             },
+// ];
+
+// const API_BASE = 'https://api.indianluxuryhouse.com';
+
+// // ✅ localhost + all cases handle
+// function getImg(coverImage?: string, category?: string): string {
+//   if (coverImage) {
+//     if (coverImage.includes('localhost')) {
+//       const filename = coverImage.split('/uploads/')[1];
+//       return `${API_BASE}/uploads/${filename}`;
+//     }
+//     if (coverImage.startsWith('http')) return coverImage;
+//     if (coverImage.startsWith('/')) return `${API_BASE}${coverImage}`;
+//     return `${API_BASE}/uploads/${coverImage}`;
+//   }
+//   return CAT_IMAGE_MAP[category ?? ''] ?? '/images/real-estate.jpg';
+// }
+
+// function formatDate(iso: string): string {
+//   try {
+//     return new Date(iso).toLocaleDateString('en-IN', {
+//       day: 'numeric', month: 'long', year: 'numeric',
+//     });
+//   } catch {
+//     return iso;
+//   }
+// }
+
+// function ILHLogo({ size = 32 }: { size?: number }) {
+//   const gold = '#C9A84C', emerald = '#2A7A6A';
+//   return (
+//     <svg width={size} height={size} viewBox="0 0 80 80" fill="none">
+//       <path d="M40 62C40 62 34 50 33 40C32 30 36 22 40 18C44 14 50 14 52 20C54 26 48 32 44 37C40 42 40 48 42 54C44 60 40 62 40 62Z" fill={gold} opacity="0.9"/>
+//       <path d="M44 28C52 20 64 16 66 20C68 24 62 32 54 36C48 39 44 36 44 36" stroke={gold} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+//       <path d="M42 34C50 22 62 12 68 14C72 16 68 28 60 34C54 38 42 36 42 36" stroke={gold} strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.5"/>
+//       <ellipse cx="30" cy="44" rx="5" ry="2.5" fill={emerald} transform="rotate(-30 30 44)" opacity="0.8"/>
+//       <ellipse cx="26" cy="50" rx="5" ry="2.5" fill={emerald} transform="rotate(-20 26 50)" opacity="0.7"/>
+//       <ellipse cx="28" cy="38" rx="4.5" ry="2"  fill={emerald} transform="rotate(-45 28 38)" opacity="0.7"/>
+//       <circle cx="52" cy="12" r="1.5" fill={gold}/>
+//       <circle cx="56" cy="10" r="1.2" fill={gold} opacity="0.8"/>
+//     </svg>
+//   );
+// }
+
+// function Header() {
+//   const [scrolled, setScrolled] = useState(false);
+//   const [open, setOpen] = useState(false);
+
+//   useEffect(() => {
+//     const fn = () => setScrolled(window.scrollY > 50);
+//     window.addEventListener('scroll', fn, { passive: true });
+//     return () => window.removeEventListener('scroll', fn);
+//   }, []);
+
+//   return (
+//     <header style={{
+//       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+//       background: scrolled ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.92)',
+//       backdropFilter: 'blur(12px)', transition: 'background .4s',
+//       boxShadow: scrolled ? '0 2px 24px rgba(0,0,0,0.4)' : 'none',
+//     }}>
+//       <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.7 }} />
+//       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', height: 72, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
+//         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', flexShrink: 0 }}>
+//           <ILHLogo size={38} />
+//           <div style={{ lineHeight: 1 }}>
+//             <div style={{ fontFamily: 'Georgia,serif', fontSize: 17, fontWeight: 300, color: '#DFC27A', letterSpacing: '0.3em', textTransform: 'uppercase' }}>Indian</div>
+//             <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.45)', letterSpacing: '0.4em', textTransform: 'uppercase', marginTop: 3 }}>Luxury House</div>
+//           </div>
+//         </Link>
+
+//         <nav style={{ display: 'flex' }} className="ilh-blog-nav">
+//           {NAV_LINKS.map(link => (
+//             <Link key={link.href} href={link.href}
+//               style={{
+//                 fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase',
+//                 color: link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)',
+//                 textDecoration: 'none', padding: '8px 10px',
+//                 borderBottom: '1px solid transparent', transition: 'all .2s', whiteSpace: 'nowrap',
+//                 ...(link.href === '/partner-with-us' ? { border: '1px solid rgba(201,168,76,0.3)', padding: '6px 10px', marginLeft: 4 } : {}),
+//               }}
+//               onMouseEnter={e => { e.currentTarget.style.color = '#DFC27A'; }}
+//               onMouseLeave={e => { e.currentTarget.style.color = link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)'; }}
+//             >{link.label}</Link>
+//           ))}
+//         </nav>
+
+//         <button className="ilh-blog-ham" onClick={() => setOpen(!open)}
+//           style={{ background: 'none', border: 'none', color: '#C9A84C', cursor: 'pointer', padding: 4, display: 'none' }}>
+//           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+//             {open ? <path d="M18 6 6 18M6 6l12 12"/> : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>}
+//           </svg>
+//         </button>
+//       </div>
+
+//       <div style={{ background: '#0A0A0A', overflow: 'hidden', maxHeight: open ? 560 : 0, transition: 'max-height .3s ease', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
+//         {NAV_LINKS.map(link => (
+//           <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
+//             style={{ display: 'block', padding: '13px 28px', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.08)', transition: 'background .2s' }}
+//             onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,168,76,0.06)')}
+//             onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+//           >{link.label}</Link>
+//         ))}
+//       </div>
+//       <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent)' }} />
+
+//       <style>{`
+//         .ilh-blog-nav { display: flex !important; }
+//         .ilh-blog-ham { display: none !important; }
+//         @media(max-width:1100px){ .ilh-blog-nav { display: none !important; } .ilh-blog-ham { display: block !important; } }
+//       `}</style>
+//     </header>
+//   );
+// }
+
+// function RelatedCard({ post }: { post: Post }) {
+//   const [hov, setHov] = useState(false);
+//   const catSlug = CAT_SLUG_MAP[post.category] ?? post.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/--+/g, '-');
+//   const imgSrc = getImg(post.coverImage, post.category); // ✅
+
+//   return (
+//     <Link
+//       href={`/${catSlug}/${post.slug}`}
+//       style={{ display: 'block', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', border: '1px solid rgba(0,0,0,0.06)' }}
+//       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+//     >
+//       <div style={{ position: 'relative', paddingBottom: '60%', overflow: 'hidden', background: '#1A1A1A' }}>
+//         <Image src={imgSrc} alt={post.title} fill
+//           style={{ objectFit: 'cover', transition: 'transform .5s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}
+//           sizes="33vw"
+//           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+//         />
+//         <span style={{ position: 'absolute', top: 10, left: 10, fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '4px 10px', border: '1px solid rgba(201,168,76,0.2)' }}>
+//           {post.category}
+//         </span>
+//       </div>
+//       <div style={{ padding: '18px 20px 20px' }}>
+//         <div style={{ width: hov ? 32 : 16, height: 1, background: '#C9A84C', marginBottom: 12, transition: 'width .3s' }} />
+//         <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 16, fontWeight: 400, color: hov ? '#8B6914' : '#1A1A1A', lineHeight: 1.4, marginBottom: 10, transition: 'color .25s', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', letterSpacing: '0.01em' }}>
+//           {post.title}
+//         </h3>
+//         <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)' }}>{post.author}</span>
+//       </div>
+//     </Link>
+//   );
+// }
+
+// function ArticleSkeleton() {
+//   return (
+//     <div style={{ paddingTop: 72, minHeight: '100vh', background: '#FAFAF8' }}>
+//       <div style={{ height: 540, background: 'linear-gradient(90deg,#1a1a1a 25%,#222 50%,#1a1a1a 75%)', backgroundSize: '200% 100%', animation: 'shimmer 1.5s infinite' }} />
+//       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 24px' }}>
+//         <div style={{ maxWidth: 780 }}>
+//           {[90, 75, 85, 60, 80, 70].map((w, i) => (
+//             <div key={i} style={{ height: i === 0 ? 28 : 16, background: '#e8e2d4', borderRadius: 2, marginBottom: i === 0 ? 32 : 14, width: `${w}%`, animation: 'shimmer 1.5s infinite' }} />
+//           ))}
+//         </div>
+//       </div>
+//       <style>{`@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}`}</style>
+//     </div>
+//   );
+// }
+
+// export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: string; slug: string }> }) {
+//   const { catSlug, slug } = use(params);
+
+//   const [post, setPost]         = useState<Post | null>(null);
+//   const [allPosts, setAllPosts] = useState<Post[]>([]);
+//   const [loading, setLoading]   = useState(true);
+//   const [error, setError]       = useState<string | null>(null);
+//   const [readProgress, setReadProgress] = useState(0);
+
+//   useEffect(() => {
+//     const fn = () => {
+//       const el = document.documentElement;
+//       const scrollTop = el.scrollTop || document.body.scrollTop;
+//       const scrollHeight = el.scrollHeight - el.clientHeight;
+//       setReadProgress(scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0);
+//     };
+//     window.addEventListener('scroll', fn, { passive: true });
+//     return () => window.removeEventListener('scroll', fn);
+//   }, []);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         setLoading(true);
+//         setError(null);
+//         const res = await fetch(`${API_BASE}/api/editorials`);
+//         if (!res.ok) throw new Error(`Server error: ${res.status}`);
+//         const data: Post[] = await res.json();
+//         const published = data.filter(p => p.isPublished);
+//         setAllPosts(published);
+//         const found = published.find(p => p.slug === slug);
+//         if (!found) throw new Error('Article not found');
+//         setPost(found);
+//       } catch (err) {
+//         console.error('Fetch error:', err);
+//         setError(err instanceof Error ? err.message : 'Could not load article.');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+//     fetchData();
+//   }, [slug]);
+
+//   if (loading) return <><Header /><ArticleSkeleton /></>;
+
+//   if (error || !post) return (
+//     <>
+//       <Header />
+//       <div style={{ paddingTop: 72, minHeight: '80vh', background: '#FAFAF8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+//         <div style={{ textAlign: 'center', padding: '60px 24px' }}>
+//           <div style={{ width: 60, height: 1, background: '#C9A84C', margin: '0 auto 32px' }} />
+//           <p style={{ fontFamily: 'Georgia,serif', fontSize: 32, color: '#1A1A1A', marginBottom: 12, fontWeight: 300 }}>Article Not Found</p>
+//           <p style={{ fontSize: 13, color: 'rgba(107,101,88,0.55)', marginBottom: 36, letterSpacing: '0.02em' }}>
+//             {error ?? 'This article may have been moved or removed.'}
+//           </p>
+//           <Link href="/" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '14px 36px', textDecoration: 'none', fontWeight: 600 }}>
+//             Back to Home
+//           </Link>
+//         </div>
+//       </div>
+//     </>
+//   );
+
+//   const imgSrc = getImg(post.coverImage, post.category); // ✅
+//   const catMeta = CATEGORIES.find(c => c.name === post.category);
+//   const postCatSlug = CAT_SLUG_MAP[post.category] ?? catSlug;
+
+//   const samecat = allPosts.filter(p => p._id !== post._id && p.category === post.category).slice(0, 3);
+//   const moreRelated = samecat.length < 3
+//     ? [...samecat, ...allPosts.filter(p => p._id !== post._id && p.category !== post.category).slice(0, 3 - samecat.length)]
+//     : samecat;
+
+//   return (
+//     <>
+//       <Header />
+
+//       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 2, zIndex: 200, background: 'rgba(201,168,76,0.12)' }}>
+//         <div style={{ height: '100%', background: '#C9A84C', width: `${readProgress}%`, transition: 'width .1s linear' }} />
+//       </div>
+
+//       <main style={{ paddingTop: 72 }}>
+
+//         {/* ── HERO ── */}
+//         <section style={{ position: 'relative', height: 540, overflow: 'hidden', background: '#0A0A0A' }}>
+//           <Image src={imgSrc} alt={post.title} fill priority style={{ objectFit: 'cover', objectPosition: 'center' }} />
+//           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.45) 50%, rgba(10,10,10,0.18) 100%)' }} />
+//           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.3), transparent 60%)' }} />
+
+//           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', maxWidth: 1280, margin: '0 auto', padding: '0 48px 52px' }}>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 18, fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+//               <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+//                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
+//                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.4)')}
+//               >Home</Link>
+//               <span>/</span>
+//               <Link href={`/${postCatSlug}`} style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+//                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
+//                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.4)')}
+//               >{post.category}</Link>
+//               <span>/</span>
+//               <span style={{ color: 'rgba(201,168,76,0.65)' }}>Article</span>
+//             </div>
+
+//             <span style={{ display: 'inline-block', width: 'fit-content', fontSize: 9, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.8)', border: '1px solid rgba(201,168,76,0.3)', padding: '6px 14px', marginBottom: 20, backdropFilter: 'blur(4px)' }}>
+//               {catMeta?.icon} {post.category}
+//             </span>
+
+//             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(24px,5vw,52px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.2, maxWidth: 840, marginBottom: 20, letterSpacing: '0.015em' }}>
+//               {post.title}
+//             </h1>
+
+//             <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 16, fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}>
+//               <span style={{ color: '#C9A84C', fontWeight: 500 }}>By {post.author}</span>
+//               <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(201,168,76,0.3)', display: 'inline-block' }} />
+//               <span>{formatDate(post.createdAt)}</span>
+//               <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(201,168,76,0.3)', display: 'inline-block' }} />
+//               <span>{post.readTime} min read</span>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* ── ARTICLE BODY ── */}
+//         <article style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 24px 88px', background: '#FAFAF8' }}>
+//           <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: 64, alignItems: 'flex-start' }} className="ilh-article-grid">
+
+//             <div>
+//               <p style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(18px,2.2vw,23px)', fontWeight: 300, fontStyle: 'italic', color: '#8B6914', lineHeight: 1.7, marginBottom: 44, paddingBottom: 44, borderBottom: '1px solid rgba(201,168,76,0.15)', letterSpacing: '0.01em' }}>
+//                 {post.excerpt}
+//               </p>
+
+//               <div dangerouslySetInnerHTML={{ __html: post.content }} />
+
+//               {post.tags && post.tags.length > 0 && (
+//                 <div style={{ marginTop: 52, paddingTop: 32, borderTop: '1px solid rgba(201,168,76,0.12)', display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+//                   <span style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(107,101,88,0.45)', marginRight: 6 }}>Tags:</span>
+//                   {post.tags.map(tag => (
+//                     <span key={tag} style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#6B6558', background: '#F0EBE0', border: '1px solid rgba(201,168,76,0.15)', padding: '5px 12px' }}>
+//                       {tag}
+//                     </span>
+//                   ))}
+//                 </div>
+//               )}
+
+//               <div style={{ marginTop: 52, padding: '26px 30px', background: '#F5F0E8', borderLeft: '3px solid #C9A84C', display: 'flex', alignItems: 'flex-start', gap: 20 }}>
+//                 <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#0A0A0A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+//                   <span style={{ fontFamily: 'Georgia,serif', fontSize: 18, color: '#C9A84C', fontWeight: 300 }}>
+//                     {post.author.split(' ').map(n => n[0]).join('').slice(0, 2)}
+//                   </span>
+//                 </div>
+//                 <div>
+//                   <p style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 6 }}>Written by</p>
+//                   <p style={{ fontFamily: 'Georgia,serif', fontSize: 18, fontWeight: 300, color: '#1A1A1A', marginBottom: 6, letterSpacing: '0.02em' }}>{post.author}</p>
+//                   <p style={{ fontSize: 12, color: '#6B6558', lineHeight: 1.7, letterSpacing: '0.01em' }}>
+//                     Senior contributor to Indian Luxury House, specialising in {post.category.toLowerCase()} and the culture of connoisseurship.
+//                   </p>
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* ── SIDEBAR ── */}
+//             <aside>
+//               <div style={{ position: 'sticky', top: 92, display: 'flex', flexDirection: 'column', gap: 24 }}>
+
+//                 {moreRelated.length > 0 && (
+//                   <div style={{ border: '1px solid rgba(201,168,76,0.14)', padding: '20px' }}>
+//                     <p style={{ fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 14, paddingBottom: 12, borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+//                       More in {post.category}
+//                     </p>
+//                     {moreRelated.map((p, i) => {
+//                       // ✅ pImg ab API coverImage se aayegi
+//                       const pImg = getImg(p.coverImage, p.category);
+//                       const pSlug = CAT_SLUG_MAP[p.category] ?? p.category.toLowerCase().replace(/\s+/g, '-');
+//                       return (
+//                         <Link key={p._id} href={`/${pSlug}/${p.slug}`}
+//                           style={{
+//                             display: 'flex', gap: 12,
+//                             paddingBottom: i < moreRelated.length - 1 ? 14 : 0,
+//                             marginBottom: i < moreRelated.length - 1 ? 14 : 0,
+//                             borderBottom: i < moreRelated.length - 1 ? '1px solid rgba(201,168,76,0.08)' : 'none',
+//                             textDecoration: 'none',
+//                           }}
+//                         >
+//                           <div style={{ position: 'relative', width: 72, height: 56, flexShrink: 0, overflow: 'hidden', background: '#1A1A1A' }}>
+//                             <Image src={pImg} alt={p.title} fill style={{ objectFit: 'cover' }} sizes="72px"
+//                               onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+//                             />
+//                           </div>
+//                           <div>
+//                             <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 5 }}>{p.category}</p>
+//                             <p style={{ fontFamily: 'Georgia,serif', fontSize: 13, color: '#1A1A1A', lineHeight: 1.4, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', letterSpacing: '0.01em' }}>{p.title}</p>
+//                           </div>
+//                         </Link>
+//                       );
+//                     })}
+//                   </div>
+//                 )}
+
+//                 <div style={{ background: '#0A0A0A', padding: '26px 20px', textAlign: 'center', border: '1px solid rgba(201,168,76,0.15)' }}>
+//                   <ILHLogo size={32} />
+//                   <p style={{ fontFamily: 'Georgia,serif', fontSize: 18, fontWeight: 300, color: '#FAFAF8', margin: '14px 0 6px', letterSpacing: '0.02em' }}>India&apos;s Luxury Circle</p>
+//                   <p style={{ fontSize: 11, color: 'rgba(201,168,76,0.45)', marginBottom: 18, lineHeight: 1.65, letterSpacing: '0.02em' }}>Curated luxury intelligence, every week.</p>
+//                   <input type="email" placeholder="your@email.com"
+//                     style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.2)', color: '#DFC27A', fontSize: 11, padding: '10px 12px', outline: 'none', fontFamily: 'inherit', marginBottom: 10, boxSizing: 'border-box' }}
+//                   />
+//                   <button
+//                     style={{ width: '100%', background: '#C9A84C', color: '#0A0A0A', fontSize: 9, letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 700, padding: '12px', border: 'none', cursor: 'pointer', transition: 'background .2s' }}
+//                     onMouseEnter={e => (e.currentTarget.style.background = '#DFC27A')}
+//                     onMouseLeave={e => (e.currentTarget.style.background = '#C9A84C')}
+//                   >Join the Circle</button>
+//                 </div>
+
+//                 <div style={{ border: '1px solid rgba(201,168,76,0.2)', padding: '20px', background: '#F5F0E8' }}>
+//                   <p style={{ fontSize: 9, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 10 }}>For Businesses</p>
+//                   <p style={{ fontFamily: 'Georgia,serif', fontSize: 15, fontWeight: 400, color: '#1A1A1A', marginBottom: 8, lineHeight: 1.35 }}>Reach India&apos;s Luxury Audience</p>
+//                   <p style={{ fontSize: 11, color: '#6B6558', lineHeight: 1.65, marginBottom: 16 }}>Feature your brand in front of India&apos;s most affluent readers.</p>
+//                   <Link href="/partner-with-us"
+//                     style={{ display: 'block', textAlign: 'center', fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '11px 16px', textDecoration: 'none', fontWeight: 700, transition: 'background .2s' }}
+//                     onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
+//                     onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
+//                   >Partner With Us →</Link>
+//                 </div>
+
+//                 <div style={{ border: '1px solid rgba(201,168,76,0.14)', padding: '16px 20px' }}>
+//                   <p style={{ fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.45)', marginBottom: 12 }}>Share This Story</p>
+//                   <div style={{ display: 'flex', gap: 8 }}>
+//                     {['Instagram', 'LinkedIn', 'Copy Link'].map(s => (
+//                       <button key={s}
+//                         style={{ flex: 1, fontSize: 8, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '8px 4px', border: '1px solid rgba(201,168,76,0.2)', color: '#6B6558', background: 'transparent', cursor: 'pointer', transition: 'all .2s' }}
+//                         onMouseEnter={e => { e.currentTarget.style.borderColor = '#C9A84C'; e.currentTarget.style.color = '#1A1A1A'; e.currentTarget.style.background = '#C9A84C'; }}
+//                         onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.2)'; e.currentTarget.style.color = '#6B6558'; e.currentTarget.style.background = 'transparent'; }}
+//                         onClick={() => { if (s === 'Copy Link') navigator.clipboard.writeText(window.location.href); }}
+//                       >{s}</button>
+//                     ))}
+//                   </div>
+//                 </div>
+
+//               </div>
+//             </aside>
+//           </div>
+//         </article>
+
+//         {/* ── RELATED POSTS ── */}
+//         {moreRelated.length > 0 && (
+//           <section style={{ background: '#F0EBE0', padding: '64px 0', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
+//             <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+//               <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.12)', paddingBottom: 18 }}>
+//                 <div>
+//                   <p style={{ fontSize: 9, letterSpacing: '0.32em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 8 }}>Continue Reading</p>
+//                   <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(22px,3vw,34px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>You May Also Enjoy</h2>
+//                 </div>
+//                 <Link href={`/${postCatSlug}`}
+//                   style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
+//                   All {post.category} →
+//                 </Link>
+//               </div>
+//               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }} className="ilh-related-grid">
+//                 {moreRelated.map(p => <RelatedCard key={p._id} post={p} />)}
+//               </div>
+//             </div>
+//           </section>
+//         )}
+
+//       </main>
+
+//       {/* ── FOOTER ── */}
+//       {/* <footer style={{ background: '#0A0A0A', borderTop: '1px solid rgba(201,168,76,0.15)', padding: '52px 32px 28px' }}>
+//         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+//           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 32, marginBottom: 40 }}>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+//               <ILHLogo size={36} />
+//               <div>
+//                 <div style={{ fontFamily: 'Georgia,serif', fontSize: 15, color: '#DFC27A', letterSpacing: '0.28em' }}>INDIAN</div>
+//                 <div style={{ fontSize: 7, color: 'rgba(201,168,76,0.35)', letterSpacing: '0.4em', marginTop: 2 }}>LUXURY HOUSE</div>
+//               </div>
+//             </div>
+//             <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+//               {CATEGORIES.map(c => (
+//                 <Link key={c.slug} href={`/${c.slug}`}
+//                   style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
+//                   onMouseEnter={e => (e.currentTarget.style.color = '#DFC27A')}
+//                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.38)')}
+//                 >{c.name}</Link>
+//               ))}
+//             </div>
+//             <a href="mailto:hello@indianluxuryhouse.com"
+//               style={{ fontSize: 11, color: 'rgba(201,168,76,0.45)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color .2s' }}
+//               onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
+//               onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.45)')}
+//             >hello@indianluxuryhouse.com</a>
+//           </div>
+//           <div style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(201,168,76,0.18),transparent)', marginBottom: 22 }} />
+//           <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+//             <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', letterSpacing: '0.08em' }}>© {new Date().getFullYear()} Indian Luxury House. All rights reserved.</p>
+//             <div style={{ display: 'flex', gap: 20 }}>
+//               {['Instagram', 'LinkedIn', 'Privacy Policy', 'Terms'].map(l => (
+//                 <a key={l} href="#" style={{ fontSize: 10, color: 'rgba(255,255,255,0.16)', textDecoration: 'none', letterSpacing: '0.06em', transition: 'color .2s' }}
+//                   onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.45)')}
+//                   onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.16)')}
+//                 >{l}</a>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </footer> */}
+
+//       <style>{`
+//         @media(max-width:900px){
+//           .ilh-article-grid { grid-template-columns: 1fr !important; }
+//           .ilh-related-grid { grid-template-columns: repeat(2,1fr) !important; }
+//         }
+//         @media(max-width:600px){ .ilh-related-grid { grid-template-columns: 1fr !important; } }
+//         article p { font-size: 16px; line-height: 1.92; color: #3a3834; margin-bottom: 24px; letter-spacing: 0.01em; font-family: Georgia, serif; font-weight: 300; }
+//         article h2 { font-family: Georgia, serif; font-size: clamp(22px,2.5vw,30px); font-weight: 300; color: #1A1A1A; margin: 48px 0 18px; line-height: 1.2; letter-spacing: 0.02em; }
+//         article h3 { font-family: Georgia, serif; font-size: clamp(18px,2vw,24px); font-weight: 400; color: #1A1A1A; margin: 36px 0 14px; letter-spacing: 0.01em; }
+//         article blockquote { border-left: 3px solid #C9A84C; padding: 18px 28px; margin: 40px 0; font-family: Georgia, serif; font-size: clamp(18px,2vw,22px); font-style: italic; color: #8B6914; line-height: 1.65; letter-spacing: 0.01em; background: rgba(201,168,76,0.04); }
+//         article strong { font-weight: 500; color: #1A1A1A; }
+//       `}</style>
+//     </>
+//   );
+// }
 
 
 // 'use client';
