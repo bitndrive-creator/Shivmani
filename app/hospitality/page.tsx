@@ -264,8 +264,20 @@ export default function HospitalityPage() {
 
         {/* ══ HERO ═════════════════════════════════════════════ */}
         <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
-          <Image src="/images/hospitality.jpg" alt="Luxury Hospitality" fill priority
-            style={{ objectFit: 'cover', objectPosition: 'center' }} quality={75} />
+          {/* <Image src="/images/hospitality.jpg" alt="Luxury Hospitality" fill priority
+            style={{ objectFit: 'cover', objectPosition: 'center' }} quality={75} /> */}
+            <img
+  src="/images/hospitality.jpg"
+  alt="Luxury Hospitality"
+  style={{
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'center',
+  }}
+/>
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.15) 100%)' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.3), transparent 65%)' }} />
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.5 }} />
