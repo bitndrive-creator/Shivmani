@@ -267,7 +267,7 @@ export default function HospitalityPage() {
           {/* <Image src="/images/hospitality.jpg" alt="Luxury Hospitality" fill priority
             style={{ objectFit: 'cover', objectPosition: 'center' }} quality={75} /> */}
             <img
-  src="/images/hospitality.jpg"
+  src="/images/hosp.jpg"
   alt="Luxury Hospitality"
   style={{
     position: 'absolute',
