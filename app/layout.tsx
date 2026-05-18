@@ -58,11 +58,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 // });
 
 // export const metadata: Metadata = {
-//   title: { template: '%s | SM Luxury', default: 'SM Luxury — The Connoisseur\'s Journal' },
+//   title: { template: '%s | Indian Luxury House', default: 'Indian Luxury House — The Connoisseur\'s Journal' },
 //   description: 'The finest editorial on Cars, Yachts, Watches, Style, Home, Food & Travel.',
 //   openGraph: {
 //     type: 'website',
-//     siteName: 'SM Luxury',
+//     siteName: 'Indian Luxury House',
 //   },
 // };
 

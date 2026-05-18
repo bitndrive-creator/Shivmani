@@ -72,7 +72,7 @@ function Footer() {
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="font-display text-xl font-light text-[#DFC27A]">INDIAN Luxury House</p>
         <p className="text-[10px] tracking-[0.2em] uppercase text-[#C9A84C]/40">
-          © {new Date().getFullYear()} SM Luxury. All rights reserved.
+          © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
         </p>
       </div>
     </footer>
@@ -252,9 +252,9 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 //   return (
 //     <footer className="bg-[#1B4D45] px-6 md:px-16 py-12">
 //       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-//         <p className="font-display text-xl font-light text-[#DFC27A]">SM Luxury</p>
+//         <p className="font-display text-xl font-light text-[#DFC27A]">Indian Luxury House</p>
 //         <p className="text-[10px] tracking-[0.2em] uppercase text-[#C9A84C]/40">
-//           © {new Date().getFullYear()} SM Luxury. All rights reserved.
+//           © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
 //         </p>
 //       </div>
 //     </footer>

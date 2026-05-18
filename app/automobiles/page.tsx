@@ -121,12 +121,12 @@ function LaunchCard({ car, big = false }: { car: typeof LAUNCHES[0]; big?: boole
           </span>
         </div>
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '14px 18px', background: 'linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 100%)' }}>
-          <p style={{ fontSize: 9, color: 'rgba(201,168,76,0.6)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>{car.highlight}</p>
+          <p style={{ fontSize: 15, color: 'rgba(201,168,76,0.6)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>{car.highlight}</p>
         </div>
       </div>
       <div style={{ padding: '20px 22px 24px' }}>
         <div style={{ width: hov ? 36 : 18, height: 1, background: '#C9A84C', marginBottom: 12, transition: 'width .35s ease' }} />
-        <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 5 }}>{car.brand}</p>
+        <p style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 5 }}>{car.brand}</p>
         <h3 style={{ fontFamily: 'Georgia,serif', fontSize: big ? 21 : 18, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em', lineHeight: 1.25 }}>{car.name}</h3>
         <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', marginBottom: 16, letterSpacing: '0.06em' }}>{car.type}</p>
         <div style={{ display: 'flex', gap: 20, marginBottom: 18, paddingBottom: 16, borderBottom: '1px solid rgba(201,168,76,0.08)' }}>
@@ -168,8 +168,8 @@ function DealerCard({ d }: { d: typeof DEALERS[0] }) {
             {d.brands.map(b => <span key={b} style={{ fontSize: 8, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.18)', padding: '4px 8px' }}>{b}</span>)}
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 14 }}>
-            <p style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.06em' }}>{d.specialty}</p>
-            <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', opacity: hov ? 1 : 0, transition: 'opacity .25s' }}>Visit →</span>
+            <p style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.06em' }}>{d.specialty}</p>
+            <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', opacity: hov ? 1 : 0, transition: 'opacity .25s' }}>Visit →</span>
           </div>
         </div>
       </div>
@@ -212,12 +212,12 @@ function EditorialCard({ post, big = false }: { post: Post; big?: boolean }) {
           <h3 style={{ fontFamily: 'Georgia,serif', fontWeight: 400, fontSize: big ? 21 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
             {post.title}
           </h3>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+          <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
             {post.excerpt}
           </p>
           <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-            <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-            <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+            <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+            <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
           </div>
         </div>
       </div>
@@ -278,13 +278,13 @@ export default function AutomobilesPage() {
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.5 }} />
 
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 900 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
               <a href="/" className="ilh-breadcrumb-link">Home</a>
               <span style={{ opacity: 0.4 }}>/</span>
               <span style={{ color: '#C9A84C' }}>Automobiles</span>
             </div>
 
-            <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18 }}>Indian Luxury House</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18 }}>Indian Luxury House</p>
             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em' }}>
               Auto<em style={{ color: '#DFC27A', fontStyle: 'italic' }}>mobiles</em>
             </h1>
@@ -334,7 +334,7 @@ export default function AutomobilesPage() {
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
               <div>
-                <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Cars & Bikes</p>
+                <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Cars & Bikes</p>
                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>New Launches</h2>
                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
               </div>
@@ -344,7 +344,7 @@ export default function AutomobilesPage() {
             <div style={{ display: 'flex', gap: 0, marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.1)', width: 'fit-content' }}>
               {segments.map(s => (
                 <button key={s} onClick={() => setActiveSegment(s)}
-                  style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '10px 24px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeSegment === s ? '#DFC27A' : 'rgba(201,168,76,0.38)', borderBottom: activeSegment === s ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', fontWeight: activeSegment === s ? 500 : 400 }}
+                  style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '10px 24px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeSegment === s ? '#DFC27A' : 'rgba(201,168,76,0.38)', borderBottom: activeSegment === s ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', fontWeight: activeSegment === s ? 500 : 400 }}
                   onMouseEnter={e => { if (activeSegment !== s) e.currentTarget.style.color = '#C9A84C'; }}
                   onMouseLeave={e => { if (activeSegment !== s) e.currentTarget.style.color = 'rgba(201,168,76,0.38)'; }}
                 >{s}</button>
@@ -367,7 +367,7 @@ export default function AutomobilesPage() {
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
               <div>
-                <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Trusted Partners</p>
+                <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Trusted Partners</p>
                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Featured Dealers</h2>
                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
               </div>
@@ -384,7 +384,7 @@ export default function AutomobilesPage() {
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
               <div>
-                <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Reviews & Intelligence</p>
+                <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Reviews & Intelligence</p>
                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Editorial Stories</h2>
                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
               </div>
@@ -404,7 +404,7 @@ export default function AutomobilesPage() {
             {!editorialLoading && editorialPosts.length === 0 && (
               <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.45)' }}>
                 <p style={{ fontFamily: 'Georgia,serif', fontSize: 20, marginBottom: 8 }}>No stories published yet.</p>
-                <p style={{ fontSize: 13 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
+                <p style={{ fontSize: 16 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
               </div>
             )}
 
@@ -434,7 +434,7 @@ export default function AutomobilesPage() {
           </div>
           <div style={{ maxWidth: 780, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.55 }}>🚗</div>
-            <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Source. You Drive.</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Source. You Drive.</p>
             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.12, marginBottom: 20, letterSpacing: '0.015em' }}>
               Need Sourcing<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Assistance?</em>
             </h2>
@@ -565,12 +565,12 @@ export default function AutomobilesPage() {
 //             </span>
 //           </div>
 //           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '14px 18px', background: 'linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 100%)' }}>
-//             <p style={{ fontSize: 9, color: 'rgba(201,168,76,0.6)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>{car.highlight}</p>
+//             <p style={{ fontSize: 15, color: 'rgba(201,168,76,0.6)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>{car.highlight}</p>
 //           </div>
 //         </div>
 //         <div style={{ padding: '20px 22px 24px' }}>
 //           <div style={{ width: hov ? 36 : 18, height: 1, background: '#C9A84C', marginBottom: 12, transition: 'width .35s ease' }} />
-//           <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 5 }}>{car.brand}</p>
+//           <p style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 5 }}>{car.brand}</p>
 //           <h3 style={{ fontFamily: 'Georgia,serif', fontSize: big ? 21 : 18, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em', lineHeight: 1.25 }}>{car.name}</h3>
 //           <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', marginBottom: 16, letterSpacing: '0.06em' }}>{car.type}</p>
 //           <div style={{ display: 'flex', gap: 20, marginBottom: 18, paddingBottom: 16, borderBottom: '1px solid rgba(201,168,76,0.08)' }}>
@@ -584,7 +584,7 @@ export default function AutomobilesPage() {
 //               <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', marginBottom: 3 }}>Starting from</p>
 //               <p style={{ fontFamily: 'Georgia,serif', fontSize: 18, color: '#C9A84C', letterSpacing: '0.02em' }}>{car.price}</p>
 //             </div>
-//             <span style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: hov ? '#0A0A0A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>
+//             <span style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: hov ? '#0A0A0A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>
 //               Enquire →
 //             </span>
 //           </div>
@@ -618,8 +618,8 @@ export default function AutomobilesPage() {
 //             {d.brands.map(b => <span key={b} style={{ fontSize: 8, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.18)', padding: '4px 8px' }}>{b}</span>)}
 //           </div>
 //           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 14 }}>
-//             <p style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.06em' }}>{d.specialty}</p>
-//             <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', opacity: hov ? 1 : 0, transition: 'opacity .25s' }}>Visit →</span>
+//             <p style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.06em' }}>{d.specialty}</p>
+//             <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', opacity: hov ? 1 : 0, transition: 'opacity .25s' }}>Visit →</span>
 //           </div>
 //         </div>
 //       </div>
@@ -668,12 +668,12 @@ export default function AutomobilesPage() {
 //           <h3 style={{ fontFamily: 'Georgia,serif', fontWeight: 400, fontSize: big ? 21 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
 //             {post.title}
 //           </h3>
-//           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+//           <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
 //             {post.excerpt}
 //           </p>
 //           <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-//             <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-//             <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+//             <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+//             <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
 //           </div>
 //         </div>
 //       </div>
@@ -739,13 +739,13 @@ export default function AutomobilesPage() {
 //           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 900 }}>
 
 //             {/* ✅ Breadcrumb — plain <a> + CSS class */}
-//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
 //               <a href="/" className="ilh-breadcrumb-link">Home</a>
 //               <span style={{ opacity: 0.4 }}>/</span>
 //               <span style={{ color: '#C9A84C' }}>Automobiles</span>
 //             </div>
 
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18 }}>Indian Luxury House</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18 }}>Indian Luxury House</p>
 //             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em' }}>
 //               Auto<em style={{ color: '#DFC27A', fontStyle: 'italic' }}>mobiles</em>
 //             </h1>
@@ -821,7 +821,7 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Cars & Bikes</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Cars & Bikes</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>New Launches</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
@@ -832,7 +832,7 @@ export default function AutomobilesPage() {
 //             <div style={{ display: 'flex', gap: 0, marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.1)', width: 'fit-content' }}>
 //               {segments.map(s => (
 //                 <button key={s} onClick={() => setActiveSegment(s)}
-//                   style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '10px 24px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeSegment === s ? '#DFC27A' : 'rgba(201,168,76,0.38)', borderBottom: activeSegment === s ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', fontWeight: activeSegment === s ? 500 : 400 }}
+//                   style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '10px 24px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeSegment === s ? '#DFC27A' : 'rgba(201,168,76,0.38)', borderBottom: activeSegment === s ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', fontWeight: activeSegment === s ? 500 : 400 }}
 //                   onMouseEnter={e => { if (activeSegment !== s) e.currentTarget.style.color = '#C9A84C'; }}
 //                   onMouseLeave={e => { if (activeSegment !== s) e.currentTarget.style.color = 'rgba(201,168,76,0.38)'; }}
 //                 >{s}</button>
@@ -855,7 +855,7 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Trusted Partners</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Trusted Partners</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Featured Dealers</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
@@ -873,7 +873,7 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Reviews & Intelligence</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Reviews & Intelligence</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Editorial Stories</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
@@ -896,7 +896,7 @@ export default function AutomobilesPage() {
 //             {!editorialLoading && editorialPosts.length === 0 && (
 //               <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.45)' }}>
 //                 <p style={{ fontFamily: 'Georgia,serif', fontSize: 20, marginBottom: 8 }}>No stories published yet.</p>
-//                 <p style={{ fontSize: 13 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
+//                 <p style={{ fontSize: 16 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
 //               </div>
 //             )}
 
@@ -927,7 +927,7 @@ export default function AutomobilesPage() {
 //           </div>
 //           <div style={{ maxWidth: 780, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
 //             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.55 }}>🚗</div>
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Source. You Drive.</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Source. You Drive.</p>
 //             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.12, marginBottom: 20, letterSpacing: '0.015em' }}>
 //               Need Sourcing<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Assistance?</em>
 //             </h2>
@@ -1038,7 +1038,7 @@ export default function AutomobilesPage() {
 //               const isActive = link.href === '/automobiles';
 //               return (
 //                 <Link key={link.href} href={link.href}
-//                   style={{ fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: isActive ? '#DFC27A' : link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)', textDecoration: 'none', padding: '8px 10px', borderBottom: isActive ? '1px solid #C9A84C' : '1px solid transparent', fontWeight: isActive ? 500 : 400, transition: 'color .2s', whiteSpace: 'nowrap', ...(link.href === '/partner-with-us' ? { border: '1px solid rgba(201,168,76,0.3)', padding: '6px 10px', marginLeft: 4 } : {}) }}
+//                   style={{ fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', color: isActive ? '#DFC27A' : link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)', textDecoration: 'none', padding: '8px 10px', borderBottom: isActive ? '1px solid #C9A84C' : '1px solid transparent', fontWeight: isActive ? 500 : 400, transition: 'color .2s', whiteSpace: 'nowrap', ...(link.href === '/partner-with-us' ? { border: '1px solid rgba(201,168,76,0.3)', padding: '6px 10px', marginLeft: 4 } : {}) }}
 //                   onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#DFC27A'; }}
 //                   onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)'; }}
 //                 >{link.label}</Link>
@@ -1115,13 +1115,13 @@ export default function AutomobilesPage() {
 //         </div>
 
 //         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '14px 18px', background: 'linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 100%)' }}>
-//           <p style={{ fontSize: 9, color: 'rgba(201,168,76,0.6)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>{car.highlight}</p>
+//           <p style={{ fontSize: 15, color: 'rgba(201,168,76,0.6)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>{car.highlight}</p>
 //         </div>
 //       </div>
 
 //       <div style={{ padding: '20px 22px 24px' }}>
 //         <div style={{ width: hov ? 36 : 18, height: 1, background: '#C9A84C', marginBottom: 12, transition: 'width .35s ease' }} />
-//         <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 5 }}>{car.brand}</p>
+//         <p style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 5 }}>{car.brand}</p>
 //         <h3 style={{ fontFamily: 'Georgia,serif', fontSize: big ? 21 : 18, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em', lineHeight: 1.25 }}>{car.name}</h3>
 //         <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', marginBottom: 16, letterSpacing: '0.06em' }}>{car.type}</p>
 //         <div style={{ display: 'flex', gap: 20, marginBottom: 18, paddingBottom: 16, borderBottom: '1px solid rgba(201,168,76,0.08)' }}>
@@ -1135,7 +1135,7 @@ export default function AutomobilesPage() {
 //             <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', marginBottom: 3 }}>Starting from</p>
 //             <p style={{ fontFamily: 'Georgia,serif', fontSize: 18, color: '#C9A84C', letterSpacing: '0.02em' }}>{car.price}</p>
 //           </div>
-//           <span style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: hov ? '#0A0A0A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>
+//           <span style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: hov ? '#0A0A0A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>
 //             Enquire →
 //           </span>
 //         </div>
@@ -1166,8 +1166,8 @@ export default function AutomobilesPage() {
 //           {d.brands.map(b => <span key={b} style={{ fontSize: 8, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.18)', padding: '4px 8px' }}>{b}</span>)}
 //         </div>
 //         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 14 }}>
-//           <p style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.06em' }}>{d.specialty}</p>
-//           <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', opacity: hov ? 1 : 0, transition: 'opacity .25s' }}>Visit →</span>
+//           <p style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.06em' }}>{d.specialty}</p>
+//           <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', opacity: hov ? 1 : 0, transition: 'opacity .25s' }}>Visit →</span>
 //         </div>
 //       </div>
 //     </Link>
@@ -1190,10 +1190,10 @@ export default function AutomobilesPage() {
 //       <div style={{ padding: big ? '24px 26px 28px' : '18px 20px 22px' }}>
 //         <div style={{ width: hov ? 38 : 18, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s' }} />
 //         <h3 style={{ fontFamily: 'Georgia,serif', fontWeight: 400, fontSize: big ? 21 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.title}</h3>
-//         <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>
+//         <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>
 //         <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-//           <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-//           <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)' }}>{post.date} · {post.readTime} min</span>
+//           <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+//           <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)' }}>{post.date} · {post.readTime} min</span>
 //         </div>
 //       </div>
 //     </Link>
@@ -1219,12 +1219,12 @@ export default function AutomobilesPage() {
 //           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.5 }} />
 
 //           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 900 }}>
-//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
 //               <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }} onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')} onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.4)')}>Home</Link>
 //               <span style={{ opacity: 0.4 }}>/</span>
 //               <span style={{ color: '#C9A84C' }}>Automobiles</span>
 //             </div>
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18 }}>Indian Luxury House</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18 }}>Indian Luxury House</p>
 //             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em' }}>
 //               Auto<em style={{ color: '#DFC27A', fontStyle: 'italic' }}>mobiles</em>
 //             </h1>
@@ -1234,7 +1234,7 @@ export default function AutomobilesPage() {
 //             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
 //               {['New Launches', 'Featured Dealers', 'Stories'].map(tab => (
 //                 <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`}
-//                   style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
+//                   style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
 //                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.12)'; e.currentTarget.style.color = '#DFC27A'; }}
 //                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(201,168,76,0.65)'; }}
 //                 >{tab}</a>
@@ -1260,17 +1260,17 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Cars & Bikes</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Cars & Bikes</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>New Launches</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
-//               <Link href="/automobiles/all" style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>View All →</Link>
+//               <Link href="/automobiles/all" style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>View All →</Link>
 //             </div>
 
 //             <div style={{ display: 'flex', gap: 0, marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.1)', width: 'fit-content' }}>
 //               {segments.map(s => (
 //                 <button key={s} onClick={() => setActiveSegment(s)}
-//                   style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '10px 24px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeSegment === s ? '#DFC27A' : 'rgba(201,168,76,0.38)', borderBottom: activeSegment === s ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', fontWeight: activeSegment === s ? 500 : 400 }}
+//                   style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '10px 24px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeSegment === s ? '#DFC27A' : 'rgba(201,168,76,0.38)', borderBottom: activeSegment === s ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', fontWeight: activeSegment === s ? 500 : 400 }}
 //                   onMouseEnter={e => { if (activeSegment !== s) e.currentTarget.style.color = '#C9A84C'; }}
 //                   onMouseLeave={e => { if (activeSegment !== s) e.currentTarget.style.color = 'rgba(201,168,76,0.38)'; }}
 //                 >{s}</button>
@@ -1293,11 +1293,11 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Trusted Partners</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Trusted Partners</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Featured Dealers</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
-//               <Link href="/automobiles/dealers" style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>View All Dealers →</Link>
+//               <Link href="/automobiles/dealers" style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>View All Dealers →</Link>
 //             </div>
 //             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }} className="ilh-auto-dealers">
 //               {DEALERS.map(d => <DealerCard key={d.slug} d={d} />)}
@@ -1310,11 +1310,11 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Reviews & Intelligence</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Reviews & Intelligence</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Latest Stories</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
-//               <Link href="/news?category=automobiles" style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>All Auto Stories →</Link>
+//               <Link href="/news?category=automobiles" style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>All Auto Stories →</Link>
 //             </div>
 //             <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 20 }} className="ilh-auto-stories">
 //               <StoryCard post={STORIES[0]} big />
@@ -1335,7 +1335,7 @@ export default function AutomobilesPage() {
 //           </div>
 //           <div style={{ maxWidth: 780, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
 //             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.55 }}>🚗</div>
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(107,101,88,0.5)', marginBottom: 18 }}>We Source. You Drive.</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(107,101,88,0.5)', marginBottom: 18 }}>We Source. You Drive.</p>
 //             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#1A1A1A', lineHeight: 1.12, marginBottom: 20, letterSpacing: '0.015em' }}>
 //               Need Sourcing<br /><em style={{ color: '#C9A84C', fontStyle: 'italic' }}>Assistance?</em>
 //             </h2>
@@ -1594,7 +1594,7 @@ export default function AutomobilesPage() {
 //               return (
 //                 <Link key={link.href} href={link.href}
 //                   style={{
-//                     fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase',
+//                     fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase',
 //                     color: isActive ? '#DFC27A' : link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)',
 //                     textDecoration: 'none', padding: '8px 10px',
 //                     borderBottom: isActive ? '1px solid #C9A84C' : '1px solid transparent',
@@ -1670,7 +1670,7 @@ export default function AutomobilesPage() {
 
 //         {/* Bottom highlight strip */}
 //         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '14px 18px', background: 'linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 100%)' }}>
-//           <p style={{ fontSize: 9, color: 'rgba(201,168,76,0.6)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>{car.highlight}</p>
+//           <p style={{ fontSize: 15, color: 'rgba(201,168,76,0.6)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>{car.highlight}</p>
 //         </div>
 //       </div>
 
@@ -1678,7 +1678,7 @@ export default function AutomobilesPage() {
 //       <div style={{ padding: '20px 22px 24px' }}>
 //         <div style={{ width: hov ? 36 : 18, height: 1, background: '#C9A84C', marginBottom: 12, transition: 'width .35s ease' }} />
 
-//         <p style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 5 }}>{car.brand}</p>
+//         <p style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 5 }}>{car.brand}</p>
 //         <h3 style={{ fontFamily: 'Georgia,serif', fontSize: big ? 21 : 18, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em', lineHeight: 1.25, transition: 'color .25s' }}>
 //           {car.name}
 //         </h3>
@@ -1698,7 +1698,7 @@ export default function AutomobilesPage() {
 //             <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', marginBottom: 3 }}>Starting from</p>
 //             <p style={{ fontFamily: 'Georgia,serif', fontSize: 18, color: '#C9A84C', letterSpacing: '0.02em' }}>{car.price}</p>
 //           </div>
-//           <span style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: hov ? '#0A0A0A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>
+//           <span style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: hov ? '#0A0A0A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>
 //             Enquire →
 //           </span>
 //         </div>
@@ -1743,8 +1743,8 @@ export default function AutomobilesPage() {
 //         </div>
 
 //         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 14 }}>
-//           <p style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.06em' }}>{d.specialty}</p>
-//           <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', opacity: hov ? 1 : 0, transition: 'opacity .25s' }}>Visit →</span>
+//           <p style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.06em' }}>{d.specialty}</p>
+//           <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', opacity: hov ? 1 : 0, transition: 'opacity .25s' }}>Visit →</span>
 //         </div>
 //       </div>
 //     </Link>
@@ -1775,12 +1775,12 @@ export default function AutomobilesPage() {
 //         <h3 style={{ fontFamily: 'Georgia,serif', fontWeight: 400, fontSize: big ? 21 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
 //           {post.title}
 //         </h3>
-//         <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+//         <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
 //           {post.excerpt}
 //         </p>
 //         <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-//           <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-//           <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)' }}>{post.date} · {post.readTime} min</span>
+//           <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+//           <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)' }}>{post.date} · {post.readTime} min</span>
 //         </div>
 //       </div>
 //     </Link>
@@ -1813,7 +1813,7 @@ export default function AutomobilesPage() {
 // // //             </p>
 // // //             <div style={{ display: 'flex', gap: 18 }}>
 // // //               {['Instagram', 'LinkedIn'].map(s => (
-// // //                 <a key={s} href="#" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
+// // //                 <a key={s} href="#" style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
 // // //                   onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
 // // //                   onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.38)')}
 // // //                 >{s}</a>
@@ -1821,7 +1821,7 @@ export default function AutomobilesPage() {
 // // //             </div>
 // // //           </div>
 // // //           <div>
-// // //             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Categories</p>
+// // //             <p style={{ fontSize: 15, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Categories</p>
 // // //             {CATS.map(c => (
 // // //               <Link key={c.slug} href={`/${c.slug}`}
 // // //                 style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
@@ -1831,7 +1831,7 @@ export default function AutomobilesPage() {
 // // //             ))}
 // // //           </div>
 // // //           <div>
-// // //             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Navigate</p>
+// // //             <p style={{ fontSize: 15, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Navigate</p>
 // // //             {[{ l: 'Home', h: '/' }, { l: 'News', h: '/news' }, { l: 'Partner With Us', h: '/partner-with-us' }, { l: 'About', h: '/about' }].map(item => (
 // // //               <Link key={item.h} href={item.h}
 // // //                 style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
@@ -1841,17 +1841,17 @@ export default function AutomobilesPage() {
 // // //             ))}
 // // //           </div>
 // // //           <div>
-// // //             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Contact</p>
-// // //             <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.22)', marginBottom: 6 }}>Partnerships:</p>
+// // //             <p style={{ fontSize: 15, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Contact</p>
+// // //             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.22)', marginBottom: 6 }}>Partnerships:</p>
 // // //             <a href="mailto:hello@indianluxuryhouse.com"
 // // //               style={{ fontSize: 12, color: 'rgba(201,168,76,0.5)', textDecoration: 'none', display: 'block', marginBottom: 28, transition: 'color .2s' }}
 // // //               onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
 // // //               onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.5)')}
 // // //             >hello@indianluxuryhouse.com</a>
-// // //             <p style={{ fontSize: 9, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.28)', marginBottom: 12 }}>Newsletter</p>
+// // //             <p style={{ fontSize: 15, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.28)', marginBottom: 12 }}>Newsletter</p>
 // // //             <div style={{ display: 'flex' }}>
 // // //               <input type="email" placeholder="your@email.com"
-// // //                 style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.18)', color: '#DFC27A', fontSize: 11, padding: '9px 12px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
+// // //                 style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.18)', color: '#DFC27A', fontSize: 14, padding: '9px 12px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
 // // //               />
 // // //               <button style={{ background: '#C9A84C', color: '#0A0A0A', border: 'none', padding: '9px 14px', cursor: 'pointer', fontSize: 14, fontWeight: 700, transition: 'background .2s' }}
 // // //                 onMouseEnter={e => ((e.target as HTMLElement).style.background = '#DFC27A')}
@@ -1913,7 +1913,7 @@ export default function AutomobilesPage() {
 //           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 900 }}>
 
 //             {/* Breadcrumb */}
-//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
 //               <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
 //                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
 //                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.4)')}
@@ -1922,7 +1922,7 @@ export default function AutomobilesPage() {
 //               <span style={{ color: '#C9A84C' }}>Automobiles</span>
 //             </div>
 
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'autoFadeUp .8s .1s ease both' }}>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'autoFadeUp .8s .1s ease both' }}>
 //               Indian Luxury House
 //             </p>
 
@@ -1938,7 +1938,7 @@ export default function AutomobilesPage() {
 //             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, animation: 'autoFadeUp .8s .4s ease both' }}>
 //               {['New Launches', 'Featured Dealers', 'Stories'].map(tab => (
 //                 <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`}
-//                   style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
+//                   style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
 //                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.12)'; e.currentTarget.style.color = '#DFC27A'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.5)'; }}
 //                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(201,168,76,0.65)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.25)'; }}
 //                 >{tab}</a>
@@ -1976,12 +1976,12 @@ export default function AutomobilesPage() {
 //             {/* Header */}
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Cars & Bikes</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Cars & Bikes</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>New Launches</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
 //               <Link href="/automobiles/all"
-//                 style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
+//                 style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
 //                 View All →
 //               </Link>
 //             </div>
@@ -1991,7 +1991,7 @@ export default function AutomobilesPage() {
 //               {segments.map(s => (
 //                 <button key={s} onClick={() => setActiveSegment(s)}
 //                   style={{
-//                     fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase',
+//                     fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase',
 //                     padding: '10px 24px', border: 'none', cursor: 'pointer', background: 'transparent',
 //                     color: activeSegment === s ? '#DFC27A' : 'rgba(201,168,76,0.38)',
 //                     borderBottom: activeSegment === s ? '2px solid #C9A84C' : '2px solid transparent',
@@ -2020,12 +2020,12 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Trusted Partners</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Trusted Partners</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Featured Dealers</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
 //               <Link href="/automobiles/dealers"
-//                 style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
+//                 style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
 //                 View All Dealers →
 //               </Link>
 //             </div>
@@ -2041,12 +2041,12 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Reviews & Intelligence</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Reviews & Intelligence</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Latest Stories</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
 //               <Link href="/news?category=automobiles"
-//                 style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
+//                 style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
 //                 All Auto Stories →
 //               </Link>
 //             </div>
@@ -2075,7 +2075,7 @@ export default function AutomobilesPage() {
 //           <div style={{ maxWidth: 780, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
 //             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.55 }}>🚗</div>
 
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(107,101,88,0.5)', marginBottom: 18 }}>We Source. You Drive.</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(107,101,88,0.5)', marginBottom: 18 }}>We Source. You Drive.</p>
 
 //             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#1A1A1A', lineHeight: 1.12, marginBottom: 20, letterSpacing: '0.015em' }}>
 //               Need Sourcing<br /><em style={{ color: '#C9A84C', fontStyle: 'italic' }}>Assistance?</em>

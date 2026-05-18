@@ -182,11 +182,12 @@ function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
   return (
     <Link
       href={`/${catSlug}/${post.slug}`}
-      style={{ display: 'block', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
+      style={{  display: 'flex', 
+    flexDirection: 'column', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
     >
       {/* Image */}
-      <div style={{ position: 'relative', paddingBottom: big ? '56%' : '62%', overflow: 'hidden', background: '#1A1A1A' }}>
+      <div style={{ position: 'relative', paddingBottom: big ? '62%' : '62%', overflow: 'hidden', background: '#1A1A1A' }}>
         <img
           src={imgSrc}
           alt={post.title}
@@ -200,28 +201,46 @@ function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
         {big && <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 55%)' }} />}
-        <span style={{ position: 'absolute', top: 14, left: 14, fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '5px 10px', border: '1px solid rgba(201,168,76,0.25)' }}>
+        <span style={{ position: 'absolute', top: 14, left: 14, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '5px 10px', border: '1px solid rgba(201,168,76,0.25)' }}>
           {post.category}
         </span>
       </div>
 
       {/* Content */}
-      <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px' }}>
+      {/* <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px' }}>
         <div style={{ width: hov ? 40 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
-        <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 22 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+        <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 30 : 25, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.title}
         </h3>
-        <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+        <p style={{ fontSize: 15, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.excerpt}
         </p>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
           <div>
-            <span style={{ fontSize: 9, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
-            <span style={{ fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+            <span style={{ fontSize: 13, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
+            <span style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
           </div>
-          <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+          <span style={{ fontSize: 13, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
         </div>
-      </div>
+\
+      </div> */}
+      {/* Content */}
+<div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px', display: 'flex', flexDirection: 'column', flex: '1 1 auto' }}>
+  <div style={{ width: hov ? 40 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
+  <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 28 : 23
+    , lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+    {post.title}
+  </h3>
+  <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+    {post.excerpt}
+  </p>
+  {/* Author/Date - always at bottom */}
+  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: 8, borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12, overflow: 'hidden' }}>
+    <span style={{ fontSize: 13, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', whiteSpace: 'nowrap' }}>By</span>
+    <span style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: '1 1 auto', minWidth: 0 }}>{post.author}</span>
+    <span style={{ fontSize: 13, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em', whiteSpace: 'nowrap', flex: '0 0 auto' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+  </div>
+</div>
     </Link>
   );
 }
@@ -385,7 +404,16 @@ export default function HomePage() {
             <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(36px, 7vw, 88px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.08, marginBottom: 22, animation: 'hFadeUp .8s .2s ease both', letterSpacing: '0.015em' }}>
               Discover the Finest<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>in Indian Luxury</em>
             </h1>
-            <p style={{ fontSize: 13, color: 'rgba(250,250,248,0.5)', fontWeight: 300, letterSpacing: '0.04em', marginBottom: 40, animation: 'hFadeUp .8s .3s ease both', maxWidth: 560 }}>
+            <p style={{ 
+  fontSize: 17, 
+  color: 'rgba(250,250,248,0.92)', 
+  fontWeight: 400, 
+  letterSpacing: '0.04em', 
+  marginBottom: 40, 
+  animation: 'hFadeUp .8s .3s ease both', 
+  maxWidth: 560,
+  textShadow: '0 2px 12px rgba(0,0,0,0.9)'
+}}>
               Real estate, automobiles, jewellery, weddings, and curated luxury experiences — through an India-first lens.
             </p>
             <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', animation: 'hFadeUp .8s .4s ease both' }}>
@@ -431,7 +459,7 @@ export default function HomePage() {
         <section id="categories" style={{ background: '#0A0A0A', padding: '80px 32px', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <p style={{ fontSize: 9, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 12 }}>Explore</p>
+              <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 12 }}>Explore</p>
               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Our Categories</h2>
               <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
             </div>
@@ -446,7 +474,7 @@ export default function HomePage() {
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 40, borderBottom: '1px solid rgba(201,168,76,0.15)', paddingBottom: 20 }}>
               <div>
-                <p style={{ fontSize: 9, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 10 }}>Latest from the World of Luxury</p>
+                <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color:  '#DFC27A',fontWeight: 600 , marginBottom: 10 }}>Latest from the World of Luxury</p>
                 <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Trending Stories</h2>
               </div>
               <Link href="/news" style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.4)', paddingBottom: 2, flexShrink: 0 }}>
@@ -493,21 +521,21 @@ export default function HomePage() {
                 ) : (
                   <>
                     {/* Top row: Hero post (big) + 2 secondary */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }} className="ilh-grid-3">
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20,alignItems: 'stretch' }} className="ilh-grid-3">
                       {heroPost && <BlogCard post={heroPost} big />}
                       {secondaryPosts.map(p => <BlogCard key={p._id} post={p} />)}
                     </div>
 
                     {/* Middle row: 3 posts */}
                     {middlePosts.length > 0 && (
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }} className="ilh-grid-3">
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20,alignItems: 'stretch' }} className="ilh-grid-3">
                         {middlePosts.map(p => <BlogCard key={p._id} post={p} />)}
                       </div>
                     )}
 
                     {/* Bottom row: 3 posts */}
                     {bottomPosts.length > 0 && (
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="ilh-grid-3">
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 ,alignItems: 'stretch'}} className="ilh-grid-3">
                         {bottomPosts.map(p => <BlogCard key={p._id} post={p} />)}
                       </div>
                     )}
@@ -519,7 +547,7 @@ export default function HomePage() {
         </section>
 
         {/* ══ SECTION 4: PARTNERS ══════════════════════════════ */}
-        <section style={{ background: '#0A0A0A', padding: '72px 32px', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+        {/* <section style={{ background: '#0A0A0A', padding: '72px 32px', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
             <p style={{ fontSize: 9, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 14 }}>Our Network</p>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 300, color: '#FAFAF8', marginBottom: 48, letterSpacing: '0.02em' }}>
@@ -547,13 +575,42 @@ export default function HomePage() {
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.6)')}
             >View All Partners →</Link>
           </div>
-        </section>
+        </section> */}
+        <section style={{ background: '#0A0A0A', padding: '72px 32px', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+  <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
+    <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 14 }}>Our Network</p>
+    <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 300, color: '#FAFAF8', marginBottom: 48, letterSpacing: '0.02em' }}>
+      Trusted by India&apos;s Premium Businesses
+    </h2>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 1, border: '1px solid rgba(201,168,76,0.1)' }} className="ilh-grid-4">
+      {PARTNERS.map((p, i) => (
+        <div key={p.name}
+          style={{ padding: '32px 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: i < 5 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'background .25s', cursor: 'pointer' }}
+          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,168,76,0.05)')}
+          onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+        >
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ width: 56, height: 56, background: 'rgba(201,168,76,0.1)', borderRadius: '50%', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ fontSize: 22, color: '#C9A84C' }}>◈</span>
+            </div>
+            <p style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', margin: 0 }}>{p.name}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <Link href="/curated-partners"
+      style={{ display: 'inline-block', marginTop: 40, fontSize: 13, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.3)', paddingBottom: 2, transition: 'color .2s' }}
+      onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
+      onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.6)')}
+    >View All Partners →</Link>
+  </div>
+</section>
 
         {/* ══ SECTION 5: WHY ILH ═══════════════════════════════ */}
-        <section style={{ background: '#FAFAF8', padding: '88px 32px' }}>
+        {/* <section style={{ background: '#FAFAF8', padding: '88px 32px' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 60 }}>
-              <p style={{ fontSize: 9, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Our Promise</p>
+              <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Our Promise</p>
               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Why Indian Luxury House</h2>
               <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
             </div>
@@ -571,10 +628,32 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
+        <section style={{ background: '#FAFAF8', padding: '88px 32px' }}>
+  <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+    <div style={{ textAlign: 'center', marginBottom: 60 }}>
+      <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Our Promise</p>
+      <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Why Indian Luxury House</h2>
+      <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
+    </div>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }} className="ilh-grid-why">
+      {WHY_ILH.map((item, i) => (
+        <div key={i}
+          style={{ padding: '40px 32px', background: '#fff', border: '1px solid rgba(201,168,76,0.1)', transition: 'all .3s', cursor: 'default' }}
+          onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = '#0A0A0A'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.3)'; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = '#fff'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.1)'; }}
+        >
+          <div style={{ fontSize: 28, color: '#C9A84C', marginBottom: 20, opacity: 0.8 }}>{item.icon}</div>
+          <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 25, fontWeight: 400, color: 'inherit', marginBottom: 14, letterSpacing: '0.01em', lineHeight: 1.35 }}>{item.title}</h3>
+          <p style={{ fontSize: 16, color: 'rgba(107,101,88,0.75)', lineHeight: 1.8, fontWeight: 300 }}>{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* ══ SECTION 6: CTA ═══════════════════════════════════ */}
-        <section style={{ background: '#0A0A0A', padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
+        {/* <section style={{ background: '#0A0A0A', padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
           <div style={{ position: 'absolute', right: -120, top: '50%', transform: 'translateY(-50%)', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(42,122,106,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
@@ -592,7 +671,26 @@ export default function HomePage() {
               onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
             >Partner With Us</Link>
           </div>
-        </section>
+        </section> */}
+        <section style={{ background: '#0A0A0A', padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
+  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
+  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
+  <div style={{ position: 'absolute', right: -120, top: '50%', transform: 'translateY(-50%)', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(42,122,106,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+  <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+    <p style={{ fontSize: 20, letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', marginBottom: 18 }}>Grow With Us</p>
+    <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 60px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.15, marginBottom: 22, letterSpacing: '0.01em' }}>
+      Build Your Presence in<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>India&apos;s Luxury Market</em>
+    </h2>
+    <p style={{ fontSize: 17, color: 'rgba(250,250,248,0.4)', fontWeight: 300, lineHeight: 1.8, marginBottom: 48, maxWidth: 560, margin: '0 auto 48px' }}>
+      Reach India&apos;s most affluent audience through editorial stories, featured listings, and bespoke brand campaigns — crafted for luxury.
+    </p>
+    <Link href="/partner-with-us"
+      style={{ display: 'inline-block', fontSize: 13, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 48px', textDecoration: 'none', fontWeight: 700, transition: 'all .3s' }}
+      onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
+      onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
+    >Partner With Us</Link>
+  </div>
+</section>
 
       </main>
     </>
@@ -2168,7 +2266,7 @@ export default function HomePage() {
 //           {prevIdx !== null && (
 //             <Image
 //               src={HERO_IMAGES[prevIdx]}
-//               alt="SM Luxury Hero"
+//               alt="Indian Luxury House Hero"
 //               fill
 //               priority
 //               style={{
@@ -2187,7 +2285,7 @@ export default function HomePage() {
 //           <Image
 //             key={heroIdx}
 //             src={HERO_IMAGES[heroIdx]}
-//             alt="SM Luxury Hero"
+//             alt="Indian Luxury House Hero"
 //             fill
 //             priority
 //             style={{
@@ -2477,7 +2575,7 @@ export default function HomePage() {
 //           <div>
 //             <div style={{ display:'flex', flexDirection:'column', alignItems:'flex-start', gap:8, marginBottom:16 }}>
 //               <SMLogo size={48} />
-//               <span style={{ fontFamily:'Georgia,serif', fontSize:20, fontWeight:300, color:'#DFC27A', letterSpacing:'0.22em' }}>SM Luxury</span>
+//               <span style={{ fontFamily:'Georgia,serif', fontSize:20, fontWeight:300, color:'#DFC27A', letterSpacing:'0.22em' }}>Indian Luxury House</span>
 //             </div>
 //             <p style={{ fontSize:12, lineHeight:1.8, color:'rgba(201,168,76,0.45)', fontWeight:300 }}>A curated journal for those who appreciate the finest things in life.</p>
 //           </div>
@@ -2514,7 +2612,7 @@ export default function HomePage() {
 //           </div>
 //         </div>
 //         <div style={{ borderTop:'1px solid rgba(201,168,76,0.1)', paddingTop:24, display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
-//           <p style={{ fontSize:10, letterSpacing:'0.12em', color:'rgba(201,168,76,0.26)' }}>© 2026 SM Luxury. All rights reserved.</p>
+//           <p style={{ fontSize:10, letterSpacing:'0.12em', color:'rgba(201,168,76,0.26)' }}>© 2026 Indian Luxury House. All rights reserved.</p>
 //           <div style={{ display:'flex', gap:24 }}>
 //             {['Instagram','Twitter','LinkedIn'].map(s => (
 //               <a key={s} href="#" style={{ fontSize:10, letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(201,168,76,0.32)', textDecoration:'none', transition:'color .2s' }}
@@ -2686,7 +2784,7 @@ export default function HomePage() {
 //         <section style={{ position:'relative', height:'100vh', minHeight:680, maxHeight:920, background:'#1B4D45', overflow:'hidden' }}>
 //           {/*
 //             Add hero image: public/images/hero-homepage.jpg then uncomment:
-//             <Image src="/images/hero-homepage.jpg" alt="SM Luxury Hero" fill priority
+//             <Image src="/images/hero-homepage.jpg" alt="Indian Luxury House Hero" fill priority
 //               style={{ objectFit:'cover', objectPosition:'center' }} quality={95} />
 //           */}
 //           <div style={{ position:'absolute', inset:0, background:'linear-gradient(135deg,#1B4D45 0%,#1F5C52 50%,#163D37 100%)' }}>
@@ -3016,7 +3114,7 @@ export default function HomePage() {
 //           <div>
 //             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8, marginBottom: 16 }}>
 //               <SMLogo size={48} />
-//               <span style={{ fontFamily: 'Georgia,serif', fontSize: 20, fontWeight: 300, color: '#DFC27A', letterSpacing: '0.22em' }}>SM Luxury</span>
+//               <span style={{ fontFamily: 'Georgia,serif', fontSize: 20, fontWeight: 300, color: '#DFC27A', letterSpacing: '0.22em' }}>Indian Luxury House</span>
 //             </div>
 //             <p style={{ fontSize: 12, lineHeight: 1.8, color: 'rgba(201,168,76,0.45)', fontWeight: 300 }}>
 //               A curated journal for those who appreciate the finest things in life.
@@ -3066,7 +3164,7 @@ export default function HomePage() {
 
 //         {/* Bottom bar */}
 //         <div style={{ borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-//           <p style={{ fontSize: 10, letterSpacing: '0.12em', color: 'rgba(201,168,76,0.26)' }}>© 2026 SM Luxury. All rights reserved.</p>
+//           <p style={{ fontSize: 10, letterSpacing: '0.12em', color: 'rgba(201,168,76,0.26)' }}>© 2026 Indian Luxury House. All rights reserved.</p>
 //           <div style={{ display: 'flex', gap: 24 }}>
 //             {['Instagram','Twitter','LinkedIn'].map(s => (
 //               <a key={s} href="#"
@@ -3200,7 +3298,7 @@ export default function HomePage() {
 //           {/* ▼▼▼ UNCOMMENT when you add public/images/hero-homepage.jpg ▼▼▼
 //           <Image
 //             src="/images/hero-homepage.jpg"
-//             alt="SM Luxury Hero"
+//             alt="Indian Luxury House Hero"
 //             fill priority
 //             style={{ objectFit: 'cover', objectPosition: 'center' }}
 //             quality={95}
@@ -3387,7 +3485,7 @@ export default function HomePage() {
 //       </svg>
 //       {showText && (
 //         <span style={{ color, fontSize: size === 'sm' ? 11 : size === 'lg' ? 16 : 13, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'serif' }}>
-//           SM Luxury
+//           Indian Luxury House
 //         </span>
 //       )}
 //     </div>
@@ -3530,7 +3628,7 @@ export default function HomePage() {
 //       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 //         <SMLogoComponent variant="gold" size="sm" showText />
 //         <p className="text-[10px] tracking-[0.2em] uppercase text-[#C9A84C]/40">
-//           © {new Date().getFullYear()} SM Luxury. All rights reserved.
+//           © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
 //         </p>
 //         <div className="flex items-center gap-6">
 //           {CATEGORIES.slice(0, 4).map((cat) => (
@@ -3746,7 +3844,7 @@ export default function HomePage() {
 //       </svg>
 //       {showText && (
 //         <span style={{ color, fontSize: size === 'sm' ? 11 : size === 'lg' ? 16 : 13, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'serif' }}>
-//           SM Luxury
+//           Indian Luxury House
 //         </span>
 //       )}
 //     </div>
@@ -3825,7 +3923,7 @@ export default function HomePage() {
 //       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 //         <SMLogoComponent variant="gold" size="sm" showText />
 //         <p className="text-[10px] tracking-[0.2em] uppercase text-[#C9A84C]/40">
-//           © {new Date().getFullYear()} SM Luxury. All rights reserved.
+//           © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
 //         </p>
 //         <div className="flex items-center gap-6">
 //           {CATEGORIES.slice(0, 4).map((cat) => (

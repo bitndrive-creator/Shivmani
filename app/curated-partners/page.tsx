@@ -82,13 +82,13 @@ function PartnerCard({ partner }: { partner: typeof PARTNERS[0] }) {
         <span style={{ fontFamily: 'Georgia, serif', fontSize: 18, fontWeight: 300, color: hov ? '#C9A84C' : '#999', letterSpacing: '0.05em' }}>{initials}</span>
       </div>
 
-      <p style={{ fontSize: 9, letterSpacing: '0.35em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.6)' : '#1B4D45', fontFamily: 'sans-serif', marginBottom: 10, transition: 'color 0.3s' }}>{partner.category}</p>
+      <p style={{ fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.6)' : '#1B4D45', fontFamily: 'sans-serif', marginBottom: 10, transition: 'color 0.3s' }}>{partner.category}</p>
       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 20, fontWeight: 400, color: hov ? '#ffffff' : '#0a0a0a', marginBottom: 12, letterSpacing: '0.01em', lineHeight: 1.3, transition: 'color 0.3s' }}>{partner.name}</h3>
       <div style={{ width: hov ? 36 : 24, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width 0.3s' }} />
-      <p style={{ fontSize: 13, lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif', color: hov ? 'rgba(255,255,255,0.5)' : '#666', marginBottom: 20, flex: 1, transition: 'color 0.3s' }}>{partner.desc}</p>
+      <p style={{ fontSize: 16, lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif', color: hov ? 'rgba(255,255,255,0.5)' : '#666', marginBottom: 20, flex: 1, transition: 'color 0.3s' }}>{partner.desc}</p>
 
       {/* ✅ Inquire button removed — sirf city dikhao */}
-      <span style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.4)' : '#aaa', fontFamily: 'sans-serif', transition: 'color 0.3s' }}>📍 {partner.city}</span>
+      <span style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.4)' : '#aaa', fontFamily: 'sans-serif', transition: 'color 0.3s' }}>📍 {partner.city}</span>
     </div>
   );
 }
@@ -126,12 +126,12 @@ function EditorialCard({ post, big = false }: { post: Post; big?: boolean }) {
         <h3 style={{ fontFamily: 'Georgia,serif', fontWeight: 400, fontSize: big ? 22 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.title}
         </h3>
-        <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+        <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.excerpt}
         </p>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-          <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-          <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+          <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+          <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
         </div>
       </div>
     </a>
@@ -188,7 +188,7 @@ export default function PartnersPage() {
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', zIndex: 2 }} />
 
           <div style={{ position: 'relative', zIndex: 10, maxWidth: 760, margin: '0 auto' }}>
-            <p style={{ fontSize: 10, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>Trusted Network</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>Trusted Network</p>
             <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(38px, 6vw, 76px)', fontWeight: 300, color: '#ffffff', lineHeight: 1.1, letterSpacing: '0.02em', marginBottom: 28 }}>
               Curated <em style={{ color: '#C9A84C' }}>Partners</em>
             </h1>
@@ -197,7 +197,7 @@ export default function PartnersPage() {
               <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#1B4D45' }} />
               <div style={{ width: 64, height: 1, background: 'rgba(201,168,76,0.35)' }} />
             </div>
-            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', fontWeight: 300, fontFamily: 'sans-serif', letterSpacing: '0.02em' }}>
+            <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.55)', fontWeight: 300, fontFamily: 'sans-serif', letterSpacing: '0.02em' }}>
               India's trusted network of premium businesses.
             </p>
           </div>
@@ -209,7 +209,7 @@ export default function PartnersPage() {
         <div style={{ background: '#0a0a0a', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
           <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 32px', display: 'flex', overflowX: 'auto' }}>
             {CATEGORIES.map((cat, i) => (
-              <button key={cat} onClick={() => setActive(cat)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '20px 22px', fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 500, color: active === cat ? '#C9A84C' : 'rgba(255,255,255,0.3)', borderBottom: active === cat ? '2px solid #C9A84C' : '2px solid transparent', borderRight: i < CATEGORIES.length - 1 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{cat}</button>
+              <button key={cat} onClick={() => setActive(cat)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '20px 22px', fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 500, color: active === cat ? '#C9A84C' : 'rgba(255,255,255,0.3)', borderBottom: active === cat ? '2px solid #C9A84C' : '2px solid transparent', borderRight: i < CATEGORIES.length - 1 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{cat}</button>
             ))}
           </div>
         </div>
@@ -217,7 +217,7 @@ export default function PartnersPage() {
         {/* ══ PARTNERS GRID ═════════════════════════════════════ */}
         <section style={{ maxWidth: 1200, margin: '0 auto', padding: '64px 32px 80px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 40 }}>
-            <p style={{ fontSize: 11, color: '#aaa', fontFamily: 'sans-serif', letterSpacing: '0.1em' }}>
+            <p style={{ fontSize: 15, color: '#aaa', fontFamily: 'sans-serif', letterSpacing: '0.1em' }}>
               <span style={{ color: '#C9A84C', fontWeight: 600 }}>{filtered.length}</span> partners in {active === 'All' ? 'all categories' : active}
             </p>
             <div style={{ width: 40, height: 1, background: 'rgba(201,168,76,0.3)' }} />
@@ -232,11 +232,11 @@ export default function PartnersPage() {
           <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48, borderBottom: '1px solid rgba(201,168,76,0.12)', paddingBottom: 24 }}>
               <div>
-                <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Partner Stories</p>
+                <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Partner Stories</p>
                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Editorial Stories</h2>
                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
               </div>
-              <a href={`/news?category=${THIS_CAT_SLUG}`} style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>All Stories →</a>
+              <a href={`/news?category=${THIS_CAT_SLUG}`} style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>All Stories →</a>
             </div>
 
             {editorialLoading && (
@@ -280,7 +280,7 @@ export default function PartnersPage() {
           <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 2, background: '#1B4D45' }} />
 
           <div style={{ maxWidth: 560, margin: '0 auto' }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 20, fontFamily: 'sans-serif' }}>Join the Network</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 20, fontFamily: 'sans-serif' }}>Join the Network</p>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 300, color: '#ffffff', marginBottom: 16, letterSpacing: '0.01em' }}>
               Want to be <em style={{ color: '#C9A84C' }}>Featured?</em>
             </h2>
@@ -289,11 +289,11 @@ export default function PartnersPage() {
               Join India's most trusted luxury network. Be seen by the audience that matters.
             </p>
             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/partner-with-us" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#0a0a0a', background: '#C9A84C', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', fontWeight: 600, display: 'inline-block' }}
+              <Link href="/partner-with-us" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#0a0a0a', background: '#C9A84C', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', fontWeight: 600, display: 'inline-block' }}
                 onMouseEnter={e => (e.currentTarget.style.background = '#DFC27A')}
                 onMouseLeave={e => (e.currentTarget.style.background = '#C9A84C')}
               >Apply Now →</Link>
-              <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.35)', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', display: 'inline-block' }}
+              <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.35)', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', display: 'inline-block' }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = '#C9A84C')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)')}
               >Email Us</a>
@@ -302,7 +302,7 @@ export default function PartnersPage() {
         </section>
 
         <div style={{ textAlign: 'center', padding: '36px 32px 52px', borderTop: '1px solid #f0f0f0' }}>
-          <Link href="/" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>← Back to Journal</Link>
+          <Link href="/" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>← Back to Journal</Link>
         </div>
 
       </main>
@@ -371,14 +371,14 @@ export default function PartnersPage() {
 //         <span style={{ fontFamily: 'Georgia, serif', fontSize: 18, fontWeight: 300, color: hov ? '#C9A84C' : '#999', letterSpacing: '0.05em' }}>{initials}</span>
 //       </div>
 
-//       <p style={{ fontSize: 9, letterSpacing: '0.35em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.6)' : '#1B4D45', fontFamily: 'sans-serif', marginBottom: 10, transition: 'color 0.3s' }}>{partner.category}</p>
+//       <p style={{ fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.6)' : '#1B4D45', fontFamily: 'sans-serif', marginBottom: 10, transition: 'color 0.3s' }}>{partner.category}</p>
 //       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 20, fontWeight: 400, color: hov ? '#ffffff' : '#0a0a0a', marginBottom: 12, letterSpacing: '0.01em', lineHeight: 1.3, transition: 'color 0.3s' }}>{partner.name}</h3>
 //       <div style={{ width: hov ? 36 : 24, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width 0.3s' }} />
-//       <p style={{ fontSize: 13, lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif', color: hov ? 'rgba(255,255,255,0.5)' : '#666', marginBottom: 24, flex: 1, transition: 'color 0.3s' }}>{partner.desc}</p>
+//       <p style={{ fontSize: 16, lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif', color: hov ? 'rgba(255,255,255,0.5)' : '#666', marginBottom: 24, flex: 1, transition: 'color 0.3s' }}>{partner.desc}</p>
 
 //       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-//         <span style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.4)' : '#aaa', fontFamily: 'sans-serif', transition: 'color 0.3s' }}>📍 {partner.city}</span>
-//         <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 9, letterSpacing: '0.25em', textTransform: 'uppercase', color: hov ? '#0a0a0a' : '#1B4D45', background: hov ? '#C9A84C' : 'transparent', border: `1px solid ${hov ? '#C9A84C' : 'rgba(27,77,69,0.35)'}`, padding: '8px 16px', textDecoration: 'none', fontFamily: 'sans-serif', transition: 'all 0.25s', fontWeight: 500 }}>Inquire →</a>
+//         <span style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.4)' : '#aaa', fontFamily: 'sans-serif', transition: 'color 0.3s' }}>📍 {partner.city}</span>
+//         <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: hov ? '#0a0a0a' : '#1B4D45', background: hov ? '#C9A84C' : 'transparent', border: `1px solid ${hov ? '#C9A84C' : 'rgba(27,77,69,0.35)'}`, padding: '8px 16px', textDecoration: 'none', fontFamily: 'sans-serif', transition: 'all 0.25s', fontWeight: 500 }}>Inquire →</a>
 //       </div>
 //     </div>
 //   );
@@ -411,7 +411,7 @@ export default function PartnersPage() {
 //           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', zIndex: 2 }} />
 
 //           <div style={{ position: 'relative', zIndex: 10, maxWidth: 760, margin: '0 auto' }}>
-//             <p style={{ fontSize: 10, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>Trusted Network</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>Trusted Network</p>
 //             <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(38px, 6vw, 76px)', fontWeight: 300, color: '#ffffff', lineHeight: 1.1, letterSpacing: '0.02em', marginBottom: 28 }}>
 //               Curated <em style={{ color: '#C9A84C' }}>Partners</em>
 //             </h1>
@@ -420,7 +420,7 @@ export default function PartnersPage() {
 //               <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#1B4D45' }} />
 //               <div style={{ width: 64, height: 1, background: 'rgba(201,168,76,0.35)' }} />
 //             </div>
-//             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', fontWeight: 300, fontFamily: 'sans-serif', letterSpacing: '0.02em' }}>
+//             <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.55)', fontWeight: 300, fontFamily: 'sans-serif', letterSpacing: '0.02em' }}>
 //               India's trusted network of premium businesses.
 //             </p>
 //           </div>
@@ -433,7 +433,7 @@ export default function PartnersPage() {
 //         <div style={{ background: '#0a0a0a', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
 //           <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 32px', display: 'flex', overflowX: 'auto' }}>
 //             {CATEGORIES.map((cat, i) => (
-//               <button key={cat} onClick={() => setActive(cat)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '20px 22px', fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 500, color: active === cat ? '#C9A84C' : 'rgba(255,255,255,0.3)', borderBottom: active === cat ? '2px solid #C9A84C' : '2px solid transparent', borderRight: i < CATEGORIES.length - 1 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{cat}</button>
+//               <button key={cat} onClick={() => setActive(cat)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '20px 22px', fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 500, color: active === cat ? '#C9A84C' : 'rgba(255,255,255,0.3)', borderBottom: active === cat ? '2px solid #C9A84C' : '2px solid transparent', borderRight: i < CATEGORIES.length - 1 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{cat}</button>
 //             ))}
 //           </div>
 //         </div>
@@ -441,7 +441,7 @@ export default function PartnersPage() {
 //         {/* ══ GRID ══════════════════════════════════════════════ */}
 //         <section style={{ maxWidth: 1200, margin: '0 auto', padding: '64px 32px 80px' }}>
 //           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 40 }}>
-//             <p style={{ fontSize: 11, color: '#aaa', fontFamily: 'sans-serif', letterSpacing: '0.1em' }}>
+//             <p style={{ fontSize: 15, color: '#aaa', fontFamily: 'sans-serif', letterSpacing: '0.1em' }}>
 //               <span style={{ color: '#C9A84C', fontWeight: 600 }}>{filtered.length}</span> partners in {active === 'All' ? 'all categories' : active}
 //             </p>
 //             <div style={{ width: 40, height: 1, background: 'rgba(201,168,76,0.3)' }} />
@@ -458,7 +458,7 @@ export default function PartnersPage() {
 //           <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 2, background: '#1B4D45' }} />
 
 //           <div style={{ maxWidth: 560, margin: '0 auto' }}>
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 20, fontFamily: 'sans-serif' }}>Join the Network</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 20, fontFamily: 'sans-serif' }}>Join the Network</p>
 //             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 300, color: '#ffffff', marginBottom: 16, letterSpacing: '0.01em' }}>
 //               Want to be <em style={{ color: '#C9A84C' }}>Featured?</em>
 //             </h2>
@@ -467,11 +467,11 @@ export default function PartnersPage() {
 //               Join India's most trusted luxury network. Be seen by the audience that matters.
 //             </p>
 //             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-//               <Link href="/partner-with-us" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#0a0a0a', background: '#C9A84C', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', fontWeight: 600, transition: 'background 0.2s', display: 'inline-block' }}
+//               <Link href="/partner-with-us" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#0a0a0a', background: '#C9A84C', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', fontWeight: 600, transition: 'background 0.2s', display: 'inline-block' }}
 //                 onMouseEnter={e => (e.currentTarget.style.background = '#DFC27A')}
 //                 onMouseLeave={e => (e.currentTarget.style.background = '#C9A84C')}
 //               >Apply Now →</Link>
-//               <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.35)', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', transition: 'border-color 0.2s', display: 'inline-block' }}
+//               <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.35)', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', transition: 'border-color 0.2s', display: 'inline-block' }}
 //                 onMouseEnter={e => (e.currentTarget.style.borderColor = '#C9A84C')}
 //                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)')}
 //               >Email Us</a>
@@ -481,7 +481,7 @@ export default function PartnersPage() {
 
 //         {/* Back */}
 //         <div style={{ textAlign: 'center', padding: '36px 32px 52px', borderTop: '1px solid #f0f0f0' }}>
-//           <Link href="/" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>← Back to Journal</Link>
+//           <Link href="/" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>← Back to Journal</Link>
 //         </div>
 
 //       </main>
@@ -551,14 +551,14 @@ export default function PartnersPage() {
 //         <span style={{ fontFamily: 'Georgia, serif', fontSize: 18, fontWeight: 300, color: hov ? '#C9A84C' : '#999', letterSpacing: '0.05em' }}>{initials}</span>
 //       </div>
 
-//       <p style={{ fontSize: 9, letterSpacing: '0.35em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.6)' : '#1B4D45', fontFamily: 'sans-serif', marginBottom: 10, transition: 'color 0.3s' }}>{partner.category}</p>
+//       <p style={{ fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.6)' : '#1B4D45', fontFamily: 'sans-serif', marginBottom: 10, transition: 'color 0.3s' }}>{partner.category}</p>
 //       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 20, fontWeight: 400, color: hov ? '#ffffff' : '#0a0a0a', marginBottom: 12, letterSpacing: '0.01em', lineHeight: 1.3, transition: 'color 0.3s' }}>{partner.name}</h3>
 //       <div style={{ width: hov ? 36 : 24, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width 0.3s' }} />
-//       <p style={{ fontSize: 13, lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif', color: hov ? 'rgba(255,255,255,0.5)' : '#666', marginBottom: 24, flex: 1, transition: 'color 0.3s' }}>{partner.desc}</p>
+//       <p style={{ fontSize: 16, lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif', color: hov ? 'rgba(255,255,255,0.5)' : '#666', marginBottom: 24, flex: 1, transition: 'color 0.3s' }}>{partner.desc}</p>
 
 //       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-//         <span style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.4)' : '#aaa', fontFamily: 'sans-serif', transition: 'color 0.3s' }}>📍 {partner.city}</span>
-//         <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 9, letterSpacing: '0.25em', textTransform: 'uppercase', color: hov ? '#0a0a0a' : '#1B4D45', background: hov ? '#C9A84C' : 'transparent', border: `1px solid ${hov ? '#C9A84C' : 'rgba(27,77,69,0.35)'}`, padding: '8px 16px', textDecoration: 'none', fontFamily: 'sans-serif', transition: 'all 0.25s', fontWeight: 500 }}>Inquire →</a>
+//         <span style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.4)' : '#aaa', fontFamily: 'sans-serif', transition: 'color 0.3s' }}>📍 {partner.city}</span>
+//         <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: hov ? '#0a0a0a' : '#1B4D45', background: hov ? '#C9A84C' : 'transparent', border: `1px solid ${hov ? '#C9A84C' : 'rgba(27,77,69,0.35)'}`, padding: '8px 16px', textDecoration: 'none', fontFamily: 'sans-serif', transition: 'all 0.25s', fontWeight: 500 }}>Inquire →</a>
 //       </div>
 //     </div>
 //   );
@@ -578,7 +578,7 @@ export default function PartnersPage() {
 //           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)' }} />
 
 //           <div style={{ position: 'relative', zIndex: 10, maxWidth: 760, margin: '0 auto' }}>
-//             <p style={{ fontSize: 10, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>Trusted Network</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>Trusted Network</p>
 //             <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(38px, 6vw, 76px)', fontWeight: 300, color: '#ffffff', lineHeight: 1.1, letterSpacing: '0.02em', marginBottom: 28 }}>
 //               Curated <em style={{ color: '#C9A84C' }}>Partners</em>
 //             </h1>
@@ -587,7 +587,7 @@ export default function PartnersPage() {
 //               <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#1B4D45' }} />
 //               <div style={{ width: 64, height: 1, background: 'rgba(201,168,76,0.35)' }} />
 //             </div>
-//             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.45)', fontWeight: 300, fontFamily: 'sans-serif', letterSpacing: '0.02em' }}>
+//             <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.45)', fontWeight: 300, fontFamily: 'sans-serif', letterSpacing: '0.02em' }}>
 //               India's trusted network of premium businesses.
 //             </p>
 //           </div>
@@ -598,7 +598,7 @@ export default function PartnersPage() {
 //         <div style={{ background: '#0a0a0a', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
 //           <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 32px', display: 'flex', overflowX: 'auto' }}>
 //             {CATEGORIES.map((cat, i) => (
-//               <button key={cat} onClick={() => setActive(cat)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '20px 22px', fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 500, color: active === cat ? '#C9A84C' : 'rgba(255,255,255,0.3)', borderBottom: active === cat ? '2px solid #C9A84C' : '2px solid transparent', borderRight: i < CATEGORIES.length - 1 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{cat}</button>
+//               <button key={cat} onClick={() => setActive(cat)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '20px 22px', fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 500, color: active === cat ? '#C9A84C' : 'rgba(255,255,255,0.3)', borderBottom: active === cat ? '2px solid #C9A84C' : '2px solid transparent', borderRight: i < CATEGORIES.length - 1 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{cat}</button>
 //             ))}
 //           </div>
 //         </div>
@@ -606,7 +606,7 @@ export default function PartnersPage() {
 //         {/* GRID */}
 //         <section style={{ maxWidth: 1200, margin: '0 auto', padding: '64px 32px 80px' }}>
 //           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 40 }}>
-//             <p style={{ fontSize: 11, color: '#aaa', fontFamily: 'sans-serif', letterSpacing: '0.1em' }}>
+//             <p style={{ fontSize: 15, color: '#aaa', fontFamily: 'sans-serif', letterSpacing: '0.1em' }}>
 //               <span style={{ color: '#C9A84C', fontWeight: 600 }}>{filtered.length}</span> partners in {active === 'All' ? 'all categories' : active}
 //             </p>
 //             <div style={{ width: 40, height: 1, background: 'rgba(201,168,76,0.3)' }} />
@@ -623,7 +623,7 @@ export default function PartnersPage() {
 //           <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 2, background: '#1B4D45' }} />
 
 //           <div style={{ maxWidth: 560, margin: '0 auto' }}>
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 20, fontFamily: 'sans-serif' }}>Join the Network</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 20, fontFamily: 'sans-serif' }}>Join the Network</p>
 //             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 300, color: '#ffffff', marginBottom: 16, letterSpacing: '0.01em' }}>
 //               Want to be <em style={{ color: '#C9A84C' }}>Featured?</em>
 //             </h2>
@@ -632,11 +632,11 @@ export default function PartnersPage() {
 //               Join India's most trusted luxury network. Be seen by the audience that matters.
 //             </p>
 //             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-//               <Link href="/partner" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#0a0a0a', background: '#C9A84C', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', fontWeight: 600, transition: 'background 0.2s', display: 'inline-block' }}
+//               <Link href="/partner" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#0a0a0a', background: '#C9A84C', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', fontWeight: 600, transition: 'background 0.2s', display: 'inline-block' }}
 //                 onMouseEnter={e => (e.currentTarget.style.background = '#DFC27A')}
 //                 onMouseLeave={e => (e.currentTarget.style.background = '#C9A84C')}
 //               >Apply Now →</Link>
-//               <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.35)', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', transition: 'border-color 0.2s', display: 'inline-block' }}
+//               <a href="mailto:hello@indianluxuryhouse.com" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.35)', padding: '16px 36px', textDecoration: 'none', fontFamily: 'sans-serif', transition: 'border-color 0.2s', display: 'inline-block' }}
 //                 onMouseEnter={e => (e.currentTarget.style.borderColor = '#C9A84C')}
 //                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)')}
 //               >Email Us</a>
@@ -645,7 +645,7 @@ export default function PartnersPage() {
 //         </section>
 
 //         <div style={{ textAlign: 'center', padding: '36px 32px 52px', borderTop: '1px solid #f0f0f0' }}>
-//           <Link href="/" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>← Back to Journal</Link>
+//           <Link href="/" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>← Back to Journal</Link>
 //         </div>
 
 //       </main>

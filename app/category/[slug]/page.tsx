@@ -1716,7 +1716,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
 // //           <div>
 // //             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
 // //               <SMLogo size={36} />
-// //               <span style={{ fontFamily: 'Georgia,serif', fontSize: 18, fontWeight: 300, color: '#DFC27A', letterSpacing: '0.2em' }}>SM Luxury</span>
+// //               <span style={{ fontFamily: 'Georgia,serif', fontSize: 18, fontWeight: 300, color: '#DFC27A', letterSpacing: '0.2em' }}>Indian Luxury House</span>
 // //             </div>
 // //             <p style={{ fontSize: 11, color: 'rgba(201,168,76,0.4)', lineHeight: 1.7, fontWeight: 300 }}>The connoisseur's journal for the finest things in life.</p>
 // //           </div>
@@ -1732,7 +1732,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
 // //           </div>
 // //         </div>
 // //         <div style={{ borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 20, textAlign: 'center' }}>
-// //           <p style={{ fontSize: 10, letterSpacing: '0.15em', color: 'rgba(201,168,76,0.25)' }}>© 2026 SM Luxury. All rights reserved.</p>
+// //           <p style={{ fontSize: 10, letterSpacing: '0.15em', color: 'rgba(201,168,76,0.25)' }}>© 2026 Indian Luxury House. All rights reserved.</p>
 // //         </div>
 // //       </div>
 // //     </footer>

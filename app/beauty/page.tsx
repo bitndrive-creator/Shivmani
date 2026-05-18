@@ -72,7 +72,7 @@ function formatDate(iso: string): string {
 function SectionHeader({ eyebrow, title, dark = false }: { eyebrow: string; title: string; dark?: boolean }) {
   return (
     <div style={{ marginBottom: 0 }}>
-      <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>{eyebrow}</p>
+      <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>{eyebrow}</p>
       <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: dark ? '#FAFAF8' : '#1A1A1A', letterSpacing: '0.02em', lineHeight: 1.2 }}>{title}</h2>
       <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
     </div>
@@ -115,10 +115,10 @@ function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
         </p>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
           <div>
-            <span style={{ fontSize: 9, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
-            <span style={{ fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+            <span style={{ fontSize: 15, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
+            <span style={{ fontSize: 15, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
           </div>
-          <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+          <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
         </div>
       </div>
     </Link>
@@ -153,8 +153,8 @@ function BrandCard({ b }: { b: typeof BRANDS[0] }) {
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '18px 20px 22px', background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, transparent 100%)' }}>
           <div style={{ width: hov ? 28 : 0, height: 1, background: '#C9A84C', marginBottom: 10, transition: 'width .4s ease' }} />
           <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 17, fontWeight: 400, color: '#FAFAF8', lineHeight: 1.25, marginBottom: 4, letterSpacing: '0.02em', transform: hov ? 'translateY(-2px)' : 'translateY(0)', transition: 'transform .35s' }}>{b.name}</h3>
-          <p style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', marginBottom: 3 }}>{b.specialty}</p>
-          <p style={{ fontSize: 9, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.08em' }}>{b.city}</p>
+          <p style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', marginBottom: 3 }}>{b.specialty}</p>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.08em' }}>{b.city}</p>
         </div>
       </div>
     </div>
@@ -179,8 +179,8 @@ function ArtistCard({ a }: { a: typeof ARTISTS[0] }) {
       </div>
       <div style={{ width: hov ? 28 : 14, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .3s' }} />
       <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 17, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em', lineHeight: 1.3 }}>{a.name}</h3>
-      <p style={{ fontSize: 10, color: 'rgba(201,168,76,0.55)', marginBottom: 10, letterSpacing: '0.06em', fontWeight: 300 }}>{a.specialty}</p>
-      <p style={{ fontSize: 9, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{a.city}</p>
+      <p style={{ fontSize: 14, color: 'rgba(201,168,76,0.55)', marginBottom: 10, letterSpacing: '0.06em', fontWeight: 300 }}>{a.specialty}</p>
+      <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{a.city}</p>
     </div>
   );
 }
@@ -200,7 +200,7 @@ function SpaCard({ s }: { s: typeof SPAS[0] }) {
         </div>
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px 20px 20px', background: 'linear-gradient(to top, rgba(10,10,10,0.88) 0%, transparent 100%)' }}>
           <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 17, fontWeight: 400, color: '#FAFAF8', marginBottom: 5, transform: hov ? 'translateY(-3px)' : 'translateY(0)', transition: 'transform .35s', letterSpacing: '0.02em' }}>{s.name}</h3>
-          <p style={{ fontSize: 9, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em' }}>{s.location}</p>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em' }}>{s.location}</p>
           <div style={{ width: hov ? 28 : 0, height: 1, background: '#C9A84C', marginTop: 10, transition: 'width .4s ease' }} />
         </div>
       </div>
@@ -253,7 +253,7 @@ export default function BeautyPage() {
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.5 }} />
 
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 860 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 22, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 22, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
               <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.4)')}
@@ -261,7 +261,7 @@ export default function BeautyPage() {
               <span style={{ opacity: 0.4 }}>/</span>
               <span style={{ color: '#C9A84C' }}>Beauty</span>
             </div>
-            <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'bFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'bFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(42px,8vw,96px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.05, marginBottom: 22, letterSpacing: '0.02em', animation: 'bFadeUp .8s .2s ease both' }}>
               Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Beauty</em>
             </h1>
@@ -271,7 +271,7 @@ export default function BeautyPage() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, animation: 'bFadeUp .8s .4s ease both' }}>
               {['Brands', 'Artists', 'Wellness Spas', 'Editorial'].map(tab => (
                 <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`}
-                  style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
+                  style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.12)'; e.currentTarget.style.color = '#DFC27A'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.5)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(201,168,76,0.65)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.25)'; }}
                 >{tab}</a>
@@ -340,7 +340,7 @@ export default function BeautyPage() {
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
               <SectionHeader eyebrow="Stories & Trends" title="Beauty Editorial" dark />
               <Link href="/news?category=beauty"
-                style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2, marginBottom: 18 }}>
+                style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2, marginBottom: 18 }}>
                 All Beauty Stories →
               </Link>
             </div>
@@ -403,7 +403,7 @@ export default function BeautyPage() {
           </div>
           <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.6 }}>✦</div>
-            <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 18 }}>Elevate Your Presence</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 18 }}>Elevate Your Presence</p>
             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#1A1A1A', lineHeight: 1.12, marginBottom: 22, letterSpacing: '0.015em' }}>
               Discover India&apos;s<br /><em style={{ color: '#C9A84C', fontStyle: 'italic' }}>Beauty Finest</em>
             </h2>
@@ -417,12 +417,12 @@ export default function BeautyPage() {
             </p>
             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/curated-partners?category=beauty"
-                style={{ fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 44px', textDecoration: 'none', fontWeight: 700, transition: 'background .3s', display: 'inline-block' }}
+                style={{ fontSize: 14, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 44px', textDecoration: 'none', fontWeight: 700, transition: 'background .3s', display: 'inline-block' }}
                 onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
               >Explore Beauty Partners</Link>
               <Link href="/partner-with-us"
-                style={{ fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.45)', padding: '16px 44px', textDecoration: 'none', transition: 'all .3s', display: 'inline-block' }}
+                style={{ fontSize: 14, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.45)', padding: '16px 44px', textDecoration: 'none', transition: 'all .3s', display: 'inline-block' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.08)'; e.currentTarget.style.borderColor = '#C9A84C'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.45)'; }}
               >List Your Business</Link>
@@ -517,7 +517,7 @@ export default function BeautyPage() {
 // function SectionHeader({ eyebrow, title, dark = false }: { eyebrow: string; title: string; dark?: boolean }) {
 //   return (
 //     <div style={{ marginBottom: 0 }}>
-//       <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>{eyebrow}</p>
+//       <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>{eyebrow}</p>
 //       <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: dark ? '#FAFAF8' : '#1A1A1A', letterSpacing: '0.02em', lineHeight: 1.2 }}>{title}</h2>
 //       <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //     </div>
@@ -562,10 +562,10 @@ export default function BeautyPage() {
 //         </p>
 //         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
 //           <div>
-//             <span style={{ fontSize: 9, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
-//             <span style={{ fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+//             <span style={{ fontSize: 15, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
+//             <span style={{ fontSize: 15, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
 //           </div>
-//           <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+//           <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
 //         </div>
 //       </div>
 //     </Link>
@@ -603,8 +603,8 @@ export default function BeautyPage() {
 //         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '18px 20px 22px', background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, transparent 100%)' }}>
 //           <div style={{ width: hov ? 28 : 0, height: 1, background: '#C9A84C', marginBottom: 10, transition: 'width .4s ease' }} />
 //           <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 17, fontWeight: 400, color: '#FAFAF8', lineHeight: 1.25, marginBottom: 4, letterSpacing: '0.02em', transform: hov ? 'translateY(-2px)' : 'translateY(0)', transition: 'transform .35s' }}>{b.name}</h3>
-//           <p style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', marginBottom: 3 }}>{b.specialty}</p>
-//           <p style={{ fontSize: 9, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.08em' }}>{b.city}</p>
+//           <p style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', marginBottom: 3 }}>{b.specialty}</p>
+//           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.08em' }}>{b.city}</p>
 //         </div>
 //       </div>
 //     </div>
@@ -627,8 +627,8 @@ export default function BeautyPage() {
 //       </div>
 //       <div style={{ width: hov ? 28 : 14, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .3s' }} />
 //       <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 17, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em', lineHeight: 1.3 }}>{a.name}</h3>
-//       <p style={{ fontSize: 10, color: 'rgba(201,168,76,0.55)', marginBottom: 10, letterSpacing: '0.06em', fontWeight: 300 }}>{a.specialty}</p>
-//       <p style={{ fontSize: 9, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{a.city}</p>
+//       <p style={{ fontSize: 14, color: 'rgba(201,168,76,0.55)', marginBottom: 10, letterSpacing: '0.06em', fontWeight: 300 }}>{a.specialty}</p>
+//       <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{a.city}</p>
 //     </div>
 //   );
 // }
@@ -650,7 +650,7 @@ export default function BeautyPage() {
 //         </div>
 //         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px 20px 20px', background: 'linear-gradient(to top, rgba(10,10,10,0.88) 0%, transparent 100%)' }}>
 //           <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 17, fontWeight: 400, color: '#FAFAF8', marginBottom: 5, transform: hov ? 'translateY(-3px)' : 'translateY(0)', transition: 'transform .35s', letterSpacing: '0.02em' }}>{s.name}</h3>
-//           <p style={{ fontSize: 9, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em' }}>{s.location}</p>
+//           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em' }}>{s.location}</p>
 //           <div style={{ width: hov ? 28 : 0, height: 1, background: '#C9A84C', marginTop: 10, transition: 'width .4s ease' }} />
 //         </div>
 //       </div>
@@ -709,7 +709,7 @@ export default function BeautyPage() {
 //           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.5 }} />
 
 //           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 860 }}>
-//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 22, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 22, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
 //               <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
 //                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
 //                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.4)')}
@@ -718,7 +718,7 @@ export default function BeautyPage() {
 //               <span style={{ color: '#C9A84C' }}>Beauty</span>
 //             </div>
 
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'bFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'bFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
 //             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(42px,8vw,96px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.05, marginBottom: 22, letterSpacing: '0.02em', animation: 'bFadeUp .8s .2s ease both' }}>
 //               Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Beauty</em>
 //             </h1>
@@ -729,7 +729,7 @@ export default function BeautyPage() {
 //             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, animation: 'bFadeUp .8s .4s ease both' }}>
 //               {['Brands', 'Artists', 'Wellness Spas', 'Editorial'].map(tab => (
 //                 <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`}
-//                   style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
+//                   style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
 //                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.12)'; e.currentTarget.style.color = '#DFC27A'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.5)'; }}
 //                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(201,168,76,0.65)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.25)'; }}
 //                 >{tab}</a>
@@ -798,7 +798,7 @@ export default function BeautyPage() {
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <SectionHeader eyebrow="Stories & Trends" title="Beauty Editorial" dark />
 //               <Link href="/news?category=beauty"
-//                 style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2, marginBottom: 18 }}>
+//                 style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2, marginBottom: 18 }}>
 //                 All Beauty Stories →
 //               </Link>
 //             </div>
@@ -862,7 +862,7 @@ export default function BeautyPage() {
 //           </div>
 //           <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
 //             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.6 }}>✦</div>
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 18 }}>Elevate Your Presence</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 18 }}>Elevate Your Presence</p>
 //             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#1A1A1A', lineHeight: 1.12, marginBottom: 22, letterSpacing: '0.015em' }}>
 //               Discover India&apos;s<br /><em style={{ color: '#C9A84C', fontStyle: 'italic' }}>Beauty Finest</em>
 //             </h2>
@@ -876,12 +876,12 @@ export default function BeautyPage() {
 //             </p>
 //             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
 //               <Link href="/curated-partners?category=beauty"
-//                 style={{ fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 44px', textDecoration: 'none', fontWeight: 700, transition: 'background .3s', display: 'inline-block' }}
+//                 style={{ fontSize: 14, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 44px', textDecoration: 'none', fontWeight: 700, transition: 'background .3s', display: 'inline-block' }}
 //                 onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
 //                 onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
 //               >Explore Beauty Partners</Link>
 //               <Link href="/partner-with-us"
-//                 style={{ fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.45)', padding: '16px 44px', textDecoration: 'none', transition: 'all .3s', display: 'inline-block' }}
+//                 style={{ fontSize: 14, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.45)', padding: '16px 44px', textDecoration: 'none', transition: 'all .3s', display: 'inline-block' }}
 //                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.08)'; e.currentTarget.style.borderColor = '#C9A84C'; }}
 //                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.45)'; }}
 //               >List Your Business</Link>

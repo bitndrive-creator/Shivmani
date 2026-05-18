@@ -26,7 +26,7 @@ export default function AboutPage() {
 
           <div style={{ position: 'relative', zIndex: 10, maxWidth: 800, margin: '0 auto' }}>
             <p style={{
-              fontSize: 10, letterSpacing: '0.5em', textTransform: 'uppercase',
+              fontSize: 20, letterSpacing: '0.5em', textTransform: 'uppercase',
               color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif',
             }}>Our Story</p>
 
@@ -70,7 +70,7 @@ export default function AboutPage() {
             <div>
               <div style={{ width: 40, height: 1, background: '#C9A84C', marginBottom: 20 }} />
               <p style={{
-                fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase',
+                fontSize: 17, letterSpacing: '0.4em', textTransform: 'uppercase',
                 color: '#C9A84C', fontFamily: 'sans-serif',
               }}>Who We Are</p>
             </div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 Indian Luxury House was created to celebrate, connect, and elevate the world of luxury through an India-first lens.
               </p>
               <p style={{
-                fontSize: 15, lineHeight: 1.9, color: '#555', fontWeight: 300,
+                fontSize: 17, lineHeight: 1.9, color: '#555', fontWeight: 300,
                 fontFamily: 'sans-serif',
               }}>
                 From iconic residences to fine craftsmanship, from elite mobility to unforgettable celebrations, we curate a refined ecosystem where aspiration meets opportunity.
@@ -106,7 +106,7 @@ export default function AboutPage() {
             {/* Emerald accent bar left */}
             <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 3, background: '#1B4D45' }} />
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <p style={{ fontSize: 9, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>Our Mission</p>
+              <p style={{ fontSize: 17, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>Our Mission</p>
               <p style={{
                 fontFamily: 'Georgia, serif',
                 fontSize: 'clamp(24px, 3.5vw, 42px)',
@@ -147,7 +147,7 @@ export default function AboutPage() {
                   fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 400,
                   color: '#0a0a0a', marginBottom: 14, letterSpacing: '0.03em',
                 }}>{p.title}</h3>
-                <p style={{ fontSize: 13, color: '#666', lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif' }}>{p.desc}</p>
+                <p style={{ fontSize: 16, color: '#666', lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif' }}>{p.desc}</p>
               </div>
             ))}
           </div>
@@ -164,7 +164,7 @@ export default function AboutPage() {
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)' }} />
 
           <div style={{ maxWidth: 520, margin: '0 auto' }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 20, fontFamily: 'sans-serif' }}>Partnerships</p>
+            <p style={{ fontSize: 17, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 20, fontFamily: 'sans-serif' }}>Partnerships</p>
             <h2 style={{
               fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 46px)',
               fontWeight: 300, color: '#ffffff', marginBottom: 20, letterSpacing: '0.01em',
@@ -196,7 +196,7 @@ export default function AboutPage() {
         <div style={{ textAlign: 'center', padding: '40px 32px', background: '#ffffff', borderTop: '1px solid #f0f0f0' }}>
           <Link href="/"
             style={{
-              fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase',
+              fontSize: 17, letterSpacing: '0.25em', textTransform: 'uppercase',
               color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif',
               borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3,
             }}

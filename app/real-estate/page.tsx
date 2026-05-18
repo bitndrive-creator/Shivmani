@@ -207,13 +207,13 @@ function PropertyCard({ p, featured = false }: { p: typeof PROPERTIES[0]; featur
           <span style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#FAFAF8', background: p.status === 'Ready to Move' ? 'rgba(42,122,106,0.9)' : p.status === 'New Launch' ? 'rgba(201,168,76,0.9)' : 'rgba(10,10,10,0.8)', padding: '5px 10px' }}>{p.status}</span>
         </div>
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 16px', background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 100%)' }}>
-          <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)' }}>{p.type}</span>
+          <span style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)' }}>{p.type}</span>
         </div>
       </div>
       <div style={{ padding: '20px 22px 24px' }}>
         <div style={{ width: hov ? 36 : 18, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
         <h3 style={{ fontFamily: 'Georgia,serif', fontSize: featured ? 20 : 17, fontWeight: 400, color: '#1A1A1A', marginBottom: 5, letterSpacing: '0.01em', lineHeight: 1.3 }}>{p.name}</h3>
-        <p style={{ fontSize: 11, color: 'rgba(107,101,88,0.65)', marginBottom: 16, letterSpacing: '0.06em', fontWeight: 300 }}>📍 {p.location}</p>
+        <p style={{ fontSize: 14, color: 'rgba(107,101,88,0.65)', marginBottom: 16, letterSpacing: '0.06em', fontWeight: 300 }}>📍 {p.location}</p>
         <div style={{ display: 'flex', gap: 16, marginBottom: 18, paddingBottom: 16, borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
           {[{ label: 'Area', val: p.area }, { label: 'Config', val: p.bedrooms }].map(stat => (
             <div key={stat.label}>
@@ -256,19 +256,19 @@ function DeveloperCard({ d }: { d: typeof DEVELOPERS[0] }) {
         <div style={{ padding: '22px 22px 24px' }}>
           <div style={{ width: hov ? 32 : 16, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s' }} />
           <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 19, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em' }}>{d.name}</h3>
-          <p style={{ fontSize: 11, color: 'rgba(201,168,76,0.5)', marginBottom: 14, letterSpacing: '0.04em', fontStyle: 'italic' }}>{d.tagline}</p>
+          <p style={{ fontSize: 14, color: 'rgba(201,168,76,0.5)', marginBottom: 14, letterSpacing: '0.04em', fontStyle: 'italic' }}>{d.tagline}</p>
           <div style={{ display: 'flex', gap: 20, marginBottom: 18 }}>
             <div>
               <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 3 }}>City</p>
-              <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)' }}>{d.city}</p>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)' }}>{d.city}</p>
             </div>
             <div>
               <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 3 }}>Projects</p>
-              <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)' }}>{d.projects}+</p>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)' }}>{d.projects}+</p>
             </div>
           </div>
           <div style={{ padding: '8px 12px', background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.1)' }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}>{d.specialty}</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}>{d.specialty}</p>
           </div>
         </div>
       </div>
@@ -312,12 +312,12 @@ function EditorialCard({ post, big = false }: { post: Post; big?: boolean }) {
           <h3 style={{ fontFamily: 'Georgia,serif', fontWeight: 400, fontSize: big ? 21 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
             {post.title}
           </h3>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+          <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
             {post.excerpt}
           </p>
           <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-            <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-            <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+            <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+            <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
           </div>
         </div>
       </div>
@@ -379,13 +379,13 @@ export default function RealEstatePage() {
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)', opacity: 0.5 }} />
 
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 900 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
               <a href="/" className="ilh-breadcrumb-link">Home</a>
               <span style={{ opacity: 0.4 }}>/</span>
               <span style={{ color: '#C9A84C' }}>Real Estate</span>
             </div>
 
-            <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'reFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'reFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em', animation: 'reFadeUp .8s .2s ease both' }}>
               Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Real Estate</em>
             </h1>
@@ -436,7 +436,7 @@ export default function RealEstatePage() {
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
               <div>
-                <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Villas · Penthouses · Estates</p>
+                <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Villas · Penthouses · Estates</p>
                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Featured Properties</h2>
                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
               </div>
@@ -446,7 +446,7 @@ export default function RealEstatePage() {
             <div style={{ display: 'flex', gap: 0, marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.12)', overflowX: 'auto' }}>
               {filters.map(f => (
                 <button key={f} onClick={() => setActiveFilter(f)}
-                  style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '12px 20px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeFilter === f ? '#1A1A1A' : 'rgba(107,101,88,0.5)', borderBottom: activeFilter === f ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', whiteSpace: 'nowrap', fontWeight: activeFilter === f ? 500 : 400 }}
+                  style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '12px 20px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeFilter === f ? '#1A1A1A' : 'rgba(107,101,88,0.5)', borderBottom: activeFilter === f ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', whiteSpace: 'nowrap', fontWeight: activeFilter === f ? 500 : 400 }}
                   onMouseEnter={e => { if (activeFilter !== f) e.currentTarget.style.color = '#1A1A1A'; }}
                   onMouseLeave={e => { if (activeFilter !== f) e.currentTarget.style.color = 'rgba(107,101,88,0.5)'; }}
                 >{f}</button>
@@ -467,7 +467,7 @@ export default function RealEstatePage() {
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
               <div>
-                <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Premium Builders</p>
+                <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Premium Builders</p>
                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Developer Spotlights</h2>
                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
               </div>
@@ -484,7 +484,7 @@ export default function RealEstatePage() {
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
               <div>
-                <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Intelligence & Insight</p>
+                <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Intelligence & Insight</p>
                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Editorial Stories</h2>
                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
               </div>
@@ -504,7 +504,7 @@ export default function RealEstatePage() {
             {!editorialLoading && editorialPosts.length === 0 && (
               <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.45)' }}>
                 <p style={{ fontFamily: 'Georgia,serif', fontSize: 20, marginBottom: 8 }}>No stories published yet.</p>
-                <p style={{ fontSize: 13 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
+                <p style={{ fontSize: 16 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
               </div>
             )}
 
@@ -534,7 +534,7 @@ export default function RealEstatePage() {
           </div>
           <div style={{ maxWidth: 780, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.6 }}>🏛️</div>
-            <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Are Here to Help</p>
+            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Are Here to Help</p>
             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.12, marginBottom: 20, letterSpacing: '0.015em' }}>
               Need Curated<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Property Options?</em>
             </h2>
@@ -754,13 +754,13 @@ export default function RealEstatePage() {
 //             <span style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#FAFAF8', background: p.status === 'Ready to Move' ? 'rgba(42,122,106,0.9)' : p.status === 'New Launch' ? 'rgba(201,168,76,0.9)' : 'rgba(10,10,10,0.8)', padding: '5px 10px' }}>{p.status}</span>
 //           </div>
 //           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 16px', background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 100%)' }}>
-//             <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)' }}>{p.type}</span>
+//             <span style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)' }}>{p.type}</span>
 //           </div>
 //         </div>
 //         <div style={{ padding: '20px 22px 24px' }}>
 //           <div style={{ width: hov ? 36 : 18, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
 //           <h3 style={{ fontFamily: 'Georgia,serif', fontSize: featured ? 20 : 17, fontWeight: 400, color: '#1A1A1A', marginBottom: 5, letterSpacing: '0.01em', lineHeight: 1.3 }}>{p.name}</h3>
-//           <p style={{ fontSize: 11, color: 'rgba(107,101,88,0.65)', marginBottom: 16, letterSpacing: '0.06em', fontWeight: 300 }}>📍 {p.location}</p>
+//           <p style={{ fontSize: 14, color: 'rgba(107,101,88,0.65)', marginBottom: 16, letterSpacing: '0.06em', fontWeight: 300 }}>📍 {p.location}</p>
 //           <div style={{ display: 'flex', gap: 16, marginBottom: 18, paddingBottom: 16, borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
 //             {[{ label: 'Area', val: p.area }, { label: 'Config', val: p.bedrooms }].map(stat => (
 //               <div key={stat.label}>
@@ -774,7 +774,7 @@ export default function RealEstatePage() {
 //               <p style={{ fontSize: 8, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(107,101,88,0.45)', marginBottom: 3 }}>Starting from</p>
 //               <p style={{ fontFamily: 'Georgia,serif', fontSize: 18, color: '#C9A84C', fontWeight: 400 }}>{p.price}</p>
 //             </div>
-//             <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? '#1A1A1A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>Enquire →</span>
+//             <span style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? '#1A1A1A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>Enquire →</span>
 //           </div>
 //         </div>
 //       </div>
@@ -810,19 +810,19 @@ export default function RealEstatePage() {
 //         <div style={{ padding: '22px 22px 24px' }}>
 //           <div style={{ width: hov ? 32 : 16, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s' }} />
 //           <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 19, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em' }}>{d.name}</h3>
-//           <p style={{ fontSize: 11, color: 'rgba(201,168,76,0.5)', marginBottom: 14, letterSpacing: '0.04em', fontStyle: 'italic' }}>{d.tagline}</p>
+//           <p style={{ fontSize: 14, color: 'rgba(201,168,76,0.5)', marginBottom: 14, letterSpacing: '0.04em', fontStyle: 'italic' }}>{d.tagline}</p>
 //           <div style={{ display: 'flex', gap: 20, marginBottom: 18 }}>
 //             <div>
 //               <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 3 }}>City</p>
-//               <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)' }}>{d.city}</p>
+//               <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)' }}>{d.city}</p>
 //             </div>
 //             <div>
 //               <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 3 }}>Projects</p>
-//               <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)' }}>{d.projects}+</p>
+//               <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)' }}>{d.projects}+</p>
 //             </div>
 //           </div>
 //           <div style={{ padding: '8px 12px', background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.1)' }}>
-//             <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}>{d.specialty}</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}>{d.specialty}</p>
 //           </div>
 //         </div>
 //       </div>
@@ -876,12 +876,12 @@ export default function RealEstatePage() {
 //           <h3 style={{ fontFamily: 'Georgia,serif', fontWeight: 400, fontSize: big ? 21 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
 //             {post.title}
 //           </h3>
-//           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+//           <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
 //             {post.excerpt}
 //           </p>
 //           <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-//             <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-//             <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+//             <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+//             <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
 //           </div>
 //         </div>
 //       </div>
@@ -946,13 +946,13 @@ export default function RealEstatePage() {
 //           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 900 }}>
 
 //             {/* ✅ Breadcrumb — plain <a> tag, CSS hover class */}
-//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
 //               <a href="/" className="ilh-breadcrumb-link">Home</a>
 //               <span style={{ opacity: 0.4 }}>/</span>
 //               <span style={{ color: '#C9A84C' }}>Real Estate</span>
 //             </div>
 
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'reFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'reFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
 //             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em', animation: 'reFadeUp .8s .2s ease both' }}>
 //               Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Real Estate</em>
 //             </h1>
@@ -1073,7 +1073,7 @@ export default function RealEstatePage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Villas · Penthouses · Estates</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Villas · Penthouses · Estates</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Featured Properties</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
@@ -1084,7 +1084,7 @@ export default function RealEstatePage() {
 //             <div style={{ display: 'flex', gap: 0, marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.12)', overflowX: 'auto' }}>
 //               {filters.map(f => (
 //                 <button key={f} onClick={() => setActiveFilter(f)}
-//                   style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '12px 20px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeFilter === f ? '#1A1A1A' : 'rgba(107,101,88,0.5)', borderBottom: activeFilter === f ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', whiteSpace: 'nowrap', fontWeight: activeFilter === f ? 500 : 400 }}
+//                   style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '12px 20px', border: 'none', cursor: 'pointer', background: 'transparent', color: activeFilter === f ? '#1A1A1A' : 'rgba(107,101,88,0.5)', borderBottom: activeFilter === f ? '2px solid #C9A84C' : '2px solid transparent', transition: 'all .2s', whiteSpace: 'nowrap', fontWeight: activeFilter === f ? 500 : 400 }}
 //                   onMouseEnter={e => { if (activeFilter !== f) e.currentTarget.style.color = '#1A1A1A'; }}
 //                   onMouseLeave={e => { if (activeFilter !== f) e.currentTarget.style.color = 'rgba(107,101,88,0.5)'; }}
 //                 >{f}</button>
@@ -1105,7 +1105,7 @@ export default function RealEstatePage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Premium Builders</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Premium Builders</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Developer Spotlights</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
@@ -1123,7 +1123,7 @@ export default function RealEstatePage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Intelligence & Insight</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Intelligence & Insight</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Editorial Stories</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
@@ -1144,7 +1144,7 @@ export default function RealEstatePage() {
 //             {!editorialLoading && editorialPosts.length === 0 && (
 //               <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.45)' }}>
 //                 <p style={{ fontFamily: 'Georgia,serif', fontSize: 20, marginBottom: 8 }}>No stories published yet.</p>
-//                 <p style={{ fontSize: 13 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
+//                 <p style={{ fontSize: 16 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
 //               </div>
 //             )}
 
@@ -1174,7 +1174,7 @@ export default function RealEstatePage() {
 //           </div>
 //           <div style={{ maxWidth: 780, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
 //             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.6 }}>🏛️</div>
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Are Here to Help</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Are Here to Help</p>
 //             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.12, marginBottom: 20, letterSpacing: '0.015em' }}>
 //               Need Curated<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Property Options?</em>
 //             </h2>
@@ -1432,7 +1432,7 @@ export default function RealEstatePage() {
 //               return (
 //                 <Link key={link.href} href={link.href}
 //                   style={{
-//                     fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase',
+//                     fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase',
 //                     color: isActive ? '#DFC27A' : link.href === '/partner-with-us' ? '#C9A84C' : 'rgba(201,168,76,0.6)',
 //                     textDecoration: 'none', padding: '8px 10px',
 //                     borderBottom: isActive ? '1px solid #C9A84C' : '1px solid transparent',
@@ -1506,7 +1506,7 @@ export default function RealEstatePage() {
 
 //         {/* Property type bottom */}
 //         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 16px', background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 100%)' }}>
-//           <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)' }}>{p.type}</span>
+//           <span style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)' }}>{p.type}</span>
 //         </div>
 //       </div>
 
@@ -1517,7 +1517,7 @@ export default function RealEstatePage() {
 //         <h3 style={{ fontFamily: 'Georgia,serif', fontSize: featured ? 20 : 17, fontWeight: 400, color: '#1A1A1A', marginBottom: 5, letterSpacing: '0.01em', lineHeight: 1.3, transition: 'color .25s' }}>
 //           {p.name}
 //         </h3>
-//         <p style={{ fontSize: 11, color: 'rgba(107,101,88,0.65)', marginBottom: 16, letterSpacing: '0.06em', fontWeight: 300 }}>
+//         <p style={{ fontSize: 14, color: 'rgba(107,101,88,0.65)', marginBottom: 16, letterSpacing: '0.06em', fontWeight: 300 }}>
 //           📍 {p.location}
 //         </p>
 
@@ -1540,7 +1540,7 @@ export default function RealEstatePage() {
 //             <p style={{ fontSize: 8, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(107,101,88,0.45)', marginBottom: 3 }}>Starting from</p>
 //             <p style={{ fontFamily: 'Georgia,serif', fontSize: 18, color: '#C9A84C', fontWeight: 400, letterSpacing: '0.02em' }}>{p.price}</p>
 //           </div>
-//           <span style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? '#1A1A1A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>
+//           <span style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: hov ? '#1A1A1A' : '#C9A84C', background: hov ? '#C9A84C' : 'transparent', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 14px', transition: 'all .3s' }}>
 //             Enquire →
 //           </span>
 //         </div>
@@ -1575,21 +1575,21 @@ export default function RealEstatePage() {
 //       <div style={{ padding: '22px 22px 24px' }}>
 //         <div style={{ width: hov ? 32 : 16, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s' }} />
 //         <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 19, fontWeight: 400, color: '#FAFAF8', marginBottom: 6, letterSpacing: '0.02em' }}>{d.name}</h3>
-//         <p style={{ fontSize: 11, color: 'rgba(201,168,76,0.5)', marginBottom: 14, letterSpacing: '0.04em', fontStyle: 'italic' }}>{d.tagline}</p>
+//         <p style={{ fontSize: 14, color: 'rgba(201,168,76,0.5)', marginBottom: 14, letterSpacing: '0.04em', fontStyle: 'italic' }}>{d.tagline}</p>
 
 //         <div style={{ display: 'flex', gap: 20, marginBottom: 18 }}>
 //           <div>
 //             <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 3 }}>City</p>
-//             <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.04em' }}>{d.city}</p>
+//             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.04em' }}>{d.city}</p>
 //           </div>
 //           <div>
 //             <p style={{ fontSize: 8, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 3 }}>Projects</p>
-//             <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.04em' }}>{d.projects}+</p>
+//             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.04em' }}>{d.projects}+</p>
 //           </div>
 //         </div>
 
 //         <div style={{ padding: '8px 12px', background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.1)', marginBottom: 0 }}>
-//           <p style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}>{d.specialty}</p>
+//           <p style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}>{d.specialty}</p>
 //         </div>
 //       </div>
 //     </Link>
@@ -1620,12 +1620,12 @@ export default function RealEstatePage() {
 //         <h3 style={{ fontFamily: 'Georgia,serif', fontWeight: 400, fontSize: big ? 21 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
 //           {post.title}
 //         </h3>
-//         <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+//         <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
 //           {post.excerpt}
 //         </p>
 //         <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-//           <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-//           <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)' }}>{post.date} · {post.readTime} min</span>
+//           <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+//           <span style={{ fontSize: 15, color: 'rgba(107,101,88,0.45)' }}>{post.date} · {post.readTime} min</span>
 //         </div>
 //       </div>
 //     </Link>
@@ -1656,7 +1656,7 @@ export default function RealEstatePage() {
 // //             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', lineHeight: 1.85, fontWeight: 300, maxWidth: 250, marginBottom: 24 }}>Where India Meets Global Luxury. Celebrating the world of luxury through an India-first lens.</p>
 // //             <div style={{ display: 'flex', gap: 18 }}>
 // //               {['Instagram', 'LinkedIn'].map(s => (
-// //                 <a key={s} href="#" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
+// //                 <a key={s} href="#" style={{ fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.38)', textDecoration: 'none', transition: 'color .2s' }}
 // //                   onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
 // //                   onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.38)')}
 // //                 >{s}</a>
@@ -1664,7 +1664,7 @@ export default function RealEstatePage() {
 // //             </div>
 // //           </div>
 // //           <div>
-// //             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Categories</p>
+// //             <p style={{ fontSize: 15, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Categories</p>
 // //             {CATS.map(c => (
 // //               <Link key={c.slug} href={`/${c.slug}`}
 // //                 style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
@@ -1674,7 +1674,7 @@ export default function RealEstatePage() {
 // //             ))}
 // //           </div>
 // //           <div>
-// //             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Navigate</p>
+// //             <p style={{ fontSize: 15, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Navigate</p>
 // //             {[{ l: 'Home', h: '/' }, { l: 'News', h: '/news' }, { l: 'Partner With Us', h: '/partner-with-us' }, { l: 'About', h: '/about' }].map(item => (
 // //               <Link key={item.h} href={item.h}
 // //                 style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.28)', textDecoration: 'none', marginBottom: 12, letterSpacing: '0.04em', transition: 'color .2s' }}
@@ -1684,17 +1684,17 @@ export default function RealEstatePage() {
 // //             ))}
 // //           </div>
 // //           <div>
-// //             <p style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Contact</p>
-// //             <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.22)', marginBottom: 6 }}>Partnerships:</p>
+// //             <p style={{ fontSize: 15, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.32)', marginBottom: 20 }}>Contact</p>
+// //             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.22)', marginBottom: 6 }}>Partnerships:</p>
 // //             <a href="mailto:hello@indianluxuryhouse.com"
 // //               style={{ fontSize: 12, color: 'rgba(201,168,76,0.5)', textDecoration: 'none', display: 'block', marginBottom: 28, transition: 'color .2s' }}
 // //               onMouseEnter={e => ((e.target as HTMLElement).style.color = '#C9A84C')}
 // //               onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(201,168,76,0.5)')}
 // //             >hello@indianluxuryhouse.com</a>
-// //             <p style={{ fontSize: 9, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.28)', marginBottom: 12 }}>Newsletter</p>
+// //             <p style={{ fontSize: 15, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.28)', marginBottom: 12 }}>Newsletter</p>
 // //             <div style={{ display: 'flex' }}>
 // //               <input type="email" placeholder="your@email.com"
-// //                 style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.18)', color: '#DFC27A', fontSize: 11, padding: '9px 12px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
+// //                 style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.18)', color: '#DFC27A', fontSize: 14, padding: '9px 12px', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
 // //               />
 // //               <button style={{ background: '#C9A84C', color: '#0A0A0A', border: 'none', padding: '9px 14px', cursor: 'pointer', fontSize: 14, fontWeight: 700, transition: 'background .2s' }}
 // //                 onMouseEnter={e => ((e.target as HTMLElement).style.background = '#DFC27A')}
@@ -1753,7 +1753,7 @@ export default function RealEstatePage() {
 //           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 900 }}>
 
 //             {/* Breadcrumb */}
-//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
+//             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.4)' }}>
 //               <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
 //                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
 //                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.4)')}
@@ -1762,7 +1762,7 @@ export default function RealEstatePage() {
 //               <span style={{ color: '#C9A84C' }}>Real Estate</span>
 //             </div>
 
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'reFadeUp .8s .1s ease both' }}>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'reFadeUp .8s .1s ease both' }}>
 //               Indian Luxury House
 //             </p>
 
@@ -1778,7 +1778,7 @@ export default function RealEstatePage() {
 //             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, animation: 'reFadeUp .8s .4s ease both' }}>
 //               {['Featured Properties', 'Developer Spotlights', 'Editorial'].map(tab => (
 //                 <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`}
-//                   style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
+//                   style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
 //                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.12)'; e.currentTarget.style.color = '#DFC27A'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.5)'; }}
 //                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(201,168,76,0.65)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.25)'; }}
 //                 >{tab}</a>
@@ -1816,12 +1816,12 @@ export default function RealEstatePage() {
 //             {/* Header */}
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Villas · Penthouses · Estates</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Villas · Penthouses · Estates</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Featured Properties</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
 //               <Link href="/real-estate/all-properties"
-//                 style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
+//                 style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
 //                 View All Properties →
 //               </Link>
 //             </div>
@@ -1831,7 +1831,7 @@ export default function RealEstatePage() {
 //               {filters.map(f => (
 //                 <button key={f} onClick={() => setActiveFilter(f)}
 //                   style={{
-//                     fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase',
+//                     fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase',
 //                     padding: '12px 20px', border: 'none', cursor: 'pointer', background: 'transparent',
 //                     color: activeFilter === f ? '#1A1A1A' : 'rgba(107,101,88,0.5)',
 //                     borderBottom: activeFilter === f ? '2px solid #C9A84C' : '2px solid transparent',
@@ -1858,12 +1858,12 @@ export default function RealEstatePage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Premium Builders</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Premium Builders</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Developer Spotlights</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
 //               <Link href="/real-estate/developers"
-//                 style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
+//                 style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
 //                 View All Developers →
 //               </Link>
 //             </div>
@@ -1879,12 +1879,12 @@ export default function RealEstatePage() {
 //           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 //             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>
 //               <div>
-//                 <p style={{ fontSize: 9, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Intelligence & Insight</p>
+//                 <p style={{ fontSize: 15, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Intelligence & Insight</p>
 //                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Editorial Stories</h2>
 //                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
 //               </div>
 //               <Link href="/news?category=real-estate"
-//                 style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
+//                 style={{ fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
 //                 All Real Estate Stories →
 //               </Link>
 //             </div>
@@ -1914,7 +1914,7 @@ export default function RealEstatePage() {
 //             {/* Icon */}
 //             <div style={{ fontSize: 36, marginBottom: 24, opacity: 0.6 }}>🏛️</div>
 
-//             <p style={{ fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Are Here to Help</p>
+//             <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 18 }}>We Are Here to Help</p>
 
 //             <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.12, marginBottom: 20, letterSpacing: '0.015em' }}>
 //               Need Curated<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Property Options?</em>

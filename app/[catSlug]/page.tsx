@@ -63,9 +63,9 @@ function Footer() {
   return (
     <footer className="bg-[#1B4D45] px-6 md:px-16 py-12 mt-0">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="font-display text-xl font-light text-[#DFC27A]">SM Luxury</p>
+        <p className="font-display text-xl font-light text-[#DFC27A]">Indian Luxury House</p>
         <p className="text-[10px] tracking-[0.2em] uppercase text-[#C9A84C]/40">
-          © {new Date().getFullYear()} SM Luxury. All rights reserved.
+          © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
         </p>
       </div>
     </footer>
@@ -164,7 +164,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
                 <div>
                   <p className="text-[10px] tracking-[0.2em] uppercase text-[#C9A84C] mb-1">Written by</p>
                   <p className="font-display text-xl font-light text-[#1C1C1A] mb-1">{post.author}</p>
-                  <p className="text-xs text-[#6B6558] leading-relaxed">Senior contributor to SM Luxury, specialising in {post.category.toLowerCase()} and connoisseur culture.</p>
+                  <p className="text-xs text-[#6B6558] leading-relaxed">Senior contributor to Indian Luxury House, specialising in {post.category.toLowerCase()} and connoisseur culture.</p>
                 </div>
               </div>
             </div>
@@ -337,9 +337,9 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
 //   return (
 //     <footer className="bg-[#1B4D45] px-6 md:px-16 py-12 mt-0">
 //       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-//         <p className="font-display text-xl font-light text-[#DFC27A]">SM Luxury</p>
+//         <p className="font-display text-xl font-light text-[#DFC27A]">Indian Luxury House</p>
 //         <p className="text-[10px] tracking-[0.2em] uppercase text-[#C9A84C]/40">
-//           © {new Date().getFullYear()} SM Luxury. All rights reserved.
+//           © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
 //         </p>
 //       </div>
 //     </footer>
@@ -514,7 +514,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
 //                   <p className="text-[10px] tracking-[0.2em] uppercase text-[#C9A84C] mb-1">Written by</p>
 //                   <p className="font-display text-xl font-light text-[#1C1C1A] mb-1">{post.author}</p>
 //                   <p className="text-xs text-[#6B6558] leading-relaxed">
-//                     Senior contributor to SM Luxury, specialising in {post.category.toLowerCase()} and connoisseur culture.
+//                     Senior contributor to Indian Luxury House, specialising in {post.category.toLowerCase()} and connoisseur culture.
 //                   </p>
 //                 </div>
 //               </div>

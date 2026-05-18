@@ -19,10 +19,10 @@ const NAVIGATE = [
   { label: 'About',           href: '/about'          },
 ];
 
-const LEGAL = [
-  { label: 'Privacy Policy', href: '/privacy' },
-  { label: 'Terms of Use',   href: '/terms'   },
-];
+// const LEGAL = [
+//   { label: 'Privacy Policy', href: '/privacy' },
+//   { label: 'Terms of Use',   href: '/terms'   },
+// ];
 
 // ── FOOTER ────────────────────────────────────────────────────
 export default function Footer() {
@@ -138,11 +138,11 @@ export default function Footer() {
         <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent)', marginBottom: 28 }} />
 
         {/* ── Bottom bar ── */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14 }}>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: 14 }}>
+  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em', textAlign: 'center' }}>
             © {new Date().getFullYear()} Indian Luxury House. All rights reserved.
           </p>
-          <div style={{ display: 'flex', gap: 24 }}>
+          {/* <div style={{ display: 'flex', gap: 24 }}>
             {LEGAL.map(item => (
               <a key={item.href} href={item.href}
                 style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
@@ -150,7 +150,7 @@ export default function Footer() {
                 onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
               >{item.label}</a>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -613,7 +613,7 @@ export default function Footer() {
 //           </div>
 //         </div>
 //         <div style={{ borderTop:'1px solid rgba(201,168,76,0.1)', paddingTop:24, display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
-//           <p style={{ fontSize:10, letterSpacing:'0.12em', color:'rgba(201,168,76,0.26)' }}>© 2026 SM Luxury. All rights reserved.</p>
+//           <p style={{ fontSize:10, letterSpacing:'0.12em', color:'rgba(201,168,76,0.26)' }}>© 2026 Indian Luxury House. All rights reserved.</p>
 //           <div style={{ display:'flex', gap:24 }}>
 //             {['Instagram','Twitter','LinkedIn'].map(s => (
 //               <a key={s} href="#"

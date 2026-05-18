@@ -80,7 +80,7 @@ export default function PartnerPage() {
     background: '#0f0f0f',
     border: '1px solid rgba(201,168,76,0.2)',
     color: '#ffffff',
-    fontSize: 13,
+     fontSize: 15,
     padding: '14px 18px',
     outline: 'none',
     fontFamily: 'sans-serif',
@@ -107,7 +107,7 @@ export default function PartnerPage() {
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,#C9A84C,transparent)' }} />
 
           <div style={{ position: 'relative', zIndex: 10, maxWidth: 800, margin: '0 auto' }}>
-            <p style={{ fontSize: 10, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>
+            <p style={{ fontSize: 20, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 24, fontFamily: 'sans-serif' }}>
               Grow With Us
             </p>
             <h1 style={{
@@ -135,7 +135,7 @@ export default function PartnerPage() {
         <section style={{ maxWidth: 1100, margin: '0 auto', padding: '88px 32px 72px' }}>
           <div style={{ marginBottom: 56, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', borderBottom: '1px solid #f0f0f0', paddingBottom: 20 }}>
             <div>
-              <p style={{ fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 10, fontFamily: 'sans-serif' }}>What We Offer</p>
+              <p style={{ fontSize: 15, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 10, fontFamily: 'sans-serif' }}>What We Offer</p>
               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 300, color: '#0a0a0a', letterSpacing: '0.01em' }}>Our Services</h2>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function PartnerPage() {
                 <p style={{ fontFamily: 'Georgia, serif', fontSize: 42, fontWeight: 300, color: '#f5f5f5', marginBottom: 12, lineHeight: 1 }}>{s.num}</p>
                 <div style={{ width: 24, height: 1, background: '#C9A84C', marginBottom: 16 }} />
                 <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 20, fontWeight: 400, color: '#0a0a0a', marginBottom: 12, letterSpacing: '0.02em' }}>{s.title}</h3>
-                <p style={{ fontSize: 13, color: '#666', lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif' }}>{s.desc}</p>
+                <p style={{  fontSize: 15, color: '#666', lineHeight: 1.8, fontWeight: 300, fontFamily: 'sans-serif' }}>{s.desc}</p>
               </div>
             ))}
           </div>
@@ -165,7 +165,7 @@ export default function PartnerPage() {
 
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 56 }}>
-              <p style={{ fontSize: 10, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 16, fontFamily: 'sans-serif' }}>The Advantage</p>
+              <p style={{ fontSize: 15, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 16, fontFamily: 'sans-serif' }}>The Advantage</p>
               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 300, color: '#ffffff', letterSpacing: '0.01em' }}>Why Work With Us</h2>
             </div>
 
@@ -176,7 +176,7 @@ export default function PartnerPage() {
                   <p style={{ fontFamily: 'Georgia, serif', fontSize: 48, fontWeight: 300, color: 'rgba(27,77,69,0.4)', marginBottom: 20, lineHeight: 1 }}>0{i + 1}</p>
                   <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 20, fontWeight: 400, color: '#ffffff', marginBottom: 14, letterSpacing: '0.02em' }}>{w.title}</h3>
                   <div style={{ width: 24, height: 1, background: '#C9A84C', margin: '0 auto 16px' }} />
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.85, fontWeight: 300, fontFamily: 'sans-serif' }}>{w.desc}</p>
+                  <p style={{  fontSize: 15, color: 'rgba(255,255,255,0.45)', lineHeight: 1.85, fontWeight: 300, fontFamily: 'sans-serif' }}>{w.desc}</p>
                 </div>
               ))}
             </div>
@@ -186,7 +186,7 @@ export default function PartnerPage() {
         {/* ══ INQUIRY FORM ══════════════════════════════════════ */}
         <section style={{ maxWidth: 760, margin: '0 auto', padding: '88px 32px 80px' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <p style={{ fontSize: 10, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 16, fontFamily: 'sans-serif' }}>Start the Conversation</p>
+            <p style={{  fontSize: 15, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 16, fontFamily: 'sans-serif' }}>Start the Conversation</p>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 300, color: '#0a0a0a', letterSpacing: '0.01em', marginBottom: 16 }}>Inquiry Form</h2>
             <div style={{ width: 40, height: 1, background: '#C9A84C', margin: '0 auto' }} />
           </div>
@@ -206,11 +206,11 @@ export default function PartnerPage() {
               {/* Name + Company */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }} className="partner-form-2col">
                 <div>
-                  <label style={{ display: 'block', fontSize: 9, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Name *</label>
+                  <label style={{ display: 'block',  fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Name *</label>
                   <input name="name" value={form.name} onChange={handleChange} placeholder="Your full name" style={inputStyle} />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: 9, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Company *</label>
+                  <label style={{ display: 'block',  fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Company *</label>
                   <input name="company" value={form.company} onChange={handleChange} placeholder="Brand or company name" style={inputStyle} />
                 </div>
               </div>
@@ -218,14 +218,14 @@ export default function PartnerPage() {
               {/* Category + Budget */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }} className="partner-form-2col">
                 <div>
-                  <label style={{ display: 'block', fontSize: 9, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Category</label>
+                  <label style={{ display: 'block',  fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Category</label>
                   <select name="category" value={form.category} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}>
                     <option value="">Select category</option>
                     {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: 9, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Budget</label>
+                  <label style={{ display: 'block',  fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Budget</label>
                   <select name="budget" value={form.budget} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}>
                     <option value="">Select budget</option>
                     {BUDGETS.map(b => <option key={b} value={b}>{b}</option>)}
@@ -235,7 +235,7 @@ export default function PartnerPage() {
 
               {/* Message */}
               <div style={{ marginBottom: 28 }}>
-                <label style={{ display: 'block', fontSize: 9, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Message *</label>
+                <label style={{ display: 'block',  fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 8, fontFamily: 'sans-serif' }}>Message *</label>
                 <textarea
                   name="message" value={form.message} onChange={handleChange}
                   placeholder="Tell us about your brand, goals, and what kind of partnership you're looking for..."
@@ -249,7 +249,7 @@ export default function PartnerPage() {
                 onClick={handleSubmit}
                 style={{
                   width: '100%', background: '#C9A84C', border: 'none',
-                  color: '#0a0a0a', fontSize: 11, letterSpacing: '0.3em',
+                  color: '#0a0a0a',  fontSize: 15, letterSpacing: '0.3em',
                   textTransform: 'uppercase', fontFamily: 'sans-serif',
                   padding: '18px 32px', cursor: 'pointer',
                   fontWeight: 600, transition: 'background 0.2s',
@@ -260,7 +260,7 @@ export default function PartnerPage() {
                 Submit Inquiry
               </button>
 
-              <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', textAlign: 'center', marginTop: 20, fontFamily: 'sans-serif' }}>
+              <p style={{  fontSize: 15, color: 'rgba(255,255,255,0.2)', textAlign: 'center', marginTop: 20, fontFamily: 'sans-serif' }}>
                 Or email us directly at{' '}
                 <a href="mailto:hello@indianluxuryhouse.com" style={{ color: 'rgba(201,168,76,0.5)', textDecoration: 'none' }}>
                   hello@indianluxuryhouse.com
@@ -272,7 +272,7 @@ export default function PartnerPage() {
 
         {/* Back to home */}
         <div style={{ textAlign: 'center', padding: '32px 32px 56px', borderTop: '1px solid #f0f0f0' }}>
-          <Link href="/" style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>
+          <Link href="/" style={{  fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>
             ← Back to Journal
           </Link>
         </div>

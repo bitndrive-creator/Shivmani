@@ -65,7 +65,7 @@ export default function Navbar({ activeHref = '' }: { activeHref?: string }) {
         .ilh-logo-img { position:relative; width:48px; height:48px; flex-shrink:0; }
         .ilh-logo-text { display:flex; flex-direction:column; justify-content:center; }
         .ilh-logo-t { font-family:Georgia,serif; font-size:20px; font-weight:300; color:#DFC27A; letter-spacing:.28em; text-transform:uppercase; line-height:1.1; display:block; }
-        .ilh-logo-s { font-size:7.5px; color:rgba(201,168,76,.5); letter-spacing:.22em; text-transform:uppercase; margin-top:4px; display:block; }
+        .ilh-logo-s { font-size:11px; color:#C9A84C; letter-spacing:.28em; text-transform:uppercase; margin-top:3px; display:block; font-family:Georgia,serif; }
 
         /* DESKTOP NAV */
         .ilh-nav { display:flex; align-items:center; }
@@ -174,7 +174,7 @@ export default function Navbar({ activeHref = '' }: { activeHref?: string }) {
         /* RESPONSIVE */
         @media(max-width:1100px){ .ilh-nav{display:none!important;} .ilh-hm{display:flex!important;} }
         @media(max-width:768px) { .ilh-bar{padding:0 20px!important;} }
-        @media(max-width:480px) { .ilh-bar{padding:0 16px!important;height:64px!important;} .ilh-logo{gap:4px!important;} .ilh-logo-img{width:40px!important;height:40px!important;} .ilh-logo-t{font-size:16px!important;letter-spacing:.2em!important;} .ilh-logo-s{font-size:6.5px!important;letter-spacing:.18em!important;} }
+        @media(max-width:480px) { .ilh-bar{padding:0 16px!important;height:64px!important;} .ilh-logo{gap:4px!important;} .ilh-logo-img{width:40px!important;height:40px!important;} .ilh-logo-t{font-size:16px!important;letter-spacing:.2em!important;} .ilh-logo-s{font-size:9px!important;letter-spacing:.2em!important;} }
       `}</style>
 
       <header className={`ilh-hdr${scrolled ? ' scr' : ''}`}>
@@ -290,6 +290,300 @@ export default function Navbar({ activeHref = '' }: { activeHref?: string }) {
     </>
   );
 }
+
+
+// 'use client';
+
+// import Link from 'next/link';
+// import Image from 'next/image';
+// import { useState, useEffect, useRef } from 'react';
+
+// // ── CATEGORIES (dropdown mein dikhte hain) ────────────────────
+// const CATEGORIES = [
+//   { label: 'Real Estate',         href: '/real-estate',      icon: '🏛️' },
+//   { label: 'Automobiles',         href: '/automobiles',       icon: '🚗' },
+//   { label: 'Jewellery & Watches', href: '/jewellery-watches', icon: '💎' },
+//   { label: 'Weddings',            href: '/weddings',          icon: '✨' },
+//   { label: 'Curated Partners',    href: '/curated-partners',  icon: '🤝' },
+//   { label: 'Hospitality',         href: '/hospitality',       icon: '🏨' },
+//   { label: 'Beauty',              href: '/beauty',            icon: '🌸' },
+// ];
+
+// const CAT_HREFS = CATEGORIES.map(c => c.href);
+
+// export default function Navbar({ activeHref = '' }: { activeHref?: string }) {
+//   const [scrolled,   setScrolled]   = useState(false);
+//   const [menuOpen,   setMenuOpen]   = useState(false);
+//   const [catOpen,    setCatOpen]    = useState(false);
+//   const [mobCatOpen, setMobCatOpen] = useState(false);
+//   const catWrapRef = useRef<HTMLDivElement>(null);
+
+//   const isCatActive = CAT_HREFS.includes(activeHref);
+
+//   useEffect(() => {
+//     const fn = () => setScrolled(window.scrollY > 60);
+//     window.addEventListener('scroll', fn, { passive: true });
+//     return () => window.removeEventListener('scroll', fn);
+//   }, []);
+
+//   useEffect(() => {
+//     const fn = (e: MouseEvent) => {
+//       if (catWrapRef.current && !catWrapRef.current.contains(e.target as Node)) {
+//         setCatOpen(false);
+//       }
+//     };
+//     document.addEventListener('mousedown', fn);
+//     return () => document.removeEventListener('mousedown', fn);
+//   }, []);
+
+//   return (
+//     <>
+//       <style>{`
+//         .ilh-hdr {
+//           position:fixed; top:0; left:0; right:0; z-index:100;
+//           background:rgba(10,10,10,0.92);
+//           backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+//           transition:background .4s,box-shadow .4s;
+//         }
+//         .ilh-hdr.scr { background:rgba(10,10,10,0.98); box-shadow:0 2px 24px rgba(0,0,0,0.5); }
+//         .ilh-st { height:1px; background:linear-gradient(90deg,transparent,#C9A84C,transparent); opacity:.7; }
+//         .ilh-sb { height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent); }
+
+//         .ilh-bar {
+//           max-width:1400px; margin:0 auto; padding:0 32px; height:72px;
+//           display:flex; align-items:center; justify-content:space-between; gap:16px;
+//         }
+
+//         /* LOGO */
+//         .ilh-logo { display:flex; align-items:center; gap:6px; text-decoration:none; flex-shrink:0; }
+//         .ilh-logo-img { position:relative; width:48px; height:48px; flex-shrink:0; }
+//         .ilh-logo-text { display:flex; flex-direction:column; justify-content:center; }
+//         .ilh-logo-t { font-family:Georgia,serif; font-size:20px; font-weight:300; color:#DFC27A; letter-spacing:.28em; text-transform:uppercase; line-height:1.1; display:block; }
+//         .ilh-logo-s { font-size:7.5px; color:rgba(201,168,76,.5); letter-spacing:.22em; text-transform:uppercase; margin-top:4px; display:block; }
+
+//         /* DESKTOP NAV */
+//         .ilh-nav { display:flex; align-items:center; }
+
+//         .ilh-nl {
+//           font-size:13px; letter-spacing:.12em; text-transform:uppercase;
+//           color:rgba(201,168,76,.6); text-decoration:none;
+//           padding:8px 11px; border-bottom:1px solid transparent;
+//           transition:color .2s,border-color .2s; white-space:nowrap; display:inline-block;
+//         }
+//         .ilh-nl:hover,.ilh-nl.act { color:#DFC27A; border-bottom-color:#C9A84C; }
+
+//         .ilh-pw {
+//           font-size:13px; letter-spacing:.12em; text-transform:uppercase;
+//           color:#C9A84C; text-decoration:none; padding:6px 14px; margin-left:6px;
+//           border:1px solid rgba(201,168,76,.4); transition:all .2s; white-space:nowrap;
+//         }
+//         .ilh-pw:hover,.ilh-pw.act { background:#C9A84C; color:#1A1A1A; }
+
+//         /* CAT DROPDOWN */
+//         .ilh-cw { position:relative; }
+//         .ilh-cb {
+//           font-size:13px; letter-spacing:.12em; text-transform:uppercase;
+//           color:rgba(201,168,76,.6); background:none; border:none;
+//           border-bottom:1px solid transparent; padding:8px 11px; cursor:pointer;
+//           font-family:Georgia,serif; display:flex; align-items:center; gap:5px;
+//           transition:color .2s; white-space:nowrap; height:72px;
+//         }
+//         .ilh-cb:hover,.ilh-cb.op,.ilh-cb.ca { color:#DFC27A; }
+//         .ilh-cb.ca { border-bottom-color:#C9A84C; font-weight:500; }
+//         .ilh-arr { transition:transform .25s; display:flex; align-items:center; }
+//         .ilh-cb.op .ilh-arr { transform:rotate(180deg); }
+
+//         .ilh-dd {
+//           position:absolute; top:calc(100% + 2px); left:50%;
+//           transform:translateX(-50%) translateY(-8px);
+//           min-width:256px; background:rgba(5,5,5,.99);
+//           border:1px solid rgba(201,168,76,.22);
+//           box-shadow:0 20px 60px rgba(0,0,0,.8);
+//           opacity:0; visibility:hidden;
+//           transition:opacity .22s,transform .22s,visibility .22s;
+//           z-index:200; overflow:hidden;
+//         }
+//         .ilh-dd.op { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+//         .ilh-dg { height:2px; background:linear-gradient(90deg,transparent,#C9A84C,transparent); }
+//         .ilh-db { padding:6px 0 8px; }
+//         .ilh-dv { height:1px; background:rgba(201,168,76,.1); margin:4px 0; }
+//         .ilh-di {
+//           display:flex; align-items:center; gap:12px; padding:11px 20px;
+//           font-size:13px; letter-spacing:.16em; text-transform:uppercase;
+//           color:rgba(201,168,76,.58); text-decoration:none;
+//           border-left:2px solid transparent; transition:all .18s; font-family:Georgia,serif;
+//         }
+//         .ilh-di:hover { color:#DFC27A; background:rgba(201,168,76,.07); border-left-color:rgba(201,168,76,.5); }
+//         .ilh-di.act { color:#DFC27A; background:rgba(201,168,76,.09); border-left-color:#C9A84C; }
+//         .ilh-ic { font-size:14px; width:20px; text-align:center; opacity:.85; }
+
+//         /* HAMBURGER */
+//         .ilh-hm {
+//           display:none; flex-direction:column; gap:5px;
+//           background:none; border:none; color:#C9A84C; cursor:pointer; padding:8px;
+//         }
+//         .ilh-hl { width:24px; height:1.5px; background:#C9A84C; transition:all .3s; transform-origin:center; display:block; border-radius:1px; }
+//         .ilh-hm.op .ilh-hl:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+//         .ilh-hm.op .ilh-hl:nth-child(2) { opacity:0; transform:scaleX(0); }
+//         .ilh-hm.op .ilh-hl:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+//         /* MOBILE MENU */
+//         .ilh-mm { background:#070707; border-top:1px solid rgba(201,168,76,.1); max-height:0; overflow:hidden; transition:max-height .38s cubic-bezier(.4,0,.2,1); }
+//         .ilh-mm.op { max-height:700px; }
+
+//         .ilh-ml {
+//           display:flex; align-items:center; padding:15px 28px;
+//           font-size:14px; letter-spacing:.18em; text-transform:uppercase;
+//           color:rgba(201,168,76,.65); text-decoration:none;
+//           border-bottom:1px solid rgba(201,168,76,.07);
+//           transition:background .2s,color .2s; font-family:Georgia,serif;
+//         }
+//         .ilh-ml:hover { background:rgba(201,168,76,.05); color:#DFC27A; }
+//         .ilh-ml.act { color:#DFC27A; background:rgba(201,168,76,.05); }
+//         .ilh-ml.pw  { color:#C9A84C; font-weight:600; }
+
+//         .ilh-mcb {
+//           width:100%; display:flex; align-items:center; justify-content:space-between;
+//           padding:15px 28px; font-size:14px; letter-spacing:.18em; text-transform:uppercase;
+//           color:rgba(201,168,76,.65); background:none; border:none;
+//           border-bottom:1px solid rgba(201,168,76,.07);
+//           cursor:pointer; font-family:Georgia,serif; transition:all .2s;
+//         }
+//         .ilh-mcb:hover,.ilh-mcb.op { color:#DFC27A; background:rgba(201,168,76,.04); }
+//         .ilh-ma { transition:transform .25s; display:flex; }
+//         .ilh-mcb.op .ilh-ma { transform:rotate(180deg); }
+
+//         .ilh-sl { max-height:0; overflow:hidden; transition:max-height .3s ease; background:rgba(201,168,76,.025); }
+//         .ilh-sl.op { max-height:500px; }
+//         .ilh-si {
+//           display:flex; align-items:center; gap:12px; padding:12px 28px 12px 44px;
+//           font-size:13px; letter-spacing:.16em; text-transform:uppercase;
+//           color:rgba(201,168,76,.5); text-decoration:none;
+//           border-bottom:1px solid rgba(201,168,76,.05);
+//           border-left:2px solid transparent; transition:all .18s; font-family:Georgia,serif;
+//         }
+//         .ilh-si:hover { color:#DFC27A; background:rgba(201,168,76,.06); border-left-color:rgba(201,168,76,.4); }
+//         .ilh-si.act { color:#DFC27A; border-left-color:#C9A84C; }
+
+//         /* RESPONSIVE */
+//         @media(max-width:1100px){ .ilh-nav{display:none!important;} .ilh-hm{display:flex!important;} }
+//         @media(max-width:768px) { .ilh-bar{padding:0 20px!important;} }
+//         @media(max-width:480px) { .ilh-bar{padding:0 16px!important;height:64px!important;} .ilh-logo{gap:4px!important;} .ilh-logo-img{width:40px!important;height:40px!important;} .ilh-logo-t{font-size:16px!important;letter-spacing:.2em!important;} .ilh-logo-s{font-size:6.5px!important;letter-spacing:.18em!important;} }
+//       `}</style>
+
+//       <header className={`ilh-hdr${scrolled ? ' scr' : ''}`}>
+//         <div className="ilh-st" />
+
+//         <div className="ilh-bar">
+
+//           {/* ── LOGO ── */}
+//           <Link href="/" className="ilh-logo">
+//             <div className="ilh-logo-img">
+//               <Image
+//                 src="/logos.png"
+//                 alt="Indian Luxury House"
+//                 fill
+//                 style={{ objectFit: 'contain' }}
+//                 priority
+//               />
+//             </div>
+//             <div className="ilh-logo-text">
+//               <span className="ilh-logo-t">Indian</span>
+//               <span className="ilh-logo-s">Luxury House</span>
+//             </div>
+//           </Link>
+
+//           {/* ── DESKTOP NAV ── */}
+//           <nav className="ilh-nav">
+//             <Link href="/"     className={`ilh-nl${activeHref==='/'     ? ' act':''}`}>Home</Link>
+//             <Link href="/news" className={`ilh-nl${activeHref==='/news' ? ' act':''}`}>News</Link>
+
+//             {/* Categories Dropdown */}
+//             <div className="ilh-cw" ref={catWrapRef}>
+//               <button
+//                 className={`ilh-cb${catOpen?' op':''}${isCatActive?' ca':''}`}
+//                 onClick={() => setCatOpen(p => !p)}
+//               >
+//                 Categories
+//                 <span className="ilh-arr">
+//                   <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+//                     <path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+//                   </svg>
+//                 </span>
+//               </button>
+
+//               <div className={`ilh-dd${catOpen?' op':''}`}>
+//                 <div className="ilh-dg" />
+//                 <div className="ilh-db">
+//                   {CATEGORIES.map(cat => (
+//                     <span key={cat.href}>
+//                       {cat.label === 'Hospitality' && <div className="ilh-dv" />}
+//                       <Link
+//                         href={cat.href}
+//                         onClick={() => setCatOpen(false)}
+//                         className={`ilh-di${activeHref===cat.href?' act':''}`}
+//                       >
+//                         <span className="ilh-ic">{cat.icon}</span>
+//                         {cat.label}
+//                       </Link>
+//                     </span>
+//                   ))}
+//                 </div>
+//               </div>
+//             </div>
+
+//             <Link href="/partner-with-us" className={`ilh-pw${activeHref==='/partner-with-us'?' act':''}`}>
+//               Partner With Us
+//             </Link>
+//             <Link href="/about" className={`ilh-nl${activeHref==='/about'?' act':''}`}>About</Link>
+//           </nav>
+
+//           {/* ── HAMBURGER ── */}
+//           <button
+//             className={`ilh-hm${menuOpen?' op':''}`}
+//             onClick={() => setMenuOpen(p => !p)}
+//             aria-label="Menu"
+//           >
+//             <span className="ilh-hl" />
+//             <span className="ilh-hl" />
+//             <span className="ilh-hl" />
+//           </button>
+//         </div>
+
+//         {/* ── MOBILE MENU ── */}
+//         <div className={`ilh-mm${menuOpen?' op':''}`}>
+//           <Link href="/" onClick={()=>setMenuOpen(false)} className={`ilh-ml${activeHref==='/'?' act':''}`}>Home</Link>
+//           <Link href="/news" onClick={()=>setMenuOpen(false)} className={`ilh-ml${activeHref==='/news'?' act':''}`}>News</Link>
+
+//           {/* Categories accordion */}
+//           <button className={`ilh-mcb${mobCatOpen?' op':''}`} onClick={()=>setMobCatOpen(p=>!p)}>
+//             <span>Categories</span>
+//             <span className="ilh-ma">
+//               <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+//                 <path d="M2 3.5L5 6.5L8 3.5" stroke="#C9A84C" strokeWidth="1.2" strokeLinecap="round"/>
+//               </svg>
+//             </span>
+//           </button>
+//           <div className={`ilh-sl${mobCatOpen?' op':''}`}>
+//             {CATEGORIES.map(cat => (
+//               <Link key={cat.href} href={cat.href}
+//                 onClick={()=>{setMenuOpen(false);setMobCatOpen(false);}}
+//                 className={`ilh-si${activeHref===cat.href?' act':''}`}
+//               >
+//                 <span>{cat.icon}</span>{cat.label}
+//               </Link>
+//             ))}
+//           </div>
+
+//           <Link href="/partner-with-us" onClick={()=>setMenuOpen(false)} className={`ilh-ml pw${activeHref==='/partner-with-us'?' act':''}`}>Partner With Us</Link>
+//           <Link href="/about" onClick={()=>setMenuOpen(false)} className={`ilh-ml${activeHref==='/about'?' act':''}`}>About</Link>
+//         </div>
+
+//         <div className="ilh-sb" />
+//       </header>
+//     </>
+//   );
+// }
 
 
 
@@ -1106,7 +1400,7 @@ export default function Navbar({ activeHref = '' }: { activeHref?: string }) {
 // function SMLogo({ size = 38 }: { size?: number }) {
 //   const g = '#C9A84C';
 //   return (
-//     <svg width={size} height={size} viewBox="0 0 80 80" fill="none" aria-label="SM Luxury">
+//     <svg width={size} height={size} viewBox="0 0 80 80" fill="none" aria-label="Indian Luxury House">
 //       <path d="M42 68C42 68 36 58 34 48C32 38 36 28 40 22C44 16 50 14 52 18C54 22 50 28 46 32C42 36 40 40 42 46C44 52 50 56 48 62C46 68 42 68 42 68Z" fill={g} opacity="0.9"/>
 //       <path d="M44 30C50 24 60 18 64 20C68 22 64 32 56 36C50 39 44 38 44 38" stroke={g} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
 //       <path d="M42 36C48 26 58 16 66 16C70 16 70 26 62 32C56 37 44 38 44 38" stroke={g} strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6"/>

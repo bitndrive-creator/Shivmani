@@ -44,7 +44,7 @@ const BRIDAL_COLLECTIONS = [
   { title: 'Solitaire Diamonds',  sub: 'Timeless engagement rings',        img: '/images/Solitaire Diamonds.jpg' },
   { title: 'Bridal Sets',         sub: 'Perfectly matched ring ensembles', img: '/images/Bridal Sets.jpg'        },
   { title: 'Coloured Gemstones',  sub: 'Sapphires, rubies & emeralds',     img: '/images/Coloured Gemstones.jpg' },
-  { title: 'Heirloom & Antique',  sub: 'Pieces with a storied past',       img: '/images/heirloom & antique.jpg' },
+  { title: 'Heirloom & Antique',  sub: 'Pieces with a storied past',       img: '/images/bulgari.jpg' },
 ];
 
 const FINE_BRANDS: Brand[] = [
@@ -94,7 +94,7 @@ function BridalCard({ item }: { item: typeof BRIDAL_COLLECTIONS[0] }) {
         <div style={{ position:'absolute', bottom:0, left:0, right:0, padding:'24px 22px' }}>
           <div style={{ width: hov ? 32 : 0, height:1, background:'#C9A84C', marginBottom:10, transition:'width .4s ease' }} />
           <h3 style={{ fontFamily:'Georgia,serif', fontSize:20, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.02em', transform: hov ? 'translateY(-3px)' : 'translateY(0)', transition:'transform .35s' }}>{item.title}</h3>
-          <p style={{ fontSize:11, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
+          <p style={{ fontSize:14, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@ function BrandCard({ brand }: { brand: Brand }) {
       <div style={{ padding:'20px 22px 22px' }}>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:8 }}>
           <h3 style={{ fontFamily:'Georgia,serif', fontSize:18, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.01em' }}>{brand.name}</h3>
-          <span style={{ fontSize:9, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
+          <span style={{ fontSize:15, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
         </div>
         <div style={{ width:24, height:1, background:'#C9A84C', marginBottom:10, opacity:0.6 }} />
         <p style={{ fontSize:12, color:'rgba(255,255,255,0.4)', margin:0, fontWeight:300, letterSpacing:'0.03em' }}>{brand.specialty}</p>
@@ -145,10 +145,10 @@ function WatchCard({ watch, idx }: { watch: WatchSpotlight; idx: number }) {
         <div style={{ position:'absolute', inset:0, background: isEven ? 'linear-gradient(to right,transparent 60%,rgba(10,10,10,0.8))' : 'linear-gradient(to left,transparent 60%,rgba(10,10,10,0.8))' }} />
       </div>
       <div style={{ order: isEven ? 1 : 0, padding:'48px 44px', display:'flex', flexDirection:'column', justifyContent:'center' }}>
-        <p style={{ fontSize:9, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
+        <p style={{ fontSize:15, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
         <h3 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(22px,3vw,34px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>{watch.name}</h3>
         <div style={{ width: hov ? 48 : 28, height:1, background:'#C9A84C', marginBottom:18, transition:'width .4s ease' }} />
-        <p style={{ fontSize:13, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
+        <p style={{ fontSize:16, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
         <div>
           <p style={{ fontSize:8, letterSpacing:'0.16em', textTransform:'uppercase', color:'rgba(201,168,76,0.4)', marginBottom:4 }}>Starting from</p>
           <span style={{ fontFamily:'Georgia,serif', fontSize:18, color:'#C9A84C', letterSpacing:'0.04em' }}>{watch.price}</span>
@@ -199,12 +199,12 @@ function EditorialCard({ post, big = false }: { post: Post; big?: boolean }) {
         <h3 style={{ fontFamily:'Georgia,serif', fontWeight:400, fontSize: big ? 22 : 17, lineHeight:1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom:10, transition:'color .25s', letterSpacing:'0.01em', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
           {post.title}
         </h3>
-        <p style={{ fontSize:13, color:'#6B6560', lineHeight:1.75, marginBottom:16, fontWeight:300, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
+        <p style={{ fontSize:16, color:'#6B6560', lineHeight:1.75, marginBottom:16, fontWeight:300, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
           {post.excerpt}
         </p>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', borderTop:'1px solid rgba(201,168,76,0.1)', paddingTop:12 }}>
-          <span style={{ fontSize:9, letterSpacing:'0.14em', textTransform:'uppercase', color:'#C9A84C', fontWeight:500 }}>{post.author}</span>
-          <span style={{ fontSize:9, color:'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+          <span style={{ fontSize:15, letterSpacing:'0.14em', textTransform:'uppercase', color:'#C9A84C', fontWeight:500 }}>{post.author}</span>
+          <span style={{ fontSize:15, color:'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
         </div>
       </div>
     </a>
@@ -270,7 +270,7 @@ export default function JewelleryWatchesPage() {
           <div style={{ position:'absolute', top:0, right:'30%', width:1, height:'100%', background:'linear-gradient(to bottom,transparent 0%,rgba(201,168,76,0.12) 40%,rgba(201,168,76,0.25) 60%,transparent 100%)', transform:'rotate(8deg)', transformOrigin:'top center' }} />
 
           <div style={{ position:'relative', zIndex:10, height:'100%', display:'flex', flexDirection:'column', justifyContent:'flex-end', padding:'0 80px 100px', maxWidth:780 }}>
-            <p style={{ fontSize:9, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16 }}>SM Luxury · Collections</p>
+            <p style={{ fontSize:15, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16 }}>Indian Luxury House · Collections</p>
             <h1 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(48px,7vw,92px)', fontWeight:300, color:'#FAF7F0', lineHeight:1.05, marginBottom:24, letterSpacing:'0.01em' }}>
               Jewellery<br />&amp; <em style={{ color:'#C9A84C', fontStyle:'italic' }}>Watches</em>
             </h1>
@@ -334,7 +334,7 @@ export default function JewelleryWatchesPage() {
           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
               <div>
-                <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
+                <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Bridal Jewellery</h2>
               </div>
               <a href="#brands" className="jwl-section-btn">View All →</a>
@@ -350,7 +350,7 @@ export default function JewelleryWatchesPage() {
           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
               <div>
-                <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
+                <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Fine Jewellery Brands</h2>
               </div>
               <a href="#watches" className="jwl-section-btn">All Brands →</a>
@@ -365,7 +365,7 @@ export default function JewelleryWatchesPage() {
         <section id="watches" style={{ padding:'96px 0 80px', background:'#080808' }}>
           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
             <div style={{ marginBottom:56, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
-              <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
+              <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
               <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Watch Spotlights</h2>
             </div>
             <div style={{ display:'flex', flexDirection:'column', gap:3 }}>
@@ -379,7 +379,7 @@ export default function JewelleryWatchesPage() {
           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:52, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
               <div>
-                <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
+                <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Editorial Stories</h2>
               </div>
               <a href={`/news?category=${THIS_CAT_SLUG}`} className="jwl-section-btn">All Stories →</a>
@@ -400,7 +400,7 @@ export default function JewelleryWatchesPage() {
             {!editorialLoading && editorialPosts.length === 0 && (
               <div style={{ textAlign:'center', padding:'60px 0', color:'rgba(201,168,76,0.35)' }}>
                 <p style={{ fontFamily:'Georgia,serif', fontSize:20, marginBottom:8, color:'rgba(255,255,255,0.4)' }}>No stories published yet.</p>
-                <p style={{ fontSize:13 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
+                <p style={{ fontSize:16, }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
               </div>
             )}
 
@@ -452,8 +452,8 @@ export default function JewelleryWatchesPage() {
           <div style={{ position:'absolute', top:'50%', left:'10%', transform:'translateY(-50%)', width:400, height:400, borderRadius:'50%', background:'radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%)', pointerEvents:'none' }} />
           <div style={{ position:'absolute', top:'50%', right:'10%', transform:'translateY(-50%)', width:300, height:300, borderRadius:'50%', background:'radial-gradient(circle,rgba(31,92,82,0.12) 0%,transparent 70%)', pointerEvents:'none' }} />
           <div style={{ position:'relative', zIndex:2, maxWidth:720, margin:'0 auto', textAlign:'center' }}>
-            <div style={{ display:'flex', justifyContent:'center', marginBottom:28 }}><SMLogo size={52} /></div>
-            <p style={{ fontSize:9, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
+            <div style={{ display:'flex', justifyContent:'center', marginBottom:28 }}></div>
+            <p style={{ fontSize:15, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
             <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>
               Connect with<br /><em style={{ color:'#C9A84C' }}>Premium Brands</em>
             </h2>
@@ -473,18 +473,19 @@ export default function JewelleryWatchesPage() {
         </section>
 
         {/* ══ FOOTER STRIP ════════════════════════════════════════ */}
-        <div style={{ background:'#080808', borderTop:'1px solid rgba(201,168,76,0.1)', padding:'28px 40px', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
+        {/* <div style={{ background:'#080808', borderTop:'1px solid rgba(201,168,76,0.1)', padding:'28px 40px', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
           <div style={{ display:'flex', alignItems:'center', gap:10 }}>
             <SMLogo size={24} />
-            <span style={{ fontFamily:'Georgia,serif', fontSize:13, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>SM Luxury · Jewellery &amp; Watches</span>
+            <span style={{ fontFamily:'Georgia,serif', fontSize:16, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>Indian Luxury House · Jewellery &amp; Watches</span>
           </div>
           <div style={{ display:'flex', gap:24 }}>
             {['Bridal','Fine Brands','Watch Spotlights','Stories'].map(l => (
               <a key={l} href={`#${l.toLowerCase().replace(' ','-')}`} className="jwl-footer-link">{l}</a>
             ))}
           </div>
-          <a href="/" className="jwl-footer-link">← Back to SM Luxury</a>
-        </div>
+          <a href="/" className="jwl-footer-link">← Back to Indian
+Luxury House </a>
+        </div> */}
 
       </main>
     </>
@@ -592,7 +593,7 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ position:'absolute', bottom:0, left:0, right:0, padding:'24px 22px' }}>
 //           <div style={{ width: hov ? 32 : 0, height:1, background:'#C9A84C', marginBottom:10, transition:'width .4s ease' }} />
 //           <h3 style={{ fontFamily:'Georgia,serif', fontSize:20, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.02em', transform: hov ? 'translateY(-3px)' : 'translateY(0)', transition:'transform .35s' }}>{item.title}</h3>
-//           <p style={{ fontSize:11, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
+//           <p style={{ fontSize:14, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
 //         </div>
 //       </div>
 //     </div>
@@ -616,7 +617,7 @@ export default function JewelleryWatchesPage() {
 //       <div style={{ padding:'20px 22px 22px' }}>
 //         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:8 }}>
 //           <h3 style={{ fontFamily:'Georgia,serif', fontSize:18, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.01em' }}>{brand.name}</h3>
-//           <span style={{ fontSize:9, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
+//           <span style={{ fontSize:15, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
 //         </div>
 //         <div style={{ width:24, height:1, background:'#C9A84C', marginBottom:10, opacity:0.6 }} />
 //         <p style={{ fontSize:12, color:'rgba(255,255,255,0.4)', margin:0, fontWeight:300, letterSpacing:'0.03em' }}>{brand.specialty}</p>
@@ -643,10 +644,10 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ position:'absolute', inset:0, background: isEven ? 'linear-gradient(to right,transparent 60%,rgba(10,10,10,0.8))' : 'linear-gradient(to left,transparent 60%,rgba(10,10,10,0.8))' }} />
 //       </div>
 //       <div style={{ order: isEven ? 1 : 0, padding:'48px 44px', display:'flex', flexDirection:'column', justifyContent:'center' }}>
-//         <p style={{ fontSize:9, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
+//         <p style={{ fontSize:15, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
 //         <h3 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(22px,3vw,34px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>{watch.name}</h3>
 //         <div style={{ width: hov ? 48 : 28, height:1, background:'#C9A84C', marginBottom:18, transition:'width .4s ease' }} />
-//         <p style={{ fontSize:13, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
+//         <p style={{ fontSize:16,, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
 //         <div>
 //           <p style={{ fontSize:8, letterSpacing:'0.16em', textTransform:'uppercase', color:'rgba(201,168,76,0.4)', marginBottom:4 }}>Starting from</p>
 //           <span style={{ fontFamily:'Georgia,serif', fontSize:18, color:'#C9A84C', letterSpacing:'0.04em' }}>{watch.price}</span>
@@ -700,12 +701,12 @@ export default function JewelleryWatchesPage() {
 //         <h3 style={{ fontFamily:'Georgia,serif', fontWeight:400, fontSize: big ? 22 : 17, lineHeight:1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom:10, transition:'color .25s', letterSpacing:'0.01em', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
 //           {post.title}
 //         </h3>
-//         <p style={{ fontSize:13, color:'#6B6560', lineHeight:1.75, marginBottom:16, fontWeight:300, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
+//         <p style={{ fontSize:16,, color:'#6B6560', lineHeight:1.75, marginBottom:16, fontWeight:300, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
 //           {post.excerpt}
 //         </p>
 //         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', borderTop:'1px solid rgba(201,168,76,0.1)', paddingTop:12 }}>
-//           <span style={{ fontSize:9, letterSpacing:'0.14em', textTransform:'uppercase', color:'#C9A84C', fontWeight:500 }}>{post.author}</span>
-//           <span style={{ fontSize:9, color:'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+//           <span style={{ fontSize:15, letterSpacing:'0.14em', textTransform:'uppercase', color:'#C9A84C', fontWeight:500 }}>{post.author}</span>
+//           <span style={{ fontSize:15, color:'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
 //         </div>
 //       </div>
 //     </a>
@@ -762,7 +763,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ position:'absolute', top:0, right:'30%', width:1, height:'100%', background:'linear-gradient(to bottom,transparent 0%,rgba(201,168,76,0.12) 40%,rgba(201,168,76,0.25) 60%,transparent 100%)', transform:'rotate(8deg)', transformOrigin:'top center' }} />
 
 //           <div style={{ position:'relative', zIndex:10, height:'100%', display:'flex', flexDirection:'column', justifyContent:'flex-end', padding:'0 80px 100px', maxWidth:780 }}>
-//             <p style={{ fontSize:9, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16 }}>SM Luxury · Collections</p>
+//             <p style={{ fontSize:15, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16 }}>Indian Luxury House · Collections</p>
 //             <h1 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(48px,7vw,92px)', fontWeight:300, color:'#FAF7F0', lineHeight:1.05, marginBottom:24, letterSpacing:'0.01em' }}>
 //               Jewellery<br />&amp; <em style={{ color:'#C9A84C', fontStyle:'italic' }}>Watches</em>
 //             </h1>
@@ -826,7 +827,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Bridal Jewellery</h2>
 //               </div>
 //               <a href="#brands" className="jwl-section-btn">View All →</a>
@@ -842,7 +843,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Fine Jewellery Brands</h2>
 //               </div>
 //               <a href="#watches" className="jwl-section-btn">All Brands →</a>
@@ -857,7 +858,7 @@ export default function JewelleryWatchesPage() {
 //         <section id="watches" style={{ padding:'96px 0 80px', background:'#080808' }}>
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ marginBottom:56, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
-//               <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
+//               <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
 //               <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Watch Spotlights</h2>
 //             </div>
 //             <div style={{ display:'flex', flexDirection:'column', gap:3 }}>
@@ -871,7 +872,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:52, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Editorial Stories</h2>
 //               </div>
 //               <a href={`/news?category=${THIS_CAT_SLUG}`} className="jwl-section-btn">All Stories →</a>
@@ -892,7 +893,7 @@ export default function JewelleryWatchesPage() {
 //             {!editorialLoading && editorialPosts.length === 0 && (
 //               <div style={{ textAlign:'center', padding:'60px 0', color:'rgba(201,168,76,0.35)' }}>
 //                 <p style={{ fontFamily:'Georgia,serif', fontSize:20, marginBottom:8, color:'rgba(255,255,255,0.4)' }}>No stories published yet.</p>
-//                 <p style={{ fontSize:13 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
+//                 <p style={{ fontSize:16, }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
 //               </div>
 //             )}
 
@@ -935,7 +936,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ position:'absolute', top:'50%', right:'10%', transform:'translateY(-50%)', width:300, height:300, borderRadius:'50%', background:'radial-gradient(circle,rgba(31,92,82,0.12) 0%,transparent 70%)', pointerEvents:'none' }} />
 //           <div style={{ position:'relative', zIndex:2, maxWidth:720, margin:'0 auto', textAlign:'center' }}>
 //             <div style={{ display:'flex', justifyContent:'center', marginBottom:28 }}><SMLogo size={52} /></div>
-//             <p style={{ fontSize:9, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
+//             <p style={{ fontSize:15, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
 //             <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>
 //               Connect with<br /><em style={{ color:'#C9A84C' }}>Premium Brands</em>
 //             </h2>
@@ -958,14 +959,14 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ background:'#080808', borderTop:'1px solid rgba(201,168,76,0.1)', padding:'28px 40px', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
 //           <div style={{ display:'flex', alignItems:'center', gap:10 }}>
 //             <SMLogo size={24} />
-//             <span style={{ fontFamily:'Georgia,serif', fontSize:13, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>SM Luxury · Jewellery &amp; Watches</span>
+//             <span style={{ fontFamily:'Georgia,serif', fontSize:16,, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>Indian Luxury House · Jewellery &amp; Watches</span>
 //           </div>
 //           <div style={{ display:'flex', gap:24 }}>
 //             {['Bridal','Fine Brands','Watch Spotlights','Stories'].map(l => (
 //               <a key={l} href={`#${l.toLowerCase().replace(' ','-')}`} className="jwl-footer-link">{l}</a>
 //             ))}
 //           </div>
-//           <a href="/" className="jwl-footer-link">← Back to SM Luxury</a>
+//           <a href="/" className="jwl-footer-link">← Back to Indian Luxury House</a>
 //         </div>
 
 //       </main>
@@ -1074,7 +1075,7 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ position:'absolute', bottom:0, left:0, right:0, padding:'24px 22px' }}>
 //           <div style={{ width: hov ? 32 : 0, height:1, background:'#C9A84C', marginBottom:10, transition:'width .4s ease' }} />
 //           <h3 style={{ fontFamily:'Georgia,serif', fontSize:20, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.02em', transform: hov ? 'translateY(-3px)' : 'translateY(0)', transition:'transform .35s' }}>{item.title}</h3>
-//           <p style={{ fontSize:11, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
+//           <p style={{ fontSize:14, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
 //         </div>
 //       </div>
 //     </div>
@@ -1101,7 +1102,7 @@ export default function JewelleryWatchesPage() {
 //       <div style={{ padding:'20px 22px 22px' }}>
 //         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:8 }}>
 //           <h3 style={{ fontFamily:'Georgia,serif', fontSize:18, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.01em' }}>{brand.name}</h3>
-//           <span style={{ fontSize:9, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
+//           <span style={{ fontSize:15, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
 //         </div>
 //         <div style={{ width:24, height:1, background:'#C9A84C', marginBottom:10, opacity:0.6 }} />
 //         <p style={{ fontSize:12, color:'rgba(255,255,255,0.4)', margin:0, fontWeight:300, letterSpacing:'0.03em' }}>{brand.specialty}</p>
@@ -1129,10 +1130,10 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ position:'absolute', inset:0, background: isEven ? 'linear-gradient(to right,transparent 60%,rgba(10,10,10,0.8))' : 'linear-gradient(to left,transparent 60%,rgba(10,10,10,0.8))' }} />
 //       </div>
 //       <div style={{ order: isEven ? 1 : 0, padding:'48px 44px', display:'flex', flexDirection:'column', justifyContent:'center' }}>
-//         <p style={{ fontSize:9, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
+//         <p style={{ fontSize:15, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
 //         <h3 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(22px,3vw,34px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>{watch.name}</h3>
 //         <div style={{ width: hov ? 48 : 28, height:1, background:'#C9A84C', marginBottom:18, transition:'width .4s ease' }} />
-//         <p style={{ fontSize:13, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
+//         <p style={{ fontSize:16,, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
 //         {/* ✅ Enquire button removed — sirf price */}
 //         <div>
 //           <p style={{ fontSize:8, letterSpacing:'0.16em', textTransform:'uppercase', color:'rgba(201,168,76,0.4)', marginBottom:4 }}>Starting from</p>
@@ -1178,12 +1179,12 @@ export default function JewelleryWatchesPage() {
 //         <h3 style={{ fontFamily:'Georgia,serif', fontWeight:400, fontSize: big ? 22 : 17, lineHeight:1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom:10, transition:'color .25s', letterSpacing:'0.01em', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
 //           {post.title}
 //         </h3>
-//         <p style={{ fontSize:13, color:'#6B6560', lineHeight:1.75, marginBottom:16, fontWeight:300, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
+//         <p style={{ fontSize:16,, color:'#6B6560', lineHeight:1.75, marginBottom:16, fontWeight:300, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
 //           {post.excerpt}
 //         </p>
 //         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', borderTop:'1px solid rgba(201,168,76,0.1)', paddingTop:12 }}>
-//           <span style={{ fontSize:9, letterSpacing:'0.14em', textTransform:'uppercase', color:'#C9A84C', fontWeight:500 }}>{post.author}</span>
-//           <span style={{ fontSize:9, color:'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+//           <span style={{ fontSize:15, letterSpacing:'0.14em', textTransform:'uppercase', color:'#C9A84C', fontWeight:500 }}>{post.author}</span>
+//           <span style={{ fontSize:15, color:'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
 //         </div>
 //       </div>
 //     </a>
@@ -1238,7 +1239,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ position:'absolute', top:0, right:'30%', width:1, height:'100%', background:'linear-gradient(to bottom,transparent 0%,rgba(201,168,76,0.12) 40%,rgba(201,168,76,0.25) 60%,transparent 100%)', transform:'rotate(8deg)', transformOrigin:'top center' }} />
 
 //           <div style={{ position:'relative', zIndex:10, height:'100%', display:'flex', flexDirection:'column', justifyContent:'flex-end', padding:'0 80px 100px', maxWidth:780 }}>
-//             <p style={{ fontSize:9, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16 }}>SM Luxury · Collections</p>
+//             <p style={{ fontSize:15, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16 }}>Indian Luxury House · Collections</p>
 //             <h1 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(48px,7vw,92px)', fontWeight:300, color:'#FAF7F0', lineHeight:1.05, marginBottom:24, letterSpacing:'0.01em' }}>
 //               Jewellery<br />&amp; <em style={{ color:'#C9A84C', fontStyle:'italic' }}>Watches</em>
 //             </h1>
@@ -1300,7 +1301,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Bridal Jewellery</h2>
 //               </div>
 //               <a href="#brands" className="jwl-section-btn">View All →</a>
@@ -1316,7 +1317,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Fine Jewellery Brands</h2>
 //               </div>
 //               <a href="#watches" className="jwl-section-btn">All Brands →</a>
@@ -1332,7 +1333,7 @@ export default function JewelleryWatchesPage() {
 //         <section id="watches" style={{ padding:'96px 0 80px', background:'#080808' }}>
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ marginBottom:56, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
-//               <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
+//               <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
 //               <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Watch Spotlights</h2>
 //             </div>
 //             {/* ✅ WatchCard — enquire removed, sirf price */}
@@ -1347,7 +1348,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:52, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Editorial Stories</h2>
 //               </div>
 //               <a href={`/news?category=${THIS_CAT_SLUG}`} className="jwl-section-btn">All Stories →</a>
@@ -1366,7 +1367,7 @@ export default function JewelleryWatchesPage() {
 //             {!editorialLoading && editorialPosts.length === 0 && (
 //               <div style={{ textAlign:'center', padding:'60px 0', color:'rgba(201,168,76,0.35)' }}>
 //                 <p style={{ fontFamily:'Georgia,serif', fontSize:20, marginBottom:8, color:'rgba(255,255,255,0.4)' }}>No stories published yet.</p>
-//                 <p style={{ fontSize:13 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
+//                 <p style={{ fontSize:16, }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
 //               </div>
 //             )}
 
@@ -1393,7 +1394,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ position:'absolute', top:'50%', right:'10%', transform:'translateY(-50%)', width:300, height:300, borderRadius:'50%', background:'radial-gradient(circle,rgba(31,92,82,0.12) 0%,transparent 70%)', pointerEvents:'none' }} />
 //           <div style={{ position:'relative', zIndex:2, maxWidth:720, margin:'0 auto', textAlign:'center' }}>
 //             <div style={{ display:'flex', justifyContent:'center', marginBottom:28 }}><SMLogo size={52} /></div>
-//             <p style={{ fontSize:9, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
+//             <p style={{ fontSize:15, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
 //             <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>
 //               Connect with<br /><em style={{ color:'#C9A84C' }}>Premium Brands</em>
 //             </h2>
@@ -1416,14 +1417,14 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ background:'#080808', borderTop:'1px solid rgba(201,168,76,0.1)', padding:'28px 40px', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
 //           <div style={{ display:'flex', alignItems:'center', gap:10 }}>
 //             <SMLogo size={24} />
-//             <span style={{ fontFamily:'Georgia,serif', fontSize:13, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>SM Luxury · Jewellery &amp; Watches</span>
+//             <span style={{ fontFamily:'Georgia,serif', fontSize:16,, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>Indian Luxury House · Jewellery &amp; Watches</span>
 //           </div>
 //           <div style={{ display:'flex', gap:24 }}>
 //             {['Bridal','Fine Brands','Watch Spotlights','Stories'].map(l => (
 //               <a key={l} href={`#${l.toLowerCase().replace(' ','-')}`} className="jwl-footer-link">{l}</a>
 //             ))}
 //           </div>
-//           <a href="/" className="jwl-footer-link">← Back to SM Luxury</a>
+//           <a href="/" className="jwl-footer-link">← Back to Indian Luxury House</a>
 //         </div>
 
 //       </main>
@@ -1518,7 +1519,7 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ position:'absolute', bottom:0, left:0, right:0, padding:'24px 22px' }}>
 //           <div style={{ width: hov ? 32 : 0, height:1, background:'#C9A84C', marginBottom:10, transition:'width .4s ease' }} />
 //           <h3 style={{ fontFamily:'Georgia,serif', fontSize:20, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.02em', transform: hov ? 'translateY(-3px)' : 'translateY(0)', transition:'transform .35s' }}>{item.title}</h3>
-//           <p style={{ fontSize:11, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
+//           <p style={{ fontSize:14, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
 //         </div>
 //       </div>
 //     </div>
@@ -1544,7 +1545,7 @@ export default function JewelleryWatchesPage() {
 //       <div style={{ padding:'20px 22px 22px' }}>
 //         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:8 }}>
 //           <h3 style={{ fontFamily:'Georgia,serif', fontSize:18, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.01em' }}>{brand.name}</h3>
-//           <span style={{ fontSize:9, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
+//           <span style={{ fontSize:15, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
 //         </div>
 //         <div style={{ width:24, height:1, background:'#C9A84C', marginBottom:10, opacity:0.6 }} />
 //         <p style={{ fontSize:12, color:'rgba(255,255,255,0.4)', margin:0, fontWeight:300, letterSpacing:'0.03em' }}>{brand.specialty}</p>
@@ -1572,10 +1573,10 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ position:'absolute', inset:0, background: isEven ? 'linear-gradient(to right,transparent 60%,rgba(10,10,10,0.8))' : 'linear-gradient(to left,transparent 60%,rgba(10,10,10,0.8))' }} />
 //       </div>
 //       <div style={{ order: isEven ? 1 : 0, padding:'48px 44px', display:'flex', flexDirection:'column', justifyContent:'center' }}>
-//         <p style={{ fontSize:9, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
+//         <p style={{ fontSize:15, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
 //         <h3 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(22px,3vw,34px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>{watch.name}</h3>
 //         <div style={{ width: hov ? 48 : 28, height:1, background:'#C9A84C', marginBottom:18, transition:'width .4s ease' }} />
-//         <p style={{ fontSize:13, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
+//         <p style={{ fontSize:16,, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
 //         <div style={{ display:'flex', alignItems:'center', gap:16 }}>
 //           <span style={{ fontFamily:'Georgia,serif', fontSize:16, color:'#C9A84C', letterSpacing:'0.04em' }}>{watch.price}</span>
 //           {/* ✅ <a> tag with CSS hover class */}
@@ -1626,12 +1627,12 @@ export default function JewelleryWatchesPage() {
 //         <h3 style={{ fontFamily:'Georgia,serif', fontWeight:400, fontSize: big ? 22 : 17, lineHeight:1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom:10, transition:'color .25s', letterSpacing:'0.01em', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
 //           {post.title}
 //         </h3>
-//         <p style={{ fontSize:13, color:'#6B6560', lineHeight:1.75, marginBottom:16, fontWeight:300, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
+//         <p style={{ fontSize:16,, color:'#6B6560', lineHeight:1.75, marginBottom:16, fontWeight:300, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
 //           {post.excerpt}
 //         </p>
 //         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', borderTop:'1px solid rgba(201,168,76,0.1)', paddingTop:12 }}>
-//           <span style={{ fontSize:9, letterSpacing:'0.14em', textTransform:'uppercase', color:'#C9A84C', fontWeight:500 }}>{post.author}</span>
-//           <span style={{ fontSize:9, color:'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+//           <span style={{ fontSize:15, letterSpacing:'0.14em', textTransform:'uppercase', color:'#C9A84C', fontWeight:500 }}>{post.author}</span>
+//           <span style={{ fontSize:15, color:'rgba(107,101,88,0.45)' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
 //         </div>
 //       </div>
 //     </a>
@@ -1691,7 +1692,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ position:'absolute', top:0, right:'30%', width:1, height:'100%', background:'linear-gradient(to bottom,transparent 0%,rgba(201,168,76,0.12) 40%,rgba(201,168,76,0.25) 60%,transparent 100%)', transform:'rotate(8deg)', transformOrigin:'top center' }} />
 
 //           <div style={{ position:'relative', zIndex:10, height:'100%', display:'flex', flexDirection:'column', justifyContent:'flex-end', padding:'0 80px 100px', maxWidth:780 }}>
-//             <p style={{ fontSize:9, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16, animation:'jwlFadeUp .9s .1s ease both' }}>SM Luxury · Collections</p>
+//             <p style={{ fontSize:15, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16, animation:'jwlFadeUp .9s .1s ease both' }}>Indian Luxury House · Collections</p>
 //             <h1 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(48px,7vw,92px)', fontWeight:300, color:'#FAF7F0', lineHeight:1.05, marginBottom:24, letterSpacing:'0.01em', animation:'jwlFadeUp .9s .2s ease both' }}>
 //               Jewellery<br />&amp; <em style={{ color:'#C9A84C', fontStyle:'italic' }}>Watches</em>
 //             </h1>
@@ -1761,7 +1762,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Bridal Jewellery</h2>
 //               </div>
 //               <a href="#brands" className="jwl-section-btn">View All →</a>
@@ -1777,7 +1778,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Fine Jewellery Brands</h2>
 //               </div>
 //               <a href="#watches" className="jwl-section-btn">All Brands →</a>
@@ -1792,7 +1793,7 @@ export default function JewelleryWatchesPage() {
 //         <section id="watches" style={{ padding:'96px 0 80px', background:'#080808' }}>
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ marginBottom:56, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
-//               <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
+//               <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
 //               <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Watch Spotlights</h2>
 //             </div>
 //             <div style={{ display:'flex', flexDirection:'column', gap:3 }}>
@@ -1806,7 +1807,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:52, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Editorial Stories</h2>
 //               </div>
 //               <a href={`/news?category=${THIS_CAT_SLUG}`} className="jwl-section-btn">All Stories →</a>
@@ -1827,7 +1828,7 @@ export default function JewelleryWatchesPage() {
 //             {!editorialLoading && editorialPosts.length === 0 && (
 //               <div style={{ textAlign:'center', padding:'60px 0', color:'rgba(201,168,76,0.35)' }}>
 //                 <p style={{ fontFamily:'Georgia,serif', fontSize:20, marginBottom:8, color:'rgba(255,255,255,0.4)' }}>No stories published yet.</p>
-//                 <p style={{ fontSize:13 }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
+//                 <p style={{ fontSize:16, }}>Check back soon for {THIS_CATEGORY} editorial content.</p>
 //               </div>
 //             )}
 
@@ -1856,7 +1857,7 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ position:'absolute', top:'50%', left:0, right:0, height:1, background:'linear-gradient(to right,transparent,rgba(201,168,76,0.08) 30%,rgba(201,168,76,0.08) 70%,transparent)' }} />
 //           <div style={{ position:'relative', zIndex:2, maxWidth:720, margin:'0 auto', textAlign:'center' }}>
 //             <div style={{ display:'flex', justifyContent:'center', marginBottom:28 }}><SMLogo size={52} /></div>
-//             <p style={{ fontSize:9, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
+//             <p style={{ fontSize:15, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
 //             <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>
 //               Connect with<br /><em style={{ color:'#C9A84C' }}>Premium Brands</em>
 //             </h2>
@@ -1880,14 +1881,14 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ background:'#080808', borderTop:'1px solid rgba(201,168,76,0.1)', padding:'28px 40px', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
 //           <div style={{ display:'flex', alignItems:'center', gap:10 }}>
 //             <SMLogo size={24} />
-//             <span style={{ fontFamily:'Georgia,serif', fontSize:13, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>SM Luxury · Jewellery &amp; Watches</span>
+//             <span style={{ fontFamily:'Georgia,serif', fontSize:16,, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>Indian Luxury House · Jewellery &amp; Watches</span>
 //           </div>
 //           <div style={{ display:'flex', gap:24 }}>
 //             {['Bridal','Fine Brands','Watch Spotlights','Stories'].map(l => (
 //               <a key={l} href={`#${l.toLowerCase().replace(' ','-')}`} className="jwl-footer-link">{l}</a>
 //             ))}
 //           </div>
-//           <a href="/" className="jwl-footer-link">← Back to SM Luxury</a>
+//           <a href="/" className="jwl-footer-link">← Back to Indian Luxury House</a>
 //         </div>
 
 //       </main>
@@ -1984,7 +1985,7 @@ export default function JewelleryWatchesPage() {
 //           </Link>
 //           <nav style={{ display:'flex', alignItems:'center', gap:4 }} className="jwl-nav-desk">
 //             {NAV_LINKS.map(l => (
-//               <a key={l.href} href={l.href} style={{ fontSize:9, letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', textDecoration:'none', padding:'8px 16px', borderBottom:'1px solid transparent', transition:'all .2s' }}
+//               <a key={l.href} href={l.href} style={{ fontSize:15, letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', textDecoration:'none', padding:'8px 16px', borderBottom:'1px solid transparent', transition:'all .2s' }}
 //                 onMouseEnter={e => { e.currentTarget.style.color='#C9A84C'; e.currentTarget.style.borderBottomColor='#C9A84C'; }}
 //                 onMouseLeave={e => { e.currentTarget.style.color='rgba(201,168,76,0.55)'; e.currentTarget.style.borderBottomColor='transparent'; }}
 //               >{l.label}</a>
@@ -1999,7 +2000,7 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ background:'#080808', overflow:'hidden', maxHeight: menuOpen ? 400 : 0, transition:'max-height .35s ease', borderTop:'1px solid rgba(201,168,76,0.08)' }}>
 //           {NAV_LINKS.map(l => (
 //             <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}
-//               style={{ display:'block', padding:'14px 32px', fontSize:11, letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(201,168,76,0.6)', textDecoration:'none', borderBottom:'1px solid rgba(201,168,76,0.06)', transition:'background .2s' }}
+//               style={{ display:'block', padding:'14px 32px', fontSize:14, letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(201,168,76,0.6)', textDecoration:'none', borderBottom:'1px solid rgba(201,168,76,0.06)', transition:'background .2s' }}
 //               onMouseEnter={e => (e.currentTarget.style.background='rgba(201,168,76,0.05)')}
 //               onMouseLeave={e => (e.currentTarget.style.background='transparent')}
 //             >{l.label}</a>
@@ -2035,7 +2036,7 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ position:'absolute', bottom:0, left:0, right:0, padding:'24px 22px' }}>
 //           <div style={{ width: hov ? 32 : 0, height:1, background:'#C9A84C', marginBottom:10, transition:'width .4s ease' }} />
 //           <h3 style={{ fontFamily:'Georgia,serif', fontSize:20, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.02em', transform: hov ? 'translateY(-3px)' : 'translateY(0)', transition:'transform .35s' }}>{item.title}</h3>
-//           <p style={{ fontSize:11, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
+//           <p style={{ fontSize:14, color:'rgba(255,255,255,0.6)', margin:'6px 0 0', letterSpacing:'0.06em', fontWeight:300 }}>{item.sub}</p>
 //         </div>
 //       </div>
 //     </div>
@@ -2063,7 +2064,7 @@ export default function JewelleryWatchesPage() {
 //       <div style={{ padding:'20px 22px 22px' }}>
 //         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:8 }}>
 //           <h3 style={{ fontFamily:'Georgia,serif', fontSize:18, fontWeight:400, color:'#fff', margin:0, letterSpacing:'0.01em' }}>{brand.name}</h3>
-//           <span style={{ fontSize:9, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
+//           <span style={{ fontSize:15, color:'rgba(201,168,76,0.5)', letterSpacing:'0.12em', textTransform:'uppercase', marginTop:3 }}>{brand.origin}</span>
 //         </div>
 //         <div style={{ width:24, height:1, background:'#C9A84C', marginBottom:10, opacity:0.6 }} />
 //         <p style={{ fontSize:12, color:'rgba(255,255,255,0.4)', margin:0, fontWeight:300, letterSpacing:'0.03em' }}>{brand.specialty}</p>
@@ -2093,15 +2094,15 @@ export default function JewelleryWatchesPage() {
 //       </div>
 //       {/* Content side */}
 //       <div style={{ order: isEven ? 1 : 0, padding:'48px 44px', display:'flex', flexDirection:'column', justifyContent:'center' }}>
-//         <p style={{ fontSize:9, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
+//         <p style={{ fontSize:15, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)', marginBottom:12 }}>{watch.brand}</p>
 //         <h3 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(22px,3vw,34px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>{watch.name}</h3>
 //         <div style={{ width: hov ? 48 : 28, height:1, background:'#C9A84C', marginBottom:18, transition:'width .4s ease' }} />
-//         <p style={{ fontSize:13, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
+//         <p style={{ fontSize:16,, color:'rgba(255,255,255,0.5)', lineHeight:1.8, marginBottom:24, fontWeight:300 }}>{watch.desc}</p>
 //         {/* Price */}
 //         <div style={{ display:'flex', alignItems:'center', gap:16 }}>
 //           <span style={{ fontFamily:'Georgia,serif', fontSize:16, color:'#C9A84C', letterSpacing:'0.04em' }}>{watch.price}</span>
 //           <Link href={`/jewellery/watches/${watch.slug}`}
-//             style={{ fontSize:9, letterSpacing:'0.2em', textTransform:'uppercase', color:'#C9A84C', textDecoration:'none', border:'1px solid rgba(201,168,76,0.35)', padding:'7px 16px', transition:'all .25s' }}
+//             style={{ fontSize:15, letterSpacing:'0.2em', textTransform:'uppercase', color:'#C9A84C', textDecoration:'none', border:'1px solid rgba(201,168,76,0.35)', padding:'7px 16px', transition:'all .25s' }}
 //             onMouseEnter={e => { e.currentTarget.style.background='#C9A84C'; e.currentTarget.style.color='#080808'; }}
 //             onMouseLeave={e => { e.currentTarget.style.background='transparent'; e.currentTarget.style.color='#C9A84C'; }}
 //           >Read More →</Link>
@@ -2140,8 +2141,8 @@ export default function JewelleryWatchesPage() {
 //         {story.excerpt}
 //       </p>
 //       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-//         <span style={{ fontSize:9, letterSpacing:'0.12em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)' }}>By {story.author}</span>
-//         <span style={{ fontSize:9, color:'rgba(255,255,255,0.25)', letterSpacing:'0.06em' }}>{story.date} · {story.readTime} min</span>
+//         <span style={{ fontSize:15, letterSpacing:'0.12em', textTransform:'uppercase', color:'rgba(201,168,76,0.55)' }}>By {story.author}</span>
+//         <span style={{ fontSize:15, color:'rgba(255,255,255,0.25)', letterSpacing:'0.06em' }}>{story.date} · {story.readTime} min</span>
 //       </div>
 //     </Link>
 //   );
@@ -2176,7 +2177,7 @@ export default function JewelleryWatchesPage() {
 //           {/* Content — left aligned */}
 //           <div style={{ position:'relative', zIndex:10, height:'100%', display:'flex', flexDirection:'column', justifyContent:'flex-end', padding:'0 80px 100px', maxWidth:780 }}>
 //             {/* Eyebrow */}
-//             <p style={{ fontSize:9, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16, animation:'jwlFadeUp .9s .1s ease both' }}>SM Luxury · Collections</p>
+//             <p style={{ fontSize:15, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16, animation:'jwlFadeUp .9s .1s ease both' }}>Indian Luxury House · Collections</p>
 //             {/* Title */}
 //             <h1 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(48px,7vw,92px)', fontWeight:300, color:'#FAF7F0', lineHeight:1.05, marginBottom:24, letterSpacing:'0.01em', animation:'jwlFadeUp .9s .2s ease both' }}>
 //               Jewellery<br />&amp; <em style={{ color:'#C9A84C', fontStyle:'italic' }}>Watches</em>
@@ -2194,12 +2195,12 @@ export default function JewelleryWatchesPage() {
 //             {/* CTAs */}
 //             <div style={{ display:'flex', gap:16, flexWrap:'wrap', animation:'jwlFadeUp .9s .46s ease both' }}>
 //               <a href="#bridal"
-//                 style={{ fontSize:9, letterSpacing:'0.22em', textTransform:'uppercase', color:'#080808', background:'#C9A84C', padding:'14px 32px', textDecoration:'none', fontWeight:600, transition:'background .25s' }}
+//                 style={{ fontSize:15, letterSpacing:'0.22em', textTransform:'uppercase', color:'#080808', background:'#C9A84C', padding:'14px 32px', textDecoration:'none', fontWeight:600, transition:'background .25s' }}
 //                 onMouseEnter={e => { e.currentTarget.style.background='#DFC27A'; }}
 //                 onMouseLeave={e => { e.currentTarget.style.background='#C9A84C'; }}
 //               >Explore Bridal</a>
 //               <a href="#watches"
-//                 style={{ fontSize:9, letterSpacing:'0.22em', textTransform:'uppercase', color:'#C9A84C', background:'transparent', border:'1px solid rgba(201,168,76,0.45)', padding:'14px 32px', textDecoration:'none', transition:'all .25s' }}
+//                 style={{ fontSize:15, letterSpacing:'0.22em', textTransform:'uppercase', color:'#C9A84C', background:'transparent', border:'1px solid rgba(201,168,76,0.45)', padding:'14px 32px', textDecoration:'none', transition:'all .25s' }}
 //                 onMouseEnter={e => { e.currentTarget.style.background='rgba(201,168,76,0.1)'; }}
 //                 onMouseLeave={e => { e.currentTarget.style.background='transparent'; }}
 //               >Watch Spotlights</a>
@@ -2246,10 +2247,10 @@ export default function JewelleryWatchesPage() {
 //             {/* Header */}
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>For the Bride</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Bridal Jewellery</h2>
 //               </div>
-//               <a href="#brands" style={{ fontSize:9, letterSpacing:'0.2em', textTransform:'uppercase', color:'#C9A84C', textDecoration:'none', border:'1px solid rgba(201,168,76,0.3)', padding:'10px 20px', transition:'all .2s', whiteSpace:'nowrap' }}
+//               <a href="#brands" style={{ fontSize:15, letterSpacing:'0.2em', textTransform:'uppercase', color:'#C9A84C', textDecoration:'none', border:'1px solid rgba(201,168,76,0.3)', padding:'10px 20px', transition:'all .2s', whiteSpace:'nowrap' }}
 //                 onMouseEnter={e => { e.currentTarget.style.background='#C9A84C'; e.currentTarget.style.color='#080808'; }}
 //                 onMouseLeave={e => { e.currentTarget.style.background='transparent'; e.currentTarget.style.color='#C9A84C'; }}
 //               >View All →</a>
@@ -2267,10 +2268,10 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:48, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>The Maisons</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Fine Jewellery Brands</h2>
 //               </div>
-//               <a href="#watches" style={{ fontSize:9, letterSpacing:'0.2em', textTransform:'uppercase', color:'#C9A84C', textDecoration:'none', border:'1px solid rgba(201,168,76,0.3)', padding:'10px 20px', transition:'all .2s', whiteSpace:'nowrap' }}
+//               <a href="#watches" style={{ fontSize:15, letterSpacing:'0.2em', textTransform:'uppercase', color:'#C9A84C', textDecoration:'none', border:'1px solid rgba(201,168,76,0.3)', padding:'10px 20px', transition:'all .2s', whiteSpace:'nowrap' }}
 //                 onMouseEnter={e => { e.currentTarget.style.background='#C9A84C'; e.currentTarget.style.color='#080808'; }}
 //                 onMouseLeave={e => { e.currentTarget.style.background='transparent'; e.currentTarget.style.color='#C9A84C'; }}
 //               >All Brands →</a>
@@ -2285,7 +2286,7 @@ export default function JewelleryWatchesPage() {
 //         <section id="watches" style={{ padding:'96px 0 80px', background:'#080808' }}>
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ marginBottom:56, borderBottom:'1px solid rgba(255,255,255,0.06)', paddingBottom:24 }}>
-//               <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
+//               <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Horological Excellence</p>
 //               <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Watch Spotlights</h2>
 //             </div>
 //             {/* Alternating left/right layout */}
@@ -2300,10 +2301,10 @@ export default function JewelleryWatchesPage() {
 //           <div style={{ maxWidth:1400, margin:'0 auto', padding:'0 40px' }}>
 //             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', alignItems:'flex-end', marginBottom:52, borderBottom:'1px solid rgba(255,255,255,0.05)', paddingBottom:24 }}>
 //               <div>
-//                 <p style={{ fontSize:9, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
+//                 <p style={{ fontSize:15, letterSpacing:'0.38em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:10 }}>Heritage &amp; Insight</p>
 //                 <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', letterSpacing:'0.01em', margin:0 }}>Stories</h2>
 //               </div>
-//               <a href="#" style={{ fontSize:9, letterSpacing:'0.2em', textTransform:'uppercase', color:'#C9A84C', textDecoration:'none', border:'1px solid rgba(201,168,76,0.3)', padding:'10px 20px', transition:'all .2s', whiteSpace:'nowrap' }}
+//               <a href="#" style={{ fontSize:15, letterSpacing:'0.2em', textTransform:'uppercase', color:'#C9A84C', textDecoration:'none', border:'1px solid rgba(201,168,76,0.3)', padding:'10px 20px', transition:'all .2s', whiteSpace:'nowrap' }}
 //                 onMouseEnter={e => { e.currentTarget.style.background='#C9A84C'; e.currentTarget.style.color='#080808'; }}
 //                 onMouseLeave={e => { e.currentTarget.style.background='transparent'; e.currentTarget.style.color='#C9A84C'; }}
 //               >All Stories →</a>
@@ -2324,7 +2325,7 @@ export default function JewelleryWatchesPage() {
 
 //           <div style={{ position:'relative', zIndex:2, maxWidth:720, margin:'0 auto', textAlign:'center' }}>
 //             <div style={{ display:'flex', justifyContent:'center', marginBottom:28 }}><SMLogo size={52} /></div>
-//             <p style={{ fontSize:9, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
+//             <p style={{ fontSize:15, letterSpacing:'0.42em', textTransform:'uppercase', color:'rgba(201,168,76,0.5)', marginBottom:18 }}>Premium Partnership</p>
 //             <h2 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(28px,4vw,52px)', fontWeight:300, color:'#fff', lineHeight:1.2, marginBottom:16, letterSpacing:'0.01em' }}>
 //               Connect with<br /><em style={{ color:'#C9A84C' }}>Premium Brands</em>
 //             </h2>
@@ -2355,21 +2356,21 @@ export default function JewelleryWatchesPage() {
 //         <div style={{ background:'#080808', borderTop:'1px solid rgba(201,168,76,0.1)', padding:'28px 40px', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
 //           <div style={{ display:'flex', alignItems:'center', gap:10 }}>
 //             <SMLogo size={24} />
-//             <span style={{ fontFamily:'Georgia,serif', fontSize:13, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>SM Luxury · Jewellery &amp; Watches</span>
+//             <span style={{ fontFamily:'Georgia,serif', fontSize:16,, color:'rgba(201,168,76,0.4)', letterSpacing:'0.15em' }}>Indian Luxury House · Jewellery &amp; Watches</span>
 //           </div>
 //           <div style={{ display:'flex', gap:24 }}>
 //             {['Bridal','Fine Brands','Watch Spotlights','Stories'].map(l => (
 //               <a key={l} href={`#${l.toLowerCase().replace(' ','-')}`}
-//                 style={{ fontSize:9, letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(201,168,76,0.3)', textDecoration:'none', transition:'color .2s' }}
+//                 style={{ fontSize:15, letterSpacing:'0.15em', textTransform:'uppercase', color:'rgba(201,168,76,0.3)', textDecoration:'none', transition:'color .2s' }}
 //                 onMouseEnter={e => ((e.target as HTMLElement).style.color='#C9A84C')}
 //                 onMouseLeave={e => ((e.target as HTMLElement).style.color='rgba(201,168,76,0.3)')}
 //               >{l}</a>
 //             ))}
 //           </div>
-//           <Link href="/" style={{ fontSize:9, letterSpacing:'0.2em', textTransform:'uppercase', color:'rgba(201,168,76,0.35)', textDecoration:'none', transition:'color .2s' }}
+//           <Link href="/" style={{ fontSize:15, letterSpacing:'0.2em', textTransform:'uppercase', color:'rgba(201,168,76,0.35)', textDecoration:'none', transition:'color .2s' }}
 //             onMouseEnter={e => (e.currentTarget.style.color='#C9A84C')}
 //             onMouseLeave={e => (e.currentTarget.style.color='rgba(201,168,76,0.35)')}
-//           >← Back to SM Luxury</Link>
+//           >← Back to Indian Luxury House</Link>
 //         </div>
 
 //       </main>
