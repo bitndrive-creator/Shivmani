@@ -362,7 +362,7 @@ export default function AutomobilesPage() {
           </div>
         </section>
 
-        ══ FEATURED DEALERS ══════════════════════════════════
+        {/* ══════════════════════════════════ FEATURED DEALERS ══════════════════════════════════ */}
         {/* <section id="featured-dealers" style={{ background: '#FAFAF8', padding: '88px 32px' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 48 }}>

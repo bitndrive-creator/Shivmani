@@ -71,15 +71,15 @@ function ArticleCard({ article, big = false }: { article: Post; big?: boolean })
       }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: hov ? 'linear-gradient(90deg,#1B4D45,#C9A84C)' : accent, transition: 'background 0.3s' }} />
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-          <span style={{ fontSize: 15, letterSpacing: '0.35em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.7)' : accent, fontFamily: 'sans-serif', fontWeight: 500 }}>{article.category}</span>
-          <span style={{ fontSize: 16, color: hov ? 'rgba(255,255,255,0.25)' : '#bbb', fontFamily: 'sans-serif' }}>{formatDate(article.createdAt)}</span>
+          <span style={{ fontSize: 16, letterSpacing: '0.35em', textTransform: 'uppercase', color: hov ? 'rgba(201,168,76,0.7)' : accent, fontFamily: 'sans-serif', fontWeight: 500 }}>{article.category}</span>
+          <span style={{ fontSize: 15, color: hov ? 'rgba(255,255,255,0.25)' : '#bbb', fontFamily: 'sans-serif' }}>{formatDate(article.createdAt)}</span>
         </div>
         <h3 style={{ fontFamily: 'Georgia, serif', fontSize: big ? 'clamp(20px,2.5vw,28px)' : 18, fontWeight: 400, color: hov ? '#ffffff' : '#0a0a0a', marginBottom: 12, lineHeight: 1.4, transition: 'color 0.3s' }}>{article.title}</h3>
         <div style={{ width: hov ? 36 : 24, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width 0.3s' }} />
-        <p style={{ fontSize: 13, lineHeight: 1.85, fontWeight: 300, fontFamily: 'sans-serif', color: hov ? 'rgba(255,255,255,0.45)' : '#666', marginBottom: 20, flex: 1 }}>{article.excerpt}</p>
+        <p style={{ fontSize: 14, lineHeight: 1.85, fontWeight: 300, fontFamily: 'sans-serif', color: hov ? 'rgba(255,255,255,0.45)' : '#666', marginBottom: 20, flex: 1 }}>{article.excerpt}</p>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <span style={{ fontSize: 16, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C9A84C', fontFamily: 'sans-serif', fontWeight: 500 }}>{article.author}</span>
-          <span style={{ fontSize: 16, color: hov ? 'rgba(255,255,255,0.25)' : '#bbb', fontFamily: 'sans-serif' }}>{article.readTime} min read</span>
+          <span style={{ fontSize: 14, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C9A84C', fontFamily: 'sans-serif', fontWeight: 500 }}>{article.author}</span>
+          <span style={{ fontSize: 14, color: hov ? 'rgba(255,255,255,0.25)' : '#bbb', fontFamily: 'sans-serif' }}>{article.readTime} min read</span>
         </div>
       </div>
     </a>
@@ -176,7 +176,7 @@ export default function NewsPage() {
                 onClick={() => setActive(f)}
                 style={{
                   background: 'none', border: 'none', cursor: 'pointer',
-                  padding: '18px 22px', fontSize: 16, letterSpacing: '0.2em',
+                  padding: '18px 22px', fontSize: 15, letterSpacing: '0.2em',
                   textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 500,
                   color: active === f ? '#C9A84C' : 'rgba(255,255,255,0.3)',
                   borderBottom: active === f ? '2px solid #C9A84C' : '2px solid transparent',
@@ -193,7 +193,7 @@ export default function NewsPage() {
         {/* ══ ARTICLES ═══════════════════════════════════════════ */}
         <section style={{ maxWidth: 1200, margin: '0 auto', padding: '64px 32px 80px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 40 }}>
-            <p style={{ fontSize: 16, color: '#aaa', fontFamily: 'sans-serif' }}>
+            <p style={{ fontSize: 15, color: '#aaa', fontFamily: 'sans-serif' }}>
               {loading
                 ? <span style={{ color: 'rgba(201,168,76,0.5)' }}>Loading…</span>
                 : <><span style={{ color: '#C9A84C', fontWeight: 600 }}>{filtered.length}</span> {filtered.length === 1 ? 'story' : 'stories'}</>
@@ -269,7 +269,7 @@ export default function NewsPage() {
                 />
                 <button
                   onClick={() => email && setSubbed(true)}
-                  style={{ background: '#C9A84C', border: 'none', color: '#0a0a0a', fontSize: 16, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 600, padding: '14px 24px', cursor: 'pointer', transition: 'background 0.2s', whiteSpace: 'nowrap' }}
+                  style={{ background: '#C9A84C', border: 'none', color: '#0a0a0a', fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'sans-serif', fontWeight: 600, padding: '14px 24px', cursor: 'pointer', transition: 'background 0.2s', whiteSpace: 'nowrap' }}
                   onMouseEnter={e => (e.currentTarget.style.background = '#DFC27A')}
                   onMouseLeave={e => (e.currentTarget.style.background = '#C9A84C')}
                 >Subscribe</button>
@@ -281,7 +281,7 @@ export default function NewsPage() {
         {/* ══ BACK LINK ══════════════════════════════════════════ */}
         <div style={{ textAlign: 'center', padding: '36px 32px 52px', borderTop: '1px solid #f0f0f0' }}>
           {/* ✅ plain <a> — no Link hover handler issues */}
-          <a href="/" style={{ fontSize: 16, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>← Back to Journal</a>
+          <a href="/" style={{ fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1B4D45', textDecoration: 'none', fontFamily: 'sans-serif', borderBottom: '1px solid rgba(27,77,69,0.3)', paddingBottom: 3 }}>← Back to Journal</a>
         </div>
 
       </main>
