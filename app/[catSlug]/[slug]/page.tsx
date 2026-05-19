@@ -193,7 +193,7 @@ function RelatedCard({ post }: { post: Post }) {
       <div style={{ position: 'relative', paddingBottom: '60%', overflow: 'hidden', background: '#1A1A1A' }}>
         <Image src={imgSrc} alt={post.title} fill
           style={{ objectFit: 'cover', transition: 'transform .5s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}
-          sizes="33vw"
+          sizes="(max-width:600px) 100vw, 33vw"
           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
         <span style={{ position: 'absolute', top: 10, left: 10, fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '4px 10px', border: '1px solid rgba(201,168,76,0.2)' }}>
@@ -205,7 +205,7 @@ function RelatedCard({ post }: { post: Post }) {
         <h3 style={{ fontFamily: 'Georgia,serif', fontSize: 16, fontWeight: 400, color: hov ? '#8B6914' : '#1A1A1A', lineHeight: 1.4, marginBottom: 10, transition: 'color .25s', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', letterSpacing: '0.01em' }}>
           {post.title}
         </h3>
-        <span style={{ fontSize: 15, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)' }}>{post.author}</span>
+        <span style={{ fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)' }}>{post.author}</span>
       </div>
     </Link>
   );
@@ -351,26 +351,33 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
       <main style={{ paddingTop: 72 }}>
 
         {/* ── HERO ── */}
-        <section style={{ position: 'relative', height: 540, overflow: 'hidden', background: '#0A0A0A' }}>
-          <Image src={imgSrc} alt={post.title} fill priority style={{ objectFit: 'cover', objectPosition: 'center' }} />
+        <section className="ilh-hero-section" style={{ position: 'relative', height: 540, overflow: 'hidden', background: '#0A0A0A' }}>
+          <Image
+            src={imgSrc}
+            alt={post.title}
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.45) 50%, rgba(10,10,10,0.18) 100%)' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.3), transparent 60%)' }} />
 
-          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', maxWidth: 1280, margin: '0 auto', padding: '0 48px 52px' }}>
+          <div className="ilh-hero-inner" style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', maxWidth: 1280, margin: '0 auto', padding: '0 48px 52px' }}>
 
-            {/* ✅ FIX: Breadcrumb - fully visible */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 18, fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
-              <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+            {/* Breadcrumb */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 18, fontSize: 15, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', textShadow: '0 1px 8px rgba(0,0,0,0.8)', flexWrap: 'wrap' }}>
+              {/* <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
-              >Home</Link>
-              <span style={{ color: 'rgba(201,168,76,0.6)' }}>/</span>
-              <Link href={`/${postCatSlug}`} style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+              >Home</Link> */}
+              {/* <span style={{ color: 'rgba(201,168,76,0.6)' }}>/</span> */}
+              {/* <Link href={`/${postCatSlug}`} style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
               >{post.category}</Link>
               <span style={{ color: 'rgba(201,168,76,0.6)' }}>/</span>
-              <span style={{ color: '#C9A84C' }}>Article</span>
+              <span style={{ color: '#C9A84C' }}>Article</span> */}
             </div>
 
             <span style={{ display: 'inline-block', width: 'fit-content', fontSize: 15, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.8)', border: '1px solid rgba(201,168,76,0.3)', padding: '6px 14px', marginBottom: 20, backdropFilter: 'blur(4px)' }}>
@@ -554,14 +561,14 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
 
         {/* ── RELATED POSTS ── */}
         {moreRelated.length > 0 && (
-          <section style={{ background: '#F0EBE0', padding: '64px 0', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
+          <section className="ilh-related" style={{ background: '#F0EBE0', padding: '64px 0', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
             <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
-              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.12)', paddingBottom: 18 }}>
+              <div className="ilh-related-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.12)', paddingBottom: 18 }}>
                 <div>
                   <p style={{ fontSize: 15, letterSpacing: '0.32em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 8 }}>Continue Reading</p>
                   <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(22px,3vw,34px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>You May Also Enjoy</h2>
                 </div>
-                <Link href={`/${postCatSlug}`} style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2 }}>
+                <Link href={`/${postCatSlug}`} style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.35)', paddingBottom: 2, whiteSpace: 'nowrap' }}>
                   All {post.category} →
                 </Link>
               </div>
@@ -575,19 +582,60 @@ export default function BlogDetailPage({ params }: { params: Promise<{ catSlug: 
       </main>
 
       <style>{`
+        /* ── Nav ── */
+        .ilh-blog-nav { display: flex !important; }
+        .ilh-blog-ham { display: none !important; }
+        @media(max-width:1100px){
+          .ilh-blog-nav { display: none !important; }
+          .ilh-blog-ham { display: block !important; }
+        }
+
+        /* ── Hero: shrink height on mobile so image fills properly ── */
+        @media(max-width:768px){
+          .ilh-hero-section { height: 420px !important; }
+          .ilh-hero-inner  { padding: 0 20px 32px !important; }
+        }
+        @media(max-width:480px){
+          .ilh-hero-section { height: 380px !important; }
+          .ilh-hero-inner  { padding: 0 16px 24px !important; }
+        }
+
+        /* ── Article grid: drop sidebar below on tablet ── */
         @media(max-width:900px){
-          .ilh-article-grid { grid-template-columns: 1fr !important; }
+          .ilh-article-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        }
+
+        /* ── Article body: tighter horizontal padding on mobile ── */
+        @media(max-width:600px){
+          article { padding-left: 16px !important; padding-right: 16px !important; }
+        }
+
+        /* ── Related section ── */
+        @media(max-width:900px){
           .ilh-related-grid { grid-template-columns: repeat(2,1fr) !important; }
         }
-        @media(max-width:600px){ .ilh-related-grid { grid-template-columns: 1fr !important; } }
-        article p { font-size: 16px; line-height: 1.92; color: #3a3834; margin-bottom: 24px; letter-spacing: 0.01em; font-family: Georgia, serif; font-weight: 300; }
-        article h2 { font-family: Georgia, serif; font-size: clamp(22px,2.5vw,30px); font-weight: 300; color: #1A1A1A; margin: 48px 0 18px; line-height: 1.2; letter-spacing: 0.02em; }
-        article h3 { font-family: Georgia, serif; font-size: clamp(18px,2vw,24px); font-weight: 400; color: #1A1A1A; margin: 36px 0 14px; letter-spacing: 0.01em; }
-        article blockquote { border-left: 3px solid #C9A84C; padding: 18px 28px; margin: 40px 0; font-family: Georgia, serif; font-size: clamp(18px,2vw,22px); font-style: italic; color: #8B6914; line-height: 1.65; letter-spacing: 0.01em; background: rgba(201,168,76,0.04); }
-        article strong { font-weight: 500; color: #1A1A1A; }
+        @media(max-width:600px){
+          .ilh-related          { padding: 40px 0 !important; }
+          .ilh-related > div   { padding: 0 16px !important; }
+          .ilh-related-header  {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+          }
+          .ilh-related-grid    { grid-template-columns: 1fr !important; }
+        }
+
+        /* ── Article typography — zero font-size changes ── */
+        article p           { font-size: 16px; line-height: 1.92; color: #3a3834; margin-bottom: 24px; letter-spacing: 0.01em; font-family: Georgia, serif; font-weight: 300; }
+        article h2          { font-family: Georgia, serif; font-size: clamp(22px,2.5vw,30px); font-weight: 300; color: #1A1A1A; margin: 48px 0 18px; line-height: 1.2; letter-spacing: 0.02em; }
+        article h3          { font-family: Georgia, serif; font-size: clamp(18px,2vw,24px); font-weight: 400; color: #1A1A1A; margin: 36px 0 14px; letter-spacing: 0.01em; }
+        article blockquote  { border-left: 3px solid #C9A84C; padding: 18px 28px; margin: 40px 0; font-family: Georgia, serif; font-size: clamp(18px,2vw,22px); font-style: italic; color: #8B6914; line-height: 1.65; letter-spacing: 0.01em; background: rgba(201,168,76,0.04); }
+        article strong      { font-weight: 500; color: #1A1A1A; }
+
+        /* ── Gallery ── */
         .gallery-thumb:hover .gallery-overlay { background: rgba(10,10,10,0.38) !important; }
-        .gallery-thumb:hover .gallery-icon { opacity: 1 !important; }
-        .gallery-thumb:hover .gallery-img { transform: scale(1.04); }
+        .gallery-thumb:hover .gallery-icon    { opacity: 1 !important; }
+        .gallery-thumb:hover .gallery-img     { transform: scale(1.04); }
       `}</style>
     </>
   );

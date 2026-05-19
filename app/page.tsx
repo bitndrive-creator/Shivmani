@@ -34,14 +34,14 @@ interface Cat {
 
 // ── CATEGORIES ───────────────────────────────────────────────────
 const CATS: Cat[] = [
-  { name: 'Real Estate',          slug: 'real-estate',       icon: '🏛️', description: "India's finest residences and global investment opportunities", heroImage: '/images/real-estate.jpg'   },
-  { name: 'Automobiles',          slug: 'automobiles',        icon: '🚗', description: 'Luxury performance, prestige, and collector culture',           heroImage: '/images/automobiles.jpg'   },
-  { name: 'Jewellery & Watches',  slug: 'jewellery-watches',  icon: '💎', description: 'Timeless assets. Enduring style.',                              heroImage: '/images/Jewellery.png'     },
-  { name: 'Weddings',             slug: 'weddings',           icon: '✨', description: "India's world of couture celebrations and unforgettable occasions", heroImage: '/images/hero-weddings.jpg' },
-  { name: 'Curated Partners',     slug: 'curated-partners',   icon: '🤝', description: "India's trusted network of premium businesses",                 heroImage: '/images/hero-partners.jpg' },
+  { name: 'Real Estate',         slug: 'real-estate',      icon: '🏛️', description: "India's finest residences and global investment opportunities", heroImage: '/images/real-estate.jpg'   },
+  { name: 'Automobiles',         slug: 'automobiles',       icon: '🚗', description: 'Luxury performance, prestige, and collector culture',           heroImage: '/images/automobiles.jpg'   },
+  { name: 'Jewellery & Watches', slug: 'jewellery-watches', icon: '💎', description: 'Timeless assets. Enduring style.',                              heroImage: '/images/Jewellery.png'     },
+  { name: 'Weddings',            slug: 'weddings',          icon: '✨', description: "India's world of couture celebrations and unforgettable occasions", heroImage: '/images/hero-weddings.jpg' },
+  { name: 'Beauty',              slug: 'beauty',            icon: '💄', description: "India's finest luxury beauty, skincare and wellness",           heroImage: '/images/beauty-elton.jpg'        },
+  { name: 'Curated Partners',    slug: 'curated-partners',  icon: '🤝', description: "India's trusted network of premium businesses",                 heroImage: '/images/hero-partners.jpg' },
 ];
 
-// Category name → slug map
 const CAT_SLUG_MAP: Record<string, string> = {
   'Real Estate':         'real-estate',
   'Automobiles':         'automobiles',
@@ -50,7 +50,6 @@ const CAT_SLUG_MAP: Record<string, string> = {
   'Curated Partners':    'curated-partners',
 };
 
-// Category name → default image map
 const CAT_IMAGE_MAP: Record<string, string> = {
   'Real Estate':         '/images/real-estate.jpg',
   'Automobiles':         '/images/automobiles.jpg',
@@ -58,19 +57,6 @@ const CAT_IMAGE_MAP: Record<string, string> = {
   'Weddings':            '/images/hero-weddings.jpg',
   'Curated Partners':    '/images/hero-partners.jpg',
 };
-
-// ── NAV LINKS ────────────────────────────────────────────────────
-const NAV_LINKS = [
-  { label: 'Home',                href: '/'                  },
-  { label: 'News',                href: '/news'              },
-  { label: 'Real Estate',         href: '/real-estate'       },
-  { label: 'Automobiles',         href: '/automobiles'       },
-  { label: 'Jewellery & Watches', href: '/jewellery-watches' },
-  { label: 'Weddings',            href: '/weddings'          },
-  { label: 'Curated Partners',    href: '/curated-partners'  },
-  { label: 'Partner With Us',     href: '/partner-with-us'   },
-  { label: 'About',               href: '/about'             },
-];
 
 // ── PARTNER BRANDS ───────────────────────────────────────────────
 const PARTNERS = [
@@ -85,12 +71,11 @@ const PARTNERS = [
 // ── WHY ILH ──────────────────────────────────────────────────────
 const WHY_ILH = [
   { icon: '◈', title: 'Curated Luxury Intelligence',  desc: "Only the most refined, relevant, and authoritative luxury content — curated for India's discerning audience." },
-  { icon: '◈', title: 'Trusted Premium Network',       desc: "A vetted ecosystem of India's most respected luxury businesses and global brands."                          },
-  { icon: '◈', title: 'India-Focused Global Lens',     desc: 'Global luxury seen through an India-first perspective — aspirational, relevant, and deeply resonant.'       },
-  { icon: '◈', title: 'Business Growth Opportunities', desc: "Bespoke visibility packages designed to connect premium brands with India's luxury consumers."               },
+  { icon: '◈', title: 'Trusted Premium Network',      desc: "A vetted ecosystem of India's most respected luxury businesses and global brands."                           },
+  { icon: '◈', title: 'India-Focused Global Lens',    desc: 'Global luxury seen through an India-first perspective — aspirational, relevant, and deeply resonant.'        },
+  { icon: '◈', title: 'Business Growth Opportunities',desc: "Bespoke visibility packages designed to connect premium brands with India's luxury consumers."                },
 ];
 
-// ── FORMAT DATE ──────────────────────────────────────────────────
 function formatDate(iso: string): string {
   try {
     return new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -99,75 +84,7 @@ function formatDate(iso: string): string {
   }
 }
 
-// ── ILH LOGO SVG ─────────────────────────────────────────────────
-function ILHLogo({ size = 36 }: { size?: number }) {
-  const gold = '#C9A84C';
-  const emerald = '#2A7A6A';
-  return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none">
-      <path d="M40 62C40 62 34 50 33 40C32 30 36 22 40 18C44 14 50 14 52 20C54 26 48 32 44 37C40 42 40 48 42 54C44 60 40 62 40 62Z" fill={gold} opacity="0.9"/>
-      <path d="M44 28C52 20 64 16 66 20C68 24 62 32 54 36C48 39 44 36 44 36" stroke={gold} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <path d="M42 34C50 22 62 12 68 14C72 16 68 28 60 34C54 38 42 36 42 36" stroke={gold} strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.5"/>
-      <ellipse cx="30" cy="44" rx="5" ry="2.5" fill={emerald} transform="rotate(-30 30 44)" opacity="0.8"/>
-      <ellipse cx="26" cy="50" rx="5" ry="2.5" fill={emerald} transform="rotate(-20 26 50)" opacity="0.7"/>
-      <ellipse cx="28" cy="38" rx="4.5" ry="2" fill={emerald} transform="rotate(-45 28 38)" opacity="0.7"/>
-      <circle cx="52" cy="12" r="1.5" fill={gold}/>
-      <circle cx="56" cy="10" r="1.2" fill={gold} opacity="0.8"/>
-    </svg>
-  );
-}
-
 // ── BLOG CARD ────────────────────────────────────────────────────
-// function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
-//   const [hov, setHov] = useState(false);
-//   const catSlug = CAT_SLUG_MAP[post.category] ?? post.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/--+/g, '-');
-//   const imgSrc = post.coverImage
-//     ? post.coverImage.startsWith('http')
-//       ? post.coverImage
-//       : post.coverImage.startsWith('/uploads/')
-//         ? `https://shivmani-baceknd.onrender.com${post.coverImage}`
-//         : `https://shivmani-baceknd.onrender.com/uploads/${post.coverImage}`
-//     : CAT_IMAGE_MAP[post.category] ?? '/images/real-estate.jpg';
-
-//   return (
-//     <Link
-//       href={`/${catSlug}/${post.slug}`}
-//       style={{ display: 'block', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
-//       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-//     >
-//       {/* Image */}
-//       <div style={{ position: 'relative', paddingBottom: big ? '56%' : '62%', overflow: 'hidden', background: '#1A1A1A' }}>
-//         <Image src={imgSrc} alt={post.title} fill
-//           style={{ objectFit: 'cover', transition: 'transform .6s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}
-//           sizes={big ? '60vw' : '33vw'}
-//           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
-//         />
-//         {big && <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 55%)' }} />}
-//         <span style={{ position: 'absolute', top: 14, left: 14, fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '5px 10px', border: '1px solid rgba(201,168,76,0.25)' }}>
-//           {post.category}
-//         </span>
-//       </div>
-
-//       {/* Content */}
-//       <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px' }}>
-//         <div style={{ width: hov ? 40 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
-//         <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 22 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-//           {post.title}
-//         </h3>
-//         <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-//           {post.excerpt}
-//         </p>
-//         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-//           <div>
-//             <span style={{ fontSize: 9, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
-//             <span style={{ fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-//           </div>
-//           <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
-//         </div>
-//       </div>
-//     </Link>
-//   );
-// }
 function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
   const [hov, setHov] = useState(false);
   const catSlug = CAT_SLUG_MAP[post.category] ?? post.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/--+/g, '-');
@@ -182,68 +99,40 @@ function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
   return (
     <Link
       href={`/${catSlug}/${post.slug}`}
-      style={{  display: 'flex', 
-    flexDirection: 'column', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
+      style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
     >
-      {/* Image */}
-      <div style={{ position: 'relative', paddingBottom: big ? '62%' : '62%', overflow: 'hidden', background: '#1A1A1A' }}>
+      <div style={{ position: 'relative', paddingBottom: '62%', overflow: 'hidden', background: '#1A1A1A', flexShrink: 0 }}>
         <img
           src={imgSrc}
           alt={post.title}
-          style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%',
-            objectFit: 'cover',
-            transition: 'transform .6s',
-            transform: hov ? 'scale(1.05)' : 'scale(1)'
-          }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .6s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}
           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
         {big && <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 55%)' }} />}
-        <span style={{ position: 'absolute', top: 14, left: 14, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '5px 10px', border: '1px solid rgba(201,168,76,0.25)' }}>
+        <span style={{ position: 'absolute', top: 14, left: 14, fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '5px 10px', border: '1px solid rgba(201,168,76,0.25)' }}>
           {post.category}
         </span>
       </div>
 
-      {/* Content */}
-      {/* <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px' }}>
+      <div style={{ padding: '18px 20px 20px', display: 'flex', flexDirection: 'column', flex: '1 1 auto' }}>
         <div style={{ width: hov ? 40 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
-        <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 30 : 25, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+        <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 24 : 20, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.title}
         </h3>
         <p style={{ fontSize: 15, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.excerpt}
         </p>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
-          <div>
-            <span style={{ fontSize: 13, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
-            <span style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
-          </div>
-          <span style={{ fontSize: 13, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+        <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: 8, borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12, overflow: 'hidden' }}>
+          <span style={{ fontSize: 12, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', whiteSpace: 'nowrap' }}>By</span>
+          <span style={{ fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: '1 1 auto', minWidth: 0 }}>{post.author}</span>
+          <span style={{ fontSize: 12, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em', whiteSpace: 'nowrap', flex: '0 0 auto' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
         </div>
-\
-      </div> */}
-      {/* Content */}
-<div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px', display: 'flex', flexDirection: 'column', flex: '1 1 auto' }}>
-  <div style={{ width: hov ? 40 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
-  <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 28 : 23
-    , lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-    {post.title}
-  </h3>
-  <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-    {post.excerpt}
-  </p>
-  {/* Author/Date - always at bottom */}
-  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: 8, borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12, overflow: 'hidden' }}>
-    <span style={{ fontSize: 13, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', whiteSpace: 'nowrap' }}>By</span>
-    <span style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: '1 1 auto', minWidth: 0 }}>{post.author}</span>
-    <span style={{ fontSize: 13, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em', whiteSpace: 'nowrap', flex: '0 0 auto' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
-  </div>
-</div>
+      </div>
     </Link>
   );
 }
+
 // ── CATEGORY CARD ────────────────────────────────────────────────
 function CategoryCard({ cat }: { cat: Cat }) {
   const [hov, setHov] = useState(false);
@@ -255,14 +144,14 @@ function CategoryCard({ cat }: { cat: Cat }) {
       <div style={{ position: 'relative', paddingBottom: '70%', background: '#1A1A1A', overflow: 'hidden' }}>
         <Image src={cat.heroImage} alt={cat.name} fill
           style={{ objectFit: 'cover', transition: 'transform .7s ease', transform: hov ? 'scale(1.08)' : 'scale(1)' }}
-          sizes="(max-width:768px) 100vw, 20vw"
+          sizes="(max-width:768px) 50vw, 20vw"
           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
         <div style={{ position: 'absolute', inset: 0, background: hov ? 'rgba(0,0,0,0.55)' : 'rgba(0,0,0,0.38)', transition: 'background .4s' }} />
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 3, background: '#C9A84C', transform: hov ? 'scaleX(1)' : 'scaleX(0)', transition: 'transform .4s ease', transformOrigin: 'left' }} />
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', padding: '0 20px 28px', textAlign: 'center' }}>
-          <span style={{ fontSize: 32, marginBottom: 10, filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.6))', transform: hov ? 'translateY(-6px)' : 'translateY(0)', transition: 'transform .35s' }}>{cat.icon}</span>
-          <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: 18, color: '#fff', letterSpacing: '0.03em', lineHeight: 1.2, textShadow: '0 2px 12px rgba(0,0,0,0.7)', transform: hov ? 'translateY(-4px)' : 'translateY(0)', transition: 'transform .35s', margin: 0 }}>{cat.name}</h3>
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', padding: '0 16px 24px', textAlign: 'center' }}>
+          <span style={{ fontSize: 28, marginBottom: 8, filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.6))', transform: hov ? 'translateY(-6px)' : 'translateY(0)', transition: 'transform .35s' }}>{cat.icon}</span>
+          <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: 16, color: '#fff', letterSpacing: '0.03em', lineHeight: 1.2, textShadow: '0 2px 12px rgba(0,0,0,0.7)', transform: hov ? 'translateY(-4px)' : 'translateY(0)', transition: 'transform .35s', margin: 0 }}>{cat.name}</h3>
           <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.55)', margin: '6px 0 0', fontWeight: 300, letterSpacing: '0.04em', opacity: hov ? 1 : 0, transform: hov ? 'translateY(0)' : 'translateY(6px)', transition: 'opacity .35s, transform .35s' }}>{cat.description}</p>
         </div>
       </div>
@@ -271,11 +160,11 @@ function CategoryCard({ cat }: { cat: Cat }) {
 }
 
 // ── SKELETON LOADER ──────────────────────────────────────────────
-function BlogSkeleton({ big = false }: { big?: boolean }) {
+function BlogSkeleton() {
   return (
     <div style={{ background: '#FAFAF8', border: '1px solid rgba(0,0,0,0.06)', height: '100%' }}>
-      <div style={{ paddingBottom: big ? '56%' : '62%', background: 'linear-gradient(90deg, #f0ebe0 25%, #e8e2d4 50%, #f0ebe0 75%)', backgroundSize: '200% 100%', animation: 'shimmer 1.5s infinite' }} />
-      <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px' }}>
+      <div style={{ paddingBottom: '62%', background: 'linear-gradient(90deg, #f0ebe0 25%, #e8e2d4 50%, #f0ebe0 75%)', backgroundSize: '200% 100%', animation: 'shimmer 1.5s infinite' }} />
+      <div style={{ padding: '18px 20px 20px' }}>
         <div style={{ height: 1, width: 20, background: '#C9A84C', marginBottom: 14 }} />
         <div style={{ height: 16, background: '#e8e2d4', borderRadius: 2, marginBottom: 8, width: '90%' }} />
         <div style={{ height: 16, background: '#e8e2d4', borderRadius: 2, marginBottom: 16, width: '70%' }} />
@@ -292,13 +181,11 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState<string | null>(null);
 
-  // Hero slideshow
   const HERO_IMAGES = ['/images/heroimg-1.png', '/images/heroimg-2.png'];
   const [heroIdx, setHeroIdx] = useState(0);
   const [prevIdx, setPrevIdx] = useState<number | null>(null);
   const [fading, setFading]   = useState(false);
 
-  // ── Fetch API data ──────────────────────────────────────────────
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -307,8 +194,7 @@ export default function HomePage() {
         const res = await fetch('https://api.indianluxuryhouse.com/api/editorials');
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const data: Post[] = await res.json();
-        const published = data.filter(p => p.isPublished);
-        setPosts(published);
+        setPosts(data.filter(p => p.isPublished));
       } catch (err) {
         console.error('API fetch error:', err);
         setError('Could not load articles. Please try again later.');
@@ -319,7 +205,6 @@ export default function HomePage() {
     fetchPosts();
   }, []);
 
-  // ── Hero slideshow logic ────────────────────────────────────────
   useEffect(() => {
     const timer = setInterval(() => {
       const current = heroIdx;
@@ -342,20 +227,8 @@ export default function HomePage() {
     setTimeout(() => { setHeroIdx(i); setFading(false); setPrevIdx(null); }, 1200);
   };
 
-  // ── Blog selection logic — 9 posts total ───────────────────────
-  const getHeroPost = (): Post | null => {
-    if (posts.length === 0) return null;
-    const sorted = [...posts].sort((a, b) => {
-      const pa = a.homepage?.heroPriority ?? 999;
-      const pb = b.homepage?.heroPriority ?? 999;
-      return pa - pb;
-    });
-    return sorted[0];
-  };
+  const heroPost = posts.length === 0 ? null : [...posts].sort((a, b) => (a.homepage?.heroPriority ?? 999) - (b.homepage?.heroPriority ?? 999))[0];
 
-  const heroPost = getHeroPost();
-
-  // 9 posts sorted by priority, latest first as tiebreaker
   const sortedPosts = [...posts].sort((a, b) => {
     const pa = a.homepage?.heroPriority ?? a.homepage?.featuredRank ?? 999;
     const pb = b.homepage?.heroPriority ?? b.homepage?.featuredRank ?? 999;
@@ -363,126 +236,119 @@ export default function HomePage() {
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
 
-  // Hero post hata ke baaki 8 lo
   const remainingPosts = sortedPosts.filter(p => p._id !== heroPost?._id);
-  const secondaryPosts = remainingPosts.slice(0, 2); // top row ke 2
-  const middlePosts    = remainingPosts.slice(2, 5); // middle row ke 3
-  const bottomPosts    = remainingPosts.slice(5, 8); // bottom row ke 3
+  const secondaryPosts = remainingPosts.slice(0, 2);
+  const middlePosts    = remainingPosts.slice(2, 5);
+  const bottomPosts    = remainingPosts.slice(5, 8);
 
   return (
     <>
-      <main>
+      {/* ── GLOBAL STYLES ── */}
+      <style>{`
+        @keyframes hFadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes shimmer  { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+        /* ── Mobile ── */
+        @media(max-width:767px){
+          .ilh-hero        { height: 100svh !important; min-height: 580px !important; }
+          .ilh-hero-inner  { padding: 0 16px 72px !important; }
+          .ilh-section-pad { padding: 56px 16px !important; }
+                              .ilh-grid-5      { grid-template-columns: repeat(2,1fr) !important; }
+          .ilh-grid-3      { grid-template-columns: 1fr !important; }
+          .ilh-grid-4      { grid-template-columns: repeat(2,1fr) !important; }
+          .ilh-grid-why    { grid-template-columns: 1fr !important; }
+          .ilh-partners-grid { grid-template-columns: repeat(3,1fr) !important; }
+          .ilh-heading-row { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+        }
+
+        /* ── Tablet ── */
+        @media(min-width:768px) and (max-width:1023px){
+          .ilh-section-pad { padding-left: 24px !important; padding-right: 24px !important; }
+                    .ilh-grid-5      { grid-template-columns: repeat(2,1fr) !important; }
+          .ilh-grid-3      { grid-template-columns: repeat(2,1fr) !important; }
+          .ilh-grid-4      { grid-template-columns: repeat(2,1fr) !important; }
+          .ilh-grid-why    { grid-template-columns: repeat(2,1fr) !important; }
+          .ilh-partners-grid { grid-template-columns: repeat(3,1fr) !important; }
+        }
+      `}</style>
+
+      <main style={{ overflowX: 'hidden', width: '100%' }}>
 
         {/* ══ SECTION 1: HERO ══════════════════════════════════ */}
-        <section style={{ position: 'relative', height: '100vh', minHeight: 680, maxHeight: 960, background: '#0A0A0A', overflow: 'hidden' }}>
+        <section style={{ position: 'relative', background: '#0A0A0A', minHeight: '100svh', display: 'flex', flexDirection: 'column' }}>
+
+          {/* Image — covers full section height */}
           {prevIdx !== null && (
-            <Image src={HERO_IMAGES[prevIdx]} alt="ILH Hero" fill priority
-              style={{ objectFit: 'cover', objectPosition: 'center top', opacity: fading ? 0 : 1, transition: 'opacity 1.2s ease-in-out', zIndex: 1 }} quality={95} />
+            <img src={HERO_IMAGES[prevIdx]} alt="ILH Hero"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center', opacity: fading ? 0 : 1, transition: 'opacity 1.2s ease-in-out', zIndex: 1 }} />
           )}
-          <Image key={heroIdx} src={HERO_IMAGES[heroIdx]} alt="ILH Hero" fill priority
-            style={{ objectFit: 'cover', objectPosition: 'center top', opacity: fading ? 0 : 1, transition: 'opacity 1.2s ease-in-out', zIndex: 2 }} quality={95} />
+          <img key={heroIdx} src={HERO_IMAGES[heroIdx]} alt="ILH Hero"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center', opacity: fading ? 0 : 1, transition: 'opacity 1.2s ease-in-out', zIndex: 2 }} />
 
-          <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 40%, transparent 70%)' }} />
-          <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to right, rgba(10,10,10,0.25), transparent 60%)' }} />
+          {/* Overlay */}
+          <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.15) 100%)' }} />
 
-          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', textAlign: 'center', padding: '0 24px 120px' }}>
-            {/* <p style={{ fontSize: 14, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', marginBottom: 18, animation: 'hFadeUp .8s .1s ease both' }}>
+          {/* Content — centered */}
+          <div style={{ position: 'relative', zIndex: 10, flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '100px 24px 80px' }}>
+            <p style={{ fontSize: 13, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#FFFFFF', textShadow: '0 2px 16px rgba(0,0,0,0.9)', fontWeight: 600, marginBottom: 16, animation: 'hFadeUp .8s .1s ease both' }}>
               Where India Meets Global Luxury
-            </p> */}
-            <p style={{ 
-  fontSize: 14, 
-  letterSpacing: '0.5em', 
-  textTransform: 'uppercase', 
-  color: '#FFFFFF',           // white
-  textShadow: '0 2px 16px rgba(0,0,0,0.9)',
-  fontWeight: 600,
-  marginBottom: 18, 
-  animation: 'hFadeUp .8s .1s ease both' 
-}}>
-  Where India Meets Global Luxury
-</p>
-            <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(36px, 7vw, 88px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.08, marginBottom: 22, animation: 'hFadeUp .8s .2s ease both', letterSpacing: '0.015em' }}>
+            </p>
+            <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(32px, 7vw, 88px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.08, marginBottom: 20, animation: 'hFadeUp .8s .2s ease both', letterSpacing: '0.015em' }}>
               Discover the Finest<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>in Indian Luxury</em>
             </h1>
-            <p style={{ 
-  fontSize: 17, 
-  color: 'rgba(250,250,248,0.92)', 
-  fontWeight: 400, 
-  letterSpacing: '0.04em', 
-  marginBottom: 40, 
-  animation: 'hFadeUp .8s .3s ease both', 
-  maxWidth: 560,
-  textShadow: '0 2px 12px rgba(0,0,0,0.9)'
-}}>
+            <p style={{ fontSize: 16, color: 'rgba(250,250,248,0.92)', fontWeight: 400, letterSpacing: '0.03em', marginBottom: 36, animation: 'hFadeUp .8s .3s ease both', maxWidth: 520, textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>
               Real estate, automobiles, jewellery, weddings, and curated luxury experiences — through an India-first lens.
             </p>
-            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', animation: 'hFadeUp .8s .4s ease both' }}>
+            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', justifyContent: 'center', animation: 'hFadeUp .8s .4s ease both' }}>
               <a href="#categories"
-                style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '14px 32px', textDecoration: 'none', fontWeight: 600, transition: 'all .3s' }}
+                style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '13px 28px', textDecoration: 'none', fontWeight: 600, transition: 'all .3s' }}
                 onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
               >Explore Categories</a>
               <Link href="/partner-with-us"
-                style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.5)', padding: '14px 32px', textDecoration: 'none', transition: 'all .3s' }}
+                style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.5)', padding: '13px 28px', textDecoration: 'none', transition: 'all .3s' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.1)'; e.currentTarget.style.borderColor = '#C9A84C'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.5)'; }}
               >Partner With Us</Link>
             </div>
           </div>
 
-          <div style={{ position: 'absolute', bottom: 36, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 10, zIndex: 10 }}>
+          {/* Slide dots */}
+          <div style={{ position: 'absolute', bottom: 24, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 10, zIndex: 10 }}>
             {HERO_IMAGES.map((_, i) => (
               <button key={i} onClick={() => goToSlide(i)} aria-label={`Slide ${i + 1}`}
                 style={{ width: i === heroIdx ? 28 : 8, height: 8, borderRadius: 4, background: i === heroIdx ? '#C9A84C' : 'rgba(201,168,76,0.3)', border: 'none', cursor: 'pointer', padding: 0, transition: 'all 0.4s ease', outline: 'none' }} />
             ))}
           </div>
-          <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 1, height: 60, background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.6))', zIndex: 10 }} />
         </section>
 
-        <style>{`
-          @keyframes hFadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-          @media(max-width:767px){
-            .ilh-grid-5{grid-template-columns:1fr!important}
-            .ilh-grid-3{grid-template-columns:1fr!important}
-            .ilh-grid-4{grid-template-columns:repeat(2,1fr)!important}
-            .ilh-grid-why{grid-template-columns:1fr!important}
-          }
-          @media(min-width:768px) and (max-width:1023px){
-            .ilh-grid-5{grid-template-columns:repeat(2,1fr)!important}
-            .ilh-grid-3{grid-template-columns:repeat(2,1fr)!important}
-            .ilh-grid-4{grid-template-columns:repeat(2,1fr)!important}
-            .ilh-grid-why{grid-template-columns:repeat(2,1fr)!important}
-          }
-        `}</style>
-
         {/* ══ SECTION 2: CATEGORIES ════════════════════════════ */}
-        <section id="categories" style={{ background: '#0A0A0A', padding: '80px 32px', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+        <section id="categories" className="ilh-section-pad" style={{ background: '#0A0A0A', padding: '80px 32px', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 12 }}>Explore</p>
-              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Our Categories</h2>
-              <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
+            <div style={{ textAlign: 'center', marginBottom: 40 }}>
+              <p style={{ fontSize: 18, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 12 }}>Explore</p>
+              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 48px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Our Categories</h2>
+              <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '18px auto 0' }} />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 12 }} className="ilh-grid-5">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 10 }} className="ilh-grid-5">
               {CATS.map(cat => <CategoryCard key={cat.slug} cat={cat} />)}
             </div>
           </div>
         </section>
 
-        {/* ══ SECTION 3: TRENDING STORIES (9 BLOGS) ═══════════ */}
-        <section style={{ background: '#FAFAF8', padding: '80px 32px' }}>
+        {/* ══ SECTION 3: TRENDING STORIES ══════════════════════ */}
+        <section className="ilh-section-pad" style={{ background: '#FAFAF8', padding: '80px 32px' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 40, borderBottom: '1px solid rgba(201,168,76,0.15)', paddingBottom: 20 }}>
+            <div className="ilh-heading-row" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.15)', paddingBottom: 20 }}>
               <div>
-                <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color:  '#DFC27A',fontWeight: 600 , marginBottom: 10 }}>Latest from the World of Luxury</p>
-                <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Trending Stories</h2>
+                <p style={{ fontSize: 18, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#DFC27A', fontWeight: 600, marginBottom: 8 }}>Latest from the World of Luxury</p>
+                <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(24px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Trending Stories</h2>
               </div>
-              <Link href="/news" style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.4)', paddingBottom: 2, flexShrink: 0 }}>
+              <Link href="/news" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.4)', paddingBottom: 2, flexShrink: 0 }}>
                 All News →
               </Link>
             </div>
 
-            {/* Error state */}
             {error && (
               <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.6)' }}>
                 <p style={{ fontFamily: 'Georgia, serif', fontSize: 18, marginBottom: 8 }}>Unable to load articles</p>
@@ -490,212 +356,827 @@ export default function HomePage() {
               </div>
             )}
 
-            {/* Loading skeletons — 9 total */}
             {loading && !error && (
               <>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }} className="ilh-grid-3">
-                  <BlogSkeleton big />
-                  <BlogSkeleton />
-                  <BlogSkeleton />
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 16 }} className="ilh-grid-3">
+                  <BlogSkeleton /><BlogSkeleton /><BlogSkeleton />
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }} className="ilh-grid-3">
-                  <BlogSkeleton />
-                  <BlogSkeleton />
-                  <BlogSkeleton />
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 16 }} className="ilh-grid-3">
+                  <BlogSkeleton /><BlogSkeleton /><BlogSkeleton />
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="ilh-grid-3">
-                  <BlogSkeleton />
-                  <BlogSkeleton />
-                  <BlogSkeleton />
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }} className="ilh-grid-3">
+                  <BlogSkeleton /><BlogSkeleton /><BlogSkeleton />
                 </div>
               </>
             )}
 
-            {/* Actual posts — 9 blogs (1 hero big + 8 normal) */}
             {!loading && !error && (
-              <>
-                {sortedPosts.length === 0 ? (
-                  <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.5)' }}>
-                    <p style={{ fontFamily: 'Georgia, serif', fontSize: 18 }}>No articles published yet.</p>
+              sortedPosts.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.5)' }}>
+                  <p style={{ fontFamily: 'Georgia, serif', fontSize: 18 }}>No articles published yet.</p>
+                </div>
+              ) : (
+                <>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 16, alignItems: 'stretch' }} className="ilh-grid-3">
+                    {heroPost && <BlogCard post={heroPost} big />}
+                    {secondaryPosts.map(p => <BlogCard key={p._id} post={p} />)}
                   </div>
-                ) : (
-                  <>
-                    {/* Top row: Hero post (big) + 2 secondary */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20,alignItems: 'stretch' }} className="ilh-grid-3">
-                      {heroPost && <BlogCard post={heroPost} big />}
-                      {secondaryPosts.map(p => <BlogCard key={p._id} post={p} />)}
+                  {middlePosts.length > 0 && (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 16, alignItems: 'stretch' }} className="ilh-grid-3">
+                      {middlePosts.map(p => <BlogCard key={p._id} post={p} />)}
                     </div>
-
-                    {/* Middle row: 3 posts */}
-                    {middlePosts.length > 0 && (
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20,alignItems: 'stretch' }} className="ilh-grid-3">
-                        {middlePosts.map(p => <BlogCard key={p._id} post={p} />)}
-                      </div>
-                    )}
-
-                    {/* Bottom row: 3 posts */}
-                    {bottomPosts.length > 0 && (
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 ,alignItems: 'stretch'}} className="ilh-grid-3">
-                        {bottomPosts.map(p => <BlogCard key={p._id} post={p} />)}
-                      </div>
-                    )}
-                  </>
-                )}
-              </>
+                  )}
+                  {bottomPosts.length > 0 && (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, alignItems: 'stretch' }} className="ilh-grid-3">
+                      {bottomPosts.map(p => <BlogCard key={p._id} post={p} />)}
+                    </div>
+                  )}
+                </>
+              )
             )}
           </div>
         </section>
 
         {/* ══ SECTION 4: PARTNERS ══════════════════════════════ */}
-        {/* <section style={{ background: '#0A0A0A', padding: '72px 32px', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+        <section className="ilh-section-pad" style={{ background: '#0A0A0A', padding: '72px 32px', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 14 }}>Our Network</p>
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 300, color: '#FAFAF8', marginBottom: 48, letterSpacing: '0.02em' }}>
+            <p style={{ fontSize: 18, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 12 }}>Our Network</p>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 300, color: '#FAFAF8', marginBottom: 40, letterSpacing: '0.02em' }}>
               Trusted by India&apos;s Premium Businesses
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 1, border: '1px solid rgba(201,168,76,0.1)' }} className="ilh-grid-4">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 1, border: '1px solid rgba(201,168,76,0.1)' }} className="ilh-partners-grid ilh-grid-4">
               {PARTNERS.map((p, i) => (
                 <div key={p.name}
-                  style={{ padding: '32px 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: i < 5 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'background .25s', cursor: 'pointer' }}
+                  style={{ padding: '28px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: i < 5 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'background .25s', cursor: 'pointer' }}
                   onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,168,76,0.05)')}
                   onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                 >
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ width: 48, height: 48, background: 'rgba(201,168,76,0.1)', borderRadius: '50%', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <span style={{ fontSize: 18, color: '#C9A84C' }}>◈</span>
+                    <div style={{ width: 52, height: 52, background: 'rgba(201,168,76,0.1)', borderRadius: '50%', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <span style={{ fontSize: 20, color: '#C9A84C' }}>◈</span>
                     </div>
-                    <p style={{ fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.45)', margin: 0 }}>{p.name}</p>
+                    <p style={{ fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', margin: 0 }}>{p.name}</p>
                   </div>
                 </div>
               ))}
             </div>
             <Link href="/curated-partners"
-              style={{ display: 'inline-block', marginTop: 40, fontSize: 9, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.3)', paddingBottom: 2, transition: 'color .2s' }}
+              style={{ display: 'inline-block', marginTop: 36, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.3)', paddingBottom: 2, transition: 'color .2s' }}
               onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.6)')}
             >View All Partners →</Link>
           </div>
-        </section> */}
-        <section style={{ background: '#0A0A0A', padding: '72px 32px', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
-  <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
-    <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 14 }}>Our Network</p>
-    <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 300, color: '#FAFAF8', marginBottom: 48, letterSpacing: '0.02em' }}>
-      Trusted by India&apos;s Premium Businesses
-    </h2>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 1, border: '1px solid rgba(201,168,76,0.1)' }} className="ilh-grid-4">
-      {PARTNERS.map((p, i) => (
-        <div key={p.name}
-          style={{ padding: '32px 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: i < 5 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'background .25s', cursor: 'pointer' }}
-          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,168,76,0.05)')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
-        >
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ width: 56, height: 56, background: 'rgba(201,168,76,0.1)', borderRadius: '50%', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ fontSize: 22, color: '#C9A84C' }}>◈</span>
-            </div>
-            <p style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', margin: 0 }}>{p.name}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-    <Link href="/curated-partners"
-      style={{ display: 'inline-block', marginTop: 40, fontSize: 13, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.3)', paddingBottom: 2, transition: 'color .2s' }}
-      onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
-      onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.6)')}
-    >View All Partners →</Link>
-  </div>
-</section>
+        </section>
 
         {/* ══ SECTION 5: WHY ILH ═══════════════════════════════ */}
-        {/* <section style={{ background: '#FAFAF8', padding: '88px 32px' }}>
+        <section className="ilh-section-pad" style={{ background: '#FAFAF8', padding: '88px 32px' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: 60 }}>
-              <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Our Promise</p>
-              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Why Indian Luxury House</h2>
-              <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
+            <div style={{ textAlign: 'center', marginBottom: 52 }}>
+              <p style={{ fontSize: 18, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Our Promise</p>
+              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(24px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Why Indian Luxury House</h2>
+              <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '18px auto 0' }} />
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }} className="ilh-grid-why">
               {WHY_ILH.map((item, i) => (
                 <div key={i}
-                  style={{ padding: '40px 32px', background: '#fff', border: '1px solid rgba(201,168,76,0.1)', transition: 'all .3s', cursor: 'default' }}
+                  style={{ padding: '36px 28px', background: '#fff', border: '1px solid rgba(201,168,76,0.1)', transition: 'all .3s', cursor: 'default' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = '#0A0A0A'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.3)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = '#fff'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.1)'; }}
                 >
-                  <div style={{ fontSize: 28, color: '#C9A84C', marginBottom: 20, opacity: 0.8 }}>{item.icon}</div>
-                  <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 18, fontWeight: 400, color: 'inherit', marginBottom: 14, letterSpacing: '0.01em', lineHeight: 1.35 }}>{item.title}</h3>
-                  <p style={{ fontSize: 13, color: 'rgba(107,101,88,0.75)', lineHeight: 1.8, fontWeight: 300 }}>{item.desc}</p>
+                  <div style={{ fontSize: 26, color: '#C9A84C', marginBottom: 18, opacity: 0.8 }}>{item.icon}</div>
+                  <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 20, fontWeight: 400, color: 'inherit', marginBottom: 12, letterSpacing: '0.01em', lineHeight: 1.35 }}>{item.title}</h3>
+                  <p style={{ fontSize: 14, color: 'rgba(107,101,88,0.75)', lineHeight: 1.8, fontWeight: 300 }}>{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
-        </section> */}
-        <section style={{ background: '#FAFAF8', padding: '88px 32px' }}>
-  <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-    <div style={{ textAlign: 'center', marginBottom: 60 }}>
-      <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Our Promise</p>
-      <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Why Indian Luxury House</h2>
-      <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
-    </div>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }} className="ilh-grid-why">
-      {WHY_ILH.map((item, i) => (
-        <div key={i}
-          style={{ padding: '40px 32px', background: '#fff', border: '1px solid rgba(201,168,76,0.1)', transition: 'all .3s', cursor: 'default' }}
-          onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = '#0A0A0A'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.3)'; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = '#fff'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.1)'; }}
-        >
-          <div style={{ fontSize: 28, color: '#C9A84C', marginBottom: 20, opacity: 0.8 }}>{item.icon}</div>
-          <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 25, fontWeight: 400, color: 'inherit', marginBottom: 14, letterSpacing: '0.01em', lineHeight: 1.35 }}>{item.title}</h3>
-          <p style={{ fontSize: 16, color: 'rgba(107,101,88,0.75)', lineHeight: 1.8, fontWeight: 300 }}>{item.desc}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+        </section>
 
         {/* ══ SECTION 6: CTA ═══════════════════════════════════ */}
-        {/* <section style={{ background: '#0A0A0A', padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
+        <section className="ilh-section-pad" style={{ background: '#0A0A0A', padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
           <div style={{ position: 'absolute', right: -120, top: '50%', transform: 'translateY(-50%)', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(42,122,106,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
           <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', marginBottom: 18 }}>Grow With Us</p>
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 60px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.15, marginBottom: 22, letterSpacing: '0.01em' }}>
+            <p style={{ fontSize: 18, letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', marginBottom: 18 }}>Grow With Us</p>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 5vw, 60px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.15, marginBottom: 22, letterSpacing: '0.01em' }}>
               Build Your Presence in<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>India&apos;s Luxury Market</em>
             </h2>
-            <p style={{ fontSize: 14, color: 'rgba(250,250,248,0.4)', fontWeight: 300, lineHeight: 1.8, marginBottom: 48, maxWidth: 560, margin: '0 auto 48px' }}>
+            <p style={{ fontSize: 16, color: 'rgba(250,250,248,0.4)', fontWeight: 300, lineHeight: 1.8, maxWidth: 520, margin: '0 auto 44px' }}>
               Reach India&apos;s most affluent audience through editorial stories, featured listings, and bespoke brand campaigns — crafted for luxury.
             </p>
             <Link href="/partner-with-us"
-              style={{ display: 'inline-block', fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 48px', textDecoration: 'none', fontWeight: 700, transition: 'all .3s' }}
+              style={{ display: 'inline-block', fontSize: 11, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '15px 44px', textDecoration: 'none', fontWeight: 700, transition: 'all .3s' }}
               onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
               onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
             >Partner With Us</Link>
           </div>
-        </section> */}
-        <section style={{ background: '#0A0A0A', padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
-  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
-  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
-  <div style={{ position: 'absolute', right: -120, top: '50%', transform: 'translateY(-50%)', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(42,122,106,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
-  <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-    <p style={{ fontSize: 20, letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', marginBottom: 18 }}>Grow With Us</p>
-    <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 60px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.15, marginBottom: 22, letterSpacing: '0.01em' }}>
-      Build Your Presence in<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>India&apos;s Luxury Market</em>
-    </h2>
-    <p style={{ fontSize: 17, color: 'rgba(250,250,248,0.4)', fontWeight: 300, lineHeight: 1.8, marginBottom: 48, maxWidth: 560, margin: '0 auto 48px' }}>
-      Reach India&apos;s most affluent audience through editorial stories, featured listings, and bespoke brand campaigns — crafted for luxury.
-    </p>
-    <Link href="/partner-with-us"
-      style={{ display: 'inline-block', fontSize: 13, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 48px', textDecoration: 'none', fontWeight: 700, transition: 'all .3s' }}
-      onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
-      onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
-    >Partner With Us</Link>
-  </div>
-</section>
+        </section>
 
       </main>
     </>
   );
 }
+
+
+// 'use client';
+
+// import Link from 'next/link';
+// import Image from 'next/image';
+// import { useState, useEffect } from 'react';
+
+// // ── TYPES ────────────────────────────────────────────────────────
+// interface Post {
+//   _id: string;
+//   title: string;
+//   slug: string;
+//   coverImage?: string;
+//   category: string;
+//   excerpt: string;
+//   author: string;
+//   readTime: number;
+//   isFeatured: boolean;
+//   isPublished: boolean;
+//   createdAt: string;
+//   homepage?: {
+//     heroPriority?: number;
+//     sectionPriority?: number;
+//     featuredRank?: number;
+//   };
+// }
+
+// interface Cat {
+//   name: string;
+//   slug: string;
+//   icon: string;
+//   description: string;
+//   heroImage: string;
+// }
+
+// // ── CATEGORIES ───────────────────────────────────────────────────
+// const CATS: Cat[] = [
+//   { name: 'Real Estate',          slug: 'real-estate',       icon: '🏛️', description: "India's finest residences and global investment opportunities", heroImage: '/images/real-estate.jpg'   },
+//   { name: 'Automobiles',          slug: 'automobiles',        icon: '🚗', description: 'Luxury performance, prestige, and collector culture',           heroImage: '/images/automobiles.jpg'   },
+//   { name: 'Jewellery & Watches',  slug: 'jewellery-watches',  icon: '💎', description: 'Timeless assets. Enduring style.',                              heroImage: '/images/Jewellery.png'     },
+//   { name: 'Weddings',             slug: 'weddings',           icon: '✨', description: "India's world of couture celebrations and unforgettable occasions", heroImage: '/images/hero-weddings.jpg' },
+//   { name: 'Curated Partners',     slug: 'curated-partners',   icon: '🤝', description: "India's trusted network of premium businesses",                 heroImage: '/images/hero-partners.jpg' },
+// ];
+
+// // Category name → slug map
+// const CAT_SLUG_MAP: Record<string, string> = {
+//   'Real Estate':         'real-estate',
+//   'Automobiles':         'automobiles',
+//   'Jewellery & Watches': 'jewellery-watches',
+//   'Weddings':            'weddings',
+//   'Curated Partners':    'curated-partners',
+// };
+
+// // Category name → default image map
+// const CAT_IMAGE_MAP: Record<string, string> = {
+//   'Real Estate':         '/images/real-estate.jpg',
+//   'Automobiles':         '/images/automobiles.jpg',
+//   'Jewellery & Watches': '/images/Jewellery.png',
+//   'Weddings':            '/images/hero-weddings.jpg',
+//   'Curated Partners':    '/images/hero-partners.jpg',
+// };
+
+// // ── NAV LINKS ────────────────────────────────────────────────────
+// const NAV_LINKS = [
+//   { label: 'Home',                href: '/'                  },
+//   { label: 'News',                href: '/news'              },
+//   { label: 'Real Estate',         href: '/real-estate'       },
+//   { label: 'Automobiles',         href: '/automobiles'       },
+//   { label: 'Jewellery & Watches', href: '/jewellery-watches' },
+//   { label: 'Weddings',            href: '/weddings'          },
+//   { label: 'Curated Partners',    href: '/curated-partners'  },
+//   { label: 'Partner With Us',     href: '/partner-with-us'   },
+//   { label: 'About',               href: '/about'             },
+// ];
+
+// // ── PARTNER BRANDS ───────────────────────────────────────────────
+// const PARTNERS = [
+//   { name: 'Lodha Group',       logo: '/images/partner-lodha.png'   },
+//   { name: 'DLF Luxury',        logo: '/images/partner-dlf.png'     },
+//   { name: 'Rolls-Royce India', logo: '/images/partner-rr.png'      },
+//   { name: 'Tanishq',           logo: '/images/partner-tanishq.png' },
+//   { name: 'Sabyasachi',        logo: '/images/partner-sabya.png'   },
+//   { name: 'Oberoi Hotels',     logo: '/images/partner-oberoi.png'  },
+// ];
+
+// // ── WHY ILH ──────────────────────────────────────────────────────
+// const WHY_ILH = [
+//   { icon: '◈', title: 'Curated Luxury Intelligence',  desc: "Only the most refined, relevant, and authoritative luxury content — curated for India's discerning audience." },
+//   { icon: '◈', title: 'Trusted Premium Network',       desc: "A vetted ecosystem of India's most respected luxury businesses and global brands."                          },
+//   { icon: '◈', title: 'India-Focused Global Lens',     desc: 'Global luxury seen through an India-first perspective — aspirational, relevant, and deeply resonant.'       },
+//   { icon: '◈', title: 'Business Growth Opportunities', desc: "Bespoke visibility packages designed to connect premium brands with India's luxury consumers."               },
+// ];
+
+// // ── FORMAT DATE ──────────────────────────────────────────────────
+// function formatDate(iso: string): string {
+//   try {
+//     return new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+//   } catch {
+//     return iso;
+//   }
+// }
+
+// // ── ILH LOGO SVG ─────────────────────────────────────────────────
+// function ILHLogo({ size = 36 }: { size?: number }) {
+//   const gold = '#C9A84C';
+//   const emerald = '#2A7A6A';
+//   return (
+//     <svg width={size} height={size} viewBox="0 0 80 80" fill="none">
+//       <path d="M40 62C40 62 34 50 33 40C32 30 36 22 40 18C44 14 50 14 52 20C54 26 48 32 44 37C40 42 40 48 42 54C44 60 40 62 40 62Z" fill={gold} opacity="0.9"/>
+//       <path d="M44 28C52 20 64 16 66 20C68 24 62 32 54 36C48 39 44 36 44 36" stroke={gold} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+//       <path d="M42 34C50 22 62 12 68 14C72 16 68 28 60 34C54 38 42 36 42 36" stroke={gold} strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.5"/>
+//       <ellipse cx="30" cy="44" rx="5" ry="2.5" fill={emerald} transform="rotate(-30 30 44)" opacity="0.8"/>
+//       <ellipse cx="26" cy="50" rx="5" ry="2.5" fill={emerald} transform="rotate(-20 26 50)" opacity="0.7"/>
+//       <ellipse cx="28" cy="38" rx="4.5" ry="2" fill={emerald} transform="rotate(-45 28 38)" opacity="0.7"/>
+//       <circle cx="52" cy="12" r="1.5" fill={gold}/>
+//       <circle cx="56" cy="10" r="1.2" fill={gold} opacity="0.8"/>
+//     </svg>
+//   );
+// }
+
+// // ── BLOG CARD ────────────────────────────────────────────────────
+// // function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
+// //   const [hov, setHov] = useState(false);
+// //   const catSlug = CAT_SLUG_MAP[post.category] ?? post.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/--+/g, '-');
+// //   const imgSrc = post.coverImage
+// //     ? post.coverImage.startsWith('http')
+// //       ? post.coverImage
+// //       : post.coverImage.startsWith('/uploads/')
+// //         ? `https://shivmani-baceknd.onrender.com${post.coverImage}`
+// //         : `https://shivmani-baceknd.onrender.com/uploads/${post.coverImage}`
+// //     : CAT_IMAGE_MAP[post.category] ?? '/images/real-estate.jpg';
+
+// //   return (
+// //     <Link
+// //       href={`/${catSlug}/${post.slug}`}
+// //       style={{ display: 'block', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
+// //       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+// //     >
+// //       {/* Image */}
+// //       <div style={{ position: 'relative', paddingBottom: big ? '56%' : '62%', overflow: 'hidden', background: '#1A1A1A' }}>
+// //         <Image src={imgSrc} alt={post.title} fill
+// //           style={{ objectFit: 'cover', transition: 'transform .6s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}
+// //           sizes={big ? '60vw' : '33vw'}
+// //           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+// //         />
+// //         {big && <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 55%)' }} />}
+// //         <span style={{ position: 'absolute', top: 14, left: 14, fontSize: 8, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '5px 10px', border: '1px solid rgba(201,168,76,0.25)' }}>
+// //           {post.category}
+// //         </span>
+// //       </div>
+
+// //       {/* Content */}
+// //       <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px' }}>
+// //         <div style={{ width: hov ? 40 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
+// //         <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 22 : 17, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+// //           {post.title}
+// //         </h3>
+// //         <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+// //           {post.excerpt}
+// //         </p>
+// //         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
+// //           <div>
+// //             <span style={{ fontSize: 9, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
+// //             <span style={{ fontSize: 9, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+// //           </div>
+// //           <span style={{ fontSize: 9, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+// //         </div>
+// //       </div>
+// //     </Link>
+// //   );
+// // }
+// function BlogCard({ post, big = false }: { post: Post; big?: boolean }) {
+//   const [hov, setHov] = useState(false);
+//   const catSlug = CAT_SLUG_MAP[post.category] ?? post.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/--+/g, '-');
+//   const imgSrc = post.coverImage
+//     ? post.coverImage.startsWith('http')
+//       ? post.coverImage
+//       : post.coverImage.startsWith('/uploads/')
+//         ? `https://api.indianluxuryhouse.com${post.coverImage}`
+//         : `https://api.indianluxuryhouse.com/uploads/${post.coverImage}`
+//     : CAT_IMAGE_MAP[post.category] ?? '/images/real-estate.jpg';
+
+//   return (
+//     <Link
+//       href={`/${catSlug}/${post.slug}`}
+//       style={{  display: 'flex', 
+//     flexDirection: 'column', textDecoration: 'none', background: hov ? '#F5F0E8' : '#FAFAF8', transition: 'background .2s', height: '100%', border: '1px solid rgba(0,0,0,0.06)' }}
+//       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+//     >
+//       {/* Image */}
+//       <div style={{ position: 'relative', paddingBottom: big ? '62%' : '62%', overflow: 'hidden', background: '#1A1A1A' }}>
+//         <img
+//           src={imgSrc}
+//           alt={post.title}
+//           style={{
+//             position: 'absolute', inset: 0,
+//             width: '100%', height: '100%',
+//             objectFit: 'cover',
+//             transition: 'transform .6s',
+//             transform: hov ? 'scale(1.05)' : 'scale(1)'
+//           }}
+//           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+//         />
+//         {big && <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 55%)' }} />}
+//         <span style={{ position: 'absolute', top: 14, left: 14, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A84C', background: 'rgba(10,10,10,0.85)', padding: '5px 10px', border: '1px solid rgba(201,168,76,0.25)' }}>
+//           {post.category}
+//         </span>
+//       </div>
+
+//       {/* Content */}
+//       {/* <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px' }}>
+//         <div style={{ width: hov ? 40 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
+//         <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 30 : 25, lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+//           {post.title}
+//         </h3>
+//         <p style={{ fontSize: 15, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+//           {post.excerpt}
+//         </p>
+//         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12 }}>
+//           <div>
+//             <span style={{ fontSize: 13, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', marginRight: 4 }}>By</span>
+//             <span style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500 }}>{post.author}</span>
+//           </div>
+//           <span style={{ fontSize: 13, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+//         </div>
+// \
+//       </div> */}
+//       {/* Content */}
+// <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px', display: 'flex', flexDirection: 'column', flex: '1 1 auto' }}>
+//   <div style={{ width: hov ? 40 : 20, height: 1, background: '#C9A84C', marginBottom: 14, transition: 'width .35s ease' }} />
+//   <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: big ? 28 : 23
+//     , lineHeight: 1.4, color: hov ? '#8B6914' : '#1A1A1A', marginBottom: 10, transition: 'color .25s', letterSpacing: '0.01em', display: '-webkit-box', WebkitLineClamp: big ? 2 : 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+//     {post.title}
+//   </h3>
+//   <p style={{ fontSize: 16, color: '#6B6560', lineHeight: 1.75, marginBottom: 16, fontWeight: 300, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+//     {post.excerpt}
+//   </p>
+//   {/* Author/Date - always at bottom */}
+//   <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: 8, borderTop: '1px solid rgba(201,168,76,0.1)', paddingTop: 12, overflow: 'hidden' }}>
+//     <span style={{ fontSize: 13, letterSpacing: '0.1em', color: 'rgba(107,101,88,0.5)', whiteSpace: 'nowrap' }}>By</span>
+//     <span style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: '1 1 auto', minWidth: 0 }}>{post.author}</span>
+//     <span style={{ fontSize: 13, color: 'rgba(107,101,88,0.45)', letterSpacing: '0.04em', whiteSpace: 'nowrap', flex: '0 0 auto' }}>{formatDate(post.createdAt)} · {post.readTime} min</span>
+//   </div>
+// </div>
+//     </Link>
+//   );
+// }
+// // ── CATEGORY CARD ────────────────────────────────────────────────
+// function CategoryCard({ cat }: { cat: Cat }) {
+//   const [hov, setHov] = useState(false);
+//   return (
+//     <Link href={`/${cat.slug}`}
+//       style={{ display: 'block', textDecoration: 'none', overflow: 'hidden', position: 'relative', cursor: 'pointer' }}
+//       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+//     >
+//       <div style={{ position: 'relative', paddingBottom: '70%', background: '#1A1A1A', overflow: 'hidden' }}>
+//         <Image src={cat.heroImage} alt={cat.name} fill
+//           style={{ objectFit: 'cover', transition: 'transform .7s ease', transform: hov ? 'scale(1.08)' : 'scale(1)' }}
+//           sizes="(max-width:768px) 100vw, 20vw"
+//           onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+//         />
+//         <div style={{ position: 'absolute', inset: 0, background: hov ? 'rgba(0,0,0,0.55)' : 'rgba(0,0,0,0.38)', transition: 'background .4s' }} />
+//         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 3, background: '#C9A84C', transform: hov ? 'scaleX(1)' : 'scaleX(0)', transition: 'transform .4s ease', transformOrigin: 'left' }} />
+//         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', padding: '0 20px 28px', textAlign: 'center' }}>
+//           <span style={{ fontSize: 32, marginBottom: 10, filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.6))', transform: hov ? 'translateY(-6px)' : 'translateY(0)', transition: 'transform .35s' }}>{cat.icon}</span>
+//           <h3 style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: 18, color: '#fff', letterSpacing: '0.03em', lineHeight: 1.2, textShadow: '0 2px 12px rgba(0,0,0,0.7)', transform: hov ? 'translateY(-4px)' : 'translateY(0)', transition: 'transform .35s', margin: 0 }}>{cat.name}</h3>
+//           <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.55)', margin: '6px 0 0', fontWeight: 300, letterSpacing: '0.04em', opacity: hov ? 1 : 0, transform: hov ? 'translateY(0)' : 'translateY(6px)', transition: 'opacity .35s, transform .35s' }}>{cat.description}</p>
+//         </div>
+//       </div>
+//     </Link>
+//   );
+// }
+
+// // ── SKELETON LOADER ──────────────────────────────────────────────
+// function BlogSkeleton({ big = false }: { big?: boolean }) {
+//   return (
+//     <div style={{ background: '#FAFAF8', border: '1px solid rgba(0,0,0,0.06)', height: '100%' }}>
+//       <div style={{ paddingBottom: big ? '56%' : '62%', background: 'linear-gradient(90deg, #f0ebe0 25%, #e8e2d4 50%, #f0ebe0 75%)', backgroundSize: '200% 100%', animation: 'shimmer 1.5s infinite' }} />
+//       <div style={{ padding: big ? '24px 26px 26px' : '18px 20px 20px' }}>
+//         <div style={{ height: 1, width: 20, background: '#C9A84C', marginBottom: 14 }} />
+//         <div style={{ height: 16, background: '#e8e2d4', borderRadius: 2, marginBottom: 8, width: '90%' }} />
+//         <div style={{ height: 16, background: '#e8e2d4', borderRadius: 2, marginBottom: 16, width: '70%' }} />
+//         <div style={{ height: 12, background: '#ede8dd', borderRadius: 2, width: '60%' }} />
+//       </div>
+//       <style>{`@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }`}</style>
+//     </div>
+//   );
+// }
+
+// // ── HOME PAGE ─────────────────────────────────────────────────────
+// export default function HomePage() {
+//   const [posts, setPosts]     = useState<Post[]>([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError]     = useState<string | null>(null);
+
+//   // Hero slideshow
+//   const HERO_IMAGES = ['/images/heroimg-1.png', '/images/heroimg-2.png'];
+//   const [heroIdx, setHeroIdx] = useState(0);
+//   const [prevIdx, setPrevIdx] = useState<number | null>(null);
+//   const [fading, setFading]   = useState(false);
+
+//   // ── Fetch API data ──────────────────────────────────────────────
+//   useEffect(() => {
+//     const fetchPosts = async () => {
+//       try {
+//         setLoading(true);
+//         setError(null);
+//         const res = await fetch('https://api.indianluxuryhouse.com/api/editorials');
+//         if (!res.ok) throw new Error(`Server error: ${res.status}`);
+//         const data: Post[] = await res.json();
+//         const published = data.filter(p => p.isPublished);
+//         setPosts(published);
+//       } catch (err) {
+//         console.error('API fetch error:', err);
+//         setError('Could not load articles. Please try again later.');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+//     fetchPosts();
+//   }, []);
+
+//   // ── Hero slideshow logic ────────────────────────────────────────
+//   useEffect(() => {
+//     const timer = setInterval(() => {
+//       const current = heroIdx;
+//       setPrevIdx(current);
+//       setFading(true);
+//       setTimeout(() => {
+//         setHeroIdx(i => (i + 1) % HERO_IMAGES.length);
+//         setFading(false);
+//         setPrevIdx(null);
+//       }, 1200);
+//     }, 30000);
+//     return () => clearInterval(timer);
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [heroIdx]);
+
+//   const goToSlide = (i: number) => {
+//     if (i === heroIdx) return;
+//     setPrevIdx(heroIdx);
+//     setFading(true);
+//     setTimeout(() => { setHeroIdx(i); setFading(false); setPrevIdx(null); }, 1200);
+//   };
+
+//   // ── Blog selection logic — 9 posts total ───────────────────────
+//   const getHeroPost = (): Post | null => {
+//     if (posts.length === 0) return null;
+//     const sorted = [...posts].sort((a, b) => {
+//       const pa = a.homepage?.heroPriority ?? 999;
+//       const pb = b.homepage?.heroPriority ?? 999;
+//       return pa - pb;
+//     });
+//     return sorted[0];
+//   };
+
+//   const heroPost = getHeroPost();
+
+//   // 9 posts sorted by priority, latest first as tiebreaker
+//   const sortedPosts = [...posts].sort((a, b) => {
+//     const pa = a.homepage?.heroPriority ?? a.homepage?.featuredRank ?? 999;
+//     const pb = b.homepage?.heroPriority ?? b.homepage?.featuredRank ?? 999;
+//     if (pa !== pb) return pa - pb;
+//     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+//   });
+
+//   // Hero post hata ke baaki 8 lo
+//   const remainingPosts = sortedPosts.filter(p => p._id !== heroPost?._id);
+//   const secondaryPosts = remainingPosts.slice(0, 2); // top row ke 2
+//   const middlePosts    = remainingPosts.slice(2, 5); // middle row ke 3
+//   const bottomPosts    = remainingPosts.slice(5, 8); // bottom row ke 3
+
+//   return (
+//     <>
+//       <main>
+
+//         {/* ══ SECTION 1: HERO ══════════════════════════════════ */}
+//         <section style={{ position: 'relative', height: '100vh', minHeight: 680, maxHeight: 960, background: '#0A0A0A', overflow: 'hidden' }}>
+//           {prevIdx !== null && (
+//             <Image src={HERO_IMAGES[prevIdx]} alt="ILH Hero" fill priority
+//               style={{ objectFit: 'cover', objectPosition: 'center top', opacity: fading ? 0 : 1, transition: 'opacity 1.2s ease-in-out', zIndex: 1 }} quality={95} />
+//           )}
+//           <Image key={heroIdx} src={HERO_IMAGES[heroIdx]} alt="ILH Hero" fill priority
+//             style={{ objectFit: 'cover', objectPosition: 'center top', opacity: fading ? 0 : 1, transition: 'opacity 1.2s ease-in-out', zIndex: 2 }} quality={95} />
+
+//           <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 40%, transparent 70%)' }} />
+//           <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to right, rgba(10,10,10,0.25), transparent 60%)' }} />
+
+//           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', textAlign: 'center', padding: '0 24px 120px' }}>
+//             {/* <p style={{ fontSize: 14, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', marginBottom: 18, animation: 'hFadeUp .8s .1s ease both' }}>
+//               Where India Meets Global Luxury
+//             </p> */}
+//             <p style={{ 
+//   fontSize: 14, 
+//   letterSpacing: '0.5em', 
+//   textTransform: 'uppercase', 
+//   color: '#FFFFFF',           // white
+//   textShadow: '0 2px 16px rgba(0,0,0,0.9)',
+//   fontWeight: 600,
+//   marginBottom: 18, 
+//   animation: 'hFadeUp .8s .1s ease both' 
+// }}>
+//   Where India Meets Global Luxury
+// </p>
+//             <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(36px, 7vw, 88px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.08, marginBottom: 22, animation: 'hFadeUp .8s .2s ease both', letterSpacing: '0.015em' }}>
+//               Discover the Finest<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>in Indian Luxury</em>
+//             </h1>
+//             <p style={{ 
+//   fontSize: 17, 
+//   color: 'rgba(250,250,248,0.92)', 
+//   fontWeight: 400, 
+//   letterSpacing: '0.04em', 
+//   marginBottom: 40, 
+//   animation: 'hFadeUp .8s .3s ease both', 
+//   maxWidth: 560,
+//   textShadow: '0 2px 12px rgba(0,0,0,0.9)'
+// }}>
+//               Real estate, automobiles, jewellery, weddings, and curated luxury experiences — through an India-first lens.
+//             </p>
+//             <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', animation: 'hFadeUp .8s .4s ease both' }}>
+//               <a href="#categories"
+//                 style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '14px 32px', textDecoration: 'none', fontWeight: 600, transition: 'all .3s' }}
+//                 onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
+//                 onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
+//               >Explore Categories</a>
+//               <Link href="/partner-with-us"
+//                 style={{ fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.5)', padding: '14px 32px', textDecoration: 'none', transition: 'all .3s' }}
+//                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.1)'; e.currentTarget.style.borderColor = '#C9A84C'; }}
+//                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.5)'; }}
+//               >Partner With Us</Link>
+//             </div>
+//           </div>
+
+//           <div style={{ position: 'absolute', bottom: 36, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 10, zIndex: 10 }}>
+//             {HERO_IMAGES.map((_, i) => (
+//               <button key={i} onClick={() => goToSlide(i)} aria-label={`Slide ${i + 1}`}
+//                 style={{ width: i === heroIdx ? 28 : 8, height: 8, borderRadius: 4, background: i === heroIdx ? '#C9A84C' : 'rgba(201,168,76,0.3)', border: 'none', cursor: 'pointer', padding: 0, transition: 'all 0.4s ease', outline: 'none' }} />
+//             ))}
+//           </div>
+//           <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 1, height: 60, background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.6))', zIndex: 10 }} />
+//         </section>
+
+//         <style>{`
+//           @keyframes hFadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+//           @media(max-width:767px){
+//             .ilh-grid-5{grid-template-columns:1fr!important}
+//             .ilh-grid-3{grid-template-columns:1fr!important}
+//             .ilh-grid-4{grid-template-columns:repeat(2,1fr)!important}
+//             .ilh-grid-why{grid-template-columns:1fr!important}
+//           }
+//           @media(min-width:768px) and (max-width:1023px){
+//             .ilh-grid-5{grid-template-columns:repeat(2,1fr)!important}
+//             .ilh-grid-3{grid-template-columns:repeat(2,1fr)!important}
+//             .ilh-grid-4{grid-template-columns:repeat(2,1fr)!important}
+//             .ilh-grid-why{grid-template-columns:repeat(2,1fr)!important}
+//           }
+//         `}</style>
+
+//         {/* ══ SECTION 2: CATEGORIES ════════════════════════════ */}
+//         <section id="categories" style={{ background: '#0A0A0A', padding: '80px 32px', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+//           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+//             <div style={{ textAlign: 'center', marginBottom: 48 }}>
+//               <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 12 }}>Explore</p>
+//               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 300, color: '#FAFAF8', letterSpacing: '0.02em' }}>Our Categories</h2>
+//               <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
+//             </div>
+//             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 12 }} className="ilh-grid-5">
+//               {CATS.map(cat => <CategoryCard key={cat.slug} cat={cat} />)}
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* ══ SECTION 3: TRENDING STORIES (9 BLOGS) ═══════════ */}
+//         <section style={{ background: '#FAFAF8', padding: '80px 32px' }}>
+//           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+//             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 40, borderBottom: '1px solid rgba(201,168,76,0.15)', paddingBottom: 20 }}>
+//               <div>
+//                 <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color:  '#DFC27A',fontWeight: 600 , marginBottom: 10 }}>Latest from the World of Luxury</p>
+//                 <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Trending Stories</h2>
+//               </div>
+//               <Link href="/news" style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.4)', paddingBottom: 2, flexShrink: 0 }}>
+//                 All News →
+//               </Link>
+//             </div>
+
+//             {/* Error state */}
+//             {error && (
+//               <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.6)' }}>
+//                 <p style={{ fontFamily: 'Georgia, serif', fontSize: 18, marginBottom: 8 }}>Unable to load articles</p>
+//                 <p style={{ fontSize: 13 }}>{error}</p>
+//               </div>
+//             )}
+
+//             {/* Loading skeletons — 9 total */}
+//             {loading && !error && (
+//               <>
+//                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }} className="ilh-grid-3">
+//                   <BlogSkeleton big />
+//                   <BlogSkeleton />
+//                   <BlogSkeleton />
+//                 </div>
+//                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }} className="ilh-grid-3">
+//                   <BlogSkeleton />
+//                   <BlogSkeleton />
+//                   <BlogSkeleton />
+//                 </div>
+//                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="ilh-grid-3">
+//                   <BlogSkeleton />
+//                   <BlogSkeleton />
+//                   <BlogSkeleton />
+//                 </div>
+//               </>
+//             )}
+
+//             {/* Actual posts — 9 blogs (1 hero big + 8 normal) */}
+//             {!loading && !error && (
+//               <>
+//                 {sortedPosts.length === 0 ? (
+//                   <div style={{ textAlign: 'center', padding: '60px 0', color: 'rgba(107,101,88,0.5)' }}>
+//                     <p style={{ fontFamily: 'Georgia, serif', fontSize: 18 }}>No articles published yet.</p>
+//                   </div>
+//                 ) : (
+//                   <>
+//                     {/* Top row: Hero post (big) + 2 secondary */}
+//                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20,alignItems: 'stretch' }} className="ilh-grid-3">
+//                       {heroPost && <BlogCard post={heroPost} big />}
+//                       {secondaryPosts.map(p => <BlogCard key={p._id} post={p} />)}
+//                     </div>
+
+//                     {/* Middle row: 3 posts */}
+//                     {middlePosts.length > 0 && (
+//                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20,alignItems: 'stretch' }} className="ilh-grid-3">
+//                         {middlePosts.map(p => <BlogCard key={p._id} post={p} />)}
+//                       </div>
+//                     )}
+
+//                     {/* Bottom row: 3 posts */}
+//                     {bottomPosts.length > 0 && (
+//                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 ,alignItems: 'stretch'}} className="ilh-grid-3">
+//                         {bottomPosts.map(p => <BlogCard key={p._id} post={p} />)}
+//                       </div>
+//                     )}
+//                   </>
+//                 )}
+//               </>
+//             )}
+//           </div>
+//         </section>
+
+//         {/* ══ SECTION 4: PARTNERS ══════════════════════════════ */}
+//         {/* <section style={{ background: '#0A0A0A', padding: '72px 32px', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+//           <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
+//             <p style={{ fontSize: 9, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 14 }}>Our Network</p>
+//             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 300, color: '#FAFAF8', marginBottom: 48, letterSpacing: '0.02em' }}>
+//               Trusted by India&apos;s Premium Businesses
+//             </h2>
+//             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 1, border: '1px solid rgba(201,168,76,0.1)' }} className="ilh-grid-4">
+//               {PARTNERS.map((p, i) => (
+//                 <div key={p.name}
+//                   style={{ padding: '32px 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: i < 5 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'background .25s', cursor: 'pointer' }}
+//                   onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,168,76,0.05)')}
+//                   onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+//                 >
+//                   <div style={{ textAlign: 'center' }}>
+//                     <div style={{ width: 48, height: 48, background: 'rgba(201,168,76,0.1)', borderRadius: '50%', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+//                       <span style={{ fontSize: 18, color: '#C9A84C' }}>◈</span>
+//                     </div>
+//                     <p style={{ fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.45)', margin: 0 }}>{p.name}</p>
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+//             <Link href="/curated-partners"
+//               style={{ display: 'inline-block', marginTop: 40, fontSize: 9, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.3)', paddingBottom: 2, transition: 'color .2s' }}
+//               onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
+//               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.6)')}
+//             >View All Partners →</Link>
+//           </div>
+//         </section> */}
+//         <section style={{ background: '#0A0A0A', padding: '72px 32px', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+//   <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
+//     <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', marginBottom: 14 }}>Our Network</p>
+//     <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 300, color: '#FAFAF8', marginBottom: 48, letterSpacing: '0.02em' }}>
+//       Trusted by India&apos;s Premium Businesses
+//     </h2>
+//     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 1, border: '1px solid rgba(201,168,76,0.1)' }} className="ilh-grid-4">
+//       {PARTNERS.map((p, i) => (
+//         <div key={p.name}
+//           style={{ padding: '32px 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: i < 5 ? '1px solid rgba(201,168,76,0.08)' : 'none', transition: 'background .25s', cursor: 'pointer' }}
+//           onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,168,76,0.05)')}
+//           onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+//         >
+//           <div style={{ textAlign: 'center' }}>
+//             <div style={{ width: 56, height: 56, background: 'rgba(201,168,76,0.1)', borderRadius: '50%', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+//               <span style={{ fontSize: 22, color: '#C9A84C' }}>◈</span>
+//             </div>
+//             <p style={{ fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', margin: 0 }}>{p.name}</p>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//     <Link href="/curated-partners"
+//       style={{ display: 'inline-block', marginTop: 40, fontSize: 13, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', textDecoration: 'none', borderBottom: '1px solid rgba(201,168,76,0.3)', paddingBottom: 2, transition: 'color .2s' }}
+//       onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
+//       onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,168,76,0.6)')}
+//     >View All Partners →</Link>
+//   </div>
+// </section>
+
+//         {/* ══ SECTION 5: WHY ILH ═══════════════════════════════ */}
+//         {/* <section style={{ background: '#FAFAF8', padding: '88px 32px' }}>
+//           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+//             <div style={{ textAlign: 'center', marginBottom: 60 }}>
+//               <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Our Promise</p>
+//               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Why Indian Luxury House</h2>
+//               <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
+//             </div>
+//             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }} className="ilh-grid-why">
+//               {WHY_ILH.map((item, i) => (
+//                 <div key={i}
+//                   style={{ padding: '40px 32px', background: '#fff', border: '1px solid rgba(201,168,76,0.1)', transition: 'all .3s', cursor: 'default' }}
+//                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = '#0A0A0A'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.3)'; }}
+//                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = '#fff'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.1)'; }}
+//                 >
+//                   <div style={{ fontSize: 28, color: '#C9A84C', marginBottom: 20, opacity: 0.8 }}>{item.icon}</div>
+//                   <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 18, fontWeight: 400, color: 'inherit', marginBottom: 14, letterSpacing: '0.01em', lineHeight: 1.35 }}>{item.title}</h3>
+//                   <p style={{ fontSize: 13, color: 'rgba(107,101,88,0.75)', lineHeight: 1.8, fontWeight: 300 }}>{item.desc}</p>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         </section> */}
+//         <section style={{ background: '#FAFAF8', padding: '88px 32px' }}>
+//   <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+//     <div style={{ textAlign: 'center', marginBottom: 60 }}>
+//       <p style={{ fontSize: 20, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 12 }}>Our Promise</p>
+//       <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.01em' }}>Why Indian Luxury House</h2>
+//       <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', margin: '20px auto 0' }} />
+//     </div>
+//     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }} className="ilh-grid-why">
+//       {WHY_ILH.map((item, i) => (
+//         <div key={i}
+//           style={{ padding: '40px 32px', background: '#fff', border: '1px solid rgba(201,168,76,0.1)', transition: 'all .3s', cursor: 'default' }}
+//           onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = '#0A0A0A'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.3)'; }}
+//           onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = '#fff'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,168,76,0.1)'; }}
+//         >
+//           <div style={{ fontSize: 28, color: '#C9A84C', marginBottom: 20, opacity: 0.8 }}>{item.icon}</div>
+//           <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 25, fontWeight: 400, color: 'inherit', marginBottom: 14, letterSpacing: '0.01em', lineHeight: 1.35 }}>{item.title}</h3>
+//           <p style={{ fontSize: 16, color: 'rgba(107,101,88,0.75)', lineHeight: 1.8, fontWeight: 300 }}>{item.desc}</p>
+//         </div>
+//       ))}
+//     </div>
+//   </div>
+// </section>
+
+//         {/* ══ SECTION 6: CTA ═══════════════════════════════════ */}
+//         {/* <section style={{ background: '#0A0A0A', padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
+//           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
+//           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
+//           <div style={{ position: 'absolute', right: -120, top: '50%', transform: 'translateY(-50%)', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(42,122,106,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+//           <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+//             <p style={{ fontSize: 9, letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', marginBottom: 18 }}>Grow With Us</p>
+//             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 60px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.15, marginBottom: 22, letterSpacing: '0.01em' }}>
+//               Build Your Presence in<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>India&apos;s Luxury Market</em>
+//             </h2>
+//             <p style={{ fontSize: 14, color: 'rgba(250,250,248,0.4)', fontWeight: 300, lineHeight: 1.8, marginBottom: 48, maxWidth: 560, margin: '0 auto 48px' }}>
+//               Reach India&apos;s most affluent audience through editorial stories, featured listings, and bespoke brand campaigns — crafted for luxury.
+//             </p>
+//             <Link href="/partner-with-us"
+//               style={{ display: 'inline-block', fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 48px', textDecoration: 'none', fontWeight: 700, transition: 'all .3s' }}
+//               onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
+//               onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
+//             >Partner With Us</Link>
+//           </div>
+//         </section> */}
+//         <section style={{ background: '#0A0A0A', padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
+//   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
+//   <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)', opacity: 0.4 }} />
+//   <div style={{ position: 'absolute', right: -120, top: '50%', transform: 'translateY(-50%)', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(42,122,106,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+//   <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+//     <p style={{ fontSize: 20, letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.55)', marginBottom: 18 }}>Grow With Us</p>
+//     <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 60px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.15, marginBottom: 22, letterSpacing: '0.01em' }}>
+//       Build Your Presence in<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>India&apos;s Luxury Market</em>
+//     </h2>
+//     <p style={{ fontSize: 17, color: 'rgba(250,250,248,0.4)', fontWeight: 300, lineHeight: 1.8, marginBottom: 48, maxWidth: 560, margin: '0 auto 48px' }}>
+//       Reach India&apos;s most affluent audience through editorial stories, featured listings, and bespoke brand campaigns — crafted for luxury.
+//     </p>
+//     <Link href="/partner-with-us"
+//       style={{ display: 'inline-block', fontSize: 13, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#1A1A1A', background: '#C9A84C', padding: '16px 48px', textDecoration: 'none', fontWeight: 700, transition: 'all .3s' }}
+//       onMouseEnter={e => { e.currentTarget.style.background = '#DFC27A'; }}
+//       onMouseLeave={e => { e.currentTarget.style.background = '#C9A84C'; }}
+//     >Partner With Us</Link>
+//   </div>
+// </section>
+
+//       </main>
+//     </>
+//   );
+// }
 
 
 

@@ -41,3 +41,13 @@ body {
 /* ── Cream background utility ── */
 .bg-cream      { background-color: #FAF7F0; }
 .bg-cream-dark { background-color: #F0EBE0; }
+
+/* ── Horizontal scroll fix ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
