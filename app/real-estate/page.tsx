@@ -370,7 +370,7 @@ export default function RealEstatePage() {
       <main>
 
         {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
-        <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
+        {/* <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
           <Image src="/images/real-estate.jpg" alt="Luxury Real Estate India" fill priority
             style={{ objectFit: 'cover', objectPosition: 'center' }} quality={95}
           />
@@ -389,7 +389,7 @@ export default function RealEstatePage() {
             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em', animation: 'reFadeUp .8s .2s ease both' }}>
               Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Real Estate</em>
             </h1>
-            <p style={{ fontSize: 16, color: 'rgba(250,250,248,0.5)', fontWeight: 300, lineHeight: 1.75, maxWidth: 540, marginBottom: 44, letterSpacing: '0.02em', animation: 'reFadeUp .8s .3s ease both' }}>
+            <p style={{ fontSize: 16, color: 'rgba(250,250,248,0.8)', fontWeight: 300, lineHeight: 1.75, maxWidth: 540, marginBottom: 44, letterSpacing: '0.02em', animation: 'reFadeUp .8s .3s ease both' }}>
               India&apos;s finest residences and global investment opportunities — villas, penthouses, and branded estates curated for the discerning few.
             </p>
 
@@ -404,7 +404,29 @@ export default function RealEstatePage() {
             <span style={{ fontSize: 8, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', writingMode: 'vertical-rl' }}>Scroll</span>
             <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)' }} />
           </div>
-        </section>
+        </section> */}
+<section className="ilh-re-hero">
+  <img
+    src="/images/real-estate.jpg"
+    alt="Luxury Real Estate India"
+  />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.0) 100%)' }} />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(110deg, rgba(0,0,0,0.4) 0%, transparent 55%)' }} />
+
+<div className="ilh-re-hero-text" style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 900 }}>
+  <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#F0C040', marginBottom: 18, fontWeight: 700, textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
+  Indian Luxury House
+</p>
+    <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 300, color: '#FFFFFF', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em' }}>
+      Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Real Estate</em>
+    </h1>
+  </div>
+
+  <div style={{ position: 'absolute', bottom: 36, right: 60, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+    <span style={{ fontSize: 8, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9A84C', writingMode: 'vertical-rl' }}>Scroll</span>
+    <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, #C9A84C, transparent)' }} />
+  </div>
+</section>
 
         <style>{`
           @keyframes reFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
@@ -419,6 +441,32 @@ export default function RealEstatePage() {
           .ilh-cta-secondary:hover { background: rgba(201,168,76,0.1); border-color: #C9A84C; }
           .ilh-view-all { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #C9A84C; text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.35); padding-bottom: 2px; transition: border-color .2s; }
           .ilh-view-all:hover { border-color: #C9A84C; }
+          /* REAL ESTATE HERO */
+.ilh-re-hero { position: relative; width: 100%; background: #0A0A0A; overflow: hidden; }
+.ilh-re-hero img { width: 100% !important; display: block !important; height: auto !important; }
+
+/* MOBILE */
+@media(max-width:767px){
+  .ilh-re-hero { height: 70vw !important; min-height: 320px !important; }
+  .ilh-re-hero img { 
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    transform: none !important;
+    margin-bottom: 0 !important;
+  }
+  .ilh-re-hero-text { padding: 0 24px 24px !important; }
+  .ilh-re-props     { grid-template-columns: 1fr !important; }
+  .ilh-re-devs      { grid-template-columns: repeat(2,1fr) !important; }
+  .ilh-re-editorial { grid-template-columns: 1fr !important; }
+}
+/* DESKTOP */
+@media(min-width:768px){
+  .ilh-re-hero { height: 100vh; }
+  .ilh-re-hero img { height: 100vh !important; object-fit: cover !important; object-position: center 30% !important; }
+  .ilh-re-hero-text { padding: 0 60px 100px !important; max-width: 900px !important; }
+}
           @media(max-width:767px){
             .ilh-re-props     { grid-template-columns: 1fr !important; }
             .ilh-re-devs      { grid-template-columns: repeat(2,1fr) !important; }
@@ -440,7 +488,7 @@ export default function RealEstatePage() {
                 <h2 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(26px,3.5vw,44px)', fontWeight: 300, color: '#1A1A1A', letterSpacing: '0.02em' }}>Featured Properties</h2>
                 <div style={{ width: 56, height: 1, background: 'linear-gradient(90deg,#C9A84C,transparent)', marginTop: 18 }} />
               </div>
-              <a href="/real-estate/all-properties" className="ilh-view-all">View All Properties →</a>
+              {/* <a href="/real-estate/all-properties" className="ilh-view-all">View All Properties →</a> */}
             </div>
 
             <div style={{ display: 'flex', gap: 0, marginBottom: 36, borderBottom: '1px solid rgba(201,168,76,0.12)', overflowX: 'auto' }}>

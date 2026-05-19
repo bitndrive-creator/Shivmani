@@ -270,8 +270,84 @@ export default function AutomobilesPage() {
     <>
       <main>
 
-        {/* ══ HERO ══════════════════════════════════════════════ */}
-        <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
+       
+       
+{/* ══ HERO ══════════════════════════════════════════════ */}
+<section className="ilh-hero-section">
+  <img 
+    src="/images/automobiles.jpg" 
+    alt="Luxury Automobiles India"
+  />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.2) 40%, rgba(10,10,10,0.0) 100%)' }} />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(110deg, rgba(10,10,10,0.3) 0%, transparent 55%)' }} />
+
+  <div className="ilh-hero-text" style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 24px 60px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: '#C9A84C' }}>
+      <a href="/" className="ilh-breadcrumb-link" style={{ color: '#C9A84C', textDecoration: 'none', fontWeight: 700 }}>Home</a>
+      <span>/</span>
+      <span style={{ fontWeight: 700 }}>Automobiles</span>
+    </div>
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(201,168,76,0.3)', padding: '8px 16px', marginBottom: 20, width: 'fit-content' }}>
+      <span style={{ color: '#C9A84C', fontSize: 16 }}>✦</span>
+      <span style={{ fontSize: 12, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#FAFAF8', fontWeight: 700 }}>Automobiles</span>
+    </div>
+    <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(32px,6vw,72px)', fontWeight: 700, color: '#FAFAF8', lineHeight: 1.1, marginBottom: 18, letterSpacing: '0.015em' }}>
+      Auto<em style={{ color: '#DFC27A', fontStyle: 'italic' }}>mobiles</em>
+    </h1>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, flexWrap: 'wrap' }}>
+      <span style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 700 }}>Indian Luxury House</span>
+      <span style={{ color: 'rgba(201,168,76,0.4)' }}>·</span>
+      {/* <span style={{ fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(250,250,248,0.5)' }}>
+        {new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase()}
+      </span> */}
+    </div>
+    {/* <p style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(250,250,248,0.4)', marginBottom: 0 }}>· Luxury Automobiles India</p> */}
+  </div>
+</section>
+
+<style>{`
+  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+  .ilh-breadcrumb-link { color: inherit; text-decoration: none; transition: color .2s; }
+  .ilh-breadcrumb-link:hover { color: #C9A84C; }
+  .ilh-view-all { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #C9A84C; text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.35); padding-bottom: 2px; transition: border-color .2s; }
+  .ilh-view-all:hover { border-color: #C9A84C; }
+  .ilh-cta-primary { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #1A1A1A; background: #C9A84C; padding: 16px 44px; text-decoration: none; font-weight: 700; transition: background .3s; display: inline-block; }
+  .ilh-cta-primary:hover { background: #DFC27A; }
+  .ilh-cta-secondary { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #C9A84C; border: 1px solid rgba(201,168,76,0.5); padding: 16px 44px; text-decoration: none; transition: all .3s; display: inline-block; }
+  .ilh-cta-secondary:hover { background: rgba(201,168,76,0.08); border-color: #C9A84C; }
+
+  /* HERO */
+  .ilh-hero-section { position: relative; width: 100%; background: #0A0A0A; overflow: hidden; }
+  .ilh-hero-section img { width: 100% !important; display: block !important; height: auto !important; }
+
+  /* MOBILE — text neeche */
+  @media(max-width:767px){
+    .ilh-hero-text { padding: 0 24px 40px !important; }
+    .ilh-auto-launches  { grid-template-columns: 1fr !important; }
+    .ilh-auto-dealers   { grid-template-columns: repeat(2,1fr) !important; }
+    .ilh-auto-editorial { grid-template-columns: 1fr !important; }
+  } 
+    @media(max-width:767px){
+  .ilh-hero-section img { transform: translateY(40px) !important; }
+  .ilh-auto-launches  { grid-template-columns: 1fr !important; }
+  .ilh-auto-dealers   { grid-template-columns: repeat(2,1fr) !important; }
+  .ilh-auto-editorial { grid-template-columns: 1fr !important; }
+}
+
+  /* DESKTOP — full height, car center */
+  @media(min-width:768px){
+    .ilh-hero-section { height: 100vh; }
+    .ilh-hero-section img { height: 100vh !important; object-fit: cover !important; object-position: center 30% !important; }
+    .ilh-hero-text { padding: 0 60px 80px !important; }
+  }
+
+  @media(max-width:480px){ .ilh-auto-dealers { grid-template-columns: 1fr !important; } }
+  @media(min-width:768px) and (max-width:1023px){
+    .ilh-auto-launches { grid-template-columns: repeat(2,1fr) !important; }
+    .ilh-auto-dealers  { grid-template-columns: repeat(2,1fr) !important; }
+  }
+`}</style>
+        {/* <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
           <Image src="/images/automobiles.jpg" alt="Luxury Automobiles India" fill priority style={{ objectFit: 'cover', objectPosition: 'center' }} quality={95} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.4) 45%, rgba(10,10,10,0.1) 100%)' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(110deg, rgba(10,10,10,0.65) 0%, transparent 55%)' }} />
@@ -288,7 +364,18 @@ export default function AutomobilesPage() {
             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em' }}>
               Auto<em style={{ color: '#DFC27A', fontStyle: 'italic' }}>mobiles</em>
             </h1>
-            <p style={{ fontSize: 16, color: 'rgba(250,250,248,0.5)', fontWeight: 300, lineHeight: 1.75, maxWidth: 520, marginBottom: 44, letterSpacing: '0.02em' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: '#C9A84C' }}>
+  <a href="/" className="ilh-breadcrumb-link" style={{ color: '#C9A84C', textDecoration: 'none', fontWeight: 700 }}>Home</a>
+  <span style={{ color: '#C9A84C' }}>/</span>
+  <span style={{ color: '#C9A84C', fontWeight: 700 }}>Automobiles</span>
+</div>
+
+<p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#C9A84C', marginBottom: 18, fontWeight: 700 }}>Indian Luxury House</p>
+
+<h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(44px,8vw,100px)', fontWeight: 700, color: '#FAFAF8', lineHeight: 1.03, marginBottom: 22, letterSpacing: '0.015em' }}>
+  Auto<em style={{ color: '#DFC27A', fontStyle: 'italic' }}>mobiles</em>
+</h1>
+             <p style={{ fontSize: 16, color: 'rgba(250,250,248,0.5)', fontWeight: 300, lineHeight: 1.75, maxWidth: 520, marginBottom: 44, letterSpacing: '0.02em' }}>
               Luxury performance, prestige, and collector culture — the finest cars and motorcycles available in India, curated for connoisseurs.
             </p>
 
@@ -296,38 +383,16 @@ export default function AutomobilesPage() {
               {['New Launches', 'Featured Dealers', 'Editorial'].map(tab => (
                 <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`} className="ilh-hero-tab">{tab}</a>
               ))}
-            </div>
+            </div> 
           </div>
 
           <div style={{ position: 'absolute', bottom: 36, right: 60, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
             <span style={{ fontSize: 8, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', writingMode: 'vertical-rl' }}>Scroll</span>
             <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)' }} />
           </div>
-        </section>
+        </section> */}
 
-        <style>{`
-          @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-          .ilh-breadcrumb-link { color: inherit; text-decoration: none; transition: color .2s; }
-          .ilh-breadcrumb-link:hover { color: #C9A84C; }
-          .ilh-hero-tab { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(201,168,76,0.65); border: 1px solid rgba(201,168,76,0.25); padding: 8px 18px; text-decoration: none; transition: all .25s; }
-          .ilh-hero-tab:hover { background: rgba(201,168,76,0.12); color: #DFC27A; border-color: rgba(201,168,76,0.5); }
-          .ilh-view-all { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #C9A84C; text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.35); padding-bottom: 2px; transition: border-color .2s; }
-          .ilh-view-all:hover { border-color: #C9A84C; }
-          .ilh-cta-primary { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #1A1A1A; background: #C9A84C; padding: 16px 44px; text-decoration: none; font-weight: 700; transition: background .3s; display: inline-block; }
-          .ilh-cta-primary:hover { background: #DFC27A; }
-          .ilh-cta-secondary { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #C9A84C; border: 1px solid rgba(201,168,76,0.5); padding: 16px 44px; text-decoration: none; transition: all .3s; display: inline-block; }
-          .ilh-cta-secondary:hover { background: rgba(201,168,76,0.08); border-color: #C9A84C; }
-          @media(max-width:767px){
-            .ilh-auto-launches  { grid-template-columns: 1fr !important; }
-            .ilh-auto-dealers   { grid-template-columns: repeat(2,1fr) !important; }
-            .ilh-auto-editorial { grid-template-columns: 1fr !important; }
-          }
-          @media(max-width:480px){ .ilh-auto-dealers { grid-template-columns: 1fr !important; } }
-          @media(min-width:768px) and (max-width:1023px){
-            .ilh-auto-launches { grid-template-columns: repeat(2,1fr) !important; }
-            .ilh-auto-dealers  { grid-template-columns: repeat(2,1fr) !important; }
-          }
-        `}</style>
+
 
         {/* ══ NEW LAUNCHES ══════════════════════════════════════ */}
         <section id="new-launches" style={{ background: '#0A0A0A', padding: '88px 32px', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>

@@ -245,7 +245,7 @@ export default function BeautyPage() {
       <main>
 
         {/* ══ HERO ═════════════════════════════════════════════ */}
-        <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
+        {/* <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
           <Image src="/images/beauty-elton.jpg" alt="Luxury Beauty" fill priority
             style={{ objectFit: 'cover', objectPosition: 'center' }} quality={75} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.15) 100%)' }} />
@@ -283,20 +283,74 @@ export default function BeautyPage() {
             <span style={{ fontSize: 8, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', writingMode: 'vertical-rl' }}>Scroll</span>
             <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)' }} />
           </div>
-        </section>
+        </section> */}
+<section className="ilh-b-hero">
+  <img src="/images/beauty-elton.jpg" alt="Luxury Beauty" />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.15) 100%)' }} />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.3), transparent 65%)' }} />
 
-        <style>{`
-          @keyframes bFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-          @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-          @media(max-width:767px){
-            .ilh-b-4  { grid-template-columns: repeat(2,1fr) !important; }
-            .ilh-b-3  { grid-template-columns: 1fr !important; }
-            .ilh-b-ed { grid-template-columns: 1fr !important; }
-          }
-          @media(max-width:480px){
-            .ilh-b-4  { grid-template-columns: 1fr !important; }
-          }
-        `}</style>
+<div className="ilh-b-hero-text" style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 860 }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 22, fontSize: 15, letterSpacing: '0.26em', textTransform: 'uppercase', color: '#C9A84C', textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}>
+    <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+      onMouseEnter={e => (e.currentTarget.style.color = '#DFC27A')}
+      onMouseLeave={e => (e.currentTarget.style.color = '#C9A84C')}
+    >Home</Link>
+    <span>/</span>
+    <span style={{ color: '#DFC27A', fontWeight: 700 }}>Beauty</span>
+  </div>
+  <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#F0C040', marginBottom: 18, fontWeight: 700, textShadow: '0 2px 12px rgba(0,0,0,0.95)' }}>Indian Luxury House</p>
+    <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(42px,8vw,96px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.05, marginBottom: 22, letterSpacing: '0.02em' }}>
+      Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Beauty</em>
+    </h1>
+    {/* <p style={{ fontSize: 15, color: 'rgba(250,250,248,0.5)', fontWeight: 300, lineHeight: 1.75, maxWidth: 520, marginBottom: 40, letterSpacing: '0.02em' }}>
+      India&apos;s finest skincare houses, makeup artists, wellness spas, and beauty rituals — curated for those who demand nothing but the exceptional.
+    </p>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+      {['Brands', 'Artists', 'Wellness Spas', 'Editorial'].map(tab => (
+        <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`}
+          style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
+          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.12)'; e.currentTarget.style.color = '#DFC27A'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.5)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(201,168,76,0.65)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.25)'; }}
+        >{tab}</a>
+      ))}
+    </div> */}
+  </div>
+
+  <div style={{ position: 'absolute', bottom: 36, right: 60, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+    <span style={{ fontSize: 8, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', writingMode: 'vertical-rl' }}>Scroll</span>
+    <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)' }} />
+  </div>
+</section>
+
+<style>{`
+  @keyframes bFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* BEAUTY HERO */
+  .ilh-b-hero { position: relative; width: 100%; background: #0A0A0A; overflow: hidden; }
+  .ilh-b-hero img { width: 100% !important; display: block !important; height: auto !important; }
+
+  /* MOBILE */
+  @media(max-width:767px){
+    .ilh-b-hero { height: 70vw; min-height: 320px; }
+    .ilh-b-hero img { height: 100% !important; object-fit: cover !important; object-position: center 20% !important; }
+    .ilh-b-hero-text { padding: 0 24px 24px !important; max-width: 100% !important; }
+    .ilh-b-4  { grid-template-columns: repeat(2,1fr) !important; }
+    .ilh-b-3  { grid-template-columns: 1fr !important; }
+    .ilh-b-ed { grid-template-columns: 1fr !important; }
+  }
+
+  /* DESKTOP */
+  @media(min-width:768px){
+    .ilh-b-hero { height: 100vh; }
+    .ilh-b-hero img { height: 100vh !important; object-fit: cover !important; object-position: center 30% !important; }
+    .ilh-b-hero-text { padding: 0 60px 100px !important; max-width: 860px !important; }
+  }
+
+  @media(max-width:480px){
+    .ilh-b-4 { grid-template-columns: 1fr !important; }
+  }
+`}</style>
 
         {/* ══ LUXURY BRANDS ════════════════════════════════════ */}
         <section id="brands" style={{ background: '#FAFAF8', padding: '88px 32px' }}>

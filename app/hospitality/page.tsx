@@ -263,9 +263,8 @@ export default function HospitalityPage() {
       <main>
 
         {/* ══ HERO ═════════════════════════════════════════════ */}
-        <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
-          {/* <Image src="/images/hospitality.jpg" alt="Luxury Hospitality" fill priority
-            style={{ objectFit: 'cover', objectPosition: 'center' }} quality={75} /> */}
+        {/* <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
+        
             <img
   src="/images/hosp.jpg"
   alt="Luxury Hospitality"
@@ -292,7 +291,7 @@ export default function HospitalityPage() {
               <span style={{ color: '#C9A84C' }}>Hospitality</span>
             </div> */}
 
-            <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'hFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
+            {/* <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.6)', marginBottom: 18, animation: 'hFadeUp .8s .1s ease both' }}>Indian Luxury House</p>
             <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(42px,8vw,96px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.05, marginBottom: 22, letterSpacing: '0.02em', animation: 'hFadeUp .8s .2s ease both' }}>
               Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Hospitality</em>
             </h1>
@@ -315,20 +314,68 @@ export default function HospitalityPage() {
             <span style={{ fontSize: 14, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', writingMode: 'vertical-rl' }}>Scroll</span>
             <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)' }} />
           </div>
-        </section>
+        </section> */} 
+<section className="ilh-h-hero">
+  <img src="/images/hosp.jpg" alt="Luxury Hospitality" />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.15) 100%)' }} />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.3), transparent 65%)' }} />
 
-        <style>{`
-          @keyframes hFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-          @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-          @media(max-width:767px){
-            .ilh-h-4  { grid-template-columns: repeat(2,1fr) !important; }
-            .ilh-h-3  { grid-template-columns: 1fr !important; }
-            .ilh-h-ed { grid-template-columns: 1fr !important; }
-          }
-          @media(max-width:480px){
-            .ilh-h-4  { grid-template-columns: 1fr !important; }
-          }
-        `}</style>
+  <div className="ilh-h-hero-text" style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 860 }}>
+    <p style={{ fontSize: 15, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#F0C040', marginBottom: 18, fontWeight: 700, textShadow: '0 2px 12px rgba(0,0,0,0.95)' }}>
+      Indian Luxury House
+    </p>
+    <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(42px,8vw,96px)', fontWeight: 700, color: '#FFFFFF', lineHeight: 1.05, marginBottom: 22, letterSpacing: '0.02em', textShadow: '0 2px 16px rgba(0,0,0,0.9)' }}>
+      Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Hospitality</em>
+    </h1>
+    {/* <p style={{ fontSize: 16, color: 'rgba(250,250,248,0.75)', fontWeight: 300, lineHeight: 1.75, maxWidth: 520, marginBottom: 40, letterSpacing: '0.02em', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
+      India&apos;s palace hotels, fine dining destinations, private members&apos; clubs, and extraordinary experiences — curated for those with an eye for the exceptional.
+    </p>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+      {['Hotels', 'Fine Dining', 'Private Clubs', 'Editorial'].map(tab => (
+        <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`}
+          style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.25)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
+          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.12)'; e.currentTarget.style.color = '#DFC27A'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.5)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(201,168,76,0.65)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.25)'; }}
+        >{tab}</a>
+      ))}
+    </div> */}
+  </div>
+
+  <div style={{ position: 'absolute', bottom: 36, right: 60, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+    <span style={{ fontSize: 14, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.3)', writingMode: 'vertical-rl' }}>Scroll</span>
+    <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)' }} />
+  </div>
+</section>
+
+<style>{`
+  @keyframes hFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* HOSPITALITY HERO */
+  .ilh-h-hero { position: relative; width: 100%; background: #0A0A0A; overflow: hidden; }
+  .ilh-h-hero img { width: 100% !important; display: block !important; height: auto !important; }
+
+  /* MOBILE */
+  @media(max-width:767px){
+    .ilh-h-hero { height: 70vw; min-height: 320px; }
+    .ilh-h-hero img { height: 100% !important; object-fit: cover !important; object-position: center 20% !important; }
+    .ilh-h-hero-text { padding: 0 24px 24px !important; max-width: 100% !important; }
+    .ilh-h-4  { grid-template-columns: repeat(2,1fr) !important; }
+    .ilh-h-3  { grid-template-columns: 1fr !important; }
+    .ilh-h-ed { grid-template-columns: 1fr !important; }
+  }
+
+  /* DESKTOP */
+  @media(min-width:768px){
+    .ilh-h-hero { height: 100vh; }
+    .ilh-h-hero img { height: 100vh !important; object-fit: cover !important; object-position: center 30% !important; }
+    .ilh-h-hero-text { padding: 0 60px 100px !important; max-width: 860px !important; }
+  }
+
+  @media(max-width:480px){
+    .ilh-h-4 { grid-template-columns: 1fr !important; }
+  }
+`}</style>
 
         {/* ══ LUXURY HOTELS ════════════════════════════════════ */}
         <section id="hotels" style={{ background: '#FAFAF8', padding: '88px 32px' }}>

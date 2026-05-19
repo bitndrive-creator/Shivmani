@@ -270,14 +270,12 @@ export default function JewelleryWatchesPage() {
           <div style={{ position:'absolute', top:0, right:'30%', width:1, height:'100%', background:'linear-gradient(to bottom,transparent 0%,rgba(201,168,76,0.12) 40%,rgba(201,168,76,0.25) 60%,transparent 100%)', transform:'rotate(8deg)', transformOrigin:'top center' }} />
 
           <div style={{ position:'relative', zIndex:10, height:'100%', display:'flex', flexDirection:'column', justifyContent:'flex-end', padding:'0 80px 100px', maxWidth:780 }}>
-            <p style={{ fontSize:15, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16 }}>Indian Luxury House · Collections</p>
+            {/* <p style={{ fontSize:15, letterSpacing:'0.45em', textTransform:'uppercase', color:'rgba(201,168,76,0.65)', marginBottom:16 }}>Indian Luxury House · Collections</p> */}
             <h1 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(48px,7vw,92px)', fontWeight:300, color:'#FAF7F0', lineHeight:1.05, marginBottom:24, letterSpacing:'0.01em' }}>
               Jewellery<br />&amp; <em style={{ color:'#C9A84C', fontStyle:'italic' }}>Watches</em>
             </h1>
             <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:20 }}>
-              <div style={{ width:56, height:1, background:'rgba(201,168,76,0.5)' }} />
-              <SMLogo size={18} />
-              <div style={{ width:24, height:1, background:'rgba(201,168,76,0.3)' }} />
+              
             </div>
             <p style={{ fontFamily:'Georgia,serif', fontSize:'clamp(16px,2vw,22px)', color:'rgba(250,247,240,0.65)', fontWeight:300, fontStyle:'italic', letterSpacing:'0.04em', marginBottom:36 }}>
               Timeless assets. Enduring style.

@@ -253,7 +253,7 @@ export default function WeddingsPage() {
       <main>
 
         {/* ══ HERO ═════════════════════════════════════════════ */}
-        <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
+        {/* <section style={{ position: 'relative', height: '100vh', minHeight: 640, maxHeight: 920, overflow: 'hidden', background: '#0A0A0A' }}>
           <Image src="/images/hero-weddings.jpg" alt="Luxury Weddings" fill priority style={{ objectFit: 'cover', objectPosition: 'center' }} quality={95} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.35) 100%)' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.4), transparent 65%)' }} />
@@ -262,7 +262,7 @@ export default function WeddingsPage() {
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 860 }}>
 
             {/* ✅ FIX: Breadcrumb — fully visible */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 22, fontSize:14, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.8)', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
+            {/* <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 22, fontSize:14, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.8)', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
               <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.8)')}
@@ -271,7 +271,7 @@ export default function WeddingsPage() {
               <span style={{ color: '#C9A84C', fontWeight: 500 }}>Weddings</span>
             </div>
 
-            {/* ✅ FIX: "Indian Luxury House" — fully visible */}
+           
             <p style={{
               fontSize:14,
               letterSpacing: '0.5em',
@@ -299,31 +299,92 @@ export default function WeddingsPage() {
                 >{tab}</a>
               ))}
             </div>
-          </div>
+          </div> */}
 
-          <div style={{ position: 'absolute', bottom: 36, right: 60, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+          {/* <div style={{ position: 'absolute', bottom: 36, right: 60, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
             <span style={{ fontSize: 8, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', writingMode: 'vertical-rl' }}>Scroll</span>
             <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)' }} />
           </div>
-        </section>
+        </section> */} 
+{/* ══ HERO ═════════════════════════════════════════════ */}
+<section className="ilh-w-hero">
+  <img src="/images/hero-weddings.jpg" alt="Luxury Weddings" />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.35) 100%)' }} />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.4), transparent 65%)' }} />
 
-        <style>{`
-          @keyframes wFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-          @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-          @media(max-width:767px){
-            .ilh-w-designers { grid-template-columns: repeat(2,1fr) !important; }
-            .ilh-w-planners  { grid-template-columns: repeat(2,1fr) !important; }
-            .ilh-w-venues    { grid-template-columns: 1fr !important; }
-            .ilh-w-beauty    { grid-template-columns: repeat(2,1fr) !important; }
-            .ilh-w-editorial { grid-template-columns: 1fr !important; }
-            .ilh-w-blog3     { grid-template-columns: 1fr !important; }
-          }
-          @media(max-width:480px){
-            .ilh-w-designers { grid-template-columns: 1fr !important; }
-            .ilh-w-planners  { grid-template-columns: 1fr !important; }
-            .ilh-w-beauty    { grid-template-columns: 1fr !important; }
-          }
-        `}</style>
+  <div className="ilh-w-hero-text" style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 60px 100px', maxWidth: 860 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 22, fontSize: 14, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.8)', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
+      <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+        onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
+        onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.8)')}
+      >Home</Link>
+      <span style={{ color: 'rgba(201,168,76,0.7)' }}>/</span>
+      <span style={{ color: '#C9A84C', fontWeight: 500 }}>Weddings</span>
+    </div>
+
+    <p style={{ fontSize: 14, letterSpacing: '0.5em', textTransform: 'uppercase', color: '#FFFFFF', textShadow: '0 2px 16px rgba(0,0,0,0.95)', fontWeight: 500, marginBottom: 18 }}>
+      Indian Luxury House
+    </p>
+
+    <h1 style={{ fontFamily: 'Georgia,serif', fontSize: 'clamp(42px,8vw,96px)', fontWeight: 300, color: '#FAFAF8', lineHeight: 1.05, marginBottom: 22, letterSpacing: '0.02em' }}>
+      Luxury<br /><em style={{ color: '#DFC27A', fontStyle: 'italic' }}>Weddings</em>
+    </h1>
+
+    {/* <p style={{ fontSize: 15, color: 'rgba(250,250,248,0.75)', fontWeight: 300, lineHeight: 1.75, maxWidth: 520, marginBottom: 40, letterSpacing: '0.02em', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
+      India&apos;s world of couture celebrations and unforgettable occasions — designers, planners, venues, and beauty experts, curated for the discerning few.
+    </p> */}
+
+    {/* <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+      {['Designers', 'Planners', 'Venues', 'Beauty Experts', 'Editorial'].map(tab => (
+        <a key={tab} href={`#${tab.toLowerCase().replace(' ', '-')}`}
+          style={{ fontSize: 15, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.8)', border: '1px solid rgba(201,168,76,0.4)', padding: '8px 18px', textDecoration: 'none', transition: 'all .25s' }}
+          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,168,76,0.15)'; e.currentTarget.style.color = '#DFC27A'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.7)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(201,168,76,0.8)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.4)'; }}
+        >{tab}</a>
+      ))}
+    </div> */}
+  </div>
+
+  <div style={{ position: 'absolute', bottom: 36, right: 60, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+    <span style={{ fontSize: 8, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)', writingMode: 'vertical-rl' }}>Scroll</span>
+    <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)' }} />
+  </div>
+</section>
+
+<style>{`
+  @keyframes wFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* WEDDINGS HERO */
+  .ilh-w-hero { position: relative; width: 100%; background: #0A0A0A; overflow: hidden; }
+  .ilh-w-hero img { width: 100% !important; display: block !important; height: auto !important; }
+
+  /* MOBILE */
+  @media(max-width:767px){
+    .ilh-w-hero { height: 70vw; min-height: 320px; }
+    .ilh-w-hero img { height: 100% !important; object-fit: cover !important; object-position: center 20% !important; transform: none !important; }
+    .ilh-w-hero-text { padding: 0 24px 24px !important; max-width: 100% !important; }
+    .ilh-w-designers { grid-template-columns: repeat(2,1fr) !important; }
+    .ilh-w-planners  { grid-template-columns: repeat(2,1fr) !important; }
+    .ilh-w-venues    { grid-template-columns: 1fr !important; }
+    .ilh-w-beauty    { grid-template-columns: repeat(2,1fr) !important; }
+    .ilh-w-editorial { grid-template-columns: 1fr !important; }
+    .ilh-w-blog3     { grid-template-columns: 1fr !important; }
+  }
+
+  /* DESKTOP */
+  @media(min-width:768px){
+    .ilh-w-hero { height: 100vh; }
+    .ilh-w-hero img { height: 100vh !important; object-fit: cover !important; object-position: center 30% !important; }
+    .ilh-w-hero-text { padding: 0 60px 100px !important; max-width: 860px !important; }
+  }
+
+  @media(max-width:480px){
+    .ilh-w-designers { grid-template-columns: 1fr !important; }
+    .ilh-w-planners  { grid-template-columns: 1fr !important; }
+    .ilh-w-beauty    { grid-template-columns: 1fr !important; }
+  }
+`}</style>
 
         {/* ══ DESIGNERS ════════════════════════════════════════ */}
         <section id="designers" style={{ background: '#FAFAF8', padding: '88px 32px' }}>
